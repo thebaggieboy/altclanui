@@ -47,7 +47,10 @@ export default function signup() {
     </div>
     <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
   </div>
-  <button type="submit" className="text-white bg-black   font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Create account</button>
+ 
+  <button className="mt-10 flex w-full items-center justify-center rounded-md border border-black bg-black py-3 px-8 text-base font-medium text-white  focus:ring-black focus:ring-offset-2">
+        Add to cart
+    </button>
 </form>
     
 </section>
