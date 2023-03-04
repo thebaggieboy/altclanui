@@ -120,7 +120,7 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'Company', href: '#' },
+    { name: 'Collections', href: '#' },
     { name: 'Stores', href: '#' },
   ],
 }
