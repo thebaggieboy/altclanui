@@ -294,10 +294,10 @@ export default function HeaderNav() {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <a href="#">
-                  <span className="sr-only">Your Company</span>
+                  <span className="sr-only">Altclan</span>
                   <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    className="h-16 w-auto"
+                    src="/alteclan_logo.jpg"
                     alt=""
                   />
                 </a>
