@@ -10,7 +10,6 @@ export default function Layout({
     return (
       <>
        <HeaderNav />
-       <HeaderTab/>
           {children}
         <Footer/>
       </>

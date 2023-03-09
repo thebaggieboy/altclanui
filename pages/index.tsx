@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-
+import HeaderTab from '@/components/HeaderTab'
 export default function Home() {
   return (
     <>
@@ -11,9 +11,9 @@ export default function Home() {
         <link rel="icon" href="/alteclan_logo.jpg" />
       </Head>
 
-      <main className='' >
-        <h1 className="text-3xl font-bold underline">Hello</h1>
-      </main>
+      <HeaderTab/>
+
+     
     </>
   )
 }
