@@ -24,7 +24,10 @@ export default function HeaderTab() {
             <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Top Brands</a>
         </li>
         <li className="mr-2">
-            <a href="#" className="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">Latest Collections</a>
+            <a href="#" className="inline-block p-4  rounded-t-lg active dark:text-blue-500 dark:border-blue-500" >Explore</a>
+        </li>
+        <li className="mr-2">
+            <a href="#" className="inline-block p-4  rounded-t-lg active dark:text-blue-500 dark:border-blue-500" >Latest Collections</a>
         </li>
         <li className="mr-2">
             <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Best Selling</a>
