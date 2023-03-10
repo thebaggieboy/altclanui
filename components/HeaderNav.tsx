@@ -1,3 +1,5 @@
+import  Link  from 'next/link'
+
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -294,10 +296,10 @@ export default function HeaderNav() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
+                <Link href="/">
                   <span className="sr-only">Altclan</span>
-                    <b className="">ALTCLAN</b>
-                </a>
+                    <b className=""> ALTCLAN</b>
+                </Link>
               </div>
 
               {/* Flyout menus */}
