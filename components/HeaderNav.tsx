@@ -35,7 +35,6 @@ const navigation = {
             { name: 'Sweaters', href: '#' },
             { name: 'T-Shirts', href: '#' },
             { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
             { name: 'Browse All', href: '#' },
           ],
         },
@@ -51,17 +50,7 @@ const navigation = {
             { name: 'Belts', href: '#' },
           ],
         },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
-          ],
-        },
+
       ],
     },
     {
@@ -92,7 +81,6 @@ const navigation = {
             { name: 'Sweaters', href: '#' },
             { name: 'T-Shirts', href: '#' },
             { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
             { name: 'Browse All', href: '#' },
           ],
         },
@@ -108,16 +96,7 @@ const navigation = {
             { name: 'Belts', href: '#' },
           ],
         },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-          ],
-        },
+
       ],
     },
   ],

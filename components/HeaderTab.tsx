@@ -19,20 +19,17 @@ export default function HeaderTab() {
   return (
 
 <div className="text-sm flex justify-center font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-    <ul className="flex flex-wrap -mb-px">
+    <ul className="flex">
         <li className="mr-2">
             <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Top Brands</a>
         </li>
         <li className="mr-2">
-            <a href="#" className="inline-block p-4  rounded-t-lg active dark:text-blue-500 dark:border-blue-500" >Explore</a>
+            <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Explore</a>
         </li>
-        <li className="mr-2">
-            <a href="#" className="inline-block p-4  rounded-t-lg active dark:text-blue-500 dark:border-blue-500" >Latest Collections</a>
+          <li className="mr-2">
+            <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Latest Collections</a>
         </li>
-        <li className="mr-2">
-            <a href="#" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Best Selling</a>
-        </li>
-      
+     
         
     </ul>
 </div>
