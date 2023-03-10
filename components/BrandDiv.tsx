@@ -4,7 +4,7 @@ export default function BrandDiv() {
   return (
 
 <>
-<p className="mb-4 mt-5 p-10 text-1xl font-extrabold leading-7 text-center tracking-tight text-gray-900   dark:text-white">Welcome to our alternative fashion startup! Celebrate non-conformity, creativity, and self-expression through our curated collection of sustainable and ethical fashion. From vintage to goth, punk to bohemian, embrace your unique style with us.</p>
+<p className="mb-4 mt-5 p-10 text-1xl font-extrabold leading-8 text-center tracking-tight text-gray-900   dark:text-white">Welcome to our alternative fashion startup! Celebrate non-conformity, creativity, and self-expression through our curated collection of sustainable and ethical fashion. From vintage to goth, punk to bohemian, embrace your unique style with us.</p>
 
 <div className="flex justify-center">
 <a href="#" className="inline-flex text-center items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-black rounded-lg hover:bg-black-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
