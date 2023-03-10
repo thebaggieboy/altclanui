@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import HeaderTab from '@/components/HeaderTab'
+import BrandDiv from '@/components/BrandDiv'
+
+
 export default function Home() {
   return (
     <>
@@ -12,6 +15,7 @@ export default function Home() {
       </Head>
 
       <HeaderTab/>
+      <BrandDiv/>
 
      
     </>
