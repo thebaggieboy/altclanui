@@ -1,9 +1,12 @@
+import BrandHeaderTab from "@/components/BrandHeaderTab"
+
+
 const brands = [
   {
     id: 1,
     name: 'Earthen Bottle',
     href: '#',
-    price: '$48',
+    followers: '48k',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
     imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
   },
@@ -11,7 +14,7 @@ const brands = [
     id: 2,
     name: 'Nomad Tumbler',
     href: '#',
-    price: '$35',
+    followers: '35k',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
     imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
   },
@@ -19,7 +22,7 @@ const brands = [
     id: 3,
     name: 'Focus Paper Refill',
     href: '#',
-    price: '$89',
+    followers: '89.4k',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
     imageAlt: 'Person using a pen to cross a task off a brandivity paper card.',
   },
@@ -27,7 +30,7 @@ const brands = [
     id: 4,
     name: 'Machined Mechanical Pencil',
     href: '#',
-    price: '$35',
+    followers: '1m',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
@@ -37,8 +40,11 @@ const brands = [
 export default function Brands() {
   return (
     <div className="bg-white">
+      <BrandHeaderTab/>
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Brands</h2>
+      <h2 className="text-2xl font-bold tracking-tight text-gray-900">Brands</h2> <br/>
+        
+        <p className="lead text-gray-600">Explore from our list of aesthetic brands</p>
 
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {brands.map((brand) => (
@@ -50,8 +56,8 @@ export default function Brands() {
                   className="h-full w-full object-cover object-center group-hover:opacity-75"
                 />
               </div>
-              <h3 className="mt-4 text-sm text-gray-700">{brand.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{brand.price}</p>
+              <h3 className="mt-4 text-sm text-gray-900">{brand.name}</h3>
+             <p className="mt-1 text-sm font-medium text-gray-700">{brand.followers} followers</p>
             </a>
           ))}
         </div>
