@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import HeaderTab from '@/components/HeaderTab'
 import BrandDiv from '@/components/BrandDiv'
-
+import Category from '@/components/Category'
 
 export default function Home() {
   return (
@@ -16,6 +16,8 @@ export default function Home() {
 
       <HeaderTab/>
       <BrandDiv/>
+      <Category/>
+
 
      
     </>
