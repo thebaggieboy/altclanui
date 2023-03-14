@@ -41,19 +41,19 @@ export default function Brands() {
   return (
     <div className="bg-white">
       <BrandHeaderTab/>
-      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
       <h2 className="text-2xl font-bold tracking-tight text-gray-900">Brands</h2> <br/>
         
-        <p className="lead text-gray-600">Explore from our list of aesthetic brands</p>
+        <p className="text-gray-600 lead">Explore from our list of aesthetic brands</p>
 
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {brands.map((brand) => (
             <a key={brand.id} href={brand.href} className="group">
-              <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden  bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+              <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
                 <img
                   src={brand.imageSrc}
                   alt={brand.imageAlt}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  className="object-cover object-center w-full h-full group-hover:opacity-75"
                 />
               </div>
               <h3 className="mt-4 text-sm text-gray-900">{brand.name}</h3>

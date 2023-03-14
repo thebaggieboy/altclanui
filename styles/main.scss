@@ -1,0 +1,16 @@
+// //utils
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './utils/reset';
+@import './utils/variables';
+@import './utils/breakpoints';
+@import './utils/fonts';
+
+@import '../components/product-card/product-card';
+
+.swiper-pagination-bullet{
+    @apply bg-black;
+}

@@ -43,9 +43,9 @@ export default function search() {
    
   <div>
     <HeaderTab/>
-      <div className="p-5 mt-2 mx-auto ">
+      <div className="p-5 mx-auto mt-2 ">
 
-<div className="bg-white p-5">
+<div className="p-5 bg-white">
 <form className="flex items-center">   
     <label for="simple-search" className="sr-only">Search</label>
     <div className="relative w-full">
