@@ -18,7 +18,7 @@ const images = [
 
 export default function ShopDiv() {
     return (
-        <div>
+        <div className={styles.top}>
             <div className={styles.row}>
                 <div className={styles.col2}>
                     <div className={styles.colsContainer}>

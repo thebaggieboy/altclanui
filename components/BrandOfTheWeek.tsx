@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css'
 
 export default function BrandOfTheWeek() {
     return (
-           <div className={styles.content}>
+           <div>
                 <div className={styles.brandContent}>
                     <div className={styles.row}>
                         <h1 className={styles.h1}>
