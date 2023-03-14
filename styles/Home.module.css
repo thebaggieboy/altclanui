@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .main {
   display: flex;
   flex-direction: column;
@@ -275,4 +277,157 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.col {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.col img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 600px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.brandContent {
+  max-width: 60%;
+  margin: auto;
+  padding-top: 6%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container .button {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #000;
+  font-size: 15px;
+  padding: 8px 48px;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.centerButton {
+  margin: 0;
+  position: absolute;
+  margin-top: 3%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid #888;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.h1{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+div.scrollImages {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollImages a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.imageCard {
+  transition: 0.3s;
+  width: 40%;
+  float: left;
+  padding: 20px;
+}
+
+.imageButton{
+  border: none;
+  color: #000;
+  padding: 10px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  left: 0%;
+  margin-top: 3%;
+  position: relative;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.imageCard img{
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.col2 {
+  float: left;
+  width: 50%;
+  padding-top: 5%;
+}
+
+.colsContainer {
+  position: relative;
+  width: 100%;
+  margin-top: 10%;
+}
+
+.colsContainer img {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.colsContainer button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
 }

@@ -3,6 +3,9 @@ import Image from 'next/image'
 import HeaderTab from '@/components/HeaderTab'
 import BrandDiv from '@/components/BrandDiv'
 import Category from '@/components/Category'
+import BrandOfTheWeek from '@/components/BrandOfTheWeek'
+import ImagesDiv from '@/components/ImagesDiv'
+import ShopDiv from '@/components/ShopDiv'
 
 export default function Home() {
   return (
@@ -16,6 +19,9 @@ export default function Home() {
 
       <HeaderTab/>
       <BrandDiv/>
+      <ImagesDiv/>
+      <BrandOfTheWeek/>
+      <ShopDiv/>
       <Category/>
 
 
