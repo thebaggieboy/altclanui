@@ -5,7 +5,7 @@ export default function BrandDiv() {
   return (
 
 <>
-<div className="bg-black p-10">
+<div className="bg-black p-5">
 <p className="mb-4 mt-5 p-10 text-1xl  text-center tracking-tight text-gray-200   dark:text-white">Welcome to our alternative fashion startup! Celebrate non-conformity, creativity, and self-expression through our curated collection of sustainable and ethical fashion. From vintage to goth, punk to bohemian, embrace your unique style with us.</p>
 
 <div className="flex justify-center">

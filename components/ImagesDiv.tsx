@@ -5,28 +5,28 @@ const images = [
         id: 1,
         name: 'women',
         href: '#',
-        imageSrc: '/img/bag.jpg',
+        imageSrc: '/img/dami-adebayo-female.jpg',
     },
 
     {
         id: 2,
         name: 'men',
         href: '#',
-        imageSrc: '/img/shades.jpg',
+        imageSrc: '/img/dami-adebayo-1.jpg',
     },
 
     {
         id: 3,
-        name: 'children',
+        name: 'brands',
         href: '#',
-        imageSrc: '/img/sweaters.jpg',
+        imageSrc: '/img/dami-adebayo-brands.jpg',
     },
 
     {
         id: 4,
         name: 'all',
         href: '#',
-        imageSrc: '/img/tees.jpg',
+        imageSrc: '/img/no-revisions.jpg',
     },
   ]
 
