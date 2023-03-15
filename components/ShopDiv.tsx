@@ -22,10 +22,12 @@ export default function ShopDiv() {
             <div className={styles.row}>
                 <div className={styles.col2}>
                     <div className={styles.colsContainer}>
-                        <img src="img/shades.jpg" />
+                        <img src="img/vivek-sharma.jpg" />
+                        
                         <a href="#">
+                        
                             <button>
-                                SHOP NOW
+                                SHOP BEST SELLERS
                             </button>
                         </a>
                     </div>
@@ -33,10 +35,10 @@ export default function ShopDiv() {
 
                 <div className={styles.col2}>
                     <div className={styles.colsContainer}>
-                        <img src="img/cap.jpg" />
+                        <img src="img/robbie-noble.jpg" />
                         <a href="#">
                             <button>
-                                SHOP NOW
+                                SHOP NEW ARRIVALS
                             </button>
                         </a>
                     </div>
