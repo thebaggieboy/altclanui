@@ -1,4 +1,5 @@
 import styles from '@/styles/Home.module.css'
+import Link from 'next/link'
 
 export default function BrandOfTheWeek() {
     return (
@@ -31,7 +32,9 @@ export default function BrandOfTheWeek() {
 
                 <div className={styles.centerButton}>
                     <button>
+                        <Link href='/brands'>
                         view all brands
+                        </Link>
                     </button>
                 </div>
 
