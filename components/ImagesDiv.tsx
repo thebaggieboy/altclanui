@@ -33,6 +33,7 @@ const images = [
 export default function ImagesDiv() {
     return (
         <div className={styles.brandContent}>
+             <h2 className="text-3xl text-center">Shop by</h2> <br/>
             <div className={styles.scrollImages}>
 
                 <div className={styles.imageCard}>

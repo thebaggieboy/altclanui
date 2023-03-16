@@ -1,6 +1,11 @@
 import Head from 'next/head'
-import HeaderTab from '@/components/HeaderTab'
-import BrandDiv from '@/components/BrandDiv'
+import Image from 'next/image'
+import HeaderTab from '@/components/headers/HeaderTab'
+import BrandDiv from '@/components/brands/BrandDiv'
+import Category from '@/components/Category'
+import BrandOfTheWeek from '@/components/brands/BrandOfTheWeek'
+import ImagesDiv from '@/components/ImagesDiv'
+import ShopDiv from '@/components/ShopDiv'
 import CarouselWrapper from '@/components/CarouselWrapper'
 import ProductCard from '@/components/product-card/ProductCard'
 
@@ -17,18 +22,25 @@ export default function Home() {
         <link rel="icon" href="/alteclan_logo.jpg" />
       </Head>
 
-      <HeaderTab />
-      <BrandDiv />
-      
+      <HeaderTab/>
+     
       <CarouselWrapper pagination="true">
         {
           imgs.map( ( img ) => {
             return <div key={ img } className='h-[20rem] md:h-[35rem] bg-gray-500 grid place-items-center'>
+              
               <h1 className='text-3xl text-white uppercase'>Placeholder { img }</h1>
             </div>
           } )
         }
       </CarouselWrapper>
+      <BrandDiv/>
+
+      <ImagesDiv/>
+      <BrandOfTheWeek/>
+      <ShopDiv/>
+      <Category/>
+
 
       <section className='px-4 py-8 sm:px-8 trending'>
         <h1 className='mb-16 text-3xl text-center capitalize'>Trending Now</h1>
@@ -43,6 +55,7 @@ export default function Home() {
 
       </section>
 
+     
     </>
   )
 }

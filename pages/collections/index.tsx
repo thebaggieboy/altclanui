@@ -1,4 +1,6 @@
-import Category from '@/components/category'
+import Category from "@/components/Category"
+
+
 
 export default function Collection() {
   return (

@@ -1,6 +1,7 @@
-import HeaderNav from './HeaderNav'
-import HeaderTab from './HeaderTab'
+
 import Footer from './Footer'
+import HeaderNav from './headers/HeaderNav'
+import HeaderTab from './headers/HeaderTab'
 
 export default function Layout({
     children,

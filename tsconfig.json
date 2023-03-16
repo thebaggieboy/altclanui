@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/home.jsx", "components/CarouselWrapper.jsx", "pages/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "components/CarouselWrapper.jsx", "components/headers/index.jsx"],
   "exclude": ["node_modules"]
 }

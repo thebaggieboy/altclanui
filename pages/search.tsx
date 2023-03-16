@@ -1,7 +1,7 @@
 import React from 'react'
 
-import HeaderTab from '@/components/HeaderTab'
-import Category from '@/components/category'
+import HeaderTab from '@/components/headers/HeaderTab'
+import Category from '@/components/Category'
 const categories = [
   {
     id: 1,

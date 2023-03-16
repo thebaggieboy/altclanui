@@ -1,4 +1,4 @@
-import BrandHeaderTab from "@/components/BrandHeaderTab"
+import BrandHeaderTab from "@/components/brands/BrandHeaderTab"
 
 
 const brands = [
