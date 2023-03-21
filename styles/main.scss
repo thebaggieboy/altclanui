@@ -10,6 +10,7 @@
 @import "./utils/fonts";
 
 @import "./product-card";
+@import "./profile";
 
 .swiper-pagination-bullet {
   background: rgb(0, 75, 187);
@@ -21,9 +22,10 @@
 
 .hero-carousel {
   width: 100%;
-  aspect-ratio: 1 / 0.8;
+  aspect-ratio: 4 / 3;
+
   @include media(">=phone") {
-    aspect-ratio: 1 / 0.45;
+    aspect-ratio: 5 / 2;
   }
 
   img {
@@ -36,8 +38,8 @@
 .shop-by {
   img {
     aspect-ratio: 1 / 1;
-    @include media(">=tablet") {
-      aspect-ratio: 1 / 1.2;
+    @include media(">=tablet") { 
+      aspect-ratio: 4 / 5;
     }
     object-fit: cover;
   }
