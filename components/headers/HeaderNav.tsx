@@ -157,12 +157,12 @@ export default function HeaderNav() {
                 <Tab.Group as="div" className="mt-2">
                 <div className=" px-4 py-6 space-y-6 border-t border-gray-200">
                   <div className="flow-root">
-                    <a href="#" className="block p-2 -m-2 font-medium text-gray-900">
+                    <a href="/accounts/login" className="block p-2 -m-2 font-medium text-gray-900">
                       Sign in
                     </a>
                   </div>
                   <div className="flow-root">
-                    <a href="#" className="block p-2 -m-2 font-medium text-gray-900">
+                    <a href="/accounts/signup" className="block p-2 -m-2 font-medium text-gray-900">
                       Create account
                     </a>
                   </div>
@@ -384,11 +384,11 @@ export default function HeaderNav() {
 
               <div className="flex items-center ml-auto">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="/accounts/login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Sign in
                   </a>
                   <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="/accounts/signup" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Create account
                   </a>
                 </div>
