@@ -12,7 +12,7 @@ const images = [
     id: 2,
     name: "men",
     href: "#",
-    imageSrc: "/img/dami-adebayo-1.jpg",
+    imageSrc: "/img/mike-von.jpg",
   },
 
   {

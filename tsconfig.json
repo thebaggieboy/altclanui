@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "components/CarouselWrapper.jsx", "components/headers/index.jsx", "components/ProfileForm.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "components/CarouselWrapper.jsx", "components/headers/index.jsx", "components/ProfileForm.jsx", "pages/accounts/login.jsx", "pages/accounts/signup.jsx", "pages/api/login.jsx"],
   "exclude": ["node_modules"]
 }

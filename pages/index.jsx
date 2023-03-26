@@ -42,9 +42,10 @@ export default function Home() {
         pagination={true}
         className="hero-carousel"
       >
-        <Image src="/img/bag.jpg" fill alt="hero-umg" />
-        <Image src="/img/no-revisions.jpg" fill alt="hero-umg" />
-        <Image src="/img/pexels-pixabay-157888.jpg" fill alt="hero-umg" />
+          <Image src="/img/moh-mckenzie.jpg" fill alt="hero-umg" />
+        <Image src="/img/black-guy-1.jpg" fill alt="hero-umg" />
+        <Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
+        <Image src="/img/b-shah.jpg" fill alt="hero-umg" />
       </CarouselWrapper>
       <BrandDiv />
       <ImagesDiv />

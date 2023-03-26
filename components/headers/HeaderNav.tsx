@@ -417,7 +417,7 @@ export default function HeaderNav() {
 
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
-                  <a href="#" className="flex items-center p-2 -m-2 group">
+                  <a href="/cart" className="flex items-center p-2 -m-2 group">
                     <ShoppingBagIcon
                       className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
