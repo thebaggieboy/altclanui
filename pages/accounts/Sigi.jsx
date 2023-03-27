@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
-export default function signup() {
+export default function SignUp() {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
