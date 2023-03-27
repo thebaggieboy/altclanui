@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import jwt from 'jsonwebtoken'
 
-export default function login(req, res) {
+export default function Login(req, res) {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
