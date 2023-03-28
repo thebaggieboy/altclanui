@@ -563,3 +563,291 @@ div.scrollImages a {
     letter-spacing: 3px;
   }
 }
+
+.padding{
+  padding: 18%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.padding h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+  border-bottom: 2px solid #000;
+  width: 11%;
+  padding-bottom: 10px;
+}
+
+.padding p{
+  padding-top: 2%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 180%;
+  font-size: 1.1em;
+}
+
+.col33 {
+  float: left;
+  width: 33.3333%;
+  padding: 20px 60px;
+  padding-left: 0px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.aboutCards {
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+  background-color: #fff;
+  height: 200px;
+  width: 90%;
+}
+
+.aboutCards p{
+  font-size: 15px;
+  padding-top: 5%;
+}
+
+.aboutCards h3{
+  font-size: 3em;
+}
+
+.aboutCards .bottom{
+  font-weight: 300;
+  text-align: center;
+  padding-top: 15%;
+  font-size: 10px;
+}
+
+.section {
+  padding: 18%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #ddd;
+}
+
+.section img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.section h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+  border-bottom: 2px solid #000;
+  width: 12%;
+  padding-bottom: 10px;
+}
+
+.section .p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.team {
+  margin: auto;
+  text-align: left;
+  font-size: 18px;
+}
+
+.team p{
+  padding-top: 10px;
+}
+
+.team .role {
+  color: grey;
+  font-size: 15px;
+  padding-top: 0px;
+}
+
+.contentContainer {
+  padding: 30px;
+}
+
+.colContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.columnOne {
+  float: left;
+  width: 50%;
+  padding: 25px;
+}
+
+.columnOne{
+  padding-top: 1%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 180%;
+  font-size: 0.9em;
+}
+
+.columnTwo {
+  float: left;
+  width: 50%;
+  padding: 25px;
+}
+
+.columnTwo img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.columnOne .xlFont {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  .columnOne,
+  .columnTwo {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .columnOne .xlFont {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #000;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    text-transform: uppercase;
+  }
+
+  .contentContainer {
+    padding: 10px;
+  }
+
+  .padding{
+    padding: 10%;
+    padding-top: 10%;
+    padding-bottom: 2%;
+  }
+  
+  .padding h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    border-bottom: 2px solid #000;
+    width: 35%;
+    padding-bottom: 10px;
+  }
+  
+  .padding p{
+    padding-top: 8%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    line-height: 180%;
+    font-size: 1.2em;
+  }
+
+  .section {
+    padding: 5%;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    background: #ddd;
+  }
+  
+  .section img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    padding-bottom: 10px;
+  }
+  
+  .section h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.3em;
+    border-bottom: 2px solid #000;
+    width: 40%;
+    padding-bottom: 10px;
+  }
+  
+  .section .p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.4em;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  .col-33 {
+    width: 100%;
+  }
+
+  .aboutCards {
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    text-align: left;
+    background-color: #fff;
+    height: 200px;
+    width: 100%;
+  }
+
+  .aboutCards p{
+    font-size: 12px;
+    padding-top: 5%;
+  }
+  
+  .aboutCards h3{
+    font-size: 2em;
+  }
+  
+  .aboutCards .bottom{
+    font-weight: 300;
+    text-align: center;
+    padding-top: 15%;
+    font-size: 10px;
+  }
+}
