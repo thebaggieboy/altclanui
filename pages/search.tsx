@@ -38,7 +38,7 @@ const categories = [
   // More categories...
 ]
 
-export default function search() {
+export default function Search() {
   return (
    
   <div>

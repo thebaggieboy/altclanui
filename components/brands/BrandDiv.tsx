@@ -6,7 +6,7 @@ export default function BrandDiv() {
   return (
     <>
       <div className="py-16 bg-#ddd">
-        <p className="  text-center max-w-[60rem] mx-auto  text-black p-2 sm:text-3xl">
+        <p className="text-center  mx-auto  text-black p-2 sm:text-2xl">
           Welcome to our alternative fashion startup! Celebrate non-conformity,
           creativity, and self-expression through our curated collection of
           sustainable and ethical fashion. From vintage to goth, punk to
