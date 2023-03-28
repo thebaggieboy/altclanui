@@ -5,8 +5,9 @@ import Image from "next/image";
 export default function BrandDiv() {
   return (
     <>
-      <div className="py-16 bg-#ddd">
-        <p className="text-center  mx-auto  text-black p-2 sm:text-2xl">
+    <br />
+      <div className="py-20 bg-#ddd">
+        <p className="text-center  mx-auto  text-black p-10 sm:text-2xl">
           Welcome to our alternative fashion startup! Celebrate non-conformity,
           creativity, and self-expression through our curated collection of
           sustainable and ethical fashion. From vintage to goth, punk to
