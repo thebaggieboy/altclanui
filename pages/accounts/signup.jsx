@@ -9,15 +9,9 @@ export default function SignUp() {
 
     const submit = async(e) => {
         e.preventDefault();
+        console.log("Buttoin was clicked")
 
-        await fetch('http://localhost:8000/api/users', {
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({
-                email,
-                password
-            })
-        });
+
         await router.push('/accounts/login')
     }
 
