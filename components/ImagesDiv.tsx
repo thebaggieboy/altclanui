@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 const images = [
@@ -12,7 +13,7 @@ const images = [
     id: 2,
     name: "men",
     href: "#",
-    imageSrc: "/img/dami-adebayo-1.jpg",
+    imageSrc: "/img/mike-von.jpg",
   },
 
   {
@@ -30,7 +31,7 @@ export default function ImagesDiv() {
       <div className='shop-by__items'>
           {images.map((image) => (
             <a key={image.id} href={image.href}>
-              <img src={image.imageSrc} className='aspect-1 object-cover'/>
+              <img alt="" src={image.imageSrc} className='aspect-1 object-cover'/>
               <br />
               <button className={styles.imageButton}>Shop {image.name}</button>
             </a>

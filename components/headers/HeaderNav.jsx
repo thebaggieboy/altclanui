@@ -3,6 +3,7 @@ import  Link  from 'next/link'
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+//import Cart from '../Cart'
 
 const navigation = {
   categories: [
@@ -157,14 +158,14 @@ export default function HeaderNav() {
                 <Tab.Group as="div" className="mt-2">
                 <div className=" px-4 py-6 space-y-6 border-t border-gray-200">
                   <div className="flow-root">
-                    <a href="#" className="block p-2 -m-2 font-medium text-gray-900">
+                    <Link href="/accounts/login" className="block p-2 -m-2 font-medium text-gray-900">
                       Sign in
-                    </a>
+                    </Link>
                   </div>
                   <div className="flow-root">
-                    <a href="#" className="block p-2 -m-2 font-medium text-gray-900">
+                    <Link href="/accounts/signup" className="block p-2 -m-2 font-medium text-gray-900">
                       Create account
-                    </a>
+                    </Link>
                   </div>
                 </div>
                   <div className="border-b border-gray-200">
@@ -193,10 +194,10 @@ export default function HeaderNav() {
                               <div className="overflow-hidden bg-gray-100 rounded-lg aspect-w-1 aspect-h-1 group-hover:opacity-75">
                                 <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
                               </div>
-                              <a href={item.href} className="block mt-6 font-medium text-gray-900">
+                              <Link href={item.href} className="block mt-6 font-medium text-gray-900">
                                 <span className="absolute inset-0 z-10" aria-hidden="true" />
                                 {item.name}
-                              </a>
+                              </Link>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
                               </p>
@@ -215,9 +216,9 @@ export default function HeaderNav() {
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="block p-2 -m-2 text-gray-500">
+                                  <Link href={item.href} className="block p-2 -m-2 text-gray-500">
                                     {item.name}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -231,9 +232,9 @@ export default function HeaderNav() {
                 <div className="px-4 py-6 space-y-6 border-t border-gray-200">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a href={page.href} className="block p-2 -m-2 font-medium text-gray-900">
+                      <Link href={page.href} className="block p-2 -m-2 font-medium text-gray-900">
                         {page.name}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -241,7 +242,7 @@ export default function HeaderNav() {
                 
 
                 <div className="px-4 py-6 border-t border-gray-200">
-                  <a href="#" className="flex items-center p-2 -m-2">
+                  <Link href="#" className="flex items-center p-2 -m-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
@@ -249,7 +250,7 @@ export default function HeaderNav() {
                     />
                     <span className="block ml-3 text-base font-medium text-gray-900">CAD</span>
                     <span className="sr-only">, change currency</span>
-                  </a>
+                  </Link>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -328,10 +329,10 @@ export default function HeaderNav() {
                                               className="object-cover object-center"
                                             />
                                           </div>
-                                          <a href={item.href} className="block mt-6 font-medium text-gray-900">
+                                          <Link href={item.href} className="block mt-6 font-medium text-gray-900">
                                             <span className="absolute inset-0 z-10" aria-hidden="true" />
                                             {item.name}
-                                          </a>
+                                          </Link>
                                           <p aria-hidden="true" className="mt-1">
                                             Shop now
                                           </p>
@@ -371,30 +372,30 @@ export default function HeaderNav() {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <a
+                    <Link
                       key={page.name}
                       href={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Group>
 
               <div className="flex items-center ml-auto">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <Link href="/accounts/login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Sign in
-                  </a>
+                  </Link>
                   <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <Link href="/accounts/signup" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Create account
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
+                  <Link href="#" className="flex items-center text-gray-700 hover:text-gray-800">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
                       alt=""
@@ -402,7 +403,7 @@ export default function HeaderNav() {
                     />
                     <span className="block ml-3 text-sm font-medium">CAD</span>
                     <span className="sr-only">, change currency</span>
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Search */}
@@ -417,14 +418,14 @@ export default function HeaderNav() {
 
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
-                  <a href="#" className="flex items-center p-2 -m-2 group">
+                  <Link href="" data-modal-target="defaultModal" data-modal-toggle="defaultModal"  className="flex items-center p-2 -m-2 group">
                     <ShoppingBagIcon
                       className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

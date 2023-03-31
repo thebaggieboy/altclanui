@@ -7,7 +7,7 @@ import chevR from '../public/assets/chev-r.svg'
 import chevL from '../public/assets/chev-l.svg'
 import Image from 'next/image'
 
-const CarouselWrapper = ( { children, controls = false, ...otherConfigProps } ) => {
+const CarouselWrapper = ( { children,key,alt, controls = false, ...otherConfigProps } ) => {
     const swiperElRef = useRef( null );
 
     return (

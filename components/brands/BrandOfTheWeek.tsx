@@ -23,7 +23,7 @@ export default function BrandOfTheWeek() {
         <button>
           <Link href="/brands">view all brands</Link>
         </button>
-      </div>
+      </div> <br/>
     </>
   );
 }
