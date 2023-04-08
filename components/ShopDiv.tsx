@@ -19,7 +19,42 @@ const images = [
 export default function ShopDiv() {
   return (
     <>
-      <div className="py-16">
+      <div className={styles.shopSection}>
+        <div className={styles.shopColum}>
+          <div className={styles.shopContainer}>
+            <img src="/img/mike-von.jpg" alt=""/>
+            <div className={styles.shopTextCentered}>
+              <p>
+                SHOP BEST SELLERS
+              </p>
+              
+              <button className={styles.shopBtn}>
+                SHOP
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.shopColum}>
+          <div className={styles.shopBox}>
+            <img src="/img/dami-adebayo-brands.jpg" alt=""/>
+            <div className={styles.shopContent}>
+              <h1>
+                JUST LANDED
+              </h1>
+              
+              <p>
+                Shop all our new arrivals, fresh off the van. First on your screens.
+              </p>
+              
+              <button className={styles.shopBtn}>
+                SHOP
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="py-16">
         <div className="max-w-[80rem] px-8 md:px-0 mx-auto grid md:grid-cols-2 gap-8">
           <div className=" aspect-1 grid place-items-center">
             <img
@@ -46,7 +81,7 @@ export default function ShopDiv() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

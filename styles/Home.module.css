@@ -330,8 +330,9 @@
 
 .centerButton {
   margin: 0;
-  position: absolute;
-  margin-top: 3%;
+  position: inherit;
+  margin-top: 5%;
+  margin-bottom: 5%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -591,8 +592,9 @@ div.scrollImages a {
 
 .col33 {
   float: left;
-  width: 33.3333%;
-  padding: 20px 60px;
+  width: 25%;
+  padding: 20px;
+  /* padding: 20px 60px; */
   padding-left: 0px;
 }
 
@@ -719,7 +721,7 @@ div.scrollImages a {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height: 500px;
+  height: 700px;
   object-fit: cover;
   object-position: 50% 50%;
   padding-bottom: 10px;
@@ -733,6 +735,349 @@ div.scrollImages a {
   padding-top: 10px;
   padding-bottom: 10px;
   text-transform: uppercase;
+}
+
+.headSection{
+  max-width: 75%;
+  height: auto;
+  margin: auto;
+  margin-top: 3%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.headContainer { 
+  height: 750px;
+  position: relative;
+}
+
+.headText {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.headText h1{
+  font-size: 30px;
+  text-align: center;
+  padding: 15px;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.headText p{
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  line-height: 30px;
+  letter-spacing: 2px;
+  width: 100%;
+}
+
+.headText .headButton{
+  margin-left: 20%;
+  margin-top: 10%;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.shopSection{
+  max-width: 75%;
+  height: 1200px;
+  margin: auto;
+  margin-top: 20%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.shopColum{
+  float: left;
+  width: 50%;
+  padding: 0px;
+  margin-top: 3%;
+}
+
+.shopColum img{
+  width: 100%;
+  height: 900px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.shopContainer {
+  position: relative;
+  text-align: center;
+  color: #FFF;
+}
+
+.shopTextCentered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background: rgba(0, 0, 0, 0.5); */
+  padding: 10px;
+}
+
+.shopTextCentered img{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.shopTextCentered p{
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  line-height: 30px;
+  letter-spacing: 2px;
+  width: 100%;
+  font-weight: 700;
+}
+
+.shopBtn {
+  border: 3px solid #000;
+  color: #000;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.shopBox {
+  position: relative;
+  margin: 0 auto;
+}
+
+.shopBox img {vertical-align: middle;}
+
+.shopBox .shopContent {
+  position: absolute;
+  bottom: 1%;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+.shopContent h1{
+  font-size: 30px;
+  text-align: left;
+  padding: 5px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  padding-left: 0px;
+}
+
+.shopContent p{
+  font-size: 18px;
+  text-align: left;
+  padding: 10px;
+  line-height: 30px;
+  letter-spacing: 2px;
+  width: 80%;
+  padding-left: 0px;
+}
+
+.imagesSection{
+  max-width: 75%;
+  height: 650px;
+  margin: auto;
+  margin-top: 20%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.imagesSection .p{
+  float: left;
+  padding: 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.imagesSection button{
+  float: right;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.0em;
+}
+
+.imagesContainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.imagesContent{
+  padding-top: 4%;
+}
+
+.topRight {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.imagesCard {
+  max-width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+.imagesCard p{
+  width: 50%;
+  padding: 10px;
+  padding-left: 0px;
+}
+
+.imagesCard h1{
+  width: 70%;
+  padding: 5px;
+  padding-left: 0px;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+.imagesCard .img{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.imagesTitle{
+  color: #aaa;
+}
+
+.imagesPrice {
+  color: #bbb;
+  font-size: 15px;
+}
+
+.imagesCard button:hover {
+  opacity: 0.7;
+}
+
+.boftwColumn {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.botwSection{
+  max-width: 75%;
+  height: 800px;
+  margin: auto;
+  margin-top: 3%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.botwP{
+  float: left;
+  padding: 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  padding-bottom: 20px;
+}
+
+.botwShop{
+  border-bottom: 3px solid #000;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 1%;
+}
+
+.botwCont{
+  padding-top: 5%;
+}
+
+.boftwContainer {
+  position: relative;
+  width: 100%;
+}
+
+.boftwContainer img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  padding-bottom: 10px;
+}
+
+.boftwContainer .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.boftwContainer .btn:hover {
+  background-color: black;
+}
+
+.boftwContent { 
+  height: 700px;
+  position: relative;
+}
+
+.boftwCenter {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.boftwCenter p{
+  font-size: 3em;
+}
+
+.boftwCenter button{
+  background-color: #000;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10%;
+  left: 30%;
+  position: absolute;
 }
 
 @media screen and (max-width: 600px) {

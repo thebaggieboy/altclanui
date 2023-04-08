@@ -7,6 +7,7 @@ import BrandOfTheWeek from "@/components/brands/BrandOfTheWeek";
 import ImagesDiv from "@/components/ImagesDiv";
 import ShopDiv from "@/components/ShopDiv";
 import Category from "@/components/Category";
+import HeadColumn from "@/components/HeadColumn";
 import Image from "next/image";
 
 const imgs = [1, 2, 3, 4];
@@ -47,9 +48,10 @@ export default function Home() {
         <Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
         <Image src="/img/b-shah.jpg" fill alt="hero-umg" />
       </CarouselWrapper>
-      <BrandDiv />
-      <ImagesDiv />
+      <HeadColumn />
+      {/* <BrandDiv /> */}
       <ShopDiv />
+      <ImagesDiv />
       <BrandOfTheWeek />
       <Category />
       <section className="px-4 py-12 sm:px-8 trending">
