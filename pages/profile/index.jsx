@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
+import styles from "@/styles/brand.module.css";
 
 const Profile = () => {
-	const [activeSection, setAcvtiveSection] = useState("account");
+	const [activeSection, setAcvtiveSection] = useState("gallery");
 
 	const [subSec, setSubSec] = useState({
 		active: false,
@@ -25,8 +26,11 @@ const Profile = () => {
 		personal: {
 			firstName: "john",
 			lastName: "doe",
+			bio: "Lorem ipsum dolor amet avec",
+			address: "21 Kola Sukanya Street",
 			gender: "male",
 		},
+
 		login: {
 			email: "johndoe38@gmail.com",
 			password: "**********",
@@ -46,131 +50,180 @@ const Profile = () => {
 						defaultData={profileData}
 					/>
 				</div>
-				<nav className="user-profile__nav">
-					<div
-						className={`user-profile__nav-item ${
-							activeSection === "orders" ? "active" : ""
-						}`}
-						onClick={(e) => {
-							setAcvtiveSection("orders");
-						}}>
-						Orders
+				<div className={styles.profileContent}>
+					<div className={styles.column1}>
+						<img src="/assets/abstract-user-flat-4.png" alt="" className={styles.image}/>
 					</div>
-					<div
-						className={`user-profile__nav-item ${
-							activeSection === "account" ? "active" : ""
-						}`}
-						onClick={(e) => {
-							setAcvtiveSection("account");
-						}}>
-						Account
+
+					<div className={styles.column2}>
+						<div className={styles.number}>
+							<h1 className={styles.h1}>
+								BagHub
+							</h1>
+						</div>
+						<div>
+							<p className={styles.p}>
+								Lorem ipsum dolor amet avec.
+							</p>
+
+							<p className={styles.p}>
+								21 Kola Sukanya Street. 
+							</p>
+
+							<button 
+							onClick={onEdit}
+							data-form="personal"
+							className={styles.profileButton}>
+								Edit profile
+							</button>
+
+							<button 
+							data-form="login"
+							onClick={onEdit}
+							className={styles.profileButton}>
+								Edit login
+							</button>
+						</div>
 					</div>
-				</nav>
+				</div>
+			</main>
+
+			<hr/>
+			<nav className="user-profile__nav">
+				<div
+					className={`user-profile__nav-item ${
+						activeSection === "orders" ? "active" : ""
+					}`}
+					onClick={(e) => {
+						setAcvtiveSection("orders");
+					}}>
+					Orders
+				</div>
+				<div
+					className={`user-profile__nav-item ${
+						activeSection === "gallery" ? "active" : ""
+					}`}
+					onClick={(e) => {
+						setAcvtiveSection("gallery");
+					}}>
+					Gallery
+				</div>
+				<div
+					className={`user-profile__nav-item ${
+						activeSection === "inventory" ? "active" : ""
+					}`}
+					onClick={(e) => {
+						setAcvtiveSection("inventory");
+					}}>
+					Inventory
+				</div>
+			</nav>
 
 				<section className="user-profile__sections">
 					{activeSection === "orders" && (
-						<div className="orders py-16 min-h-[20rem]">
-							<h1 className="font-semibold text-2xl ml-[4rem] ">
-								No orders here...
-							</h1>
-						</div>
-					)}
-					{activeSection === "account" && (
-						<div className="account">
-							{/* {!subSec.active && ( */}
-							<nav className="account__nav shadow-sm ">
-								<div
-									onClick={() => setSubSec({ sec: 1, active: true })}
-									className="account__nav-item">
-									<span>personal information</span>
-                  <Image className="mt-1" src="/assets/arrow-right-short.svg" width={20} height={20} alt="arrow svg"/>
-								</div>
-								<div
-									onClick={() => setSubSec({ sec: 2, active: true })}
-									className="account__nav-item">
-									<span>address book</span>
-                  <Image className="mt-1" src="/assets/arrow-right-short.svg" width={20} height={20} alt="arrow svg" />
-								</div>
-							</nav>
-							{/* )} */}
-
-							{/* {true && ( */}
-							<div className="account__content">
-								<button
-									onClick={() => setSubSec({ ...subSec, active: false })}
-									className="flex items-center gap-x-1 mb-4 md:hidden">
-									<Image
-										src="/assets/arrow-left.svg"
-										width={25}
-										height={25}
-										alt="arrow-right svg"
-									/>
-									<span>Back</span>
-								</button>
-								{subSec.sec === 1 && (
-									<div className="account__sub-sec1">
-										<div className="py-4 pb-2">
-											<h1 className="mb-2 text-xl md:text-2xl uppercase font-black ">
-												Personal details
-											</h1>
-											<div className="md:flex gap-x-16 items-center">
-												<div>
-													<h3 className="mb-1 text-lg font-semibold">Name</h3>
-													<p className="mb-1">John Doe</p>
-												</div>
-												<div>
-													<h3 className="mb-1 text-lg font-semibold">Gender</h3>
-													<p className="mb-1">Male</p>
-												</div>
-											</div>
-												<button
-													onClick={onEdit}
-													data-form="personal"
-													className="underline italic font-medium">
-													Edit
-												</button>
-										</div>
-										<div className="py-4">
-											<h1 className="mb-2 text-xl uppercase md:text-2xl font-black ">
-												Login details
-											</h1>
-											<div className="md:flex gap-x-16 ">
-												{Object.entries(profileData.login).map(
-													([name, value]) => {
-														return (
-															<div key={name} className="mb-4">
-																<h3 className="mb-2 text-lg capitalize font-semibold">
-																	{name}
-																</h3>
-																<p className="mb-2">{value}</p>
-																<button
-																	data-form="login"
-																	onClick={onEdit}
-																	className="underline italic font-medium">
-																	Edit
-																</button>
-															</div>
-														);
-													}
-												)}
-											</div>
-										</div>
-										<button className="py-1 px-4 mt-4 bg-black text-white rounded-sm ">
-											Log out
-										</button>
-									</div>
-								)}
-								{subSec.sec === 2 && (
-									<div className="account__sub-sec2">
-										<h1>Address book</h1>
-									</div>
-								)}
+						<div className="orders">
+							<div className={styles.center}>
+								<p className={styles.grey}>
+									No current orders
+								</p>
 							</div>
-							{/* )} */}
 						</div>
 					)}
+
+					{activeSection === "gallery" && (
+						<div className={styles.galleryContent}>
+							<div className="gallery">
+								<div class="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-5">
+									<div>
+										<img src="https://images.unsplash.com/photo-1632282003890-020318a49e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1546&q=80" alt="" />
+									</div>
+
+									<div>
+										<img src="https://images.unsplash.com/photo-1560891958-68bb1fe7fb78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80" alt="" />
+									</div>
+
+									<div>
+										<img src="https://images.unsplash.com/photo-1575032617751-6ddec2089882?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="" />
+									</div>
+
+									<div>
+										<img src="https://images.unsplash.com/photo-1612902456551-333ac5afa26e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					)}
+
+					{activeSection === "inventory" && (
+						<div className={styles.galleryContent}>
+							<div className="inventory">
+								<div class="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10">
+									<div className={styles.inventory}>
+										<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80" alt="" />
+										<p>
+											Product Name: Ferragamo
+										</p>
+
+										<p>
+											Color(s): Red
+										</p>
+
+										<p>
+											Stock: 20
+										</p>
+									</div>
+
+									<div className={styles.inventory}>
+										<img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1338&q=80" alt="" />
+										<p>
+											Product Name: Ferragamo
+										</p>
+
+										<p>
+											Color(s): Brown
+										</p>
+
+										<p>
+											Stock: 12
+										</p>
+									</div>
+
+									<div className={styles.inventory}>
+										<img src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1526&q=80" alt="" />
+										<p>
+											Product Name: Bottega 
+										</p>
+
+										<p>
+											Color(s): Brown
+										</p>
+
+										<p>
+											Stock: 25
+										</p>
+									</div>
+
+									<div className={styles.inventory}>
+										<img src="https://images.unsplash.com/photo-1622560480654-d96214fdc887?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1288&q=80" alt="" />
+										<p>
+											Product Name: Wiser
+										</p>
+
+										<p>
+											Color(s): Red
+										</p>
+
+										<p>
+											Stock: 5
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					)}
+
+
 				</section>
-			</main>
 		</>
 	);
 };

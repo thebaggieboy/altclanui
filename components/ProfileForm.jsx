@@ -8,6 +8,8 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const [personalData, setPersonalData] = useState({
 		firstName: personal.firstName,
 		lastName: personal.lastName,
+		bio: personal.bio,
+		address: personal.address,
 		gender: personal.gender,
 	});
 
@@ -31,7 +33,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 		});
 	}
 
-	const { firstName, lastName, gender } = personalData;
+	const { firstName, lastName, address, bio, gender } = personalData;
 
 	const { email, prevPassword, newPassword } = loginData;
 
@@ -57,8 +59,22 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						value={lastName}
 						onChange={handlePersonalData}
 					/>
+					<FormInput
+						label="Bio"
+						name="bio"
+						type="text"
+						value={bio}
+						onChange={handlePersonalData}
+					/>
+					<FormInput
+						label="Address"
+						name="address"
+						type="text"
+						value={address}
+						onChange={handlePersonalData}
+					/>
 
-					<div className="flex gap-x-8">
+					{/* <div className="flex gap-x-8">
 						<FormInput
 							label="Male"
 							type="radio"
@@ -79,9 +95,9 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 							value="female"
 							checked={personal.gender === "female"}
 						/>
-					</div>
+					</div> */}
 					<button className="px-4 py-1 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
-						Submit
+						done
 					</button>
 				</form>
 			</div>

@@ -30,7 +30,7 @@ export default function HeadColumn() {
 
             <div className={styles.columnOne}>
                 <h1>
-                    <img alt="" src="img/mukuko-studio-mU88MlEFcoU-unsplash.jpg "/>
+                    <img alt="" src="img/mukuko-studio-mU88MlEFcoU-unsplash.jpg " className={styles.headerimage}/>
                 </h1>
             </div>
         </div>
