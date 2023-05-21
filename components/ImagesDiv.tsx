@@ -44,7 +44,7 @@ export default function ImagesDiv() {
               <div className={styles.imagesContainer}>
                 <img src="/img/197541_1659072871.webp" alt="" className={styles.img}/>
                 <div className={styles.topRight}>
-                  <i><Image src={ heart } /></i>
+                  <i><Image alt="" src={ heart } /></i>
                 </div>
               </div>
               <p className={styles.imagesTitle}>
@@ -62,7 +62,7 @@ export default function ImagesDiv() {
                 <div className={styles.imagesContainer}>
                   <img src="/img/mukuko-studio-mU88MlEFcoU-unsplash.jpg" alt="" className={styles.img}/>
                   <div className={styles.topRight}>
-                    <i><Image src={ heart } /></i>
+                    <i><Image alt="" src={ heart } /></i>
                   </div>
                 </div>
                 <p className={styles.imagesTitle}>
@@ -80,7 +80,7 @@ export default function ImagesDiv() {
               <div className={styles.imagesContainer}>
                 <img src="/img/faith-yarn-Wr0TpKqf26s-unsplash.jpg" alt="" className={styles.img}/>
                 <div className={styles.topRight}>
-                  <i><Image src={ heart } /></i>
+                  <i><Image alt="" src={ heart } /></i>
                 </div>
               </div>
               <p className={styles.imagesTitle}>
@@ -98,7 +98,7 @@ export default function ImagesDiv() {
               <div className={styles.imagesContainer}>
                 <img src="/img/pexels-luis-quintero-3731256.jpg" alt="" className={styles.img}/>
                 <div className={styles.topRight}>
-                  <i><Image src={ heart } /></i>
+                  <i><Image alt="" src={ heart } /></i>
                 </div>
               </div>
               <p className={styles.imagesTitle}>
