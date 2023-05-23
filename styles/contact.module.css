@@ -108,7 +108,7 @@
 .column{
     width: 50%;
     float: left;
-    margin-bottom: 2%;
+    margin-bottom: 0%;
 }
 @media screen and (max-width: 600px) {
     .center{
@@ -121,7 +121,7 @@
     .column{
         width: 100%;
         float: left;
-        margin-bottom: 2%;
+        margin-bottom: 0%;
     }
 
     .contactSection{
@@ -133,7 +133,7 @@
     }
     
     .form{
-        height: 610px;
+        height: 600px;
         margin-bottom: 5%;
         border-radius: 5px;
         background-color: #f2f2f2;
@@ -177,6 +177,306 @@
     
     .text{
         font-size: 18px;
+        line-height: 33px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        margin-bottom: 5%;
+    }
+    
+}
+
+@media screen and (width: 800px) {
+    .center{
+        display: none;
+        margin-left: 40%;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .column{
+        width: 100%;
+        float: left;
+        margin-bottom: 0%;
+    }
+
+    .contactSection{
+        max-width: 90%;
+        height: 1500px;
+        margin: auto;
+        margin-top: 3%;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .form{
+        height: 620px;
+        margin-bottom: 5%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 30px;
+        margin-top: 5%;
+    }
+
+    .submit{
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 90%;
+        font-size: 15px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .list{
+        padding: 10px;
+        text-align: left;
+        font-size: 20px;
+    }
+    
+    .head{
+        font-size: 25px;
+        padding-top: 3%;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .mainhead{
+        font-size: 30px;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .text{
+        font-size: 18px;
+        line-height: 33px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        margin-bottom: 5%;
+    }
+    
+}
+
+@media screen and (width: 1024px){
+    .center{
+        display: none;
+        margin-left: 40%;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .column{
+        width: 100%;
+        float: left;
+        margin-bottom: 0%;
+    }
+
+    .contactSection{
+        max-width: 90%;
+        height: 1500px;
+        margin: auto;
+        margin-top: 3%;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .form{
+        height: 620px;
+        margin-bottom: 5%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 30px;
+        margin-top: 5%;
+    }
+
+    .submit{
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 90%;
+        font-size: 15px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .list{
+        padding: 10px;
+        text-align: left;
+        font-size: 20px;
+    }
+    
+    .head{
+        font-size: 25px;
+        padding-top: 3%;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .mainhead{
+        font-size: 30px;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .text{
+        font-size: 18px;
+        line-height: 33px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        margin-bottom: 5%;
+    }
+    
+}
+
+@media screen and (width: 1112px){
+    .center{
+        display: none;
+        margin-left: 40%;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .column{
+        width: 100%;
+        float: left;
+        margin-bottom: 0%;
+    }
+
+    .contactSection{
+        max-width: 90%;
+        height: 1500px;
+        margin: auto;
+        margin-top: 3%;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .form{
+        height: 620px;
+        margin-bottom: 5%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 30px;
+        margin-top: 5%;
+    }
+
+    .submit{
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 90%;
+        font-size: 15px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .list{
+        padding: 10px;
+        text-align: left;
+        font-size: 20px;
+    }
+    
+    .head{
+        font-size: 25px;
+        padding-top: 3%;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .mainhead{
+        font-size: 30px;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .text{
+        font-size: 18px;
+        line-height: 33px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        margin-bottom: 5%;
+    }
+    
+}
+
+@media screen and (max-width: 400px) {
+    .center{
+        display: none;
+        margin-left: 40%;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .column{
+        width: 100%;
+        float: left;
+        margin-bottom: 0%;
+    }
+
+    .contactSection{
+        max-width: 90%;
+        height: 1500px;
+        margin: auto;
+        margin-top: 3%;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .form{
+        height: 620px;
+        margin-bottom: 5%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 30px;
+        margin-top: 5%;
+    }
+
+    .submit{
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 90%;
+        font-size: 15px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .list{
+        padding: 10px;
+        text-align: left;
+        font-size: 15px;
+    }
+    
+    .head{
+        font-size: 20px;
+        padding-top: 3%;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .mainhead{
+        font-size: 25px;
+        padding-bottom: 20px;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .text{
+        font-size: 15px;
         line-height: 33px;
         font-weight: 200;
         letter-spacing: 1px;

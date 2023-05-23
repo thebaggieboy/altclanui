@@ -42,12 +42,7 @@ export default function BrandOfTheWeek() {
             </div>
           </div>
         </div>
-
-        <center>
-          <button className={styles.botwShop}>
-            View All Brands
-          </button>
-        </center>
+        
         {/* <h1 className="text-3xl text-center mb-16">BRANDS OF THE WEEK</h1>
         <div className="grid sm:grid-cols-2 gap-8 max-w-[90%] mx-auto">
           <div className={styles.container}>

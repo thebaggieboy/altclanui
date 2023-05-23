@@ -21,11 +21,11 @@ export default function BrandProfile() {
                 Ehically made and sustainable recyclable thermo bottles
               </p>
               <br/>
+            </div>
 
               <div>
                 <MyTabs/>
               </div>
             </div>
-      </div>
   )
 }

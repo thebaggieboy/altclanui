@@ -22,7 +22,7 @@ const MyTabs = () => {
 
       <Tab.Panels className={styles.tab}>
       <Tab.Panel className="rounded-xl bg-white p-3">
-      <div class="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
         <div>
           <div className={styles.card}>
             <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt=""/>
@@ -66,7 +66,7 @@ const MyTabs = () => {
 
       </Tab.Panel>
       <Tab.Panel className="rounded-xl bg-white p-3">
-        <div class="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
           <div>
             <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"/>
           </div>

@@ -401,7 +401,7 @@ div.scrollImages a {
 
 .colsContainer img {
   width: 100%;
-  height: 800px;
+  height: 850px;
   object-fit: cover;
   object-position: 50% 50%;
 }
@@ -611,7 +611,7 @@ div.scrollImages a {
 }
 
 .aboutCards p{
-  font-size: 15px;
+  font-size: 13px;
   padding-top: 5%;
 }
 
@@ -732,15 +732,15 @@ div.scrollImages a {
 }
 
 .headSection{
-  max-width: 75%;
+  max-width: 80%;
   height: auto;
   margin: auto;
-  margin-top: 3%;
+  margin-top: 1%;
   font-family: 'Poppins', sans-serif;
 }
 
 .headContainer { 
-  height: 750px;
+  height: 800px;
   position: relative;
 }
 
@@ -748,13 +748,13 @@ div.scrollImages a {
   margin: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  left: 30%;
+  -ms-transform: translate(-30%, -70%);
+  transform: translate(-30%, -70%);
 }
 
 .headText h1{
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   padding: 15px;
   line-height: 40px;
@@ -783,10 +783,10 @@ div.scrollImages a {
 }
 
 .shopSection{
-  max-width: 75%;
-  height: 1200px;
+  max-width: 80%;
+  height: 1300px;
   margin: auto;
-  margin-top: 20%;
+  margin-top: 30%;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -794,12 +794,12 @@ div.scrollImages a {
   float: left;
   width: 50%;
   padding: 20px;
-  margin-top: 3%;
+  margin-top: 0%;
 }
 
 .shopColum img{
   width: 100%;
-  height: 900px;
+  height: 700px;
   object-fit: cover;
   object-position: 50% 50%;
   padding-bottom: 10px;
@@ -1186,12 +1186,12 @@ div.scrollImages a {
     max-width: 100%;
     height: auto;
     margin: auto;
-    margin-top: 30%;
+    margin-top: 70%;
     font-family: 'Poppins', sans-serif;
   }
 
   .headContainer { 
-    height: 400px;
+    height: 300px;
     position: relative;
   }
 
@@ -1266,7 +1266,7 @@ div.scrollImages a {
   
   .shopTextCentered {
     position: absolute;
-    top: 80%;
+    top: 90%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
@@ -1351,7 +1351,7 @@ div.scrollImages a {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 15px;
-    width: 75%;
+    width: 50%;
   }
 
   .imagesSection button{
@@ -1372,7 +1372,7 @@ div.scrollImages a {
   }
 
   .imagesContent{
-    padding-top: 20%;
+    padding-top: 25%;
   }
 
   .topRight {
@@ -1412,7 +1412,7 @@ div.scrollImages a {
   .imagesTitle{
     color: #aaa;
     width: 100%;
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .imagesPrice {
@@ -1430,13 +1430,13 @@ div.scrollImages a {
 
   .boftwColumn {
     float: left;
-    width: 100%;
-    padding: 0px;
+    width: 50%;
+    padding: 10px;
   }
 
   .botwSection{
     max-width: 90%;
-    height: 800px;
+    height: 650px;
     margin: auto;
     margin-top: 0%;
     font-family: 'Poppins', sans-serif;
@@ -1463,7 +1463,7 @@ div.scrollImages a {
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-    margin-top: 1%;
+    margin-top: 95%;
   }
 
   .botwCont{
@@ -1477,7 +1477,7 @@ div.scrollImages a {
 
   .boftwContainer img {
     width: 100%;
-    height: 400px;
+    height: 200px;
     object-fit: cover;
     object-position: 50% 50%;
     padding-bottom: 10px;
@@ -1535,4 +1535,26 @@ div.scrollImages a {
     position: absolute;
   }
 
+  .Category{
+    max-width: 80%;
+    height: 500px;
+    margin: auto;
+    margin-top: 15%;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .Category .header{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 2%;
+    letter-spacing: 1px;
+  }
+
+  .Category .button{
+    padding: 20px 0px 0px 0px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 0.8em;
+  }
 }
