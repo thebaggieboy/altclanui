@@ -692,7 +692,7 @@ div.scrollImages a {
 .columnOne {
   float: left;
   width: 50%;
-  padding: 25px;
+  padding: 5px;
 }
 
 .columnOne{
@@ -700,7 +700,7 @@ div.scrollImages a {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   letter-spacing: 3px;
-  line-height: 180%;
+  line-height: 100%;
   font-size: 0.9em;
 }
 
@@ -732,15 +732,15 @@ div.scrollImages a {
 }
 
 .headSection{
-  max-width: 80%;
-  height: auto;
+  max-width: 85%;
+  height: 100px;
   margin: auto;
   margin-top: 1%;
   font-family: 'Poppins', sans-serif;
 }
 
 .headContainer { 
-  height: 800px;
+  height: 850px;
   position: relative;
 }
 
@@ -783,10 +783,10 @@ div.scrollImages a {
 }
 
 .shopSection{
-  max-width: 80%;
-  height: 1300px;
+  max-width: 85%;
+  height: 500px;
   margin: auto;
-  margin-top: 30%;
+  margin-top: 60%;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -884,9 +884,10 @@ div.scrollImages a {
 
 .imagesSection{
   max-width: 75%;
-  height: 650px;
+  height: 700px;
   margin: auto;
   margin-top: 20%;
+  margin-bottom: 7%;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -919,7 +920,7 @@ div.scrollImages a {
 }
 
 .imagesContent{
-  padding-top: 4%;
+  padding-top: 20%;
 }
 
 .topRight {
@@ -976,16 +977,16 @@ div.scrollImages a {
 }
 
 .botwSection{
-  max-width: 75%;
+  max-width: 80%;
   height: 800px;
   margin: auto;
-  margin-top: 2%;
+  margin-top: 5%;
   font-family: 'Poppins', sans-serif;
 }
 
 .botwP{
   float: left;
-  padding: 10px;
+  padding: 30px;
   border-radius: 10px;
   letter-spacing: 1px;
   font-family: 'Poppins', sans-serif;
