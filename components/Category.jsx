@@ -67,28 +67,30 @@ export default function Category() {
     //   </div>
     // </div>
 
-    <div className={styles.Category}>
-      <h1 className={styles.header}>
-        Shop from our collections
-      </h1>
+    <>
+      <div className={styles.Category}>
+        <h1 className={styles.header}>
+          Shop from our collections
+        </h1>
 
-      <div className={"grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5"}>
-      {products.map((product) => (
-        <a key={product.id} href={product.href} className="group">
-          <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
-            <img
-              src={product.imageSrc}
-              alt={product.imageAlt}
-              className="object-cover object-center w-full h-full group-hover:opacity-75"
-            />
-          </div>
+        <div className={"grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5"}>
+        {products.map((product) => (
+          <a key={product.id} href={product.href} className="group">
+            <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
+              <img
+                src={product.imageSrc}
+                alt={product.imageAlt}
+                className="object-cover object-center w-full h-full group-hover:opacity-75"
+              />
+            </div>
 
-            <button type="button" className={styles.button}>
-              Shop all {product.name}
-            </button>
-        </a>
-      ))}
+              <button type="button" className={styles.button}>
+                Shop all {product.name}
+              </button>
+          </a>
+        ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

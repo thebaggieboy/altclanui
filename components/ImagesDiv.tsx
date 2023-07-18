@@ -1,29 +1,7 @@
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/imagesDiv.module.css";
 import heart from '../public/assets/heart.svg'
 
-const images = [
-  {
-    id: 1,
-    name: "women",
-    href: "#",
-    imageSrc: "/img/dami-adebayo-female.jpg",
-  },
-
-  {
-    id: 2,
-    name: "men",
-    href: "#",
-    imageSrc: "/img/mike-von.jpg",
-  },
-
-  {
-    id: 3,
-    name: "brands",
-    href: "#",
-    imageSrc: "/img/dami-adebayo-brands.jpg",
-  }
-];
 
 export default function ImagesDiv() {
   return (
@@ -38,7 +16,7 @@ export default function ImagesDiv() {
           Shop Now
         </button>
 
-        <div className={styles.imagesContent}>
+        {/* <div className={styles.imagesContent}>
           <div className={styles.col33}>
             <div className={styles.imagesCard}>
               <div className={styles.imagesContainer}>
@@ -110,7 +88,7 @@ export default function ImagesDiv() {
               <p className={styles.imagesPrice}>$119.99</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
