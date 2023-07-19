@@ -18,7 +18,7 @@ export default function HeadColumn() {
                             bohemian, embrace your unique style with us.
                         </p>
                         
-                        <a href="/brands/signup">
+                        <a className="bg-black text-white p-g-2                                                                                                                                                                                                                                                                                 " href="/brands/signup">
                             <button className={styles.headButton}>
                                 Signup as a brand
                             </button>
