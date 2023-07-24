@@ -52,13 +52,10 @@ export default function BrandHeaderTab() {
   <div className={styles.nav}> 
     <ul className={styles.centered}>
         <li className={styles.navLink}>
-            <Link href="/brands?q=top">Top Sellers</Link>
+            <Link href="/brands?q=top">Best Sellers</Link>
         </li>
         <li className={styles.navLink}>
             <Link href="/brands?q=upcoming">Upcoming Brands</Link>
-        </li>
-        <li className={styles.navLink}>
-            <Link href="/brands?q=favorite">Favorite Brands</Link>
         </li>
         <li className={styles.navLink}>
             <Link href="/brands?q=rated">Top Rated</Link>
