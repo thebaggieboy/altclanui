@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import styles from "@/styles/login.module.css";
 
-export default function SignUp() {
+export default function Login() {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

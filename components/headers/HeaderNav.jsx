@@ -158,14 +158,14 @@ export default function HeaderNav() {
                 <Tab.Group as="div" className="mt-2">
                 <div className=" px-4 py-6 space-y-6 border-t border-gray-200">
                   <div className="flow-root">
-                    <Link href="/accounts/login" className="block p-2 -m-2 font-medium text-gray-900">
+                    <a href="/accounts/login" className="block p-2 -m-2 font-medium text-gray-900">
                       Sign in
-                    </Link>
+                    </a>
                   </div>
                   <div className="flow-root">
-                    <Link href="/accounts/signup" className="block p-2 -m-2 font-medium text-gray-900">
+                    <a href="/accounts/signup" className="block p-2 -m-2 font-medium text-gray-900">
                       Create account
-                    </Link>
+                    </a>
                   </div>
                 </div>
                   <div className="border-b border-gray-200">
@@ -232,9 +232,9 @@ export default function HeaderNav() {
                 <div className="px-4 py-6 space-y-6 border-t border-gray-200">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <Link href={page.href} className="block p-2 -m-2 font-medium text-gray-900">
+                      <a href={page.href} className="block p-2 -m-2 font-medium text-gray-900">
                         {page.name}
-                      </Link>
+                      </a>
                     </div>
                   ))}
                 </div>
@@ -329,10 +329,10 @@ export default function HeaderNav() {
                                               className="object-cover object-center"
                                             />
                                           </div>
-                                          <Link href={item.href} className="block mt-6 font-medium text-gray-900">
+                                          <a href={item.href} className="block mt-6 font-medium text-gray-900">
                                             <span className="absolute inset-0 z-10" aria-hidden="true" />
                                             {item.name}
-                                          </Link>
+                                          </a>
                                           <p aria-hidden="true" className="mt-1">
                                             Shop now
                                           </p>
@@ -372,26 +372,26 @@ export default function HeaderNav() {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <Link
+                    <a
                       key={page.name}
                       href={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </Popover.Group>
 
               <div className="flex items-center ml-auto">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link href="/accounts/login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="/accounts/login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Sign in
-                  </Link>
+                  </a>
                   <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
-                  <Link href="/accounts/signup" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="/accounts/signup" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Create account
-                  </Link>
+                  </a>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">

@@ -22,7 +22,7 @@ export default function SignUp() {
         })
 
 
-        //await router.push('/accounts/login')
+        await router.push('/accounts/login')
     }
 
 

@@ -18,7 +18,7 @@ export default function BrandProfile() {
               </div>
               
               <p className={styles.about}>
-                Ehically made and sustainable recyclable thermo bottles
+                Ethically made and sustainable recyclable thermo bottles
               </p>
               <br/>
             </div>
