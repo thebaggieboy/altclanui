@@ -132,7 +132,6 @@
   z-index: -1;
 }
 
-/* Conic Gradient Animation */
 .thirteen::before {
   animation: 6s rotate linear infinite;
   width: 200%;
@@ -140,7 +139,6 @@
   background: var(--tile-border);
 }
 
-/* Inner Square */
 .thirteen::after {
   inset: 0;
   padding: 1px;
@@ -175,7 +173,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 700px) {
   .content {
     padding: 4rem;
@@ -252,7 +249,6 @@
   }
 }
 
-/* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
@@ -784,22 +780,22 @@ div.scrollImages a {
 
 .shopSection{
   max-width: 85%;
-  height: 500px;
   margin: auto;
-  margin-top: 60%;
+  margin-top: 25%;
   font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
 .shopColum{
   float: left;
   width: 50%;
-  padding: 20px;
+  padding: 10px;
   margin-top: 0%;
 }
 
 .shopColum img{
   width: 100%;
-  height: 700px;
+  height: 800px;
   object-fit: cover;
   object-position: 50% 50%;
   padding-bottom: 10px;
@@ -827,7 +823,7 @@ div.scrollImages a {
 }
 
 .shopTextCentered p{
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   padding: 20px;
   line-height: 30px;
@@ -840,8 +836,8 @@ div.scrollImages a {
   border-bottom: 3px solid #fff;
   color: #000;
   background-color: #fff;
-  padding: 10px 40px 10px 40px;
-  font-size: 18px;
+  padding: 5px 20px 5px 20px;
+  font-size: 15px;
   cursor: pointer;
   margin-bottom: 5%;
 }
@@ -882,37 +878,6 @@ div.scrollImages a {
   padding-left: 0px;
 }
 
-.imagesSection{
-  max-width: 75%;
-  height: 700px;
-  margin: auto;
-  margin-top: 20%;
-  margin-bottom: 7%;
-  font-family: 'Poppins', sans-serif;
-}
-
-.imagesSection .p{
-  float: left;
-  padding: 10px;
-  border-radius: 10px;
-  letter-spacing: 1px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 1.1em;
-}
-
-.imagesSection button{
-  float: right;
-  border: 1px solid #000;
-  padding: 10px;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 1.0em;
-  margin-right: 2%;
-}
-
 .imagesContainer {
   position: relative;
   text-align: center;
@@ -920,7 +885,7 @@ div.scrollImages a {
 }
 
 .imagesContent{
-  padding-top: 20%;
+  padding-top: 0%;
 }
 
 .topRight {
@@ -977,10 +942,10 @@ div.scrollImages a {
 }
 
 .botwSection{
-  max-width: 80%;
-  height: 800px;
+  max-width: 85%;
+  height: 400px;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 35%;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -992,7 +957,7 @@ div.scrollImages a {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 1.5em;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 
 .botwShop{
@@ -1045,11 +1010,12 @@ div.scrollImages a {
 }
 
 .Category{
-  max-width: 74%;
+  max-width: 85%;
   height: 500px;
   margin: auto;
-  margin-top: 7%;
+  margin-top: 25%;
   font-family: 'Poppins', sans-serif;
+  margin-bottom: 2%;
 }
 
 .Category .header{
