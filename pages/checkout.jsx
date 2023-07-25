@@ -3,7 +3,7 @@ import React from 'react'
 export default function Checkout() {
   return (
     <>
-    <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
+     <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
     <a href="#" className="text-2xl font-bold text-gray-800">altclan</a>
     <div className="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
       <div className="relative">
@@ -55,12 +55,8 @@ export default function Checkout() {
           </div>
         </div>
       </div>
-  
-
-    
-  
-        <div className="mt-6 border-t border-b py-2">
-          <div className="flex items-center justify-between">
+     <div className="mt-6 border-t border-b py-2">
+        <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-gray-900">Subtotal</p>
             <p className="font-semibold text-gray-900">$399.00</p>
           </div>
@@ -77,7 +73,6 @@ export default function Checkout() {
       <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Continue Order</button>
     </div>
   </div>
-    </>
-  
+  </>  
   )
 }
