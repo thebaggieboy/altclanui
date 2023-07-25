@@ -32,6 +32,25 @@ const products = [
       price: '$35',
       color: 'Black',
     },
+    {
+      id: 4,
+      name: 'Basic Tee 4',
+      href: '#',
+      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: '$15',
+      color: 'Black',
+    },
+
+    {
+      id: 5,
+      name: 'Basic Tee 5',
+      href: '#',
+      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: '$35',
+      color: 'Blue',
+    },
   // More products...
 ]
 
@@ -246,10 +265,7 @@ export default function Filter() {
                 </Transition>
               </Menu>
 
-              <button type="button" className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
-                <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
-              </button>
+            
               <button
                 type="button"
                 className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
