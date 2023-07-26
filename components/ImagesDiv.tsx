@@ -16,7 +16,7 @@ export default function ImagesDiv() {
           Shop Now
         </button>
 
-        {/* <div className={styles.imagesContent}>
+         <div className={styles.imagesContent}>
           <div className={styles.col33}>
             <div className={styles.imagesCard}>
               <div className={styles.imagesContainer}>
@@ -29,7 +29,7 @@ export default function ImagesDiv() {
                 Wholesale Naija
               </p>
               <h1>
-                Black 20" Blunt Cut Wig
+                Black 20 Blunt Cut Wig
               </h1>
               <p className={styles.imagesPrice}>$129.99</p>
             </div>
@@ -88,7 +88,7 @@ export default function ImagesDiv() {
               <p className={styles.imagesPrice}>$119.99</p>
             </div>
           </div>
-        </div> */}
+        </div> 
       </div>
     </>
   );

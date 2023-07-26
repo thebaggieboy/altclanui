@@ -48,12 +48,10 @@ export default function Home() {
         <Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
         <Image src="/img/b-shah.jpg" fill alt="hero-umg" />
       </CarouselWrapper>
-      <HeadColumn />
-      {/* <BrandDiv /> */}
-      <ShopDiv />
-      <ImagesDiv />
-      <BrandOfTheWeek />
-      <Category />
+      
+    
+   
+       
       <section className="px-4 py-12 sm:px-8 trending">
         <h1 className="mb-16 text-3xl text-center capitalize">Trending Now</h1>
 
@@ -69,5 +67,5 @@ export default function Home() {
         </CarouselWrapper>
       </section>
     </>
-  );
+  )
 }

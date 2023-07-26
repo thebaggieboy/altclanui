@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function HeadColumn() {
@@ -11,18 +12,18 @@ export default function HeadColumn() {
                             Welcome to our alternative fashion startup!
                         </h1>
 
-                        <p>
+                        <p className="lead" style={{fontSize:14}} >
                             Celebrate non-conformity,
                             creativity, and self-expression through our curated collection of
                             sustainable and ethical fashion. From vintage to goth, punk to
                             bohemian, embrace your unique style with us.
                         </p>
                         
-                        <a href="/brands/signup">
+                     
                             <button className={styles.headButton}>
-                                Signup as a brand
+                            <Link href="/brands/signup"> Signup as a brand  </Link>
                             </button>
-                        </a>
+                 
                         
                     </div>
                 </div>

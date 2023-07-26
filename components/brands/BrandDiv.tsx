@@ -7,7 +7,7 @@ export default function BrandDiv() {
     <>
     <br />
       <div className="bg-#ddd">
-        <p className="text-center  mx-auto  text-black p-10 sm:text-4xl">
+        <p className="text-center  mx-auto  text-black p-10 sm:text-6xl">
           Welcome to our alternative fashion startup! Celebrate non-conformity,
           creativity, and self-expression through our curated collection of
           sustainable and ethical fashion. From vintage to goth, punk to
@@ -17,7 +17,7 @@ export default function BrandDiv() {
         <div className="grid place-items-center">
           <Link
             href="/brands/signup"
-            className="flex items-center justify-center gap-x-2 px-5 py-3 text-base font-medium text-center bg-black rounded-lg text-white hover:bg-black-600 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+            className="flex items-center justify-center gap-x-2  p-5 text-base font-medium text-center bg-black rounded-lg text-white"
           >
             <span>Signup as a brand</span>  <br />
            
