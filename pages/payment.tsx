@@ -1,7 +1,8 @@
 import React from 'react'
 export default function Payment() {
   return (
-    <>
+    <section>
+        
     <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
     <a href="#" className="text-2xl font-bold text-gray-800">altclan</a>
     <div className="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
@@ -81,7 +82,7 @@ export default function Payment() {
               <img className="h-4 w-4 object-contain" src="https://flagpack.xyz/_nuxt/4c829b6c0131de7162790d2f897a90fd.svg" alt="" />
             </div>
           </div>
-          <select type="text" name="billing-state" className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500">
+          <select name="billing-state" className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500">
             <option value="State">State</option>
           </select>
           <input type="text" name="billing-city" className="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="City" />
@@ -106,8 +107,10 @@ export default function Payment() {
       </div>
       <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
     </div>
-  </div>
-    </>
+  
+    </section>
+
+   
   
   )
 }
