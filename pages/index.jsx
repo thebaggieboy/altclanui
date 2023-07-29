@@ -1,4 +1,5 @@
 import Head from "next/head";
+import styles from "../styles/Home.module.css"
 import HeaderTab from "@/components/headers/HeaderTab";
 import BrandDiv from "@/components/brands/BrandDiv";
 import CarouselWrapper from "@/components/CarouselWrapper";
@@ -8,6 +9,12 @@ import ImagesDiv from "@/components/ImagesDiv";
 import ShopDiv from "@/components/ShopDiv";
 import Category from "@/components/Category";
 import HeadColumn from "@/components/HeadColumn";
+import MainColumn from "@/components/components/component2";
+import FullImages from "@/components/components/component3";
+import NewIn from "@/components/components/component4";
+import Sponsored from "@/components/components/component5";
+import Cards from "@/components/components/component6";
+import Form from "@/components/components/component7";
 import Image from "next/image";
 
 const imgs = [1, 2, 3, 4];
@@ -37,35 +44,44 @@ export default function Home() {
         <link rel="icon" href="/alteclan_logo.jpg" />
       </Head>
       <HeaderTab />
-      <CarouselWrapper
-        autoplay={{ delay: 2500 }}
-        disableOnInteraction={false}
-        pagination={true}
-        className="hero-carousel"
-      >
-          <Image src="/img/moh-mckenzie.jpg" fill alt="hero-umg" />
-        <Image src="/img/black-guy-1.jpg" fill alt="hero-umg" />
-        <Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
-        <Image src="/img/b-shah.jpg" fill alt="hero-umg" />
-      </CarouselWrapper>
       
-    
-   
-       
-      <section className="px-4 py-12 sm:px-8 trending">
-        <h1 className="mb-16 text-3xl text-center capitalize">Trending Now</h1>
-
+      <div className={styles.content}>
         <CarouselWrapper
-          slidesPerView={2}
-          spaceBetween={10}
-          breakpoints={carouselBreakpoints}
-          controls
+          autoplay={{ delay: 2500 }}
+          disableOnInteraction={false}
+          pagination={true}
+          className="hero-carousel"
         >
-          {products.map((id) => {
-            return <ProductCard key={id} id={id} />;
-          })}
+            <Image src="/img/moh-mckenzie.jpg" fill alt="hero-umg" />
+          <Image src="/img/black-guy-1.jpg" fill alt="hero-umg" />
+          <Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
+          <Image src="/img/b-shah.jpg" fill alt="hero-umg" />
         </CarouselWrapper>
-      </section>
+        
+        <MainColumn />
+        <FullImages />
+        <NewIn />
+        <Sponsored />
+         
+        <section className="px-4 py-12 sm:px-8 trending">
+          <h1 className="mb-16 text-3xl text-center capitalize">Trending Now</h1>
+
+          <CarouselWrapper
+            slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={carouselBreakpoints}
+            controls
+          >
+            {products.map((id) => {
+              return <ProductCard key={id} id={id} />;
+            })}
+          </CarouselWrapper>
+        </section>
+
+        <Cards />
+        <Form />
+
+      </div>
     </>
   )
 }
