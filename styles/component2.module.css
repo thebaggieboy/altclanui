@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.headContainer { 
+    margin-top: 20%;
+    height: 600px;
+    position: relative;
+}
+
+.headingText {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.welcomeColumn {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.welcomeHeader{
+    color: #000;
+    font-family: "Poppins";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+}
+
+.welcomeText{
+    color: #000;
+    margin-top: 5%;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+}
+
+.headImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.content {
+    max-width: 70%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.signUpBrandCont{
+    margin: 0;
+    position: absolute;
+    margin-top: 20%;
+    left: 20%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.brandButton{
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: #FFF;
+    color: #000;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px 30px;
+}
