@@ -10,21 +10,13 @@ const products = [
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
-  {
-    id: 2,
-    name: "Jackets",
-    href: "#",
-    price: "$35",
-    imageSrc: "/img/jackets.jpg",
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-  },
+
   {
     id: 3,
-    name: "Bags",
+    name: "Rings",
     href: "#",
     price: "$35",
-    imageSrc: "/img/bag.jpg",
+    imageSrc: "/img/rings.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -34,6 +26,33 @@ const products = [
     href: "#",
     price: "$35",
     imageSrc: "/img/cap.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 5,
+    name: "Chains & Neckpiece",
+    href: "#",
+    price: "$35",
+    imageSrc: "/img/chain.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 6,
+    name: "Tees",
+    href: "#",
+    price: "$35",
+    imageSrc: "/img/tees.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 7,
+    name: "Coats & Hoodies",
+    href: "#",
+    price: "$35",
+    imageSrc: "/img/vivek-sharma.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -70,17 +89,17 @@ export default function Category() {
     <>
       <div className={styles.Category}>
         <h1 className={styles.header}>
-          Shop from our collections
+          Shop by category
         </h1>
 
-        <div className={"grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5"}>
+        <div className={"grid grid-cols-2 gap-x-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5"}>
         {products.map((product) => (
           <a key={product.id} href={product.href} className="group">
             <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
               <img
                 src={product.imageSrc}
                 alt={product.imageAlt}
-                className="object-cover object-center w-full h-full group-hover:opacity-75"
+                className="object-cover object-center w-full group-hover:opacity-75"
               />
             </div>
 

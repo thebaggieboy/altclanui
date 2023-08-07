@@ -48,9 +48,11 @@ export default function newIn() {
     return (
         <>
             <div className={styles.header}>
-                <p>
-                    New in: handpicked from the social media’s best brands and boutiques
+            <div className="p-3">
+            <p className="text-center text-lg bolder">
+                    New Merch: handpicked from the social media’s best brands and boutiques
                 </p>
+            </div>
 
                 <div className={styles.textRight}>
                     <p>

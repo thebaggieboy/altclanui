@@ -1014,10 +1014,10 @@ div.scrollImages a {
 }
 
 .Category{
-  max-width: 85%;
+  max-width: 95%;
   height: 500px;
   margin: auto;
-  margin-top: 25%;
+
   font-family: 'Poppins', sans-serif;
   margin-bottom: 2%;
 }

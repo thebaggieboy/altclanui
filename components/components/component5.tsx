@@ -1,4 +1,6 @@
 import styles from "../../styles/component5.module.css";
+import CarouselWrapper from "@/components/CarouselWrapper";
+import BrandCard from "@/components/brand-card"
 
 const products = [
     {
@@ -25,37 +27,54 @@ const products = [
       details:
         "Day to day, basic wears.",
     },
+    {
+        id: 4,
+        name: "Defacto",
+        href: "#",
+        imageSrc: "/img/natalie-hua.jpg",
+        details:
+          "Day to day, basic wears.",
+      },
+      {
+        id: 5,
+        name: "Defacto",
+        href: "#",
+        imageSrc: "/img/natalie-hua.jpg",
+        details:
+          "Day to day, basic wears.",
+      },
 ];
+const imgs = [1, 2, 3, 4];
+const productss = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+const carouselBreakpoints = {
+  640: {
+    slidesPerView: 3,
+    spaceBetween: 20,
+  },
+  1024: {
+    slidesPerView: 4,
+    spaceBetween: 30,
+  },
+};
 export default function sponsored() {
     return (
         <>
-            <h1 className={styles.header}>
-                Sponsored Brands
-            </h1>
+ <section className="mt-5 trending">
+        <h1 className=" pt-10 text-3xl text-center capitalize">Sponsored Brands</h1>
+<br />
+          <CarouselWrapper
+            slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={carouselBreakpoints}
+            controls
+          >
+            {products.map((id) => {
+              return <BrandCard key={id} id={id} />;
+            })}
+          </CarouselWrapper>
+        </section>
 
-            <div className={styles.row}>
-                {products.map((product) => (
-                    <div key={product.id}>
-                        <a key={product.id} href={product.href}>
-                            <div className={styles.imageCol}>
-                                <div className={styles.card}>
-                                    <img src={product.imageSrc} alt="" className={styles.productImage}/>
-
-                                    <h1 className={styles.name}>
-                                        {product.name}
-                                    </h1>
-
-
-                                    <p className={styles.details}>
-                                        {product.details}
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                ))}
-            </div>
         </>
     );
 };

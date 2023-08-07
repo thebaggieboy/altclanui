@@ -45,7 +45,7 @@ export default function Home() {
       </Head>
       <HeaderTab />
       
-      <div className={styles.content}>
+     
         <CarouselWrapper
           autoplay={{ delay: 2500 }}
           disableOnInteraction={false}
@@ -62,10 +62,11 @@ export default function Home() {
         <FullImages />
         <NewIn />
         <Sponsored />
-         
-        <section className="px-4 py-12 sm:px-8 trending">
-          <h1 className="mb-16 text-3xl text-center capitalize">Trending Now</h1>
-
+        <Category/>
+         <br /><br /><br />
+        <section className="mt-20 trending"> <br /><br />
+          <h1 className="mt-10 pt-10 text-3xl text-center capitalize">Trending Merchandise</h1>
+<br />
           <CarouselWrapper
             slidesPerView={2}
             spaceBetween={10}
@@ -81,7 +82,6 @@ export default function Home() {
         <Cards />
         <Form />
 
-      </div>
     </>
   )
 }

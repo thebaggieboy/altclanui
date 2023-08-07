@@ -5,9 +5,9 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div> <br/><br/>
+    <div>
 
-<footer className="bg-white dark:bg-gray-900 mt-5">
+<footer className="bg-black text-white dark:bg-gray-900 p-10">
     <div className="grid grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
         <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">Company</h2>
@@ -15,28 +15,27 @@ export default function Footer() {
                 <li className="mb-4">
                     <Link href="/about" className=" hover:underline">About</Link>
                 </li>
-                <li className="mb-4">
-                    <Link href="#" className="hover:underline">Careers</Link>
-                </li>
+
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">Brand Center</Link>
                 </li>
-                <li className="mb-4">
-                    <Link href="#" className="hover:underline">Blog</Link>
-                </li>
+
             </ul>
         </div>
         <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">Help center</h2>
             <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
-                    <Link href="#" className="hover:underline">Discord Server</Link>
+                    <Link href="#" className="hover:underline">Snapchat</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">Twitter</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">Facebook</Link>
+                </li>
+                <li className="mb-4">
+                    <Link href="#" className="hover:underline">Instagram</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="/contact" className="hover:underline">Contact Us</Link>

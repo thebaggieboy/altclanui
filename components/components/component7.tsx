@@ -15,13 +15,11 @@ export default function form() {
 
             <div className={styles.formCol}>
                 <form action="">
-                    <label htmlFor="" className={styles.label}>
-                        Email:
-                    </label>
+                 
 
-                    <input type="email" className={styles.email} />
+                    <input type="email" className={styles.email}  placeholder="Email Address"/>
 
-                    <button type="submit" className={styles.submit}>
+                    <button type="submit" className="p-2 bg-white border text-dark">
                         Sign up
                     </button>
 

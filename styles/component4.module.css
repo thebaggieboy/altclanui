@@ -2,17 +2,20 @@
 
 .header{
     overflow: hidden;
-    margin-top: 2%;
+    background-color: #000;
+    color: white;
+    padding: 10px;
 }
 
 .header p{
     float: left;
-    color: #000;
+    color: white;
     text-align: center;
     padding: 14px 1px;
     text-decoration: none;
     font-size: 17px;
     font-family: "Poppins";
+    font-weight: "bold"
 }
 
 .textRight{
@@ -20,8 +23,18 @@
     border: 1px solid #000;
     border-radius: 5px;
     padding: 0px 10px;
+    background-color: #000;
+    color: white;
 }
 
+.textRight p{
+    float: right;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+}
 .card {
     max-width: 300px;
     margin: auto;
