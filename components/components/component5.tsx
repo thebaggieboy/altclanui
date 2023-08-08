@@ -68,6 +68,7 @@ export default function sponsored() {
             spaceBetween={10}
             breakpoints={carouselBreakpoints}
             controls
+            alt=""
           >
             {products.map((id) => {
               return <BrandCard key={id} id={id} />;
