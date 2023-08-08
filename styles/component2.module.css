@@ -84,15 +84,16 @@
 
 @media screen and (max-width: 600px) {
     .cover{
-        background-color:black;
-        color: white;
-        opacity: 0.9;
+        padding:10px;
+        background-image: url("/img/headersweat.jpg");
+        background-size:cover;
+        
         
     }
 
     .headContainer { 
 
-        margin-top: 60%;
+        margin-top: 70%;
         height: 200px;
         position: relative;
     }
@@ -117,13 +118,13 @@
     }
 
     .welcomeText{
-        color: white;
+        color: black;
        width: 100%;
         font-family: "Poppins";
         font-size: 14px;
-        font-style: bold;
-        font-weight: 400;
-        line-height:30px;
+        
+        font-weight: bolder;
+        line-height:28px;
         text-align: left;
     }
 
