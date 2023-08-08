@@ -64,6 +64,7 @@ export default function Home() {
         <Sponsored />
         <Category/>
          <br /><br /><br />
+         <br/><br/>
         <section className="mt-20 trending"> <br /><br />
           <h1 className="mt-10 pt-10 text-3xl text-center capitalize">Trending Merchandise</h1>
 <br />
@@ -74,7 +75,7 @@ export default function Home() {
             controls
           >
             {products.map((id) => {
-              return <ProductCard key={id} id={id} />;
+              return <ProductCard key={id} id={id} />
             })}
           </CarouselWrapper>
         </section>

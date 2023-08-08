@@ -37,8 +37,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
-    line-height: 45px;
-    width: 300px;
+    
     text-align: left;
 }
 
@@ -84,8 +83,16 @@
 }
 
 @media screen and (max-width: 600px) {
+    .cover{
+        background-color:black;
+        color: white;
+        opacity: 0.9;
+        
+    }
+
     .headContainer { 
-        margin-top: 70%;
+
+        margin-top: 60%;
         height: 200px;
         position: relative;
     }
@@ -106,33 +113,23 @@
     }
 
     .welcomeHeader{
-        color: #000;
-        font-family: "Poppins";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
-        width: 200px;
-        text-align: center;
+        display: none;
     }
 
     .welcomeText{
-        color: #000;
-        margin-top: 5%;
+        color: white;
+       width: 100%;
         font-family: "Poppins";
-        font-size: 16px;
-        font-style: normal;
+        font-size: 14px;
+        font-style: bold;
         font-weight: 400;
-        line-height: 45px;
-        width: 350px;
+        line-height:30px;
         text-align: left;
     }
 
     .headImage{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 90%;
+        display: none;
+
     }
 
     .row:after {
@@ -152,9 +149,8 @@
         margin: 0;
         position: absolute;
         margin-top: 5%;
-        left: 22.5%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
+ 
+        text-align:center;
     }
 
     .brandButton{
@@ -166,8 +162,8 @@
         font-family: "Poppins";
         font-size: 13px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: bold;
         line-height: normal;
-        padding: 10px 30px;
+        padding: 10px;
     }
 }

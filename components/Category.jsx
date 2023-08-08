@@ -108,7 +108,7 @@ export default function Category() {
               </button>
           </a>
         ))}
-        </div>
+        </div> <br/>
       </div>
     </>
   );

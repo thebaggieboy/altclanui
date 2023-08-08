@@ -53,7 +53,7 @@ export default function newIn() {
         <>
             <div className={styles.header}>
             <div className="p-3">
-            <p className="text-center text-lg bolder">
+            <p className="text-center text-lg bolder text-white">
                     New Merch: handpicked from the social media’s best brands and boutiques
                 </p>
             </div>
