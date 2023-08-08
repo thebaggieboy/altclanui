@@ -179,7 +179,8 @@
 
 @media (max-width: 700px) {
   .content {
-    padding: 4rem;
+    padding: 0rem;
+    overflow-x: hidden;
   }
 
   .grid {
@@ -426,6 +427,12 @@ div.scrollImages a {
 }
 
 @media screen and (max-width: 600px) {
+  .content{
+    max-width: 100%;
+    margin: auto;
+    overflow-y: hidden;
+  }
+
   .col {
     float: left;
     width: 100%;

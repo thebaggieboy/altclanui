@@ -3,7 +3,7 @@ import styles from "../../styles/component2.module.css";
 
 export default function mainColumn() {
     return (
-        <div className={styles.columnContent}>
+        <div>
             <div className={styles.row}>
                 <div className={styles.welcomeColumn}>                 
                     <div className={styles.headContainer}>
