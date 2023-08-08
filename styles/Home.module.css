@@ -1021,20 +1021,15 @@ div.scrollImages a {
 }
 
 .Category{
-  max-width: 95%;
+  max-width: 100%;
   height: 500px;
   margin: auto;
-
   font-family: 'Poppins', sans-serif;
   margin-bottom: 2%;
+  padding: 0;
 }
 
-.Category .header{
-  font-size: 23px;
-  font-weight: 500;
-  margin-bottom: 2%;
-  letter-spacing: 1px;
-}
+
 
 .Category .button{
   padding: 20px 0px 0px 0px;

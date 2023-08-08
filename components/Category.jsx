@@ -88,9 +88,9 @@ export default function Category() {
 
     <>
       <div className={styles.Category}>
-        <h1 className={styles.header}>
+        <h1 className="pt-10 text-3xl text-center capitalize">
           Shop by category
-        </h1>
+        </h1> <br/>
 
         <div className={"grid grid-cols-2 gap-x-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5"}>
         {products.map((product) => (
@@ -101,15 +101,15 @@ export default function Category() {
                 alt={product.imageAlt}
                 className="object-cover object-center w-full group-hover:opacity-75"
               />
-            </div>
+            </div> 
 
               <button type="button" className={styles.button}>
                 Shop all {product.name}
-              </button>
+              </button> <br/>
           </a>
         ))}
-        </div> <br/>
-      </div>
+        </div> 
+      </div> <br/>
     </>
   );
 }

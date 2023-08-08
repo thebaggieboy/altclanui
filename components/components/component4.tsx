@@ -59,7 +59,7 @@ export default function newIn() {
             </div>
 
                 <div className={styles.textRight}>
-                    <p>
+                    <p className="text-black">
                         Shop Now
                     </p>
                 </div>

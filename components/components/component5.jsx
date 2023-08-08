@@ -61,7 +61,7 @@ export default function sponsored() {
     return (
         <>
  <section className="mt-5 trending">
-        <h1 className=" pt-10 text-3xl text-center capitalize">Sponsored Brands</h1>
+        <h1 className="pt-10 text-3xl text-center capitalize">Sponsored Brands</h1>
 <br />
           <CarouselWrapper
             
