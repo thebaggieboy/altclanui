@@ -64,6 +64,7 @@ export default function sponsored() {
         <h1 className=" pt-10 text-3xl text-center capitalize">Sponsored Brands</h1>
 <br />
           <CarouselWrapper
+            
             slidesPerView={2}
             spaceBetween={10}
             breakpoints={carouselBreakpoints}
