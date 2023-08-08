@@ -27,7 +27,9 @@
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
-    line-height: 40px;
+    line-height: 45px;
+    width: 100px;
+    text-align: left;
 }
 
 .welcomeText{
@@ -37,7 +39,9 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 40px;
+    line-height: 45px;
+    width: 300px;
+    text-align: left;
 }
 
 .headImage{
@@ -81,4 +85,93 @@
     font-weight: 400;
     line-height: normal;
     padding: 10px 30px;
+}
+
+@media screen and (max-width: 600px) {
+    .headContainer { 
+        margin-top: 70%;
+        height: 200px;
+        position: relative;
+    }
+
+    .headingText {
+        margin: 0;
+        position: absolute;
+        top: -25%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .welcomeColumn {
+        float: left;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .welcomeHeader{
+        color: #000;
+        font-family: "Poppins";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 45px;
+        width: 200px;
+        text-align: center;
+    }
+
+    .welcomeText{
+        color: #000;
+        margin-top: 5%;
+        font-family: "Poppins";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 45px;
+        width: 350px;
+        text-align: left;
+    }
+
+    .headImage{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .content {
+        max-width: 10%;
+        margin: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .signUpBrandCont{
+        margin: 0;
+        position: absolute;
+        margin-top: 5%;
+        left: 22.5%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .brandButton{
+        border-radius: 10px;
+        border: 1px solid #000;
+        background: #FFF;
+        color: #000;
+        text-align: center;
+        font-family: "Poppins";
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: 10px 30px;
+    }
 }
