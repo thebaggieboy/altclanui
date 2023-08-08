@@ -9,6 +9,7 @@ const products = [
       href: "#",
       price: "₦15,000",
       imageSrc: "/img/shades.jpg",
+      imageAlt:"",
       details:
         "Embrace the nostalgia of summer with our Retro Cat glasses.",
     },
@@ -19,6 +20,7 @@ const products = [
       href: "#",
       price: "₦30,000",
       imageSrc: "/img/jackets.jpg",
+      imageAlt:"",
       details:
         "Hand holding black machined steel mechanical pencil with brass tip and top.",
     },
@@ -29,6 +31,7 @@ const products = [
       href: "#",
       price: "₦150,000",
       imageSrc: "/img/bag.jpg",
+      imageAlt:"",
       details:
         "Hand holding black machined steel mechanical pencil with brass tip and top.",
     },
@@ -39,6 +42,7 @@ const products = [
       href: "#",
       price: "₦8,000",
       imageSrc: "/img/cap.jpg",
+      imageAlt:"",
       details:
         "Hand holding black machined steel mechanical pencil with brass tip and top.",
     },
