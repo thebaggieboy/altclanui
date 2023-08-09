@@ -1,8 +1,8 @@
 
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
-
+import { ProductContext } from '@/context/ProductContext'
 const product = {
   name: 'Basic Tee 6-Pack',
   price: '$192',
@@ -61,10 +61,14 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Example({slug}) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
-
+  const {setSelectedProducts} = useContext(ProductContext)
+  const [open, setOpen] = useState(false)
+  function addProduct(){
+    setSelectedProducts(prev => [...prev, slug])
+  }
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -266,10 +270,10 @@ export default function Example() {
               </div>
 
               <button
-                type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+               onClick={addProduct}
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-black bg-black py-3 px-8 text-base font-medium text-white  focus:ring-black focus:ring-offset-2"
               >
-                Add to bag
+                Add to cart
               </button>
             </form>
           </div>
