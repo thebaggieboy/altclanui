@@ -6,12 +6,13 @@ import HeaderTab from './headers/HeaderTab'
 
 export default function Layout({
     children,
+    
   }: {
     children: React.ReactNode
   }) {
     return (
       <>
-       <HeaderNav />
+       <HeaderNav slug={slug}/>
           {children}
         <Footer/>
       </>

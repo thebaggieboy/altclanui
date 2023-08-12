@@ -113,7 +113,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function HeaderNav({slug}) {
+export default function HeaderNav() {
   const {setSelectedProducts} = useContext(ProductContext)
   const [open, setOpen] = useState(false)
   function addProduct(){
