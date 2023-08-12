@@ -41,8 +41,8 @@ const categories = [
 export default function Search() {
   return (
    
-  <div>
-      <div className="p-10 mx-auto mt-2 ">
+  <div className="p-5 ">
+      <div className="mx-auto mt-2 ">
 
 <form className="flex items-center">   
     <label for="simple-search" className="sr-only">Search</label>
