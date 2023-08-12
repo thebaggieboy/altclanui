@@ -12,7 +12,7 @@ export default function Layout({
   }) {
     return (
       <>
-       <HeaderNav slug={slug}/>
+       <HeaderNav/>
           {children}
         <Footer/>
       </>
