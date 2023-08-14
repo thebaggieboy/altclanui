@@ -63,23 +63,8 @@ export default function Home() {
         <NewIn />
         <Sponsored />
         <Category/>
-         <br /><br /> 
-        <section className="mt-20 trending"> <br /><br />
-          <h1 className="mt-20 pt-10 text-3xl text-center capitalize">Trending Merchandise</h1>
-<br />
-          <CarouselWrapper
-            slidesPerView={2}
-            spaceBetween={10}
-            breakpoints={carouselBreakpoints}
-            controls
-          >
-            {products.map((id) => {
-              return <ProductCard key={id} id={id} />
-            })}
-          </CarouselWrapper>
-        </section>
-          <br/>
-        <Cards />
+         <br />
+        <Cards /> <br/>
         <Form />
 
     </>
