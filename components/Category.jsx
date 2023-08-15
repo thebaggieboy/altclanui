@@ -114,7 +114,7 @@ export default function Category() {
       <div className="mt-20 p-20">
 
       </div>
-      </div>
+      </div> <br/>
     
     
     </>
