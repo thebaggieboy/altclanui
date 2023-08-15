@@ -82,7 +82,7 @@ export default function Home() {
           </CarouselWrapper>
       
         
-        <Cards />
+        <Cards /> 
         <Form />
 
     </>
