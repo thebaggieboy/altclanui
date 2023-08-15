@@ -15,6 +15,7 @@ import NewIn from "@/components/components/component4";
 import Sponsored from "@/components/components/component5";
 import Cards from "@/components/components/component6";
 import Form from "@/components/components/component7";
+import MoreToExplore from "@/components/MoreToExplore"
 import Image from "next/image";
 
 const imgs = [1, 2, 3, 4];
@@ -64,7 +65,10 @@ export default function Home() {
         <Sponsored />
         <Category/>
          <br /><br /> 
-        <section className="mt-20 trending"> <br /><br />
+        <section className="mt-20 trending">
+        <MoreToExplore/>
+         <br /><br />
+
           <h1 className="mt-20 pt-10 text-3xl text-center capitalize">Trending Merchandise</h1>
 <br />
           <CarouselWrapper

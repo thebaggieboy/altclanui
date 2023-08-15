@@ -12,11 +12,13 @@ export default function App({ Component, pageProps }: AppProps) {
   
   return(
     
-      <ProductsContextProvider>
+      
         <Layout>
-        <Component {...pageProps} />
+          <ProductsContextProvider>
+          <Component {...pageProps} />
+          </ProductsContextProvider>
+       
         </Layout>
       
-      </ProductsContextProvider>
   ) 
 }
