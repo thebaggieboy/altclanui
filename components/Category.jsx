@@ -87,9 +87,9 @@ export default function Category() {
     // </div>
 
     <>
-      <div className="p-5">
+      <div className="">
       <div className={styles.Category}>
-        <h1 className="pt-10 text-3xl text-center capitalize">
+        <h1 className="text-3xl text-center capitalize">
           Shop by category
         </h1> <br/>
 
