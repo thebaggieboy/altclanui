@@ -1,4 +1,3 @@
-import styles from "@/styles/Home.module.css";
 
 const products = [
   {
@@ -87,8 +86,8 @@ export default function Category() {
     // </div>
 
     <>
-      <div className="">
-      <div className={styles.Category}>
+      <div className="m-5 p-10">
+      <div >
         <h1 className="text-3xl text-center capitalize">
           Shop by category
         </h1> <br/>
@@ -104,19 +103,16 @@ export default function Category() {
               />
             </div> 
 
-              <button type="button" className={styles.button}>
+              <button type="button" >
                 Shop all {product.name}
-              </button> <br/>
+              </button> <br/><br/>
           </a>
         ))}
         </div> 
       </div>  
-      <div className="mt-10">
-
-      </div>
-      </div> <br/>
     
-    
+      </div> 
+     
     </>
   );
 }

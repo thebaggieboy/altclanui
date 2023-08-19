@@ -4,7 +4,7 @@ import CountUp from "../src/aboutcounter/brand.jsx"
 
 export default function about() {
   return (
-    <div className='mt-20 pt-5'>
+    <div className='mt-20 pt-10'>
       <div className={styles.section}>
         <p className={styles.p}>
           More To Explore

@@ -63,14 +63,16 @@ export default function Home() {
         <FullImages />
         <NewIn />
         <Sponsored />
-        <Category/>
-        
         <MoreToExplore/>
+        <Category/> 
+        
+       
         
 
-          <h1 className="mt-20 pt-10 text-3xl text-center capitalize">Trending Merchandise</h1>
-<br />
-          <CarouselWrapper
+         <div className="m-2">
+         <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>
+         <br/>
+         <CarouselWrapper
             slidesPerView={2}
             spaceBetween={10}
             breakpoints={carouselBreakpoints}
@@ -81,6 +83,7 @@ export default function Home() {
             })}
           </CarouselWrapper>
       
+         </div>
         
         <Cards /> 
         <Form />
