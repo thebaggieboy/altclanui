@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "../../styles/component2.module.css";
-
+import Link from 'next/link'
 export default function mainColumn() {
     return (
         <div  className={styles.cover}>
@@ -19,7 +19,7 @@ export default function mainColumn() {
                             <br />
                             <div className={styles.signUpBrandCont}>
                                 <button className={styles.brandButton}>
-                                    Signup as a brand
+                                   <Link href="/brands/register">Signup as a brand</Link> 
                                 </button>
                             </div> <br /> 
                             
