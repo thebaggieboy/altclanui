@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link'
 export default function BrandSignup() {
   return (
     <div className="p-2">
@@ -32,8 +32,10 @@ export default function BrandSignup() {
     </li>
 </ol>
         </div>
-        
-<section className="p-10">
+
+       
+<section className="p-12">
+<p className="text-sm text-black-400">You can signup with your brand work email if you have one. This gives a better brand identity and faster verification.</p> <br/>
 <form>
   <div className="mb-6">
     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -51,7 +53,9 @@ export default function BrandSignup() {
   </div>
  
   <button className="mt-10 flex w-full items-center justify-center rounded-md border border-black bg-black py-3 px-8 text-base font-medium text-white  focus:ring-black focus:ring-offset-2">
-        Add to cart
+        <Link href="/brand/register/brand-bio">
+            Create Account
+        </Link>
     </button>
 </form>
     
