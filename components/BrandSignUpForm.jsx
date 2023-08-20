@@ -2,10 +2,10 @@ import React from 'react'
 import Link from 'next/link'
 export default function BrandSignup() {
   return (
-    <div className="p-2">
-
-        <div className="p-10">
-        <ol className="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4">
+    <div className="">
+        <div className="p-10 items-center text-center">
+       
+        <ol className="flex items-center w-full p-10 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4">
     <li className="flex items-center text-blue-600 dark:text-blue-500">
         <span className="flex items-center justify-center w-5 h-5 mr-2 text-xs border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
             1
@@ -31,15 +31,18 @@ export default function BrandSignup() {
         Contact 
     </li>
 </ol>
-        </div>
 
+        </div>
+        <div className="">
+        <h5 className="text-lg text-center text-black-800">You can signup with your brand work email if you have one, this gives your registered brand a better brand and more proffessional identity.</h5> 
+        </div>
        
-<section className="p-12">
-<p className="text-sm text-black-400">You can signup with your brand work email if you have one. This gives a better brand identity and faster verification.</p> <br/>
-<form>
+<section className="p-10">
+
+<form className="p-5">
   <div className="mb-6">
     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-    <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+    <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@brand.com" required />
   </div>
   <div className="mb-6">
     <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
@@ -52,11 +55,12 @@ export default function BrandSignup() {
     <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
   </div>
  
-  <button type="submit" className="mt-10 flex w-full items-center justify-center rounded-md border border-black bg-black py-3 px-8 text-base font-medium text-white  focus:ring-black focus:ring-offset-2">
-
-            Create Account
-      
-    </button>
+  <button
+            type="submit" 
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-black bg-black py-3 px-8 text-base font-medium text-dark  focus:ring-black focus:ring-offset-2"
+              >
+                Create Account
+              </button>
 </form>
     
 </section>
