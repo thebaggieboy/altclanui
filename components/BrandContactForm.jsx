@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import BrandSignupTab from "@/components/BrandSignupTab"
+
 export default function BrandContactForm() {
   return (
     <div className="w-100 p-20 ">
