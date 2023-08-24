@@ -45,8 +45,8 @@ export default function Home() {
         <link rel="icon" href="/alteclan_logo.jpg" />
       </Head>
       <HeaderTab />
-      
-     
+
+      <div className={styles.mainComponents}>
         <CarouselWrapper
           autoplay={{ delay: 2500 }}
           disableOnInteraction={false}
@@ -62,9 +62,9 @@ export default function Home() {
         <MainColumn />
         <FullImages />
         <NewIn />
-        <Sponsored />
-        <MoreToExplore/>
-        <Category/> 
+        {/* <Sponsored />
+        <MoreToExplore/> */}
+        {/* <Category/>  */}
         
        
         
@@ -87,6 +87,7 @@ export default function Home() {
         
         <Cards /> 
         <Form />
+        </div>
 
     </>
   )
