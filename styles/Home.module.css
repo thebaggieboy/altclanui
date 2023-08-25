@@ -1531,3 +1531,8 @@ div.scrollImages a {
     font-size: 0.8em;
   }
 }
+
+.mainComponents{
+  max-width: 90%;
+  margin: auto;
+}

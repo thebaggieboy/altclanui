@@ -15,11 +15,9 @@ export default function form() {
 
             <div className={styles.formCol}>
                 <form action="">
-                 
-
                     <input type="email" className={styles.email}  placeholder="Email Address"/>
 
-                    <button type="submit" className="p-2 bg-white border text-dark">
+                    <button type="submit" className={styles.submit}>
                         Sign up
                     </button>
 
