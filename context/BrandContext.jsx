@@ -35,6 +35,14 @@ const initialState = {
             imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
             imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
           },
+          {
+            id: 5,
+            name: 'Machined Mechanical Pencil',
+            href: '#',
+            followers: '1m',
+            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+            imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+          },
     ]
 }
 
@@ -53,7 +61,7 @@ export function BrandContextProvider({children}){
       });
     }
   
-    function addBrands(transaction) {
+    function addBrands(brands) {
       dispatch({
         type: 'ADD_BRANDS',
         payload: brands
