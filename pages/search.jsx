@@ -41,7 +41,7 @@ const categories = [
 export default function Search() {
   return (
    
-  <div className="p-10 m-2 ">
+  <div className="p-5 m-2 ">
       <div className="mx-auto ">
 
 <form className="flex items-center">   

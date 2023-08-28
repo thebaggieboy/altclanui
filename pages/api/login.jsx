@@ -6,6 +6,7 @@ import { useState } from 'react';
 export default function handler(req, res) {
     const { email, password }  = req.body;
 
+    // Sign the user credentials
     jwt.sign({email, password}, 'secretkey', { expiresIn:'30s' }, (err, token)=>{
         //res.status(200)
         res.json({
