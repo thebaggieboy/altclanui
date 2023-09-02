@@ -3,8 +3,8 @@ import CartReducer from './CartReducer'
 
 const initialState = {
     cart:[
-     
-    ]
+   
+    ] 
 }
 
 // Create a context
@@ -22,10 +22,10 @@ export function CartContextProvider({children}){
       });
     }
   
-    function addToCart(cart) {
+    function addToCart(id) {
       dispatch({
         type: 'ADD_ITEM_TO_CART',
-        payload: cart
+        payload: id
       });
     }
 

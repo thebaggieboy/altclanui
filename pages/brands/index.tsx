@@ -1,5 +1,6 @@
 import BrandHeaderTab from "@/components/brands/BrandHeaderTab"
 import styles from "@/styles/brand.module.css";
+import useBrands from '@/hooks/useBrands'
 
 const brands = [
   {
@@ -38,6 +39,18 @@ const brands = [
 ]
 
 export default function Brands() {
+
+  const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
+
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
   return (
     <div className="bg-white">
       <BrandHeaderTab/>
