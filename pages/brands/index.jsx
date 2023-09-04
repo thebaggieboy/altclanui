@@ -32,7 +32,7 @@ export default function Brands() {
   }
 
   if (error) {
-    return <p>Error</p>;
+    return <p>Error {error.message}</p>;
   }
 
   return (

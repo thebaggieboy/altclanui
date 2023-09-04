@@ -124,7 +124,7 @@ export default function Filter() {
   }
 
   if (error) {
-    return <p>Error</p>;
+    return <p>Error {error.message}</p>;
   }
   return (
     <div className="bg-white">
