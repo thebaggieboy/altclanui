@@ -2,42 +2,6 @@ import BrandHeaderTab from "@/components/brands/BrandHeaderTab"
 import styles from "@/styles/brand.module.css";
 import useBrands from '@/hooks/useBrands'
 
-const brands = [
-  {
-    id: 1,
-    name: 'Earthen Bottle',
-    href: '/brands/brandProfile',
-    followers: '48k',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-  },
-  {
-    id: 2,
-    name: 'Nomad Tumbler',
-    href: '#',
-    followers: '35k',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-  },
-  {
-    id: 3,
-    name: 'Focus Paper Refill',
-    href: '#',
-    followers: '89.4k',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a brandivity paper card.',
-  },
-  {
-    id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    followers: '1m',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-  },
-  // More brands...
-]
-
 export default function Brands() {
 
   const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
