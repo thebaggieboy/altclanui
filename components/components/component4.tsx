@@ -51,20 +51,6 @@ const products = [
 export default function newIn() {
     return (
         <>
-            <div className={styles.header}>
-            <div>
-                <p>
-                    New Merch: handpicked from the social media’s best brands and boutiques
-                </p>
-            </div>
-
-                <div className={styles.textRight}>
-                    <p>
-                        Shop Now
-                    </p>
-                </div>
-            </div>
-
             <div className={styles.row}>
                 {products.map((product) => (
                     <div key={product.id}>

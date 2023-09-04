@@ -14,14 +14,14 @@ export default function form() {
             </div>
 
             <div className={styles.formCol}>
-                <form action="">
+                <form action="" className="mt-1" p-1 mx-auto>
                     <input type="email" className={styles.email}  placeholder="Email Address"/>
 
                     <button type="submit" className={styles.submit}>
                         Sign up
                     </button>
 
-                </form>
+                </form> <br/>
 
                 <p className={styles.signUp}>
                     By signing up, you consent to receiving marketing by email and/or SMS and acknowledge you have read our Privacy Policy. 
