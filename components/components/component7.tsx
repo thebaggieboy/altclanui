@@ -26,9 +26,9 @@ export default function form() {
                 <p className={styles.signUp}>
                     By signing up, you consent to receiving marketing by email and/or SMS and acknowledge you have read our Privacy Policy. 
                     Unsubscribe anytime at the bottom of our emails or by replying STOP to any of our SMS.
-                </p>
+                </p> 
                 
-            </div>
+            </div> <br/>
 
         </div>
     );
