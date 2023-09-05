@@ -69,7 +69,7 @@ export default function Home() {
        
         
 
-         <div className="m-2">
+         <div className="mt-2">
          <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>
          <br/>
          <CarouselWrapper
