@@ -62,8 +62,8 @@ export default function Home() {
         <MainColumn />
         <FullImages />
         <NewIn />
-        {/* <Sponsored />
-        <MoreToExplore/> */}
+       
+        <MoreToExplore/>
         {/* <Category/>  */}
         
        

@@ -5,9 +5,9 @@ import BrandSignupTab from "@/components/BrandSignupTab"
 export default function BrandContactForm() {
   return (
     <div className="w-100 ">
-<section className="p-10">
+<section className="p-5">
 
-<form className="p-5">
+<form className="">
   <div className="mb-6">
     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mobile Number</label>
     <input type="text" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />

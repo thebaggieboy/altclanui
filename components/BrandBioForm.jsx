@@ -37,6 +37,8 @@ export default function BrandSignUpForm() {
   <option>Wristwatches & Handbands</option>
   <option>Art</option>
   <option>Skates & Boards</option>
+  <option>Caps</option>
+  <option>Masks</option>
 </select>
 
       
