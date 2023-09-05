@@ -2,7 +2,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 
-
 export default function Cart() {
     const [show, setShow] = useState(false);
     return (

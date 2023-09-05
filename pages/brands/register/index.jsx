@@ -9,8 +9,9 @@ export default function Register() {
 
       <BrandSignupTab/>
 
-<div className="container mt-2 p-5  lead text-sm justify-center text-center">
-<p>      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores earum numquam sint, velit saepe perspiciatis eum cupiditate aperiam officiis suscipit dolorum labore. Ex, excepturi quam ipsum minima fugit corporis vero.     </p> 
+<div className="container mt-3 p-5  lead text-sm justify-center text-center">
+<p>     Join our community as a brand member and start expanding your creative audience. 
+  To do so proceed by create an account with your brands email address or work email.    </p> 
   </div>
 
         <BrandSignUpForm/>
