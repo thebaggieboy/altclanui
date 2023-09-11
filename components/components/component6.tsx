@@ -29,7 +29,9 @@ const contents = [
 
 export default function cards() {
     return (
-        <div className={styles.row}>
+       <>
+       <div className="p-5">
+       <div className={styles.row}>
             {contents.map((content) => (
                 <div key={content.id}>
                     <a key={content.id} href={content.href}>
@@ -51,6 +53,9 @@ export default function cards() {
                 </div>
             ))}
         </div>
+       </div>
+       
+       </>
 
     );
 };

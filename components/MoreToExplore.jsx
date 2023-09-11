@@ -44,7 +44,7 @@ export default function about() {
             </div>
           </div>
         </div>
-      </div>
+      </div> <br/>
       
     </div>
   )

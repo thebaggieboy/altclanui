@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "@/styles/brand.module.css";
 
-const Profile = () => {
+const Profile = (req, res) => {
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
 	const [subSec, setSubSec] = useState({

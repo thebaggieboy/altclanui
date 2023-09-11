@@ -13,7 +13,7 @@ export default function SignUp() {
     const submit = async(e) => {
         e.preventDefault();
         console.log("Button was clicked")
-        await fetch('/api/login', {
+        await fetch('/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -3,38 +3,6 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import useBrands from "@/hooks/useBrands"
-const products = [
-  {
-    id: 1,
-    name: 'Basic Tee',
-    href: '/products/basic_tee',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-      id: 2,
-      name: 'Basic Tee 2',
-      href: '/products/basic_tee',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$45',
-      color: 'Black',
-    },
-
-    {
-      id: 3,
-      name: 'Basic Tee 3',
-      href: '/products/basic_tee',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-    },
-
-  // More products...
-]
 
 
 const sortOptions = [
@@ -231,7 +199,7 @@ export default function Filter() {
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pt-5 pb-6">
-            <h4 className="text-3xl font-bold tracking-tight text-gray-900">New Arrivals</h4>
+            <h4 className="text-2xl font-bold tracking-tight text-gray-900">Explore</h4>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">

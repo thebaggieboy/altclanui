@@ -3,6 +3,9 @@ import { useState, useContext } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { ProductContext } from '@/context/ProductContext'
+import { CartContext } from '@/context/CartContext'
+
+
 const product = {
   name: 'Basic Tee 6-Pack',
   price: '$192',
@@ -64,7 +67,8 @@ function classNames(...classes) {
 export default function Example({slug}) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
-  const {setSelectedProducts} = useContext(ProductContext)
+  const {products} = useContext(ProductContext)
+  const {addToCart} = useContext(CartContext)
   const [open, setOpen] = useState(false)
   function addProduct(){
     setSelectedProducts(prev => [...prev, slug])
@@ -270,7 +274,7 @@ export default function Example({slug}) {
               </div>
 
               <button
-               onClick={addProduct}
+               onClick={addToCart}
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-black bg-black py-3 px-8 text-base font-medium text-white  focus:ring-black focus:ring-offset-2"
               >
                 Add to cart
