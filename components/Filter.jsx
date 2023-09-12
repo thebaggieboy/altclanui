@@ -1,8 +1,9 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useContext, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import useBrands from "@/hooks/useBrands"
+import { CartContext } from '@/context/CartContext'
 
 
 const sortOptions = [
@@ -65,6 +66,7 @@ export default function Filter() {
 
   const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const {cart, addToCart} = useContext(CartContext)
 
 
   if (loading) {
@@ -346,7 +348,7 @@ export default function Filter() {
             
       <a
         className="pl-2 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-        href="#">
+        href={{addToCart}}>
         <span className="[&>svg]:w-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -4,8 +4,11 @@ import { useState } from 'react';
 
 
 export default function handler(req, res) {
+
+      
     const [authToken, setAuthToken] = useState('');
     const { email, password }  = req.body;
+    
 
     // Sign the user credentials
     jwt.sign({email, password}, 'secretkey', { expiresIn:'30s' }, (err, token)=>{
@@ -13,6 +16,7 @@ export default function handler(req, res) {
         res.json({
             token
         })
+
         console.log(`Token: ${token}`)
         // Save token in localStorage
         setAuthToken(token)
@@ -20,9 +24,10 @@ export default function handler(req, res) {
         console.log(localStorage.setItem('token', authToken));
         // Save token in TokenContext
 
-    })
-    
 
-    
+    })
+        // Make a POST or PUT request here
+        
+  
     console.log(`Email: ${email}, Password: ${password}`)
 }

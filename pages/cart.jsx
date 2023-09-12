@@ -11,10 +11,10 @@ export default function Cart() {
       return <>
       <div className="text-center text-black-700 p-10 mt-10 mb-10">
       <p>There are no items in your cart</p><br/>
-      <button className="bg-black bg-rounded p-3 text-white">Add to cart</button>
+      <button className="bg-black bg-rounded p-3 text-white"> <Link href="/products">Start shopping</Link> </button>
       </div>
       </>
-    }
+    }0
 
     return (
         <>
@@ -22,7 +22,7 @@ export default function Cart() {
        <section className="bg-gray-100 py-12 sm:py-16 lg:py-20">
   <div className="mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex items-center justify-center">
-      <h1 className="text-2xl font-semibold text-gray-900">Your Cart</h1>
+      <h1 className="text-2xl font-semibold text-gray-900"> <Link href="/products">Your Cart</Link> </h1>
     </div>
 
   

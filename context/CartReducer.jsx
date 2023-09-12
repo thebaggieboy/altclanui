@@ -22,7 +22,7 @@ export default (state, action) => {
             return {
               ...state,
               cart: [...state.cart, { ...action.payload, quantity: 1 }],
-            };
+            }; 
           }
       case 'ADD_ITEM_TO_CART':
         return {

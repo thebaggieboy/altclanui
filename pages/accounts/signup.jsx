@@ -6,20 +6,26 @@ import styles from "@/styles/login.module.css";
 export default function SignUp() {
     
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    
+    const [password, setPassword] = useState('');    
     const router = useRouter();
-
     const submit = async(e) => {
         e.preventDefault();
         console.log("Button was clicked")
-        await fetch('/api/signup', {
+        const response = await fetch('/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify({email, password})
         })
+        if (response.ok) {
+            const data = await response.json();
+            console.log('API response:', data);
+            // Handle success, reset the form, or perform other actions
+          } else {
+            console.error('API error:', response.statusText);
+            // Handle error, show error messages, etc.
+          }
 
 
         await router.push('/accounts/login')
