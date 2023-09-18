@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-// @ts-nocheck
-
 import React, { useState, useEffect } from 'react';
 import styles from "../styles/Users/userProfile.module.css";
 import MainTab from '@/components/user-profile/Tabs/mainTab';

@@ -5,7 +5,7 @@ export default function BrandSignup() {
     <div className="">
    
       
-<section className="p-5">
+<section className="p-10">
 
 <form className="">
 

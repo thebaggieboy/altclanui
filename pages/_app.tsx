@@ -8,6 +8,7 @@ import Layout from '@/components/Layout'
 
 import {ProductsContextProvider} from '@/context/ProductContext'
 import {CartContextProvider} from '@/context/CartContext'
+import {TokenContextProvider} from '@/context/TokenContext'
 
 
 
@@ -17,12 +18,14 @@ export default function App({ Component, pageProps }: AppProps) {
   
   return(
     <>
-     
-      <CartContextProvider>
+     <TokenContextProvider>
+     <CartContextProvider>
             <Layout>
             <Component {...pageProps} />
             </Layout>
         </CartContextProvider>
+     </TokenContextProvider>
+    
 
     </>
       

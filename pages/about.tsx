@@ -97,8 +97,7 @@ export default function about() {
               </p>
               <p>
                 It provides a sense of belonging and community for individuals who may feel isolated or marginalized in mainstream society. 
-                Many people who identify with anti-mainstream cultures may feel like they don't fit in with the dominant culture and values of society, and may not have a sense of connection to others who share their interests and values. 
-                By providing a space where these individuals can connect with others who share their interests and beliefs, your platform can help to reduce feelings of isolation and build a sense of community among its users.
+              
               </p>
             </div>
           </div>
@@ -112,7 +111,7 @@ export default function about() {
               </p>
               <p>
                 It offers a unique and authentic way of exploring different subcultures and movements. Our platform provides an opportunity for people to interact and learn from different anti-mainstream cultures. 
-                It can also be a way for them to find like-minded people and engage in meaningful conversations, which can be hard to find in mainstream society.
+               
               </p>
             </div>
             <div className={styles.columnTwo}>
@@ -132,7 +131,7 @@ export default function about() {
               </p>
               <p>
                 It amplifies the voices and visibility of anti-mainstream cultures in mainstream society. 
-                By connecting a large number of people from different subcultures and movements, your platform can help to give these groups a greater presence and influence in mainstream society. 
+                By connecting a large number of people from different subcultures
                 It can also be a platform for them to express their views and ideas, which can be heard and seen by a wider audience.
               </p>
             </div>

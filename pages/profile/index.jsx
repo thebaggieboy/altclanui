@@ -1,9 +1,25 @@
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "@/styles/brand.module.css";
 
+import { TokenContext } from '@/context/TokenContext'
+import { useRouter } from 'next/router';
+import useToken from "../../hooks/useToken";
 const Profile = (req, res) => {
+	
+	const { token } = useContext(TokenContext);
+	const jwtToken = token;
+	const { data, error } = useToken('http://localhost:8000/api/users/');
+
+
+	useEffect(() => {
+		console.log(jwtToken)
+		//console.log(data);
+
+	  }, [jwtToken, data]);
+
+
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
 	const [subSec, setSubSec] = useState({
@@ -36,6 +52,10 @@ const Profile = (req, res) => {
 			password: "**********",
 		},
 	};
+	
+	if (error) {
+		return <p>Error {error.message}</p>;
+	  }
 
 	return (
 		<>
@@ -133,7 +153,7 @@ const Profile = (req, res) => {
 					{activeSection === "gallery" && (
 						<div className={styles.galleryContent}>
 							<div className="gallery">
-								<div class="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-5">
+								<div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-5">
 									<div>
 										<img src="https://images.unsplash.com/photo-1632282003890-020318a49e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1546&q=80" alt="" />
 									</div>
@@ -157,7 +177,7 @@ const Profile = (req, res) => {
 					{activeSection === "inventory" && (
 						<div className={styles.galleryContent}>
 							<div className="inventory">
-								<div class="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10">
+								<div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10">
 									<div className={styles.inventory}>
 										<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80" alt="" />
 										<p>
@@ -227,5 +247,6 @@ const Profile = (req, res) => {
 		</>
 	);
 };
+
 
 export default Profile;
