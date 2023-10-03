@@ -9,26 +9,11 @@ const initialState = {
 export const ProductContext = createContext({initialState})
 
 export function ProductsContextProvider({children}){
-    const [state, dispatch] = useReducer(ProductReducer, initialState);
+    //const [state, dispatch] = useReducer(ProductReducer, initialState);
+    const [selectedProducts, setSelectedProducts] = useState([]);
 
-    // Actions
-    function deleteProducts(id) {
-      dispatch({
-        type: 'DELETE_NEW_PRODUCTS',
-        payload: id
-      });
-    }
-  
-    function newProducts(products) {
-      dispatch({
-        type: 'ADD_NEW_PRODUCTS',
-        payload: products
-      });
-    }
-
-    
     return(
-        <ProductContext.Provider value={{products:state.products, deleteProducts, newProducts}}>
+        <ProductContext.Provider value={{selectedProducts, setSelectedProducts}}>
             {children}
         </ProductContext.Provider>
     )

@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "components/CarouselWrapper.jsx", "components/headers/index.jsx", "components/ProfileForm.jsx", "pages/accounts/login.jsx", "pages/accounts/signup.jsx", "pages/api/login.jsx", "pages/api/secrets.jsx", "components/ImagesDiv.jsx", "components/headers/HeaderNav.jsx", "components/product-card/ProductCard.jsx", "components/Category.jsx", "pages/search.jsx", "pages/contact.jsx", "pages/contact.jsx", "pages/checkout.jsx", "pages/checkout2.jsx", "components/components/component5.jsx", "pages/brands/index.jsx", "pages/cart.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "components/CarouselWrapper.jsx", "components/headers/index.jsx", "components/ProfileForm.jsx", "pages/accounts/login.jsx", "pages/accounts/signup.jsx", "pages/api/login.jsx", "pages/api/secrets.jsx", "components/ImagesDiv.jsx", "components/headers/HeaderNav.jsx", "components/product-card/ProductCard.jsx", "components/Category.jsx", "pages/search.jsx", "pages/contact.jsx", "pages/contact.jsx", "pages/checkout.jsx", "pages/checkout2.jsx", "components/components/component5.jsx", "pages/brands/index.jsx", "pages/cart.jsx", "pages/products/index.jsx"],
   "exclude": ["node_modules"]
 }

@@ -6,19 +6,12 @@ import styles from "@/styles/brand.module.css";
 import { TokenContext } from '@/context/TokenContext'
 import { useRouter } from 'next/router';
 import useToken from "../../hooks/useToken";
+
 const Profile = (req, res) => {
 	
-	const { token } = useContext(TokenContext);
-	const jwtToken = token;
-	const { data, error } = useToken('http://localhost:8000/api/users/');
-
-
-	useEffect(() => {
-		console.log(jwtToken)
-		//console.log(data);
-
-	  }, [jwtToken, data]);
-
+	const { data, error, jwtToken } = useToken('http://localhost:8000/api/users/');
+	console.log(data)
+	console.log(jwtToken)
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 

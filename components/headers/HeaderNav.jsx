@@ -118,10 +118,9 @@ function classNames(...classes) {
 export default function HeaderNav() {
   const {cart} = useContext(CartContext)
   const [open, setOpen] = useState(false)
+  const {selectedProducts} =  useContext(ProductContext)
 
-  function addProduct(){
-    setSelectedProducts(prev => [...prev, slug])
-  }
+
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -430,7 +429,7 @@ export default function HeaderNav() {
                       className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cart.length}</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{selectedProducts.length}</span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
                 </div>

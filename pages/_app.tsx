@@ -19,11 +19,13 @@ export default function App({ Component, pageProps }: AppProps) {
   return(
     <>
      <TokenContextProvider>
-     <CartContextProvider>
-            <Layout>
+
+        <ProductsContextProvider>
+        <Layout>
             <Component {...pageProps} />
             </Layout>
-        </CartContextProvider>
+        </ProductsContextProvider>
+     
      </TokenContextProvider>
     
 

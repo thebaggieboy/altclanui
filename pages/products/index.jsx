@@ -4,6 +4,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import useBrands from "@/hooks/useBrands"
 import { CartContext } from '@/context/CartContext'
+import { ProductContext } from '@/context/ProductContext'
 
 
 const sortOptions = [
@@ -62,15 +63,18 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Filter() {
+export default function Products({_id, merchandise_name, price, picture}) {
 
   const { data, loading, error } = useBrands('http://localhost:8000/api/merchandises/');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const {cart, addToCart} = useContext(CartContext)
+  const {selectedProducts, setSelectedProducts} = useContext(ProductContext)
 
-  const addProductToCart = (()=>{
-    
-  })
+  function addProductToCart(){
+    console.log("Cart button clicked")
+    setSelectedProducts(prev => [...prev, _id])
+    console.log(selectedProducts)
+}
 
 
   if (loading) {
@@ -348,11 +352,13 @@ export default function Filter() {
              
                     </h3>
                     <p className="mt-1 text-sm text-gray-500">{product.price}</p>
+
+                    
                   </div>
             
-      <a
-        className="pl-2 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-        href={{addToCart}}>
+      <button
+        className="pl-2 text-neutral-600 transition duration-200 hover:text-neutral-700"
+        onClick={addToCart}>
         <span className="[&>svg]:w-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -363,7 +369,7 @@ export default function Filter() {
               d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
           </svg>
         </span>
-      </a>
+      </button>
                 </div>
               </div>
             ))}

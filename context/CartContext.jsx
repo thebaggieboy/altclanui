@@ -1,9 +1,10 @@
 import {createContext, useState, useReducer} from 'react'
 import CartReducer from './CartReducer'
+import { ProductContext } from './ProductContext'
 
 const initialState = {
     cart:[ 
-  
+ 
     ] 
 }
 
@@ -24,7 +25,7 @@ export function CartContextProvider({children}){
   
     function addToCart(id) {
       dispatch({
-        type: 'ADD_ ITEM_TO_CART',
+        type: 'ADD_TO_CART',
         payload: id
       });
     }
