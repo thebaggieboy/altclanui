@@ -171,15 +171,23 @@ export default function HeaderNav() {
                       Home
                     </a>
                   </div>
-                  <div className="flow-root">
-                    <a href="/accounts/login" className="block p-2 -m-2 font-medium text-gray-900">
-                      Sign in
-                    </a>
-                  </div>
+
                   <div className="flow-root">
                     <a href="/accounts/signup" className="block p-2 -m-2 font-medium text-gray-900">
                       Create account
                     </a>
+                  </div>
+                  <div className="flow-root">
+                    
+                <div className="  space-y-6 ">
+                  {navigation.pages.map((page) => (
+                    <div key={page.name} className="flow-root">
+                      <a href={page.href} className="block p-2 -m-2 font-medium text-gray-900">
+                        {page.name}
+                      </a>
+                    </div>
+                  ))}
+                </div>
                   </div>
                 </div>
                   <div className="border-b border-gray-200">
@@ -243,15 +251,6 @@ export default function HeaderNav() {
                   </Tab.Panels>
                 </Tab.Group>
 
-                <div className="px-4 py-6 space-y-6 border-t border-gray-200">
-                  {navigation.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
-                      <a href={page.href} className="block p-2 -m-2 font-medium text-gray-900">
-                        {page.name}
-                      </a>
-                    </div>
-                  ))}
-                </div>
 
                 
 
