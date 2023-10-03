@@ -8,7 +8,9 @@ import { ProductContext } from '@/context/ProductContext'
 import { CartContext } from '@/context/CartContext'
 
 const navigation = {
+  
   categories: [
+    
     {
       id: 'women',
       name: 'Women',
@@ -22,6 +24,7 @@ const navigation = {
         {
           name: 'Basic Tees',
           href: '#',
+
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
@@ -163,6 +166,11 @@ export default function HeaderNav() {
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
                 <div className=" px-4 py-6 space-y-6 border-t border-gray-200">
+                <div className="flow-root">
+                    <a href="/accounts/login" className="block p-2 -m-2 font-medium text-gray-900">
+                      Home
+                    </a>
+                  </div>
                   <div className="flow-root">
                     <a href="/accounts/login" className="block p-2 -m-2 font-medium text-gray-900">
                       Sign in
