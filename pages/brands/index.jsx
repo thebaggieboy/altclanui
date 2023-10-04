@@ -61,7 +61,7 @@ export default function Brands() {
             <a key={brand.id} href={brand.href} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
                 <img
-                  src={brand.logo}
+                  src={brand.brand_logo}
                   alt={brand.imageAlt}
                   className="object-cover object-center w-full h-full group-hover:opacity-75"
                 />
