@@ -65,7 +65,7 @@ function classNames(...classes) {
 
 export default function Products({_id, merchandise_name, price, picture}) {
 
-  const { data, loading, error } = useBrands('http://localhost:8000/api/merchandises/');
+  const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const {cart, addToCart} = useContext(CartContext)
   const {selectedProducts, setSelectedProducts} = useContext(ProductContext)
@@ -338,7 +338,7 @@ export default function Products({_id, merchandise_name, price, picture}) {
               <div key={product.id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
-                    src={product.imageSrc}
+                    src={product.display_image}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
@@ -351,7 +351,7 @@ export default function Products({_id, merchandise_name, price, picture}) {
                         {product.merchandise_name}
              
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">{product.price}</p>
+                    <p className="mt-1 text-sm text-gray-500">₦{product.price}</p>
 
                     
                   </div>
