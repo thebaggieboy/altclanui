@@ -8,9 +8,16 @@ import { ProductContext } from '@/context/ProductContext'
 import { CartContext } from '@/context/CartContext'
 
 const navigation = {
+  pages: [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Become a brand', href: '/brands/register/' },  
+  
+  ],
   
   categories: [
-    
+
+ 
     {
       id: 'women',
       name: 'Women',
@@ -106,12 +113,7 @@ const navigation = {
       ],
     },
   ],
-  pages: [
-    { name: 'About', href: '/about' },
-    { name: 'Categories', href: '/collections' },
-    { name: 'Become a brand', href: '/brands/register/' },  
-  
-  ],
+
 }
 
 function classNames(...classes) {
@@ -125,7 +127,7 @@ export default function HeaderNav() {
 
 
   return (
-    <div className="bg-white">
+    <div className="sticky top-0 z-50 bg-white">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -141,7 +143,7 @@ export default function HeaderNav() {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-40 flex">
+          <div className="fixed inset-0 z-50 flex">
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"
@@ -172,11 +174,6 @@ export default function HeaderNav() {
                     </a>
                   </div>
 
-                  <div className="flow-root">
-                    <a href="/accounts/signup" className="block p-2 -m-2 font-medium text-gray-900">
-                      Create account
-                    </a>
-                  </div>
                   <div className="flow-root">
                     
                 <div className="  space-y-6 ">

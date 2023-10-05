@@ -1,51 +1,71 @@
-import React from 'react'
-import BrandSignUpForm from "@/components/BrandSignUpForm"
-import BrandSignupTab from "@/components/BrandSignupTab"
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react'
+import styles from "@/styles/login.module.css";
+
+export default function SignUp(req, res) {
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');   
+    const [jwtToken, setJwtToken] = useState(''); 
+    const router = useRouter();
+    const submit = async(e) => {
+        e.preventDefault();
+        console.log("Signup button was clicked")
+        await fetch('/api/signup/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+         
+            },
+            body:JSON.stringify({email, password})
+        })
+        
+        await router.push('/profile')
+    }
 
 
-export default function Register() {
 
   return (
-    <div>
+    <div className="">
+        <div className={styles.loginContainer}>
+        <div className={styles.columnImage}>
+            <img src="https://media.everlane.com/image/upload/c_fill,w_828,ar_380:655,q_auto,dpr_1.0,f_auto,fl_progressive:steep/Modal_Desktop-05102022_pyajh1" alt="" className={styles.img}/>
+        </div>
 
-      <BrandSignupTab/>
+        <div className={styles.columnText}>
+            <form className={styles.form}  onSubmit={submit}>
+                <Link href="#" className={styles.head}>
+                    <img className={styles.logo} src="/alteclan_logo.jpg" alt="logo"/>
+                    {/* Altclan     */}
+                </Link>
 
-      <section className="p-10">
+                <h1 className={styles.greeting}>Join the clan</h1>
+                <p className={styles.login}>Create a brand account to become part of our community</p>
 
-<form className="">
+                <div>
+                    {/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
+                    <input type="email" onChange={e => setEmail(e.target.value)} name="email" id="email" className={styles.input} placeholder="name@company.com" required/>
+                </div>
+                <div>
+                    {/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
+                    <input type="password" onChange={e => setPassword(e.target.value)} name="password" id="password" placeholder="•••••••" className={styles.input} required/>
+                </div>
+                <div>
 
-<label for="email-address-icon" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
-<div className="relative">
-  <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-    <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-      <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-      <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-    </svg>
-  </div>
-  <input type="email" id="email-address-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@brand.com" required />
-</div>
-<br/>
-  <div className="mb-6">
-    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-    <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-  </div>
-  <div className="flex items-start mb-6">
-    <div className="flex items-center h-5">
-      <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
-    </div>
-    <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-  </div>
- 
-  <button
-            type="submit" 
-                className="mt-2 flex w-full items-center justify-center rounded-md border border-black bg-black py-3 px-8 text-base font-medium text-dark  focus:ring-black focus:ring-offset-2"
-              >
-                Create Account
-              </button>
-</form>
-    
-</section>
+                </div>
 
+                <button type="submit" className={styles.submit}>
+                    Create an account
+                </button>
+   
+                  <p className={styles.alternative}>
+                      Already have an account? 
+                      <Link href="/accounts/login" className={styles.link}>Login here</Link>
+                  </p>
+              </form>
+        </div>
+        </div>
     </div>
   )
 }
