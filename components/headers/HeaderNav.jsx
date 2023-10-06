@@ -11,7 +11,7 @@ const navigation = {
   pages: [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Become a brand', href: '/brands/register/' },  
+    { name: 'Create an account', href: '/accounts/signup/' },  
   
   ],
   
@@ -400,7 +400,7 @@ export default function HeaderNav() {
                   </a>
                   <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
                   <a href="/accounts/signup" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
+                    Start a brand
                   </a>
                 </div>
 
