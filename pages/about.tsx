@@ -13,12 +13,12 @@ export default function about() {
         </h1>
 
         <p>
-          Our startup aims to solve the problem of isolation and lack of community among people who identify with anti-mainstream cultures. 
+        Our startup aims to solve the problem of isolation and lack of community among people who identify with anti-mainstream cultures & fashion. 
           Many individuals who identify with these subcultures may feel like they are outsiders or marginalized in mainstream society, and may not have a sense of belonging or connection to others who share their interests and values. 
 
           By creating a platform that connects people from different anti-mainstream cultures together, our startup aims to build a sense of community and belonging among these individuals. 
-          This can help to reduce feelings of isolation and provide a supportive environment for individuals to express themselves and explore their interests. 
-          By fostering a community of people who share similar values and beliefs, your platform can also help to amplify the voices of these subcultures and give them a greater presence in mainstream society.
+          This can help to reduce feelings of isolation and provide a supportive environment for individuals to express themselves and explore their interests in fashion and aesthetics. 
+         
         </p>
       </div>
 
@@ -96,7 +96,7 @@ export default function about() {
                 First
               </p>
               <p>
-                It provides a sense of belonging and community for individuals who may feel isolated or marginalized in mainstream society. 
+                It provides a sense of belonging and community for individuals who may feel isolated in mainstream society. 
               
               </p>
             </div>
@@ -110,7 +110,7 @@ export default function about() {
                 Second
               </p>
               <p>
-                It offers a unique and authentic way of exploring different subcultures and movements. Our platform provides an opportunity for people to interact and learn from different anti-mainstream cultures. 
+     Our platform provides an opportunity for people to interact and learn from different unethical and anti-mainstream cultures. 
                
               </p>
             </div>
@@ -130,9 +130,7 @@ export default function about() {
                 Third
               </p>
               <p>
-                It amplifies the voices and visibility of anti-mainstream cultures in mainstream society. 
-                By connecting a large number of people from different subcultures
-                It can also be a platform for them to express their views and ideas, which can be heard and seen by a wider audience.
+                It can also be a platform for individuals to express their views and ideas, which can be heard and seen by a wider audience.
               </p>
             </div>
           </div>
@@ -145,7 +143,7 @@ export default function about() {
                 Fourth
               </p>
               <p>
-                It can be a source of inspiration for people looking to start their own projects or movements. 
+                It can be a source of inspiration for people looking to start their own brands, projects or movements. 
                 Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. 
                 This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
               </p>
