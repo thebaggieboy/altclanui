@@ -12,6 +12,7 @@ export default function handler(req, res) {
         const expires = new Date();
         expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
         document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;secure;HttpOnly;`;
+        console.log('Cookie Name: ' + name)
       };
 
       
@@ -23,6 +24,7 @@ export default function handler(req, res) {
         })
         setCookie('jwtToken', token, 7); // Set the JWT token in the cookie for 7 days   
     })
+    console.log('Api Route')
     console.log('Going to external api')    
     console.log(`Email: ${email}, Password: ${password}, Token: ${token}`)
 
