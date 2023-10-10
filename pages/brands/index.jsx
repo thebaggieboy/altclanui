@@ -15,7 +15,7 @@ export default function Brands() {
 
   ]
 
-  const { data, loading, error } = useBrands('http://localhost:8000/api/brands/');
+  const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
 
 
   if (loading) {
@@ -40,6 +40,11 @@ export default function Brands() {
 </div>
 </div>
 
+  }
+  if(data.length < 0){
+    return(
+      <p>There are no brands yet</p>
+    )
   }
 
   if (error) {
