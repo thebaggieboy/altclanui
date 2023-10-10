@@ -10,7 +10,7 @@ import { CartContext } from '@/context/CartContext'
 const navigation = {
   pages: [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'About us', href: '/about' },
     { name: 'Create an account', href: '/accounts/signup/' },  
     { name: 'Shop Merch', href: '/products' },  
     { name: 'Start a brand', href: '/brands' },  
