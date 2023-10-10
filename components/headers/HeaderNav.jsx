@@ -12,6 +12,8 @@ const navigation = {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Create an account', href: '/accounts/signup/' },  
+    { name: 'Shop Merch', href: '/products' },  
+    { name: 'Start a brand', href: '/brands' },  
   
   ],
   
@@ -170,7 +172,7 @@ export default function HeaderNav() {
                 <div className=" px-4 py-6 space-y-6 border-t border-gray-200">
                 <div className="flow-root">
                     <a href="/" className="block p-2 -m-2 font-medium text-gray-900">
-                      Home
+                      
                     </a>
                   </div>
 
@@ -400,7 +402,7 @@ export default function HeaderNav() {
                   </a>
                   <span className="w-px h-6 bg-gray-200" aria-hidden="true" />
                   <a href="/accounts/signup" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Start a brand
+                    Sign Up
                   </a>
                 </div>
 

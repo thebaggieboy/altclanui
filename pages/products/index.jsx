@@ -6,6 +6,7 @@ import useBrands from "@/hooks/useBrands"
 import { CartContext } from '@/context/CartContext'
 import { ProductContext } from '@/context/ProductContext'
 
+import ExploreHeaderTab from "@/components/ExploreHeaderTab"
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -209,7 +210,8 @@ export default function Products({_id, merchandise_name, price, picture}) {
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pt-5 pb-6">
-            <h4 className="text-2xl font-bold tracking-tight text-gray-900">Explore</h4>
+           
+           <ExploreHeaderTab/>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
@@ -364,7 +366,7 @@ export default function Products({_id, merchandise_name, price, picture}) {
         </div>
         <div class="flex items-center justify-between">
             <span class="text-3xl font-bold text-gray-900 dark:text-white">${product.price}</span>
-            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+            <button onClick={addToCart} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
         </div>
     </div>
 </div>

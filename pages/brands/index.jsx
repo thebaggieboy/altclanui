@@ -41,7 +41,7 @@ export default function Brands() {
 </div>
 
   }
-  if(data.length < 0){
+  if(data.length < 1){
     return(
       <p>There are no brands yet</p>
     )
