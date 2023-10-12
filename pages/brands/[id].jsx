@@ -23,13 +23,13 @@ export const getStaticPaths = async()=>{
    const data = await res.json()
  
    return {
-     props: {brands:data}
+     props: {brand:data}
    }
  
  }
 
  
-export default function BrandProfile() {
+export default function BrandProfile({brand}) {
   
   return (
      <div className={styles.brandProfileContent}>
@@ -39,7 +39,7 @@ export default function BrandProfile() {
 
             <div className={styles.right}>
               <h1>
-                Earthen Bottle
+                {brand.brand_name}
               </h1>
               <div className={styles.numbers}>
                 <p>13 items</p>
@@ -47,7 +47,7 @@ export default function BrandProfile() {
               </div>
               
               <p className={styles.about}>
-                Ethically made and sustainable recyclable thermo bottles
+                {brand.bio}
               </p>
               <br/>
             </div>
