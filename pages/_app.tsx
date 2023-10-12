@@ -4,11 +4,11 @@ import 'swiper/scss/pagination'
 import '@/styles/globals.css'
 import '../styles/main.scss'
 import type { AppProps } from 'next/app'
-import Layout from '@/components/Layout'
+import Layout from "../components/Layout"
 
-import {ProductsContextProvider} from '@/context/ProductContext'
-import {CartContextProvider} from '@/context/CartContext'
-import {TokenContextProvider} from '@/context/TokenContext'
+import {ProductsContextProvider} from '../context/ProductContext'
+import {CartContextProvider} from '../context/CartContext'
+import {TokenContextProvider} from '../context/TokenContext'
 
 
 
