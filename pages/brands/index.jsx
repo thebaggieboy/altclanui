@@ -4,18 +4,6 @@ import useBrands from '@/hooks/useBrands'
 import Link from "next/link";
 
 export default function Brands() {
-  const brands = [
-    {
-      id:1,
-      name:"Genesis Youth",
-
-    },
-    {},
-    {},
-    {},
-
-  ]
-
   const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
 
 

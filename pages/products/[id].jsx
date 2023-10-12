@@ -39,7 +39,7 @@ const product = {
   href: '#',
   breadcrumbs: [
     { id: 1, name: 'Men', href: '#' },
-    { id: 2, name: 'Clothing', href: '#' },
+    { id: 2, name: 'Clothing', href: '/products' },
   ],
   images: [
     {

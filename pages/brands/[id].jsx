@@ -47,7 +47,7 @@ export default function BrandProfile({brand}) {
               </div>
               
               <p className={styles.about}>
-                {brand.bio}
+                {brand.brand_bio}
               </p>
               <br/>
             </div>
