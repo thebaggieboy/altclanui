@@ -1,3 +1,4 @@
+import React, { useState, useEffect, Component } from 'react';
 import styles from "@/styles/brand.module.css";
 import MyTabs from '@/src/aboutcounter/brandProfile.js'
 

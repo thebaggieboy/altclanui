@@ -1,5 +1,5 @@
 
-import { useState, useContext } from 'react'
+import React, { useState, useContext, Component } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { ProductContext } from '@/context/ProductContext'

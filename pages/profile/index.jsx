@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useRef, useState, useEffect, useContext } from "react";
+import { useRef, useState, useEffect, useContext, Component } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "@/styles/brand.module.css";
 

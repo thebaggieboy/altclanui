@@ -1,3 +1,4 @@
+import React, { useState, useEffect, Component } from 'react';
 import Category from "@/components/Category"
 import styles from "@/styles/category.module.css";
 
