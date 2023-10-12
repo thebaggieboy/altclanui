@@ -4,7 +4,34 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { ProductContext } from '@/context/ProductContext'
 import { CartContext } from '@/context/CartContext'
+import useData from "@/hooks/useData"
 
+export const getStaticPaths = async()=>{
+ const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/');
+ const data = await res.json();
+ console.log(data)
+ const paths = data.map(merch =>{
+    return {
+      params: { id: merch.id.toString() }
+    }
+ })
+
+    return{
+      paths,
+      fallback:false
+    }
+}
+
+export const getStaticProps = async(context)=>{
+  const id = context.params.id
+  const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/' + id)
+  const data = await res.json()
+
+  return {
+    props: {merch:data}
+  }
+
+}
 
 const product = {
   name: 'Basic Tee 6-Pack',
@@ -64,7 +91,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({_id}) {
+export default function ProductDetail({merch}) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
   const {selectedProducts, setSelectedProducts} = useContext(ProductContext)
@@ -102,8 +129,8 @@ export default function Example({_id}) {
               </li>
             ))}
             <li className="text-sm">
-              <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {product.name}
+              <a href={merch.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+                {merch.name}
               </a>
             </li>
           </ol>
@@ -113,31 +140,31 @@ export default function Example({_id}) {
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
             <img
-              src={product.images[0].src}
-              alt={product.images[0].alt}
+                src='/black-tee.jpg'
+                alt=''
               className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
-                src={product.images[1].src}
-                alt={product.images[1].alt}
+                src='/black-tee.jpg'
+                alt=''
                 className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
-                src={product.images[2].src}
-                alt={product.images[2].alt}
+                src='/black-tee.jpg'
+                alt=''
                 className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
           <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
             <img
-              src={product.images[3].src}
-              alt={product.images[3].alt}
+                src='/black-tee.jpg'
+                alt=''
               className="h-full w-full object-cover object-center"
             />
           </div>
@@ -146,13 +173,13 @@ export default function Example({_id}) {
         {/* Product info */}
         <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{merch.merchandise_name}</h1>
           </div>
 
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">{product.price}</p>
+            <p className="text-3xl tracking-tight text-gray-900">{merch.price}</p>
 
             {/* Reviews */}
             <div className="mt-6">

@@ -1,7 +1,36 @@
 import styles from "@/styles/brand.module.css";
 import MyTabs from '@/src/aboutcounter/brandProfile.js'
 
+export const getStaticPaths = async()=>{
+  const res = await fetch('https://altclan-api-v1.onrender.com/api/brands/');
+  const data = await res.json();
+  console.log(data)
+  const paths = data.map(brand =>{
+     return {
+       params: { id: brand.id.toString() }
+     }
+  })
+ 
+     return{
+       paths,
+       fallback:false
+     }
+ }
+ 
+ export const getStaticProps = async(context)=>{
+   const id = context.params.id
+   const res = await fetch('https://altclan-api-v1.onrender.com/api/brands/' + id)
+   const data = await res.json()
+ 
+   return {
+     props: {brands:data}
+   }
+ 
+ }
+
+ 
 export default function BrandProfile() {
+  
   return (
      <div className={styles.brandProfileContent}>
           <div className={styles.left}>
