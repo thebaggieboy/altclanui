@@ -3,9 +3,9 @@ import  Link  from 'next/link'
 import { Fragment, useContext, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ProductContext } from '@/context/ProductContext'
+import { ProductContext } from '../../context/ProductContext'
 //import Cart from '../Cart'
-import { CartContext } from '@/context/CartContext'
+import { CartContext } from '../../context/CartContext'
 
 const navigation = {
   pages: [
