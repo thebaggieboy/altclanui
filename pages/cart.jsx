@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState, useContext } from "react";
-import { CartContext } from '@/context/CartContext'
-import { ProductContext } from "@/context/ProductContext";
+import { CartContext } from './../context/CartContext'
+import { ProductContext } from "./../context/ProductContext";
 
 
 export default function Cart() {

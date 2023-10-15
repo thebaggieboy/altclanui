@@ -2,9 +2,9 @@
 import React, { useState, useContext, Component } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
-import { ProductContext } from '@/context/ProductContext'
-import { CartContext } from '@/context/CartContext'
-import useData from "@/hooks/useData"
+import { ProductContext } from '../../context/ProductContext'
+import { CartContext } from '../../context/CartContext'
+import useData from "../../hooks/useData"
 
 export const getStaticPaths = async()=>{
  const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/');

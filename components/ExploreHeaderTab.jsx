@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link';
-import styles from "@/styles/brand.module.css";
+import styles from "../styles/brand.module.css"
 
 
 

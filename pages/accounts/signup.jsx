@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import styles from "@/styles/login.module.css";
+import styles from "../../styles/login.module.css";
 
 export default function SignUp(req, res) {
     
@@ -21,7 +21,7 @@ export default function SignUp(req, res) {
             body:JSON.stringify({email, password})
         })
         
-        await router.push('/profile')
+        //await router.push('/profile')
     }
 
 

@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 
-import HeaderTab from '@/components/headers/HeaderTab'
-import Category from '@/components/Category'
+import HeaderTab from './../components/headers/HeaderTab'
+import Category from './../components/Category'
 
 const categories = [
   // More categories...

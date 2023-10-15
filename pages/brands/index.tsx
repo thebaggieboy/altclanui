@@ -1,6 +1,6 @@
-import BrandHeaderTab from "@/components/brands/BrandHeaderTab"
-import styles from "@/styles/brand.module.css";
-import useBrands from '@/hooks/useBrands'
+import BrandHeaderTab from "../../components/brands/BrandHeaderTab"
+import styles from "../../styles/brand.module.css";
+import useBrands from '../../hooks/useBrands'
 import Link from "next/link";
 
 export default function Brands() {

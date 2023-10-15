@@ -1,13 +1,14 @@
+import React, { Component } from 'react'
 import { Fragment, useContext, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
-import useBrands from "@/hooks/useBrands"
-import { CartContext } from '@/context/CartContext'
-import { ProductContext } from '@/context/ProductContext'
+import useData from "../../hooks/useData"
+import { CartContext } from '../../context/CartContext'
+import { ProductContext } from '../..//context/ProductContext'
 import Link from 'next/link'
 
-import ExploreHeaderTab from "@/components/ExploreHeaderTab"
+import ExploreHeaderTab from "../../components/ExploreHeaderTab"
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -67,10 +68,11 @@ function classNames(...classes) {
 
 export default function Products({_id, merchandise_name, price, picture}) {
 
-  const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/');
+  const { data, loading, error } = useData('https://altclan-api-v1.onrender.com/api/merchandises/');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const {cart, addToCart} = useContext(CartContext)
   const {selectedProducts, setSelectedProducts} = useContext(ProductContext)
+  console.log(cart)
 
   function addProductToCart(){
     console.log("Cart button clicked")
