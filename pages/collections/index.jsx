@@ -85,7 +85,7 @@ export default function Collection() {
     <div className={styles.content}>
         <div className="grid sm:grid-cols-3 gap-12 max-w-[100%] mx-auto">
         {products.map((product) => (
-          <div className={styles.card}>
+          <div key={product.id} className={styles.card}>
             <div className={styles.container}>
               <h4>
                 <b>

@@ -348,7 +348,7 @@ export default function Products({_id, merchandise_name, price, picture}) {
         <img className="p-8 rounded-t-lg" src={product.display_image} alt="" />
     </Link>
     <div className="px-5 pb-5">
-        <Link href={'/products/' + product.id}>
+        <Link key={product.id} href={'/products/' + product.id}>
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{product.merchandise_name}</h5>
         </Link>
         <div className="flex items-center mt-2.5 mb-5">

@@ -92,10 +92,10 @@ export default function Cart() {
           </div>
 
           <div className="mt-6 text-center">
-            <a href="/checkout"  className="bg-black rounded p-3 text-lg text-white w-full ">
+            <Link href="/checkout"  className="bg-black rounded p-3 text-lg text-white w-full ">
               Checkout
              
-            </a>
+            </Link>
           </div>
         </div>
       </div>
