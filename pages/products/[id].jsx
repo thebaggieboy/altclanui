@@ -7,7 +7,8 @@ import { CartContext } from '../../context/CartContext'
 import useData from "../../hooks/useData"
 
 export const getStaticPaths = async()=>{
- const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/');
+ //const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/');
+ const res = await fetch('http://127.0.0.1:8000/api/merchandises/');
  const data = await res.json();
  console.log(data)
  const paths = data.map(merch =>{
@@ -24,7 +25,8 @@ export const getStaticPaths = async()=>{
 
 export const getStaticProps = async(context)=>{
   const id = context.params.id
-  const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/' + id)
+  //const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/' + id)
+  const res = await fetch('http://127.0.0.1:8000/api/merchandises/' + id);
   const data = await res.json()
 
   return {
@@ -91,7 +93,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ProductDetail({merch}) {
+export default function ProductDetail({_id, merch}) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
   const {selectedProducts, setSelectedProducts} = useContext(ProductContext)
@@ -103,7 +105,6 @@ export default function ProductDetail({merch}) {
     setSelectedProducts(prev => [...prev, _id])
     console.log(selectedProducts)
 }
-
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -204,7 +205,7 @@ export default function ProductDetail({merch}) {
               </div>
             </div>
 
-            <form className="mt-10">
+            <div className="mt-10">
               {/* Colors */}
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Color</h3>
@@ -317,7 +318,7 @@ export default function ProductDetail({merch}) {
               d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
           </svg>
               </button>
-            </form>
+            </div>
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">

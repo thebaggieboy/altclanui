@@ -23,7 +23,7 @@ export function CartContextProvider({ children }) {
 
 	function addToCart(id) {
 		dispatch({
-			type: "ADD_TO_CART",
+			type: "ADD_ITEM_TO_CART",
 			payload: id,
 		});
 	}
