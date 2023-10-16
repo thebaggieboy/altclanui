@@ -68,8 +68,8 @@ function classNames(...classes) {
 
 export default function Products({_id, merchandise_name, price, picture}) {
 
-  //const { data, loading, error } = useData('https://altclan-api-v1.onrender.com/api/merchandises/');
-  const { data, loading, error } = useData('http://127.0.0.1:8000/api/merchandises/');
+  const { data, loading, error } = useData('https://altclan-api-v1.onrender.com/api/merchandises/');
+  //const { data, loading, error } = useData('http://127.0.0.1:8000/api/merchandises/');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const {cart, addToCart} = useContext(CartContext)
   const {selectedProducts, setSelectedProducts} = useContext(ProductContext)
