@@ -5,7 +5,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import useData from "../../hooks/useData"
 import { CartContext } from '../../context/CartContext'
-import { ProductContext } from '../..//context/ProductContext'
+import { ProductContext } from '../../context/ProductContext'
 import Link from 'next/link'
 
 import ExploreHeaderTab from "../../components/ExploreHeaderTab"
