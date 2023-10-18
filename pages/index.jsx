@@ -18,6 +18,8 @@ import Cards from "../components/components/component6";
 import Form from "../components/components/component7";
 import MoreToExplore from "../components/MoreToExplore"
 import Image from "next/image";
+import SponsoredBrands from '../components/SponsoredBrands';
+
 
 const imgs = [1, 2, 3, 4];
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -68,7 +70,7 @@ export default function Home() {
         {/* <Category/>  */}
         
        
-        
+     <SponsoredBrands/>
 
          <div className="mt-2 p-10">
          <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>

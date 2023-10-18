@@ -18,11 +18,11 @@ const sortOptions = [
   { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
+  { name: 'Tees', href: '#' },
+  { name: 'Hoodies', href: '#' },
+  { name: 'Joggers', href: '#' },
   { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
+  { name: 'Denim', href: '#' },
 ]
 const filters = [
   {
@@ -343,12 +343,12 @@ export default function Products({_id, merchandise_name, price, picture}) {
           <div className="mt-22 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {data.map((product) => (
             
-<div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <Link key={product.id} href={'/products/' + product.id}>
+<div key={product.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <Link  href={'/products/' + product.id}>
         <img className="p-8 rounded-t-lg" src={product.display_image} alt="" />
     </Link>
     <div className="px-5 pb-5">
-        <Link key={product.id} href={'/products/' + product.id}>
+        <Link  href={'/products/' + product.id}>
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{product.merchandise_name}</h5>
         </Link>
         <div className="flex items-center mt-2.5 mb-5">

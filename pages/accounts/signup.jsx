@@ -11,6 +11,8 @@ export default function SignUp(req, res) {
     const router = useRouter();
     const submit = async(e) => {
         e.preventDefault();
+
+        
         console.log("Signup button was clicked")
         await fetch('/api/signup/', {
             method: 'POST',
@@ -20,7 +22,7 @@ export default function SignUp(req, res) {
             },
             body:JSON.stringify({email, password})
         })
-        
+        console.log(process.env.ENV)
         //await router.push('/profile')
     }
 

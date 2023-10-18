@@ -1,9 +1,10 @@
 import React, { useState, useEffect, Component } from 'react';
-import styles from "@/styles/brand.module.css";
-import MyTabs from '@/src/aboutcounter/brandProfile.js'
+import styles from "../../styles/brand.module.css";
+import MyTabs from '../../src/aboutcounter/brandProfile'
 
 export const getStaticPaths = async()=>{
-  const res = await fetch('https://altclan-api-v1.onrender.com/api/brands/');
+  const res = await fetch('http://127.0.0.1:8000/api/brands/');
+  
   const data = await res.json();
   console.log(data)
   const paths = data.map(brand =>{
@@ -20,7 +21,7 @@ export const getStaticPaths = async()=>{
  
  export const getStaticProps = async(context)=>{
    const id = context.params.id
-   const res = await fetch('https://altclan-api-v1.onrender.com/api/brands/' + id)
+   const res = await fetch('http://127.0.0.1:8000/api/brands/' + id)
    const data = await res.json()
  
    return {
@@ -35,7 +36,7 @@ export default function BrandProfile({brand}) {
   return (
      <div className={styles.brandProfileContent}>
           <div className={styles.left}>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt="" className={styles.image}/>
+            <img src={brand.brand_logo} alt="" className={styles.image}/>
           </div>
 
             <div className={styles.right}>
@@ -44,7 +45,7 @@ export default function BrandProfile({brand}) {
               </h1>
               <div className={styles.numbers}>
                 <p>13 items</p>
-                <p>48k followers</p>
+                <p>{brand.followers} followers</p>
               </div>
               
               <p className={styles.about}>
