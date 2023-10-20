@@ -1,14 +1,18 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styles from "../../styles/login.module.css";
-
-export default function SignUp(req, res) {
+import { TokenContext } from '../../context/TokenContext';
+import useBrands from "./../../hooks/useBrands"
+export default function SignUp({id, req, res}) {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');   
     const [jwtToken, setJwtToken] = useState(''); 
     const router = useRouter();
+    const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/user/');
+    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+    const {token, addToken} = useContext(TokenContext);
     const submit = async(e) => {
         e.preventDefault();
 
@@ -23,6 +27,8 @@ export default function SignUp(req, res) {
             },
             body:JSON.stringify({email, password})
         })
+       
+        console.log(token)
         console.log(process.env.ENV)
         //await router.push('/profile')
     }
