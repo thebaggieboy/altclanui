@@ -1,8 +1,8 @@
 //import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
-import { useRouter } from "next/router";
-
+import { useRouter,useContext } from "next/router";
+import { TokenContext } from "../../context/TokenContext";
 
 export default function handler(req, res) {
 	const externalApiUrl = "http://127.0.0.1:8000/api/users/";
@@ -29,7 +29,7 @@ export default function handler(req, res) {
 			'Content-Type': 'application/json',
 	 
 		},
-		body:JSON.stringify({email, password})
+		body:JSON.stringify({email, password, token})
 	})
 
 
