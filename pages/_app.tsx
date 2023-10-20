@@ -6,29 +6,29 @@ import '../styles/main.scss'
 import type { AppProps } from 'next/app'
 import Layout from "../components/Layout"
 
-import {ProductsContextProvider} from '../context/ProductContext'
-import {CartContextProvider} from '../context/CartContext'
-
+import { CartContextProvider } from '../context/CartContext'
+import Providers from "../features/Providers"
 
 
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  
-  return(
-    <>
-    
-     <CartContextProvider>
-        <ProductsContextProvider>
-        <Layout>
-            <Component {...pageProps} />
-            </Layout>
-        </ProductsContextProvider>
-        </CartContextProvider>
 
-    
+  return (
+    <>
+      <CartContextProvider>
+        
+          <Providers>
+            <Layout>
+              <Component { ...pageProps } />
+            </Layout>
+          </Providers>
+        
+      </CartContextProvider>
+
+
 
     </>
-      
-  ) 
+
+  )
 }

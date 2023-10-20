@@ -1,17 +1,13 @@
 import Image from "next/image";
-import { useRef, useState, useEffect, useContext, Component } from "react";
+import { useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
-import styles from "@/styles/brand.module.css";
+import styles from "../../styles/brand.module.css";
+import Protected from "../../components/Protected";
 
-import { TokenContext } from '@/context/TokenContext'
-import { useRouter } from 'next/router';
-import useToken from "../../hooks/useToken";
-
-const Profile = (req, res) => {
-	
-	const { data, error, jwtToken } = useToken('http://localhost:8000/api/users/');
-	console.log(data)
-	console.log(jwtToken)
+const Profile = () => {
+	const data = [];
+	const loading = false;
+	const error = null;
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
@@ -45,16 +41,17 @@ const Profile = (req, res) => {
 			password: "**********",
 		},
 	};
-	
+
 	if (error) {
 		return <p>Error {error.message}</p>;
-	  }
+	}
 
 	return (
 		<>
 			<main className="user-profile">
 				<div
-					className={`user-profile__form ${formActive.active ? "active" : ""}`}>
+					className={`user-profile__form ${formActive.active ? "active" : ""}`}
+				>
 					<ProfileForm
 						type={formActive.type}
 						onClose={() => {
@@ -65,35 +62,35 @@ const Profile = (req, res) => {
 				</div>
 				<div className={styles.profileContent}>
 					<div className={styles.column1}>
-						<img src="/assets/abstract-user-flat-4.png" alt="" className={styles.image}/>
+						<img
+							src="/assets/abstract-user-flat-4.png"
+							alt=""
+							className={styles.image}
+						/>
 					</div>
 
 					<div className={styles.column2}>
 						<div className={styles.number}>
-							<h1 className={styles.h1}>
-								BagHub
-							</h1>
+							<h1 className={styles.h1}>BagHub</h1>
 						</div>
 						<div>
-							<p className={styles.p}>
-								Lorem ipsum dolor amet avec.
-							</p>
+							<p className={styles.p}>Lorem ipsum dolor amet avec.</p>
 
-							<p className={styles.p}>
-								21 Kola Sukanya Street. 
-							</p>
+							<p className={styles.p}>21 Kola Sukanya Street.</p>
 
-							<button 
-							onClick={onEdit}
-							data-form="personal"
-							className={styles.profileButton}>
+							<button
+								onClick={onEdit}
+								data-form="personal"
+								className={styles.profileButton}
+							>
 								Edit profile
 							</button>
 
-							<button 
-							data-form="login"
-							onClick={onEdit}
-							className={styles.profileButton}>
+							<button
+								data-form="login"
+								onClick={onEdit}
+								className={styles.profileButton}
+							>
 								Edit login
 							</button>
 						</div>
@@ -101,7 +98,7 @@ const Profile = (req, res) => {
 				</div>
 			</main>
 
-			<hr/>
+			<hr />
 			<nav className="user-profile__nav">
 				<div
 					className={`user-profile__nav-item ${
@@ -109,7 +106,8 @@ const Profile = (req, res) => {
 					}`}
 					onClick={(e) => {
 						setAcvtiveSection("orders");
-					}}>
+					}}
+				>
 					Orders
 				</div>
 				<div
@@ -118,7 +116,8 @@ const Profile = (req, res) => {
 					}`}
 					onClick={(e) => {
 						setAcvtiveSection("gallery");
-					}}>
+					}}
+				>
 					Gallery
 				</div>
 				<div
@@ -127,119 +126,115 @@ const Profile = (req, res) => {
 					}`}
 					onClick={(e) => {
 						setAcvtiveSection("inventory");
-					}}>
+					}}
+				>
 					Inventory
 				</div>
 			</nav>
 
-				<section className="user-profile__sections">
-					{activeSection === "orders" && (
-						<div className="orders">
-							<div className={styles.center}>
-								<p className={styles.grey}>
-									No current orders
-								</p>
-							</div>
+			<section className="user-profile__sections">
+				{activeSection === "orders" && (
+					<div className="orders">
+						<div className={styles.center}>
+							<p className={styles.grey}>No current orders</p>
 						</div>
-					)}
+					</div>
+				)}
 
-					{activeSection === "gallery" && (
-						<div className={styles.galleryContent}>
-							<div className="gallery">
-								<div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-5">
-									<div>
-										<img src="https://images.unsplash.com/photo-1632282003890-020318a49e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1546&q=80" alt="" />
-									</div>
+				{activeSection === "gallery" && (
+					<div className={styles.galleryContent}>
+						<div className="gallery">
+							<div className="grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-5">
+								<div>
+									<img
+										src="https://images.unsplash.com/photo-1632282003890-020318a49e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1546&q=80"
+										alt=""
+									/>
+								</div>
 
-									<div>
-										<img src="https://images.unsplash.com/photo-1560891958-68bb1fe7fb78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80" alt="" />
-									</div>
+								<div>
+									<img
+										src="https://images.unsplash.com/photo-1560891958-68bb1fe7fb78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80"
+										alt=""
+									/>
+								</div>
 
-									<div>
-										<img src="https://images.unsplash.com/photo-1575032617751-6ddec2089882?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="" />
-									</div>
+								<div>
+									<img
+										src="https://images.unsplash.com/photo-1575032617751-6ddec2089882?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+										alt=""
+									/>
+								</div>
 
-									<div>
-										<img src="https://images.unsplash.com/photo-1612902456551-333ac5afa26e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80" alt="" />
-									</div>
+								<div>
+									<img
+										src="https://images.unsplash.com/photo-1612902456551-333ac5afa26e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80"
+										alt=""
+									/>
 								</div>
 							</div>
 						</div>
-					)}
+					</div>
+				)}
 
-					{activeSection === "inventory" && (
-						<div className={styles.galleryContent}>
-							<div className="inventory">
-								<div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10">
-									<div className={styles.inventory}>
-										<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80" alt="" />
-										<p>
-											Product Name: Ferragamo
-										</p>
+				{activeSection === "inventory" && (
+					<div className={styles.galleryContent}>
+						<div className="inventory">
+							<div className="grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10">
+								<div className={styles.inventory}>
+									<img
+										src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1335&q=80"
+										alt=""
+									/>
+									<p>Product Name: Ferragamo</p>
 
-										<p>
-											Color(s): Red
-										</p>
+									<p>Color(s): Red</p>
 
-										<p>
-											Stock: 20
-										</p>
-									</div>
+									<p>Stock: 20</p>
+								</div>
 
-									<div className={styles.inventory}>
-										<img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1338&q=80" alt="" />
-										<p>
-											Product Name: Ferragamo
-										</p>
+								<div className={styles.inventory}>
+									<img
+										src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1338&q=80"
+										alt=""
+									/>
+									<p>Product Name: Ferragamo</p>
 
-										<p>
-											Color(s): Brown
-										</p>
+									<p>Color(s): Brown</p>
 
-										<p>
-											Stock: 12
-										</p>
-									</div>
+									<p>Stock: 12</p>
+								</div>
 
-									<div className={styles.inventory}>
-										<img src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1526&q=80" alt="" />
-										<p>
-											Product Name: Bottega 
-										</p>
+								<div className={styles.inventory}>
+									<img
+										src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1526&q=80"
+										alt=""
+									/>
+									<p>Product Name: Bottega</p>
 
-										<p>
-											Color(s): Brown
-										</p>
+									<p>Color(s): Brown</p>
 
-										<p>
-											Stock: 25
-										</p>
-									</div>
+									<p>Stock: 25</p>
+								</div>
 
-									<div className={styles.inventory}>
-										<img src="https://images.unsplash.com/photo-1622560480654-d96214fdc887?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1288&q=80" alt="" />
-										<p>
-											Product Name: Wiser
-										</p>
+								<div className={styles.inventory}>
+									<img
+										src="https://images.unsplash.com/photo-1622560480654-d96214fdc887?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1288&q=80"
+										alt=""
+									/>
+									<p>Product Name: Wiser</p>
 
-										<p>
-											Color(s): Red
-										</p>
+									<p>Color(s): Red</p>
 
-										<p>
-											Stock: 5
-										</p>
-									</div>
+									<p>Stock: 5</p>
 								</div>
 							</div>
 						</div>
-					)}
-
-
-				</section>
+					</div>
+				)}
+			</section>
 		</>
 	);
 };
 
-
-export default Profile;
+export default Profile
