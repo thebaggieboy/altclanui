@@ -27,6 +27,7 @@ export function CartContextProvider({ children }) {
 			payload: id,
 		});
 	}
+	
 
 	return (
 		<CartContext.Provider

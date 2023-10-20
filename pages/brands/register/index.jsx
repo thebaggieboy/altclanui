@@ -1,18 +1,21 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
-import styles from "@/styles/login.module.css";
+import React, { useState, FormEvent } from 'react'
+import styles from "../../../styles/login.module.css";
 
 export default function SignUp(req, res) {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');   
     const [jwtToken, setJwtToken] = useState(''); 
+
+    
     const router = useRouter();
     const submit = async(e) => {
         e.preventDefault();
+ 
         console.log("Signup button was clicked")
-        await fetch('/api/signup/', {
+        await fetch('/api/brands/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,7 +24,7 @@ export default function SignUp(req, res) {
             body:JSON.stringify({email, password})
         })
         
-        await router.push('/profile')
+        
     }
 
 
@@ -30,16 +33,12 @@ export default function SignUp(req, res) {
     <div className="">
         <div className={styles.loginContainer}>
         <div className={styles.columnImage}>
-            <img src="https://media.everlane.com/image/upload/c_fill,w_828,ar_380:655,q_auto,dpr_1.0,f_auto,fl_progressive:steep/Modal_Desktop-05102022_pyajh1" alt="" className={styles.img}/>
+            <img src="/alteclan_logo.jpg" alt="" className={styles.img}/>
         </div>
 
         <div className={styles.columnText}>
             <form className={styles.form}  onSubmit={submit}>
-                <Link href="#" className={styles.head}>
-                    <img className={styles.logo} src="/alteclan_logo.jpg" alt="logo"/>
-                    {/* Altclan     */}
-                </Link>
-
+            
                 <h1 className={styles.greeting}>Join the clan</h1>
                 <p className={styles.login}>Create a brand account to become part of our community</p>
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../../styles/component3.module.css";
 
 export default function fullImages() {
@@ -11,10 +12,12 @@ export default function fullImages() {
                             <p>
                                 JUST LANDED
                             </p>
-
+                            <Link href='/products'>
                             <button className={styles.shopButton}>
                                 shop now
                             </button>
+                            </Link>
+                         
                         </div>
                         
                     </div>
@@ -29,10 +32,12 @@ export default function fullImages() {
                             <p>
                                 SHOP BEST SELLERS
                             </p>
-
+                            <Link href='/products'>
                             <button className={styles.shopButton}>
                                 shop now
                             </button>
+                            </Link>
+                         
                         </div>
                         
                     </div>

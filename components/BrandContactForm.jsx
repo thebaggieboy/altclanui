@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import BrandSignupTab from "@/components/BrandSignupTab"
-
+import BrandSignupTab from "./BrandSignupTab"
 export default function BrandContactForm() {
   return (
     <div className="w-100 ">

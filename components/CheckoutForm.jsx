@@ -30,8 +30,7 @@ export default function CheckoutForm() {
         ) 
     case 3:
       <PaymentSuccess nextStep={nextStep}/>
-    case 4:
-      <PaymentSuccess/>
+ 
 
 
       

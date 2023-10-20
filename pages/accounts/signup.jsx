@@ -18,6 +18,7 @@ export default function SignUp(req, res) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                credentials:true
          
             },
             body:JSON.stringify({email, password})

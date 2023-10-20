@@ -1,4 +1,6 @@
+"use client";
 import { useState, useEffect } from 'react';
+import React from 'react';
 
 const useBrands = (url) => {
   const [data, setData] = useState(null);

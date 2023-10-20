@@ -13,24 +13,18 @@ export default function handler(req, res) {
 		expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
 		const cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;httpOnly;`
 		res.setHeader('Set-Cookie', cookie);
+		
+		
 	};
 
 	// Sign the user credentials
 	const token = jwt.sign({ email, password }, "secretkey", { expiresIn: "24h" });
+	const decode = jwt.decode(token)
 	
 	setCookie("token", token)
 	console.log('Token: ', token)
-
+	console.log(decode.email)
 	res.status(200).json({ token })
-	
-	fetch(externalApiUrl, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-	 
-		},
-		body:JSON.stringify({email, password})
-	})
 
 
 

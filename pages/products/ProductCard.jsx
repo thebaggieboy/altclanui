@@ -1,43 +1,9 @@
-import Link from "next/link";
-import React, { useState, useContext } from "react";
-import { CartContext } from './../context/CartContext'
-import { ProductContext } from "./../context/ProductContext";
+import React from 'react';
 
-
-export default function Cart() {
-    const [show, setShow] = useState(false);
-    const { cart } = useContext(CartContext);
-    const {selectedProducts} = useContext(ProductContext)
-    
-
-    if (cart.length < 1) {
-      return <>
-      <div className="text-center text-black-700 p-10 mt-10 mb-10">
-      <p>There are no items in your cart</p><br/>
-      <button className="bg-black bg-rounded p-3 text-white"> <Link href="/products">Start shopping</Link> </button>
-      </div>
-      </>
-    }
-
+const ProductCard = () => {
     return (
-        <>
-
-       <section className="bg-gray-100 py-6 sm:py-16 lg:py-20">
-  <div className="mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex items-center justify-center">
-      <h1 className="text-2xl font-semibold text-gray-900"> <Link href="/products">Your Cart</Link> </h1>
-    </div>
-
-  
-
-    <div className="mx-auto mt-8 max-w-2xl md:mt-12">
-      <div className="bg-white shadow">
-        <div className="px-4 py-6 sm:px-8 sm:py-10">
-          <div className="flow-root">
-            
-    {cart.map((i)=>(
-      
-            <ul key={i.id} className="-my-8">
+        <div>
+              <ul key={i.id} className="-my-8">
               <li className="flex flex-col space-y-3 py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0">
                 <div className="shrink-0">
                   <img className="h-24 w-24 max-w-full rounded-lg object-cover" src={i.display_image} alt="" />
@@ -74,39 +40,8 @@ export default function Cart() {
               </li>
 
             </ul>
-            ))}
-          </div>
-
-          <div className="mt-6 border-t border-b py-2">
-            <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-400">Subtotal</p>
-              <p className="text-lg font-semibold text-gray-900">$399.00</p>
-            </div>
-            <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-400">Shipping</p>
-              <p className="text-lg font-semibold text-gray-900">$8.00</p>
-            </div>
-          </div>
-          <div className="mt-6 flex items-center justify-between">
-            <p className="text-sm font-medium text-gray-900">Total</p>
-            <p className="text-2xl font-semibold text-gray-900"><span className="text-xs font-normal text-gray-400">USD</span> 408.00</p>
-          </div>
-
-          <div className="mt-6 text-center">
-            <Link href="/checkout"  className="bg-black rounded p-3 text-lg text-white w-full ">
-              Checkout
-             
-            </Link>
-          </div>
         </div>
-      </div>
-    </div>
-    
-  </div>
-  
-</section>
- 
-        </>
     );
 }
 
+export default ProductCard;

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-
+import React from 'react';
 type SetValue<T> = T | ((val: T) => T);
 
 function useLocalStorage<T>(

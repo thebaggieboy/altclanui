@@ -1,5 +1,5 @@
 import React from 'react';
-import useData from './../hooks/useData'
+import useBrands from './../hooks/useBrands'
 import { CartContext } from '../context/CartContext'
 import { ProductContext } from '../context/ProductContext'
 import Link from 'next/link'
@@ -7,7 +7,7 @@ import styles from './../styles/component5.module.css'
 
 const SponsoredBrands = () => {
     //const { data, loading, error } = useData('https://altclan-api-v1.onrender.com/api/merchandises/');
-    const { data, loading, error } = useData('http://127.0.0.1:8000/api/brands/');
+    const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brands/');
     if (loading) {
         return <div className="text-center p-5 mt-5">
           <br/>
@@ -38,7 +38,7 @@ const SponsoredBrands = () => {
                         <div className={styles.row}>
                 {data.map((product) => (
                     <div key={product.id}>
-                        <a href={product.href}>
+                        <Link href={"/brands/" + product.id}>
                             <div className={styles.imageCol}>
                                 <div className={styles.card}>
                                     <img src={product.brand_logo} alt="" className={styles.productImage}/>
@@ -53,7 +53,7 @@ const SponsoredBrands = () => {
                                     </p>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 ))}
             </div>

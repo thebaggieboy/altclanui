@@ -13,7 +13,7 @@ const navigation = {
     { name: 'About us', href: '/about' },
     { name: 'Create an account', href: '/accounts/signup/' },  
     { name: 'Shop Merch', href: '/products' },  
-    { name: 'Start a brand', href: '/brands' },  
+    { name: 'Start a brand', href: '/brands/register' },  
   
   ],
   
