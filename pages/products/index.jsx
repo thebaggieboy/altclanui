@@ -6,6 +6,7 @@ import useBrands from "../../hooks/useBrands"
 import { CartContext } from '../../context/CartContext'
 import { ProductContext } from '../../context/ProductContext'
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
@@ -368,11 +369,13 @@ function addOneToCart(id) {
             {data.map(({id, display_image, imageAlt,merchandise_name,price}) => (
               <div key={id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                  <Link href={'/products/' + id}>
                   <img
                     src={display_image}
                     alt={imageAlt}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
+                  </Link>
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>

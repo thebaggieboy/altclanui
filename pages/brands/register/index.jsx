@@ -24,7 +24,7 @@ export default function SignUp(req, res) {
             body:JSON.stringify({email, password})
         })
         
-        
+        router.push('/brands/register/brand-bio')
     }
 
 

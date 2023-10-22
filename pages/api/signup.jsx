@@ -3,11 +3,26 @@ import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { useRouter,useContext } from "next/router";
 import { TokenContext } from "../../context/TokenContext";
+import bcrypt from "bcrypt"
 
 export default function handler(req, res) {
 	const externalApiUrl = "http://127.0.0.1:8000/api/users/";
-	const { email, password } = req.body;
-	
+	const email = req.body.email
+	let password = req.body.password
+
+	const saltRounds = 10;
+
+	bcrypt
+  .hash(password, saltRounds)
+  .then(hash => {
+    console.log(`Hash: ${hash}`);
+    // Store hash in your password DB.
+	password = hash
+	console.log("New password hash: ", password )
+
+
+
+
 	const setCookie = (name, value, days) => {
 		const expires = new Date();
 		expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
@@ -23,16 +38,19 @@ export default function handler(req, res) {
 
 	res.status(200).json({ token })
 	
-	fetch(externalApiUrl, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-	 
-		},
-		body:JSON.stringify({email, password, token})
-	})
+	
 
-
+  })
+  .catch(err => console.error(err.message));
+	
+  fetch(externalApiUrl, {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+ 
+	},
+	body:JSON.stringify({email, password, token})
+})
 
 }
 
