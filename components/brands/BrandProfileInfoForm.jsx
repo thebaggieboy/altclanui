@@ -1,5 +1,5 @@
 import React, {use, useState} from 'react';
-import styles from '../../styles/login.module.css';
+import styles from '../../styles/brand-profile.module.css';
 import BrandProfileInfoForm from './BrandProfileInfoForm';
 import Link from 'next/link';
 const BrandProfileInfo = (props) => {
