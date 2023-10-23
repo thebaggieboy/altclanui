@@ -368,7 +368,7 @@ function addOneToCart(id) {
               <div className="mx-auto max-w-2xl  px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
           
           <div className="mt-5 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {data.map(({id, display_image, imageAlt,merchandise_name,price}) => (
+            {data.map(({id, display_image, imageAlt,merchandise_name, category, price}) => (
               <div key={id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <Link href={'/products/' + id}>
@@ -385,7 +385,8 @@ function addOneToCart(id) {
                       {/* An element here was covering the whole card making the add to cart unclickable */}
                         {merchandise_name}
              
-                    </h3>
+                    </h3> 
+                    <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-4 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{category}</span>
                     <p className="mt-1 text-sm text-gray-500">₦{price}</p>
 
                     

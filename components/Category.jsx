@@ -2,7 +2,7 @@
 const products = [
   {
     id: 1,
-    name: "Glasses",
+    name: "Shades",
     href: "#",
     price: "$35",
     imageSrc: "/img/shades.jpg",
@@ -30,7 +30,7 @@ const products = [
   },
   {
     id: 5,
-    name: "Chains & Neckpiece",
+    name: "Chains & Neckpieces",
     href: "#",
     price: "$35",
     imageSrc: "/img/chain.jpg",
@@ -75,7 +75,7 @@ export default function Category() {
 
                 <button
                   type="button"
-                  className="text-gray-900 mt-4 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-600 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+                  className="text-gray-900 mt-4 bg-dark hover:text-dark border border-black hover:bg-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                 >
                   Shop {product.name}
                 </button>
