@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
-<<<<<<< HEAD
 import { TokenContext } from '../../context/TokenContext';
 import useBrands from "./../../hooks/useBrands"
 export default function SignUp({id, req, res}) {
@@ -33,34 +32,8 @@ export default function SignUp({id, req, res}) {
      
         //await router.push('/profile')
     }
-=======
-import { useDispatch } from "react-redux";
-import { setUser } from "../../features/user/userSlice";
 
-export default function SignUp(req, res) {
-	const dispatch = useDispatch();
->>>>>>> 4d13d1323b5591c77829b9676af7a6e2cdd0cbc0
-
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const router = useRouter();
-	const submit = async (e) => {
-		e.preventDefault();
-		console.log("Signup button was clicked");
-		await fetch("/api/signup/", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				credentials: true,
-			},
-			body: JSON.stringify({ email, password }),
-		}).then((res) => {
-			if (res.ok) {
-				dispatch(setUser({ email }));
-				router.push("/profile");
-			}
-		});
-	};
+	
 
 	return (
 		<div className="">
