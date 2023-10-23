@@ -19,9 +19,12 @@ import Form from "../components/components/component7";
 import MoreToExplore from "../components/MoreToExplore"
 import Image from "next/image";
 import SponsoredBrands from '../components/SponsoredBrands';
+import useBrands from '../hooks/useBrands';
+import useData from '../hooks/useData';
+import BrandCard from '../components/brand-card';
 
-
-const imgs = [1, 2, 3, 4];
+const featured_brands = fetch('http://127.0.0.1:8000/api/brands/')
+const brands = [1, 2, 3, 4];
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const carouselBreakpoints = {
@@ -70,7 +73,21 @@ export default function Home() {
         {/* <Category/>  */}
         
        
-     <SponsoredBrands/>
+        <div className="mt-2 p-10">
+         <h1 className="text-3xl text-center capitalize">Featured Brands</h1>
+         <br/>
+         <CarouselWrapper
+            slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={carouselBreakpoints}
+            controls
+          >
+            {brands.map((id) => {
+              return <BrandCard key={id} id={id} />
+            })}
+          </CarouselWrapper>
+      
+         </div>
 
          <div className="mt-2 p-10">
          <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>
