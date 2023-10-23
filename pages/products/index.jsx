@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext'
 import { ProductContext } from '../../context/ProductContext'
 import { useRouter } from 'next/router';
 import Link from 'next/link'
-
+import ExploreHeaderTab from "../../components/ExploreHeaderTab"
 const sortOptions = [
   { name: 'Most Popular', href: '#', current: true },
   { name: 'Best Rating', href: '#', current: false },
@@ -240,9 +240,11 @@ function addOneToCart(id) {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pt-5 pb-6">
-            <h4 className="text-2xl font-bold tracking-tight text-gray-900">Explore</h4>
-
+          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
+         
+            <div className='p-3'>
+            <ExploreHeaderTab/>
+            </div>
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
@@ -299,12 +301,12 @@ function addOneToCart(id) {
             </div>
           </div>
 
-          <section aria-labelledby="products-heading" className="pt-6 pb-24">
+          <section aria-labelledby="products-heading" className=" pb-24">
             <h2 id="products-heading" className="sr-only">
               Products
             </h2>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-4 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
@@ -321,7 +323,7 @@ function addOneToCart(id) {
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-1 text-sm text-gray-400 hover:text-gray-500">
                             <span className="font-medium text-gray-900">{section.name}</span>
                             <span className="ml-6 flex items-center">
                               {open ? (
@@ -332,7 +334,7 @@ function addOneToCart(id) {
                             </span>
                           </Disclosure.Button>
                         </h3>
-                        <Disclosure.Panel className="pt-6">
+                        <Disclosure.Panel className="pt-2">
                           <div className="space-y-4">
                             {section.options.map((option, optionIdx) => (
                               <div key={option.value} className="flex items-center">
@@ -365,7 +367,7 @@ function addOneToCart(id) {
                             
               <div className="mx-auto max-w-2xl  px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
           
-          <div className="mt-22 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="mt-5 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {data.map(({id, display_image, imageAlt,merchandise_name,price}) => (
               <div key={id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">

@@ -43,7 +43,7 @@ export default function Search() {
 
   return (
    
-  <div className="p-5 m-2 pt-5">
+  <div className="pt-2 m-5 ">
       <div className="mx-auto ">
         <form className="flex items-center" >   
             <label for="simple-search" className="sr-only">Search</label>
@@ -63,12 +63,12 @@ export default function Search() {
   </div>
 
   {searchQuery && searchResult.map((product) => (
-           <section aria-labelledby="products-heading" className="pt-6 pb-24">
+           <section aria-labelledby="products-heading" className="pb-24">
            <h2 id="products-heading" className="sr-only">
              Products
            </h2>
 
-           <div  key={product.id}className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+           <div  key={product.id}className="grid grid-cols-1 gap-x-8 gap-y-4 lg:grid-cols-4">
     
             
 
@@ -77,11 +77,11 @@ export default function Search() {
                            
              <div className="mx-auto max-w-2xl  px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
          
-         <div className="mt-22 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+         <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 
              <div key={product.id} className="group relative">
                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                 <Link href={'/products/' + product.id}>
+                 <Link href={`/products/${product.id}`}>
                  <img
                    src={product.display_image}
                    alt={product.imageAlt}
