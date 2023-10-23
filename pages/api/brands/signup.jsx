@@ -5,7 +5,8 @@ import { useRouter } from "next/router";
 
 
 export default function handler(req, res) {
-	const externalApiUrl = "http://127.0.0.1:8000/api/users/";
+	//const externalApiUrl = "http://127.0.0.1:8000/api/users/";
+	const externalApiUrl = useBrands('https://altclan-api-v1.onrender.com/api/users/')
 	const { email, password } = req.body;
 
 

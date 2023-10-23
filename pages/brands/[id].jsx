@@ -3,7 +3,8 @@ import styles from "../../styles/brand.module.css";
 import MyTabs from '../../src/aboutcounter/brandProfile'
 
 export const getStaticPaths = async()=>{
-  const res = await fetch('http://127.0.0.1:8000/api/brands/');
+   //const res = await fetch('http://127.0.0.1:8000/api/brands/');
+    const res = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
   
   const data = await res.json();
   console.log(data)
@@ -21,7 +22,9 @@ export const getStaticPaths = async()=>{
  
  export const getStaticProps = async(context)=>{
    const id = context.params.id
-   const res = await fetch('http://127.0.0.1:8000/api/brands/' + id)
+   //const res = await fetch('http://127.0.0.1:8000/api/brands/' + id)
+   const res = useBrands(`https://altclan-api-v1.onrender.com/api/merchandises/${id}`)
+  
    const data = await res.json()
  
    return {

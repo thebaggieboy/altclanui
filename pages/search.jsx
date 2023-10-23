@@ -19,7 +19,8 @@ export default function Search() {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-  const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/')
+  //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/')
+  const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
 
   useEffect(() => {
     if (searchQuery !== "") {
