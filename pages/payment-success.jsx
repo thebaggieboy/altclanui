@@ -1,5 +1,5 @@
 import React from 'react'
-import PaymentSuccess from '@/components/PaymentSuccess'
+import PaymentSuccess from '../components/PaymentSuccess'
 
 export default function paymentSuccess() {
   return (
