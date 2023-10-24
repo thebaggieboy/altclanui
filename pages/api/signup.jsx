@@ -24,6 +24,7 @@ bcrypt
 		res.setHeader('Set-Cookie', cookie);
 	};
 	
+
 	// Sign the user credentials
 	//password = hash
 	const token = jwt.sign({ email, hash }, "secretkey", { expiresIn: "24h" });
@@ -47,6 +48,8 @@ bcrypt
 
   })
   .catch(err => console.error(err.message));
+
+  
 	
 
 	
