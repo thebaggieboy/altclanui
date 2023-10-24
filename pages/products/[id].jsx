@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext'
 import useData from "../../hooks/useData"
 
 export const getStaticPaths = async()=>{
-  const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/${id}`)
+  const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/`)
  //const res = await fetch('http://127.0.0.1:8000/api/merchandises/');
  const data = await res.json();
  console.log(data)

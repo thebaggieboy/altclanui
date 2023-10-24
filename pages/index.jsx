@@ -23,7 +23,7 @@ import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 
-const featured_brands = fetch('http://127.0.0.1:8000/api/brands/')
+const featured_brands = fetch('https://altclan-api-v1.onrender.com/api/brands/')
 const brands = [1, 2, 3, 4];
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 

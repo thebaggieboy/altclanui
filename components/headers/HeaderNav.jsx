@@ -256,11 +256,11 @@ export default function HeaderNav() {
                 <div className="px-4 py-6 border-t border-gray-200">
                   <Link href="#" className="flex items-center p-2 -m-2">
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="https://tailwindui.com/img/flags/flag-nigeria.svg"
                       alt=""
                       className="flex-shrink-0 block w-5 h-auto"
                     />
-                    <span className="block ml-3 text-base font-medium text-gray-900">CAD</span>
+                    <span className="block ml-3 text-base font-medium text-gray-900">NGN</span>
                     <span className="sr-only">, change currency</span>
                   </Link>
                 </div>
@@ -409,11 +409,11 @@ export default function HeaderNav() {
                 <div className="hidden lg:ml-8 lg:flex">
                   <Link href="#" className="flex items-center text-gray-700 hover:text-gray-800">
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="/flag.jpg"
                       alt=""
                       className="flex-shrink-0 block w-5 h-auto"
                     />
-                    <span className="block ml-3 text-sm font-medium">CAD</span>
+                    <span className="block ml-3 text-sm font-medium">NGN</span>
                     <span className="sr-only">, change currency</span>
                   </Link>
                 </div>
