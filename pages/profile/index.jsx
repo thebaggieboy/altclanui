@@ -56,6 +56,8 @@ const Profile = () => {
 		return <p>Error {error.message}</p>;
 	}
 
+	const userData = useSelector(selectUser);
+
 	return (
 		<>
 			<main className="user-profile">
@@ -81,7 +83,7 @@ const Profile = () => {
 
 					<div className={styles.column2}>
 						<div className={styles.number}>
-							<h1 className={styles.h1}>BagHub</h1>
+							<h1 className={styles.h1}>{userData?.email}</h1>
 						</div>
 						<div>
 							<p className={styles.p}>Lorem ipsum dolor amet avec.</p>

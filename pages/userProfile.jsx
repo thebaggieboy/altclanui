@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
-import styles from "@/styles/Users/userProfile.module.css";
-import MainTab from '@/components/user-profile/Tabs/mainTab';
-import SecondTab from '@/components/user-profile/Tabs/secondTab';
+import styles from "../styles/Users/userProfile.module.css";
+import MainTab from '../components/user-profile/Tabs/mainTab';
+import SecondTab from '../components/user-profile/Tabs/secondTab';
 
 const userProfile = () => {
   return (

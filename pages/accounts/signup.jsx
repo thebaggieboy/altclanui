@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
+import { TokenContext } from '../../context/TokenContext';
+import useBrands from "./../../hooks/useBrands"    
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/user/userSlice";
 
@@ -25,7 +27,9 @@ export default function SignUp() {
 			if (res.ok) {
 				dispatch(setUser({ email }));
 				router.push("/profile");
+				
 			}
+		
 		});
 	};
 

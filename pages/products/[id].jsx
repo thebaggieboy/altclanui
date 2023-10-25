@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext'
 import useData from "../../hooks/useData"
 
 export const getStaticPaths = async()=>{
- const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/');
+  const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/`)
  //const res = await fetch('http://127.0.0.1:8000/api/merchandises/');
  const data = await res.json();
  console.log(data)
@@ -25,8 +25,8 @@ export const getStaticPaths = async()=>{
 
 export const getStaticProps = async(context)=>{
   const id = context.params.id
-  //const res = await fetch('https://altclan-api-v1.onrender.com/api/merchandises/' + id)
-  const res = await fetch('http://127.0.0.1:8000/api/merchandises/' + id);
+  const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/${id}`)
+  //const res = await fetch(`http://127.0.0.1:8000/api/merchandises/${id}`);
   const data = await res.json()
 
   return {
@@ -130,8 +130,8 @@ export default function ProductDetail({_id, merch}) {
               </li>
             ))}
             <li className="text-sm">
-              <a href={merch.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {merch.name}
+              <a href={'#'} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+                {merch.merchandise_name}
               </a>
             </li>
           </ol>
@@ -141,7 +141,7 @@ export default function ProductDetail({_id, merch}) {
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
             <img
-                src='/black-tee.jpg'
+                src={merch.display_image}
                 alt=''
               className="h-full w-full object-cover object-center"
             />
@@ -149,14 +149,14 @@ export default function ProductDetail({_id, merch}) {
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
-                src='/black-tee.jpg'
+                src={merch.display_image}
                 alt=''
                 className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
               <img
-                src='/black-tee.jpg'
+                src={merch.display_image}
                 alt=''
                 className="h-full w-full object-cover object-center"
               />
@@ -164,7 +164,7 @@ export default function ProductDetail({_id, merch}) {
           </div>
           <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
             <img
-                src='/black-tee.jpg'
+                src={merch.display_image}
                 alt=''
               className="h-full w-full object-cover object-center"
             />

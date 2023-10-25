@@ -11,7 +11,7 @@
         margin-top: .2rem;
 
         &.active {
-            @apply fill-red-600 stroke-none;
+            @layer fill-red-600 stroke-none;
         }
 
         @include media('>=phone') {
@@ -27,7 +27,7 @@
     }
 
     &__img {
-        @apply shadow shadow-gray-300;
+        @layer shadow:'shadow-gray-300';
         aspect-ratio: 1 / 1.2;
         
         img {

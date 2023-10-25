@@ -18,11 +18,13 @@ import Cards from "../components/components/component6";
 import Form from "../components/components/component7";
 import MoreToExplore from "../components/MoreToExplore";
 import Image from "next/image";
-import SponsoredBrands from "../components/SponsoredBrands";
-import { useDispatch } from "react-redux";
+import SponsoredBrands from '../components/SponsoredBrands';
+import useBrands from '../hooks/useBrands';
+import useData from '../hooks/useData';
+import BrandCard from '../components/brand-card';
 
-
-const imgs = [1, 2, 3, 4];
+const featured_brands = fetch('https://altclan-api-v1.onrender.com/api/brands/')
+const brands = [1, 2, 3, 4];
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const carouselBreakpoints = {
@@ -37,22 +39,18 @@ const carouselBreakpoints = {
 };
 
 export default function Home() {
-	const dispatch = useDispatch();
-
-
-
-	return (
-		<>
-			<Head>
-				<title>Altclan - Community of aesthetics</title>
-				<meta
-					name="description"
-					content="Welcome to our community of aesthetics, and explore between brands and awesome collections"
-				/>
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/alteclan_logo.jpg" />
-			</Head>
-			<HeaderTab />
+  return (
+    <>
+      <Head>
+        <title>Altclan - Community of aesthetics</title>
+        <meta
+          name="description"
+          content="Welcome to our community of aesthetics, and explore between brands and awesome collections"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/alteclan_logo.jpg" />
+      </Head>
+      <HeaderTab />
 
 			<div className={styles.mainComponents}>
 				<CarouselWrapper

@@ -1,5 +1,5 @@
 import React, {use, useState} from 'react';
-import styles from '../../styles/login.module.css';
+import styles from '../../styles/brand-bio.module.css';
 import BrandProfileInfoForm from './BrandProfileInfoForm';
 import Link from 'next/link';
 const BrandBioForm = (props) => {

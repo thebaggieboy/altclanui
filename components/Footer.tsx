@@ -17,7 +17,7 @@ export default function Footer() {
                 </li>
 
                 <li className="mb-4">
-                    <Link href="#" className="hover:underline">Brand Center</Link>
+                    <Link href="/brands" className="hover:underline">Brand Center</Link>
                 </li>
 
             </ul>
@@ -30,9 +30,6 @@ export default function Footer() {
                 </li>
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">Twitter</Link>
-                </li>
-                <li className="mb-4">
-                    <Link href="#" className="hover:underline">Facebook</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">Instagram</Link>

@@ -294,44 +294,42 @@ export default function HeaderNav() {
 									</Tab.Panels>
 								</Tab.Group>
 
-								<div className="border-t border-gray-200 px-4 py-6">
-									<Link href="#" className="-m-2 flex items-center p-2">
-										<img
-											src="https://tailwindui.com/img/flags/flag-canada.svg"
-											alt=""
-											className="block h-auto w-5 flex-shrink-0"
-										/>
-										<span className="ml-3 block text-base font-medium text-gray-900">
-											CAD
-										</span>
-										<span className="sr-only">, change currency</span>
-									</Link>
-								</div>
-							</Dialog.Panel>
-						</Transition.Child>
-					</div>
-				</Dialog>
-			</Transition.Root>
 
-			<header className="relative bg-white">
-				<p className="flex h-10 items-center justify-center bg-black px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-					Get free delivery on orders over $100
-				</p>
+                
 
-				<nav
-					aria-label="Top"
-					className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-				>
-					<div className="border-b border-gray-200">
-						<div className="flex h-16 items-center">
-							<button
-								type="button"
-								className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
-								onClick={() => setOpen(true)}
-							>
-								<span className="sr-only">Open menu</span>
-								<Bars3Icon className="h-6 w-6" aria-hidden="true" />
-							</button>
+                <div className="px-4 py-6 border-t border-gray-200">
+                  <Link href="#" className="flex items-center p-2 -m-2">
+                    <img
+                      src="https://tailwindui.com/img/flags/flag-nigeria.svg"
+                      alt=""
+                      className="flex-shrink-0 block w-5 h-auto"
+                    />
+                    <span className="block ml-3 text-base font-medium text-gray-900">NGN</span>
+                    <span className="sr-only">, change currency</span>
+                  </Link>
+                </div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      <header className="relative bg-white">
+        <p className="flex items-center justify-center h-10 px-4 text-sm font-medium text-white bg-black sm:px-6 lg:px-8">
+          Get free delivery on orders over $100
+        </p>
+
+        <nav aria-label="Top" className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="border-b border-gray-200">
+            <div className="flex items-center h-16">
+              <button
+                type="button"
+                className="p-2 text-gray-400 bg-white rounded-md lg:hidden"
+                onClick={() => setOpen(true)}
+              >
+                <span className="sr-only">Open menu</span>
+                <Bars3Icon className="w-6 h-6" aria-hidden="true" />
+              </button>
 
 							{/* Logo */}
 							<div className="ml-4 flex lg:ml-0">
@@ -508,6 +506,17 @@ export default function HeaderNav() {
 									)}
 								</div>
 
+                <div className="hidden lg:ml-8 lg:flex">
+                  <Link href="#" className="flex items-center text-gray-700 hover:text-gray-800">
+                    <img
+                      src="/flag.jpg"
+                      alt=""
+                      className="flex-shrink-0 block w-5 h-auto"
+                    />
+                    <span className="block ml-3 text-sm font-medium">NGN</span>
+                    <span className="sr-only">, change currency</span>
+                  </Link>
+                </div>
 								<div className="hidden lg:ml-8 lg:flex">
 									<Link
 										href="#"

@@ -5,8 +5,8 @@ import useData from '../../hooks/useData'
 import Link from "next/link";
 
 export default function Brands() {
-  //const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
- const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brands/');
+ const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
+ //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brands/');
 
   if (loading) {
     return <div className="text-center p-5 mt-5">
