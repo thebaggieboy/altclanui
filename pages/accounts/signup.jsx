@@ -2,35 +2,41 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
-import { TokenContext } from '../../context/TokenContext';
-import useBrands from "./../../hooks/useBrands"    
-import { useDispatch } from "react-redux";
-import { setUser } from "../../features/user/userSlice";
+import { TokenContext } from "../../context/TokenContext";
+import useBrands from "./../../hooks/useBrands";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, setUser } from "../../features/user/userSlice";
+import signUp from "../../lib/signUp";
 
 export default function SignUp() {
 	const dispatch = useDispatch();
+	const user = useSelector(selectUser);
+	const router = useRouter();
+
+	if (user !== null) {
+		router.push("/profile");
+	}
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const router = useRouter();
+	const [error, setError] = useState(null);
+
+	const emailErr = error?.email[0] || null;
+
+	console.log(emailErr);
+
 	const submit = async (e) => {
 		e.preventDefault();
 		console.log("Signup button was clicked");
-		await fetch("/api/signup/", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				credentials: true,
-			},
-			body: JSON.stringify({ email, password }),
-		}).then((res) => {
-			if (res.ok) {
-				dispatch(setUser({ email }));
-				router.push("/profile");
-				
-			}
-		
-		});
+		const res = await signUp(email, password);
+		const data = await res.json();
+		if (data.err) {
+			setError(data.err);
+			return;
+		}
+		if (res.status >= 200 && res.status <= 209) {
+			dispatch(setUser({ email }));
+		}
 	};
 
 	return (
@@ -60,6 +66,9 @@ export default function SignUp() {
 
 						<div>
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
+							{emailErr !== null && (
+								<p className="pl-16 text-xs md:text-[.8rem] text-red-500">{emailErr}</p>
+							)}
 							<input
 								type="email"
 								onChange={(e) => setEmail(e.target.value)}

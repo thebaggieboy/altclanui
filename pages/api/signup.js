@@ -41,8 +41,8 @@ export default async function handler(req, res) {
 					if (response.status >= 200 && response.status <= 209) {
 						setCookie("token", token);
 						res.status(response.status).json({ message: "user created" });
+						return
 					}
-					setCookie("token", token);
 					const data = await response.json()
 					res.status(response.status).json({ err: data });
 				})
