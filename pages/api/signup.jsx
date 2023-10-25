@@ -1,11 +1,8 @@
 //import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
-import { NextResponse } from "next/server";
-import { useRouter,useContext } from "next/router";
-import { TokenContext } from "../../context/TokenContext";
 
 export default function handler(req, res) {
-	const externalApiUrl = "http://127.0.0.1:8000/api/users/";
+	// const externalApiUrl = "http://127.0.0.1:8000/api/users/";
 	const { email, password } = req.body;
 	
 	const setCookie = (name, value, days) => {
@@ -18,19 +15,19 @@ export default function handler(req, res) {
 	// Sign the user credentials
 	const token = jwt.sign({ email, password }, "secretkey", { expiresIn: "24h" });
 	
-	setCookie("token", token)
-	console.log('Token: ', token)
+	setCookie("auth", token)
+	
 
 	res.status(200).json({ token })
 	
-	fetch(externalApiUrl, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
+	// fetch(externalApiUrl, {
+	// 	method: 'POST',
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
 	 
-		},
-		body:JSON.stringify({email, password, token})
-	})
+	// 	},
+	// 	body:JSON.stringify({email, password, token})
+	// })
 
 
 

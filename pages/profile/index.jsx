@@ -1,13 +1,23 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "../../styles/brand.module.css";
-import Protected from "../../components/Protected";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/user/userSlice";
+import { useRouter } from "next/router";
 
 const Profile = () => {
 	const data = [];
 	const loading = false;
 	const error = null;
+	const user = useSelector(selectUser);
+	const router = useRouter();
+
+	useEffect(() => {
+		if (user === null) {
+			router.push("/accounts/signup");
+		}
+	}, [user]);
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
@@ -237,4 +247,4 @@ const Profile = () => {
 	);
 };
 
-export default Profile
+export default Profile;

@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/user/userSlice";
 import { useRouter } from "next/router";
 
-const Protected = ({ children }) => {
-	const user = null;
+const Protected = (Component) => {
+	const user = null
 	const router = useRouter();
 
 	if (user === null) {
@@ -12,7 +12,11 @@ const Protected = ({ children }) => {
 		return;
 	}
 
-	return <>{children}</>;
+	return (
+		<>
+			<Component />
+		</>
+	);
 };
 
 export default Protected;

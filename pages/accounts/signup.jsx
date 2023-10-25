@@ -5,7 +5,7 @@ import styles from "../../styles/login.module.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/user/userSlice";
 
-export default function SignUp(req, res) {
+export default function SignUp() {
 	const dispatch = useDispatch();
 
 	const [email, setEmail] = useState("");
