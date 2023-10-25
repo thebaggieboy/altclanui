@@ -67,7 +67,7 @@ export default function SignUp() {
 						<div>
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
 							{emailErr !== null && (
-								<p className="pl-16 text-xs md:text-[.8rem] text-red-500">{emailErr}</p>
+								<p className="pl-16 text-lg md:text-[.8rem] text-red-800">{emailErr}</p>
 							)}
 							<input
 								type="email"

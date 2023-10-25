@@ -19,15 +19,20 @@ export default function Search() {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-  //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/')
   const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
+  //const data = fetch('https://altclan-api-v1.onrender.com/api/merchandises/')
+ 
+ 
+
 
   useEffect(() => {
+
     if (searchQuery !== "") {
       const results = data.filter((product) =>
         product.merchandise_name.toLowerCase().includes(searchQuery.toLowerCase())
+        
       );
-
+      console.log(results)
       setSearchResult(results);
 
 
@@ -38,15 +43,11 @@ export default function Search() {
 
 
 
-  if (error) {
-    return <p>Error {error.message}</p>;
-  }
-
   return (
    
   <div className="pt-2 m-5 ">
       <div className="mx-auto ">
-        <form className="flex items-center" >   
+        <div className="flex items-center" >   
             <label for="simple-search" className="sr-only">Search</label>
             <div className="relative w-full">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -54,16 +55,16 @@ export default function Search() {
                 </div>
                 <input type="text" onChange={handleSearchChange} value={searchQuery} id="simple-search" className="bg-gray-50 p-5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="brand, merch, category" required/>
             </div>
-            <a href="#"  className="p-5 ml-2 text-sm font-medium text-dark bg-white rounded-lg border border-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-black">
+            <div href="#"  cldivssName="p-5 ml-2 text-sm font-medium text-dark bg-white rounded-lg border border-black hover:bg-white focus:ring-4 focus:outline-none focus:ring-black">
                 <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
                 <span className="sr-only">Search</span>
-            </a>
-        </form>
+            </div>
+        </div>
   </div>
 
-  {searchQuery && searchResult.map((product) => (
+  {searchQuery && searchResult?.map((product) => (
            <section key={product.id } aria-labelledby="products-heading" className="pb-24">
            <h2 id="products-heading" className="sr-only">
              Products
@@ -78,7 +79,7 @@ export default function Search() {
                            
              <div className="mx-auto max-w-2xl  px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
          
-         <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+         <div className="mt-10 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 
              <div className="group relative">
                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">

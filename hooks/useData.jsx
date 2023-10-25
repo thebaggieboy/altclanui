@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useProducts = (url) => {
+const useData = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,4 +27,4 @@ const useProducts = (url) => {
   return { data, loading, error };
 };
 
-export default useProducts;
+export default useData;

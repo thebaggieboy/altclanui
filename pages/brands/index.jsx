@@ -5,7 +5,7 @@ import useData from '../../hooks/useData'
 import Link from "next/link";
 
 export default function Brands() {
- const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
+ const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brand_profile/');
  //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brands/');
 
   if (loading) {
@@ -31,7 +31,7 @@ export default function Brands() {
 </div>
 
   }
-  if(data.length < 1){
+  if(data === null){
     return(
       <p>There are no brands yet</p>
     )
