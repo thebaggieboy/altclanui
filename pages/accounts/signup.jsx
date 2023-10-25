@@ -27,7 +27,9 @@ export default function SignUp(req, res) {
 			if (res.ok) {
 				dispatch(setUser({ email }));
 				router.push("/profile");
+				
 			}
+		
 		});
 	};
 

@@ -24,17 +24,16 @@ bcrypt
 		res.setHeader('Set-Cookie', cookie);
 	};
 	
-
-	// Sign the user credentials
-	//password = hash
 	const token = jwt.sign({ email, hash }, "secretkey", { expiresIn: "24h" });
-	
 	setCookie("token", token)
 	console.log('Token: ', token)
-	console.log("Current password value: ", password)
-	
-	res.status(200).json({ token })
-	
+
+	if (email in externalApiUrl) {
+		res.status(200).json({token})
+	}else{
+		res.status(400)
+	}
+
 	  fetch(externalApiUrl, {
 		method: 'POST',
 		headers: {
