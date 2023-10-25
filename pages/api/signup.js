@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 				expiresIn: "24h",
 			});
 			console.log("Token: ", token);
-			
+
 			await fetch(externalApiUrl, {
 				method: "POST",
 				headers: {
@@ -37,14 +37,19 @@ export default async function handler(req, res) {
 				},
 				body: JSON.stringify({ email, password: hash, token }),
 			})
-			.then(() => {
+				.then(async (response) => {
+					if (response.status >= 200 && response.status <= 209) {
+						setCookie("token", token);
+						res.status(response.status).json({ message: "user created" });
+					}
 					setCookie("token", token);
-					res.status(200).json({ message: "user created" });
+					const data = await response.json()
+					res.status(response.status).json({ err: data });
 				})
 				.catch((err) => {
 					res.status(500).json({ error: err.message });
 				})
-				
+
 		})
 		.catch((err) => {
 			console.error(err.message);
