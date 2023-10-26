@@ -1,58 +1,9 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useContext, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
-
-const products = [
-  {
-    id: 1,
-    name: 'Basic Tee',
-    href: '/products/basic_tee',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-      id: 2,
-      name: 'Basic Tee 2',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$45',
-      color: 'Black',
-    },
-
-    {
-      id: 3,
-      name: 'Basic Tee 3',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-    },
-    {
-      id: 4,
-      name: 'Basic Tee 4',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$15',
-      color: 'Black',
-    },
-
-    {
-      id: 5,
-      name: 'Basic Tee 5',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Blue',
-    },
-  // More products...
-]
+import useBrands from "@/hooks/useBrands"
+import { CartContext } from '@/context/CartContext'
 
 
 const sortOptions = [
@@ -112,8 +63,43 @@ function classNames(...classes) {
 }
 
 export default function Filter() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
+  const { data, loading, error } = useBrands('http://localhost:8000/api/merchandises/');
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const {cart, addToCart} = useContext(CartContext)
+
+  const addProductToCart = (()=>{
+    
+  })
+
+
+  if (loading) {
+    return <div className="text-center p-5 mt-5">
+      <br/>
+
+<div role="status" className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center">
+    <div className="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
+        <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+        </svg>
+    </div>
+    <div className="w-full">
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[440px] mb-2.5"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[460px] mb-2.5"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+    </div>
+    <span className="sr-only">Loading...</span>
+</div>
+</div>
+
+  }
+
+  if (error) {
+    return <p>Error {error.message}</p>;
+  }
   return (
     <div className="bg-white">
       <div>
@@ -219,7 +205,7 @@ export default function Filter() {
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pt-5 pb-6">
-            <h4 className="text-3xl font-bold tracking-tight text-gray-900">New Arrivals</h4>
+            <h4 className="text-2xl font-bold tracking-tight text-gray-900">Explore</h4>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
@@ -344,7 +330,7 @@ export default function Filter() {
               <div className="mx-auto max-w-2xl  px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
           
           <div className="mt-22 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {products.map((product) => (
+            {data.map((product) => (
               <div key={product.id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
@@ -356,14 +342,28 @@ export default function Filter() {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
-                      <a href={product.href}>
+                 
                         <span aria-hidden="true" className="absolute inset-0" />
-                        {product.name}
-                      </a>
+                        {product.merchandise_name}
+             
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                    <p className="mt-1 text-sm text-gray-500">{product.price}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-900">{product.price}</p>
+            
+      <a
+        className="pl-2 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+        href={{addToCart}}>
+        <span className="[&>svg]:w-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-5 w-5">
+            <path
+              d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+          </svg>
+        </span>
+      </a>
                 </div>
               </div>
             ))}

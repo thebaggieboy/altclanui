@@ -1,23 +1,50 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "components/CarouselWrapper.jsx", "components/headers/index.jsx", "components/ProfileForm.jsx", "pages/accounts/login.jsx", "pages/accounts/signup.jsx", "pages/api/login.jsx", "pages/api/secrets.jsx", "components/ImagesDiv.jsx", "components/headers/HeaderNav.jsx", "components/product-card/ProductCard.jsx", "components/Category.jsx", "pages/search.jsx", "pages/contact.jsx", "pages/contact.jsx", "pages/checkout.jsx", "pages/checkout2.jsx", "components/components/component5.jsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/brands/BrandOfTheWeek.jsx",
+    "components/brands/BrandDiv.jsx",
+    "components/brands/BrandHeaderTab.jsx",
+    "components/components/component4.jsx",
+    "components/components/component3.jsx",
+    "components/components/component6.jsx",
+    "components/components/component7.jsx",
+    "components/components/component2.jsx",
+    "components/ImagesDiv.jsx",
+    "components/ShopDiv.jsx",
+    "pages/products/index.jsx",
+    ".next/types/**/*.ts"
+, "app/layout.tsx", "pages/brands/index.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "paths": {
+    "@/*": ["./*"]
+  }
 }

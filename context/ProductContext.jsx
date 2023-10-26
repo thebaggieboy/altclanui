@@ -1,10 +1,17 @@
 import {createContext, useState} from 'react'
+import ProductReducer from "./ProductReducer"
+const initialState = {
+    products:[
 
+    ]
+}
 
-export const ProductContext = createContext({})
+export const ProductContext = createContext({initialState})
 
 export function ProductsContextProvider({children}){
-    const [selectedProducts, setSelectedProducts] = useState()
+    //const [state, dispatch] = useReducer(ProductReducer, initialState);
+    const [selectedProducts, setSelectedProducts] = useState([]);
+
     return(
         <ProductContext.Provider value={{selectedProducts, setSelectedProducts}}>
             {children}

@@ -11,19 +11,19 @@ const CarouselWrapper = ( { children,key,alt, controls = false, ...otherConfigPr
     const swiperElRef = useRef( null );
 
     return (
-        <Swiper modules={ [Pagination, Autoplay] }
+        <Swiper key={key} modules={ [Pagination, Autoplay] }
             { ...otherConfigProps }
             ref={ swiperElRef }>
             {//clones children elements and wraps them each in a swiper-slide
                 children.map( ( child ) => {
-                    return <SwiperSlide>
+                    return <SwiperSlide key={key}>
                         { createElement( Fragment, null, child ) }
                     </SwiperSlide>
                 } )
             }
             {
                 controls && (
-                    <div slot='container-end' className='flex justify-center gap-4'>
+                    <div key={key} slot='container-end' className='flex justify-center gap-4'>
                         <button data-control='next' onClick={ () => swiperElRef.current.swiper.slidePrev() }>
                             <Image src={ chevL } width={ 30 } height={ 30 } alt='control' className='w-8 h-8' />
                         </button>

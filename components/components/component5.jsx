@@ -1,6 +1,6 @@
 import styles from "../../styles/component5.module.css";
-import CarouselWrapper from "@/components/CarouselWrapper";
-import BrandCard from "@/components/brand-card"
+import CarouselWrapper from "../../components/CarouselWrapper";
+import BrandCard from "../../components/brand-card"
 
 const products = [
     {

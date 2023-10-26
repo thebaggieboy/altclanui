@@ -1,6 +1,6 @@
 import { Tab } from '@headlessui/react';
 import React from 'react'; 
-import styles from "@/styles/brand.module.css";
+import styles from "../../styles/brand.module.css";
 
 const MyTabs = () => {
   return (
@@ -28,40 +28,12 @@ const MyTabs = () => {
             <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt=""/>
             <h1>Bottle</h1>
             <p className={styles.price}>$59.99</p>
-            <p>lorem ipsum dolor amet</p>
-            <p><button className={styles.btn}>cart</button></p>
+            <p>lorem ipsum dolor amet</p> <br/>
+            <p><button className="bg-black text-white p-2 text-center">+ cart</button></p>
           </div>
         </div>
 
-        <div>
-          <div className={styles.card}>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt=""/>
-            <h1>Bottle</h1>
-            <p className={styles.price}>$59.99</p>
-            <p>lorem ipsum dolor amet</p>
-            <p><button className={styles.btn}>cart</button></p>
-          </div>
-        </div>
-
-        <div>
-          <div className={styles.card}>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt=""/>
-            <h1>Bottle</h1>
-            <p className={styles.price}>$59.99</p>
-            <p>lorem ipsum dolor amet</p>
-            <p><button className={styles.btn}>cart</button></p>
-          </div>
-        </div>
-
-        <div>
-          <div className={styles.card}>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt=""/>
-            <h1>Bottle</h1>
-            <p className={styles.price}>$59.99</p>
-            <p>lorem ipsum dolor amet</p>
-            <p><button className={styles.btn}>cart</button></p>
-          </div>
-        </div>
+       
       </div>
 
       </Tab.Panel>

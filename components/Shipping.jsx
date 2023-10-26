@@ -3,15 +3,6 @@ import React, {useState} from 'react'
 export default function Shipping(props) {
   const [step, setStep] = useState(2);
 
-  const nextStep = ()=>{
-    setStep(step + 1)
-    console.log(step)
-
-  }
-
-  const prevStep = ()=>{
-    setStep(step - 1)
-  }
   return (
     <>
     <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
@@ -160,7 +151,7 @@ export default function Shipping(props) {
           <p className="text-2xl font-semibold text-gray-900">$408.00</p>
         </div>
       </div>
-      <button onClick={props.nextStep} className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
+      <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
     </div>
   </div>
     </>
