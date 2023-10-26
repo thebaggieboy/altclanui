@@ -1,5 +1,6 @@
 import BrandHeaderTab from "@/components/brands/BrandHeaderTab"
 import styles from "@/styles/brand.module.css";
+import BrandHeader from "@/components/brands/brandHeader";
 
 const brands = [
   {
@@ -40,13 +41,13 @@ const brands = [
 export default function Brands() {
   return (
     <div className="bg-white">
-      <BrandHeaderTab/>
+      {/* <BrandHeaderTab/> */}
+      <BrandHeader />
       <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         {/* <h2 className={styles.brands}>Brands</h2> <br/>
         
         <p className="text-gray-600 lead">Explore from our list of aesthetic brands</p> */}
 
-        <br/>
 
         <div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
           {brands.map((brand) => (

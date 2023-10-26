@@ -87,12 +87,9 @@
         padding:10px;
         background-image: url("/img/headersweat.jpg");
         background-size:cover;
-        
-        
     }
 
     .headContainer { 
-
         margin-top: 70%;
         height: 200px;
         position: relative;

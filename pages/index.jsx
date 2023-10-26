@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Head from "next/head";
 import styles from "../styles/Home.module.css"
 import HeaderTab from "@/components/headers/HeaderTab";
@@ -17,6 +18,7 @@ import Cards from "@/components/components/component6";
 import Form from "@/components/components/component7";
 import MoreToExplore from "@/components/MoreToExplore"
 import Image from "next/image";
+import Preloader from "../components/preloader"
 
 const imgs = [1, 2, 3, 4];
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -33,7 +35,16 @@ const carouselBreakpoints = {
 };
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   return (
+    <>
+    {loading ? <Preloader /> :
     <>
       <Head>
         <title>Altclan - Community of aesthetics</title>
@@ -88,6 +99,8 @@ export default function Home() {
         <Cards /> 
         <Form />
         </div>
+      </>
+      }
 
     </>
   )
