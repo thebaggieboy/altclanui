@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component,useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import HeaderTab from "../components/headers/HeaderTab";
@@ -18,6 +18,7 @@ import Cards from "../components/components/component6";
 import Form from "../components/components/component7";
 import MoreToExplore from "../components/MoreToExplore";
 import Image from "next/image";
+import Preloader from "../components/preloader"
 import SponsoredBrands from '../components/SponsoredBrands';
 import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
@@ -39,7 +40,16 @@ const carouselBreakpoints = {
 };
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   return (
+    <>
+    {loading ? <Preloader /> :
     <>
       <Head>
         <title>Altclan - Community of aesthetics</title>
@@ -65,35 +75,27 @@ export default function Home() {
 					<Image src="/img/b-shah.jpg" fill alt="hero-umg" />
 				</CarouselWrapper>
 
-				<MainColumn />
-				<FullImages />
-				<NewIn />
-
-				<MoreToExplore />
-				{/* <Category/>  */}
-
-				<SponsoredBrands />
-
-				<div className="mt-2 p-10">
-					<h1 className="text-center text-3xl capitalize">
-						Trending Merchandise
-					</h1>
-					<br />
-					<CarouselWrapper
-						slidesPerView={2}
-						spaceBetween={10}
-						breakpoints={carouselBreakpoints}
-						controls
-					>
-						{products.map((id) => {
-							return <ProductCard key={id} id={id} />;
-						})}
-					</CarouselWrapper>
-				</div>
-
-				<Cards />
-				<Form />
-			</div>
+         <div className="m-2">
+         <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>
+         <br/>
+         <CarouselWrapper
+            slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={carouselBreakpoints}
+            controls
+          >
+            {products.map((id) => {
+              return <ProductCard key={id} id={id} />
+            })}
+          </CarouselWrapper>
+      
+         </div>
+        
+        <Cards /> 
+        <Form />
+        </div>
+      </>
+      }
 		</>
 	);
 }

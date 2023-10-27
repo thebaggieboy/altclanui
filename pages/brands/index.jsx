@@ -1,3 +1,4 @@
+import BrandHeader from "../../components/brands/brandHeader";
 import BrandHeaderTab from "../../components/brands/BrandHeaderTab"
 import styles from "../../styles/brand.module.css";
 import useBrands from '../../hooks/useBrands'
@@ -43,7 +44,7 @@ export default function Brands() {
 
   return (
     <div className="bg-white">
-      <BrandHeaderTab/>
+      <BrandHeader/>
       <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         {/* <h2 className={styles.brands}>Brands</h2> <br/>
         

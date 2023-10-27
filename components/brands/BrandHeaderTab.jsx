@@ -21,7 +21,6 @@ export default function BrandHeaderTab() {
  
   return (
     
-
 <div>
 
   <div className={styles.breadcrumbs}>
@@ -61,6 +60,7 @@ export default function BrandHeaderTab() {
         <li className={styles.navLink}>
             <Link href="/brands?q=rated">Top Rated</Link>
         </li>
+        
     </ul>
   </div>
 

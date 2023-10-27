@@ -316,7 +316,7 @@ export default function HeaderNav() {
 
       <header className="relative bg-white">
         <p className="flex items-center justify-center h-10 px-4 text-sm font-medium text-white bg-black sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
+          Get free delivery on orders over ₦30,000
         </p>
 
         <nav aria-label="Top" className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">

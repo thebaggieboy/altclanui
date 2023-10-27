@@ -35,7 +35,7 @@
 
 .select{
     width: 100%;
-    padding: 40px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -57,7 +57,7 @@
 }
 
 .submit{
-    background-color: #04AA6D;
+    background-color: #000;
     color: white;
     padding: 12px 20px;
     border: none;

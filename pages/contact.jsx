@@ -72,7 +72,7 @@ export default function contact() {
                 <form>
                     <fieldset>  
                         <select id="field" name="field" className={styles.select}>
-                            <option value="australia"></option>
+                            <option value="name">Purpose of contact</option>
                             <option value="creative">
                                 I'm a creative
                             </option>
