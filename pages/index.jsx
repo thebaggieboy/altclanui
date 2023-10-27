@@ -43,9 +43,14 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
+    console.log(brands)
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
+
+
+
   }, []);
   return (
     <>
@@ -80,8 +85,24 @@ export default function Home() {
         
         <NewIn/>
         <MoreToExplore/>
-        <SponsoredBrands/>
-         <div className="m-2">
+       <br/>
+       <div className="m-2">
+         <h1 className="text-3xl text-center capitalize">Featured Brands</h1>
+         <br/>
+         <CarouselWrapper
+            slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={carouselBreakpoints}
+            controls
+          >
+            {products.map((id) => {
+              return <BrandCard key={id} id={id} />
+            })}
+          </CarouselWrapper>
+      
+         </div>
+
+         <div className="pt-3 m-2">
          <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>
          <br/>
          <CarouselWrapper
