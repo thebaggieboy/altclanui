@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { useRouter } from "next/router";
-
+import useBrands from "../../../hooks/useBrands"
 
 export default function handler(req, res) {
 	//const externalApiUrl = "http://127.0.0.1:8000/api/users/";
