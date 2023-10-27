@@ -4,12 +4,12 @@ import MyTabs from '../../src/aboutcounter/brandProfile'
 import useBrands from '../../hooks/useBrands';
 
 export const getStaticPaths = async()=>{
-   //const res = await fetch('http://127.0.0.1:8000/api/brands/');
+    
     const res = await fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
   
   const data =  res.json();
   console.log(data)
-  const paths = data.map(brand =>{
+  const paths = data?.map(brand =>{
      return {
        params: { id: brand.id.toString() }
      }

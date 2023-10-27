@@ -73,43 +73,6 @@ export default function Products({_id, merchandise_name, price, picture}) {
   const {selectedProducts, setSelectedProducts} = useContext(ProductContext);
   console.log(cart)
 
-  function getProductQuantity(id) {
-    const quantity = cart.find(product => product.id === id)?.quantity;
-    
-    if (quantity === undefined) {
-        return 0;
-    }
-
-    return quantity;
-}
-
-function addOneToCart(id) {
-    const quantity = getProductQuantity(id);
-
-    if (quantity === 0) { // product is not in cart
-        setCartProducts(
-            [
-                ...cartProducts,
-                {
-                    id: id,
-                    quantity: 1
-                }
-            ]
-        )
-    } else { // product is in cart
-        // [ { id: 1 , quantity: 3 }, { id: 2, quantity: 1 } ]    add to product id of 2
-        setCartProducts(
-            cartProducts.map(
-                product =>
-                product.id === id                                // if condition
-                ? { ...product, quantity: product.quantity + 1 } // if statement is true
-                : product                                        // if statement is false
-            )
-        )
-    }
-}
-
-
   if (loading) {
     return <div className="text-center p-5 mt-5">
       <br/>

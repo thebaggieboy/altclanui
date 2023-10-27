@@ -11,7 +11,7 @@ export const getStaticPaths = async()=>{
  //const res = await fetch('http://127.0.0.1:8000/api/merchandises/');
  const data = await res.json();
  console.log(data)
- const paths = data.map(merch =>{
+ const paths = data?.map(merch =>{
     return {
       params: { id: merch.id.toString() }
     }
