@@ -16,7 +16,7 @@ export default function about() {
 
           <div className={styles.col33}>
             <div className={styles.team}>
-              <img src="/img/pexels-arianna-jadé-2896823.jpg"/>
+              <img src="/img/robbie-noble.jpg"/>
               <p>
                 BRANDS
               </p>

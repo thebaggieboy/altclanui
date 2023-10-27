@@ -24,8 +24,7 @@ import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 
-//const featured_brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
-//const brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
+const brands = [1, 2, 3,4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const carouselBreakpoints = {
@@ -44,7 +43,7 @@ export default function Home() {
 
   useEffect(() => {
     const brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
-    console.log(brands)
+    console.log("Brand Profile", brands)
     setTimeout(() => {
       setLoading(false);
     }, 1000);
@@ -83,7 +82,7 @@ export default function Home() {
         <MainColumn/>
         <FullImages/>
         
-        <NewIn/>
+        <Category/>
         <MoreToExplore/>
        <br/>
        <div className="m-2">
@@ -95,7 +94,7 @@ export default function Home() {
             breakpoints={carouselBreakpoints}
             controls
           >
-            {products.map((id) => {
+            {brands.map((id) => {
               return <BrandCard key={id} id={id} />
             })}
           </CarouselWrapper>
