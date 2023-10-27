@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Brands() {
  const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brand_profile/');
- //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brands/');
+ //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brand_profile/');
 
   if (loading) {
     return <div className="text-center p-5 mt-5">
@@ -54,7 +54,7 @@ export default function Brands() {
 
         <div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
           {data.map((brand) => (
-            <Link key={brand.id} href={'/brands/' + brand.id} className="group">
+            <Link key={brand.id} href={`/brands/${brand.id}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
                 <img
                   src={brand.brand_logo}

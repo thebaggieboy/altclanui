@@ -20,6 +20,7 @@ export default function Search() {
     setSearchQuery(event.target.value);
   };
   const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
+  //const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
   //const data = fetch('https://altclan-api-v1.onrender.com/api/merchandises/')
  
  

@@ -20,6 +20,7 @@ const navigation = {
 		{ name: "Home", href: "/" },
 		{ name: "About us", href: "/about" },
 		{ name: "Shop Merch", href: "/products" },
+		{ name: "Shop Brands", href: "/brands" },
 		{ name: "Start a brand", href: "/brands/register" },
 	],
 
