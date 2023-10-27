@@ -4,18 +4,15 @@ import { CartContext } from "../context/CartContext";
 import { ProductContext } from "../context/ProductContext";
 import Link from "next/link";
 import styles from "./../styles/component5.module.css";
-
+import useData from "./../hooks/useData";
 const SponsoredBrands = () => {
-	//const { data, loading, error } = useData('https://altclan-api-v1.onrender.com/api/merchandises/');
-	// const { data, loading, error } = useBrands(
-	// 	"http://127.0.0.1:8000/api/brands/"
-	// );
+	const { data, loading, error } = useData('https://altclan-api-v1.onrender.com/api/brand_profile/');
 
-    const data = [];
-    const loading = false
-    const error = null
+
+
     
 	if (loading) {
+
 		return (
 			<div className="mt-5 p-5 text-center">
 				<br />

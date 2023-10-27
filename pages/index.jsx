@@ -23,8 +23,8 @@ import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 
-const featured_brands = fetch('https://altclan-api-v1.onrender.com/api/brands/')
-const brands = [1, 2, 3, 4];
+//const featured_brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
+const brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const carouselBreakpoints = {

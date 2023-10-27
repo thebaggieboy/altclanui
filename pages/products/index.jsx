@@ -243,7 +243,7 @@ function addOneToCart(id) {
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
          
-            <div className='p-3'>
+            <div className='p-1'>
             <ExploreHeaderTab/>
             </div>
             <div className="flex items-center">
@@ -368,11 +368,11 @@ function addOneToCart(id) {
                             
               <div className="mx-auto max-w-2xl  px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
           
-          <div className="mt-5 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className=" grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {data.map(({id, display_image, imageAlt,merchandise_name, category, price}) => (
               <div key={id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                  <Link href={'/products/' + id}>
+                  <Link href={`/products/${id}`}>
                   <img
                     src={display_image}
                     alt={imageAlt}
@@ -380,7 +380,7 @@ function addOneToCart(id) {
                   />
                   </Link>
                 </div>
-                <div className="mt-4 flex justify-between">
+                <div className="flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
                       {/* An element here was covering the whole card making the add to cart unclickable */}

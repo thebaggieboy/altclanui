@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
-import styles from "../../styles/brand.module.css";
+import styles from "../../styles/profile.module.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
