@@ -22,6 +22,6 @@ export const { setProfile } = userProfileSlice.actions
 
 
 //selectors
-export const selectUser = mainState => mainState.user.user
+export const selectUser = mainState => mainState.profile.profile
 
 export default userProfileSlice.reducer

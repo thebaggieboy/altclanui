@@ -40,7 +40,7 @@ export default function HeaderTab() {
     <div className={isScrolled ? `${styles.navbar} ${styles.scrolled}` : styles.navbar}>
       <Link href="/brands" className={styles.a}>Brands</Link>
       <Link href="/products" className={styles.a}>Explore</Link>
-      <Link href="/products?q=whats-new" className={styles.a}>Whats New?</Link>
+      <Link href="/collections" className={styles.a}>Categories</Link>
     </div>
     
   )

@@ -75,6 +75,12 @@ export default function Home() {
 					<Image src="/img/b-shah.jpg" fill alt="hero-umg" />
 				</CarouselWrapper>
 
+        <MainColumn/>
+        <FullImages/>
+        
+        <NewIn/>
+        <MoreToExplore/>
+        <SponsoredBrands/>
          <div className="m-2">
          <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>
          <br/>
