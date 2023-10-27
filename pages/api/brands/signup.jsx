@@ -2,11 +2,11 @@
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { useRouter } from "next/router";
-import useBrands from "../../../hooks/useBrands"
+
 
 export default function handler(req, res) {
 	//const externalApiUrl = "http://127.0.0.1:8000/api/users/";
-	const externalApiUrl = useBrands('https://altclan-api-v1.onrender.com/api/users/')
+	const externalApiUrl = fetch('https://altclan-api-v1.onrender.com/api/users/')
 	const { email, password } = req.body;
 
 
