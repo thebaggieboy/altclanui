@@ -1,31 +1,28 @@
 import styles from "../../styles/brand.module.css"
-
+import {React, useState, useEffect, useContext} from 'react'
 const BrandHeader = () => {
+    const [searchQuery, setSearchQuery] = useState('');
+    // Results of the search query in an array
+    const [filteredSearch, setFilteredSearch] = useState([]);
+    const [searchResult, setSearchResult] = useState([])
+  
+    const handleSearchChange = (event) => {
+      setSearchQuery(event.target.value);
+    };
     return(
         <>
-            <div className={styles.brandnav}>
-                <div className={styles.searchContainer}>
+            <div className=''>
+                <div className='p-5'>
                     <form action="/">
-                        <input type="text" placeholder="Search brands.." name="search" />
-                        <button type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" viewBox="0 0 19 19" fill="none">
-                                <path d="M13.7377 13.7534L19 19M15.9667 8.38333C15.9667 12.5715 12.5715 15.9667 8.38333 15.9667C4.19517 15.9667 0.799999 12.5715 0.799999 8.38333C0.799999 4.19517 4.19517 0.799999 8.38333 0.799999C12.5715 0.799999 15.9667 4.19517 15.9667 8.38333Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
+                    <div className="relative w-full">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                
+                </div>
+                <input type="text" onChange={handleSearchChange} value={searchQuery} id="simple-search" className="bg-gray-50 p-5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="brand, merch, category" required/>
+            </div>
                     </form>
                 </div>
-                <div className={styles.brandfilter}>
-                    <button className={styles.dropbtn}>
-                        Filter 
-                    </button>
-                    <div className={styles.brandfilterContent}>
-                    <a href="#">Best sellers</a>
-                    <a href="#">Upcoming</a>
-                    <a href="#">Top rated</a>
-                    <a href="#">Top followed</a>
-                    <a href="#">A-Z</a>
-                    </div>
-                </div> 
+
             </div>
         </>
     );

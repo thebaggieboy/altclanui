@@ -199,12 +199,12 @@ export default function HeaderNav() {
 											<div className="  space-y-6 ">
 												{navigation.pages.map((page) => (
 													<div key={page.name} className="flow-root">
-														<Link
+														<a
 															href={page.href}
 															className="-m-2 block p-2 font-medium text-gray-900"
 														>
 															{page.name}
-														</Link>
+														</a>
 													</div>
 												))}
 											</div>
