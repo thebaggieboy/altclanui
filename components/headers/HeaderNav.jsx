@@ -21,7 +21,7 @@ const navigation = {
 		{ name: "About us", href: "/about" },
 
 		{ name: "Shop", href: "/brands/register" },
-		{ name: "Login", href: "/brands/register" },
+		{ name: "Login", href: "/accounts/login" },
 	],
 
 	categories: [
