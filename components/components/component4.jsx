@@ -62,10 +62,12 @@ export default function newIn() {
                             <div className={styles.shopColumn}>
                                 <div className={styles.card}>
                                     <div className={styles.container}>
-                                    
+                                        <div className={styles.topleft}>
+                                            <img alt="" src="{heart}" />
+                                        </div>
                                         <img
                                             src={product.imageSrc}
-                                            alt={product.imageAlt}
+                                           
                                             className={styles.productImage}
                                          />
                                     </div>
