@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <div className={styles.loginContainer}>
         <div className={styles.columnImage}>
-            <img src="https://media.everlane.com/image/upload/c_fill,w_828,ar_380:655,q_auto,dpr_1.0,f_auto,fl_progressive:steep/Modal_Desktop-05102022_pyajh1" alt="" className={styles.img}/>
+            <img src="/img/faith.jpg" alt="" className={styles.img}/>
         </div>
 
         <div className={styles.columnText}>
