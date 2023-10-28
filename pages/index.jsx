@@ -83,9 +83,9 @@ export default function Home() {
         <FullImages/>
         <NewIn/>
         <Category/>
-        <MoreToExplore/>
-       <br/>
-       <div className="m-2">
+        <ShopDiv/>
+        <br/>
+       <div className="mt-5">
          <h1 className="text-4xl text-center capitalize">Featured Brands</h1>
          <br/>
          <CarouselWrapper
