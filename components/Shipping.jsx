@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { PaystackButton } from 'react-paystack'
+import { useRouter } from 'next/router';
 
 export default function Shipping(props) {
   const email = "thebaggieboy@protonmail.com"
@@ -12,6 +13,7 @@ export default function Shipping(props) {
   const [address, setaddress] = useState('')
   const [zip, setzip] = useState('')
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
+  const router = useRouter()
   const amount = 4000 * 100
   const componentProps = {
     email,
@@ -22,8 +24,7 @@ export default function Shipping(props) {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () =>
-      alert("Thanks for doing business with us! Come back soon!!"),
+    onSuccess: () => router.push('/payment-success')
    
   }
 

@@ -13,7 +13,7 @@ const brandUserSlice = createSlice({
 })
 
 //action creators
-export const { setBrandUser } = userSlice.actions
+export const { setBrandUser } = brandUserSlice.actions
 
 
 //selectors
