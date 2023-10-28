@@ -81,12 +81,12 @@ export default function Home() {
 
         <MainColumn/>
         <FullImages/>
-        
+        <NewIn/>
         <Category/>
         <MoreToExplore/>
        <br/>
        <div className="m-2">
-         <h1 className="text-3xl text-center capitalize">Featured Brands</h1>
+         <h1 className="text-4xl text-center capitalize">Featured Brands</h1>
          <br/>
          <CarouselWrapper
             slidesPerView={2}
@@ -101,8 +101,8 @@ export default function Home() {
       
          </div>
 
-         <div className="pt-3 m-2">
-         <h1 className="text-3xl text-center capitalize">Trending Merchandise</h1>
+         <div className="pt-5 m-2">
+         <h1 className="text-4xl text-center capitalize">Trending Merchandise</h1>
          <br/>
          <CarouselWrapper
             slidesPerView={2}
