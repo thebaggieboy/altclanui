@@ -19,9 +19,9 @@ const navigation = {
 	pages: [
 		{ name: "Home", href: "/" },
 		{ name: "About us", href: "/about" },
-		{ name: "Shop Merch", href: "/products" },
-		{ name: "Shop Brands", href: "/brands" },
-		{ name: "Start a brand", href: "/brands/register" },
+
+		{ name: "Shop", href: "/brands/register" },
+		{ name: "Login", href: "/brands/register" },
 	],
 
 	categories: [
@@ -469,10 +469,10 @@ export default function HeaderNav() {
 									{user === null ? (
 										<>
 											<Link
-												href="/accounts/login"
+												href="/brands/register"
 												className="text-sm font-medium text-gray-700 hover:text-gray-800"
 											>
-												Sign in
+												Start a brand
 											</Link>
 											<span
 												className="h-6 w-px bg-gray-200"
