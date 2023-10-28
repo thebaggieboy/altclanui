@@ -29,7 +29,7 @@ export default function handler(req, res) {
 	const auth = req.cookies.authorization
 	console.log("Auth: ", auth)
 
-	res.status(200).json({email,password, token })
+	res.status(200).json({email,password })
 
 
 

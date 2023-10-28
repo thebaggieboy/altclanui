@@ -8,8 +8,8 @@ import useData from "../../hooks/useData"
 
 export async function getServerSideProps(context) {
   const id = context.params.id
-  //const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/${id}`)
-  const res = await fetch(`http://127.0.0.1:8000/api/merchandises/${id}`);
+  const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/${id}`)
+  //const res = await fetch(`http://127.0.0.1:8000/api/merchandises/${id}`);
   const data = await res.json()
   console.log(data)
 
