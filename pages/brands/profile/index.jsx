@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Component } from 'react';
-import styles from "../../styles/brand.module.css";
-import MyTabs from '../../src/aboutcounter/brandProfile'
-import useBrands from '../../hooks/useBrands';
-
+//import styles from "../../styles/brand.module.css";
+import styles from "./../../../styles/brand.module.css"
+//import MyTabs from '../../src/aboutcounter/brandProfile'
+import MyTabs from "./../../../src/aboutcounter/brandProfile"
 export async function getServerSideProps(context) {
   const id = context.params.id
   //const res = await fetch(`https://altclan-api-v1.onrender.com/api/brand_profile/${id}`)
