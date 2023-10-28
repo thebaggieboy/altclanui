@@ -11,7 +11,7 @@ export default function Shipping(props) {
   const [state, setstate] = useState('')
   const [address, setaddress] = useState('')
   const [zip, setzip] = useState('')
-  const publicKey = 'pk_live_fd0912ceeaf6ee9084dcb24d7e8aa6987e6cd515'
+  const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
   const amount = 4000 * 100
   const componentProps = {
     email,
