@@ -1,15 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const brandUserSlice = createSlice({
-    name: "user",
+    name: "brand_user",
     initialState: {
-        user: [
-
-        ]
+        brand_user: null
     },
     reducers: {
         setBrandUser: (state, action) => {
-            state.user = action.payload
+            state.brand_user = action.payload
         }
     }
 })
@@ -19,6 +17,6 @@ export const { setBrandUser } = brandUserSlice.actions
 
 
 //selectors
-export const selectBrandUser = mainState => mainState.user.user
+export const selectBrandUser = mainState => mainState.brand_user.brand_user
 
 export default brandUserSlice.reducer

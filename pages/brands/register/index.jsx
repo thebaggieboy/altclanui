@@ -9,11 +9,11 @@ import { selectBrandUser, setBrandUser } from "../../../features/brands/brandUse
 
 export default function SignUp(req, res) {
 	const dispatch = useDispatch();
-	const user = useSelector(selectBrandUser);
+	const brand_user = useSelector(selectBrandUser);
 	const router = useRouter();
 
-	if (user !== null) {
-		router.push("/brands/profile");
+	if (brand_user !== null) {
+		router.push("/brands/register/brand-bio");
 	}
 
 	const [email, setEmail] = useState("");
