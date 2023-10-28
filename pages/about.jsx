@@ -16,9 +16,6 @@ export default function about() {
         Our startup aims to solve the problem of isolation and lack of community among people who identify with anti-mainstream cultures & fashion. 
           Many individuals who identify with these subcultures may feel like they are outsiders or marginalized in mainstream society, and may not have a sense of belonging or connection to others who share their interests and values. 
 
-          By creating a platform that connects people from different anti-mainstream cultures together, our startup aims to build a sense of community and belonging among these individuals. 
-          This can help to reduce feelings of isolation and provide a supportive environment for individuals to express themselves and explore their interests in fashion and aesthetics. 
-         
         </p>
       </div>
 
