@@ -30,7 +30,7 @@ const contents = [
 export default function cards() {
     return (
        <>
-       <div className="">
+       <div className="p-5">
        <div className={styles.row}>
             {contents.map((content) => (
                 <div key={content.id}>

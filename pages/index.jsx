@@ -85,7 +85,7 @@ export default function Home() {
         <Category/>
         <ShopDiv/>
         <br/>
-       <div className="mt-5">
+       <div className="mt-5 p-5">
          <h1 className="text-4xl text-center capitalize">Featured Brands</h1>
          <br/>
          <CarouselWrapper
@@ -101,7 +101,7 @@ export default function Home() {
       
          </div>
 
-         <div className="pt-5 m-2">
+         <div className="pt-5 p-5 ">
          <h1 className="text-4xl text-center capitalize">Trending Merchandise</h1>
          <br/>
          <CarouselWrapper
