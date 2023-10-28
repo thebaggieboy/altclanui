@@ -25,7 +25,7 @@ export default function ShopDiv() {
             <img src="/img/mike-von.jpg" alt=""/>
             <div className={styles.shopTextCentered}>
               <p>
-                SHOP BEST SELLERS
+              Go through a collection of aesthetics.
               </p>
               
               <button className={styles.shopBtn}>
@@ -40,7 +40,7 @@ export default function ShopDiv() {
             <img src="/img/dami-adebayo-brands.jpg" alt=""/>
             <div className={styles.shopContent}>
               <h1>
-                JUST LANDED
+                SHOP BRANDS
               </h1>
               
               <p>
