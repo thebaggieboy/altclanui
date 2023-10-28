@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductCard = () => {
+const ProductCard = ({i}) => {
     return (
         <div>
               <ul key={i.id} className="-my-8">
