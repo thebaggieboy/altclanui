@@ -10,7 +10,7 @@ export default function handler(req, res) {
         res.status(200).json({ message: "logged out" })
 
     } catch (error) {
-        res.status(401).json({ message: "user unauthorized", error })
+        res.status(401).json({ message: "brand user unauthorized", error })
     }
 
 

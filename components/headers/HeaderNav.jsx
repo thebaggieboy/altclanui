@@ -15,14 +15,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "../../features/user/userSlice";
 import { selectBrandUser, setBrandUser } from "../../features/brands/brandUserSlice";
 import logoutUser from "../../lib/logoutUser";
+import logoutBrandUser from "../../lib/logoutBrandUser";
 
 const navigation = {
 	pages: [
 		{ name: "Home", href: "/" },
-		{ name: "About us", href: "/about" },
+		{ name: "About", href: "/about" },
 
-		{ name: "Shop", href: "/brands/register" },
-		{ name: "Login", href: "/accounts/login" },
+		{ name: "Shop", href: "/products" },
+		{ name: "Start a brand", href: "/brands/register" },
 	],
 
 	categories: [
@@ -143,6 +144,15 @@ export default function HeaderNav() {
 		try {
 			await logoutUser();
 			dispatch(setUser(null));
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
+	async function brand_logout() {
+		try {
+			await logoutBrandUser();
+			dispatch(setBrandUser(null));
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -463,6 +473,7 @@ export default function HeaderNav() {
 											{page.name}
 										</Link>
 									))}
+									
 								</div>
 							</Popover.Group>
 
@@ -471,10 +482,10 @@ export default function HeaderNav() {
 									{user === null ? (
 										<>
 											<Link
-												href="/brands/register"
+												href="/accounts/login"
 												className="text-sm font-medium text-gray-700 hover:text-gray-800"
 											>
-												Start a brand
+												Login
 											</Link>
 											<span
 												className="h-6 w-px bg-gray-200"
@@ -508,6 +519,7 @@ export default function HeaderNav() {
 										</>
 									)}
 								</div>
+								
 
                 <div className="hidden lg:ml-8 lg:flex">
                   <Link href="#" className="flex items-center text-gray-700 hover:text-gray-800">
