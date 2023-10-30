@@ -28,14 +28,18 @@ export default function SignUp() {
 	const submit = async (e) => {
 		e.preventDefault();
 		console.log("Signup button was clicked");
-		const res = await signUp(email, password);
-		const data = await res.json();
-		if (data.err) {
-			setError(data.err);
-			return;
-		}
-		if (res.status >= 200 && res.status <= 209) {
+		try {
+			const data = await signUp(email, password);
+			if (data.err) {
+				setError(data.err);
+				setTimeout(()=>{
+					setError(null)
+				},4000)
+				return;
+			}
 			dispatch(setUser({ email }));
+		} catch (error) {
+			setError(error);
 		}
 	};
 
@@ -67,7 +71,9 @@ export default function SignUp() {
 						<div>
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
 							{emailErr !== null && (
-								<p className="pl-16 text-xs md:text-[.8rem] text-red-500">{emailErr}</p>
+								<p className="pl-16 text-xs text-red-500 md:text-[.8rem]">
+									"user already exists"
+								</p>
 							)}
 							<input
 								type="email"
