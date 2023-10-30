@@ -4,6 +4,7 @@ import userSlice from "./user/userSlice"
 import brandSlice from "./brands/brandSlice"
 import brandUserSlice from "./brands/brandUserSlice";
 import { createWrapper } from "next-redux-wrapper";
+import shopSlice from "./shop/shopSlice";
 
 
 const makeStore = () =>
@@ -11,7 +12,8 @@ const makeStore = () =>
         reducer: {
             user: userSlice,
             brand_user:brandUserSlice,
-            brands:brandSlice
+            brands:brandSlice,
+            shop: shopSlice
 
         },
         middleware: (getDefaultMiddleWare) => (
