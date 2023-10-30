@@ -1,32 +1,42 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, FormEvent } from 'react'
-import styles from "../../../styles/login.module.css";
+//import styles from "../../../styles/login.module.css";
+import styles from "./../../../styles/login.module.css"
+import signUp from "../../../lib/signUp"
+import { useDispatch, useSelector } from "react-redux";
+import { selectBrandUser, setBrandUser } from "../../../features/brands/brandUserSlice";
 
 export default function SignUp(req, res) {
-    
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');   
-    const [jwtToken, setJwtToken] = useState(''); 
+	const dispatch = useDispatch();
+	const brand_user = useSelector(selectBrandUser);
+	const router = useRouter();
 
-    
-    const router = useRouter();
-    const submit = async(e) => {
-        e.preventDefault();
- 
-        console.log("Signup button was clicked")
-        await fetch('/api/brands/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-         
-            },
-            body:JSON.stringify({email, password})
-        })
-        
-        router.push('/brands/register/brand-bio')
-    }
+	if (brand_user !== null) {
+		router.push("/brands/register/brand-bio");
+	}
 
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [error, setError] = useState(null);
+
+	const emailErr = error?.email[0] || null;
+
+	console.log(emailErr);
+
+	const submit = async (e) => {
+		e.preventDefault();
+		console.log("Signup button was clicked");
+		const res = await signUp(email, password);
+		const data = await res.json();
+		if (data.err) {
+			setError(data.err);
+			return;
+		}
+		if (res.status >= 200 && res.status <= 209) {
+			dispatch(setBrandUser({ email }));
+		}
+	};
 
 
   return (
@@ -55,7 +65,7 @@ export default function SignUp(req, res) {
                 </div>
 
                 <button type="submit" className={styles.submit}>
-                    Create an account
+                   Register
                 </button>
    
                   <p className={styles.alternative}>

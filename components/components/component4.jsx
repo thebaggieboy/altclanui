@@ -51,6 +51,10 @@ const products = [
 export default function newIn() {
     return (
         <>
+        	<div className="pt-4 m-1">
+         <h1 className="text-2xl text-center capitalize">New Products</h1>
+         <br/>
+         </div>
             <div className={styles.row}>
                 {products.map((product) => (
                     <div key={product.id}>
@@ -63,7 +67,7 @@ export default function newIn() {
                                         </div>
                                         <img
                                             src={product.imageSrc}
-                                            alt={product.imageAlt}
+                                           
                                             className={styles.productImage}
                                          />
                                     </div>

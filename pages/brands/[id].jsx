@@ -1,43 +1,28 @@
 import React, { useState, useEffect, Component } from 'react';
 import styles from "../../styles/brand.module.css";
 import MyTabs from '../../src/aboutcounter/brandProfile'
+import useBrands from '../../hooks/useBrands';
 
-export const getStaticPaths = async()=>{
-   //const res = await fetch('http://127.0.0.1:8000/api/brands/');
-    const res = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
-  
-  const data = await res.json();
+export async function getServerSideProps(context) {
+  const id = context.params.id
+  const res = await fetch(`https://altclan-api-v1.onrender.com/api/brand_profile/${id}`)
+  //const res = await fetch(`http://127.0.0.1:8000/api/brand_profile/${id}`);
+  const data = await res.json()
   console.log(data)
-  const paths = data.map(brand =>{
-     return {
-       params: { id: brand.id.toString() }
-     }
-  })
- 
-     return{
-       paths,
-       fallback:false
-     }
- }
- 
- export const getStaticProps = async(context)=>{
-   const id = context.params.id
-   //const res = await fetch('http://127.0.0.1:8000/api/brands/' + id)
-   const res = useBrands(`https://altclan-api-v1.onrender.com/api/merchandises/${id}`)
-  
-   const data = await res.json()
- 
-   return {
-     props: {brand:data}
-   }
- 
- }
 
- 
-export default function BrandProfile({brand}) {
+  return {
+    props: {brand:data}
+  }
+
+}
+
+
+
+
+export default function BrandProfile({_id, brand}) {
   
   return (
-     <div className={styles.brandProfileContent}>
+     <div key={brand.id} className={styles.brandProfileContent}>
           <div className={styles.left}>
             <img src={brand.brand_logo} alt="" className={styles.image}/>
           </div>

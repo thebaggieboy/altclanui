@@ -70,7 +70,7 @@ const products = [
   },
   {
     id: 8,
-    name: "Caps & Hats",
+    name: "Caps",
     href: "#",
     price: "$35",
     imageSrc: "/img/cap.jpg",

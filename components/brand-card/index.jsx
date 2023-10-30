@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import img from '../../public/assets/image.webp'
 
-const BrandCard = ( ) => {
+const BrandCard = ({id, brand_name, img}) => {
   const [liked, setLiked] = useState( false )
 
   return (

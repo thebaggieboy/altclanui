@@ -19,8 +19,9 @@ const navigation = {
 	pages: [
 		{ name: "Home", href: "/" },
 		{ name: "About us", href: "/about" },
-		{ name: "Shop Merch", href: "/products" },
-		{ name: "Start a brand", href: "/brands/register" },
+
+		{ name: "Shop", href: "/brands/register" },
+		{ name: "Login", href: "/accounts/login" },
 	],
 
 	categories: [
@@ -198,12 +199,12 @@ export default function HeaderNav() {
 											<div className="  space-y-6 ">
 												{navigation.pages.map((page) => (
 													<div key={page.name} className="flow-root">
-														<Link
+														<a
 															href={page.href}
 															className="-m-2 block p-2 font-medium text-gray-900"
 														>
 															{page.name}
-														</Link>
+														</a>
 													</div>
 												))}
 											</div>
@@ -316,7 +317,7 @@ export default function HeaderNav() {
 
       <header className="relative bg-white">
         <p className="flex items-center justify-center h-10 px-4 text-sm font-medium text-white bg-black sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
+          Get free delivery on orders over ₦30,000
         </p>
 
         <nav aria-label="Top" className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -468,10 +469,10 @@ export default function HeaderNav() {
 									{user === null ? (
 										<>
 											<Link
-												href="/accounts/login"
+												href="/brands/register"
 												className="text-sm font-medium text-gray-700 hover:text-gray-800"
 											>
-												Sign in
+												Start a brand
 											</Link>
 											<span
 												className="h-6 w-px bg-gray-200"
@@ -517,20 +518,7 @@ export default function HeaderNav() {
                     <span className="sr-only">, change currency</span>
                   </Link>
                 </div>
-								<div className="hidden lg:ml-8 lg:flex">
-									<Link
-										href="#"
-										className="flex items-center text-gray-700 hover:text-gray-800"
-									>
-										<img
-											src="https://tailwindui.com/img/flags/flag-canada.svg"
-											alt=""
-											className="block h-auto w-5 flex-shrink-0"
-										/>
-										<span className="ml-3 block text-sm font-medium">CAD</span>
-										<span className="sr-only">, change currency</span>
-									</Link>
-								</div>
+							
 
 								{/* Search */}
 								<div className="flex lg:ml-6">

@@ -6,28 +6,12 @@ import { ProductContext } from '../../context/ProductContext'
 import { CartContext } from '../../context/CartContext'
 import useData from "../../hooks/useData"
 
-export const getStaticPaths = async()=>{
-  const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/`)
- //const res = await fetch('http://127.0.0.1:8000/api/merchandises/');
- const data = await res.json();
- console.log(data)
- const paths = data.map(merch =>{
-    return {
-      params: { id: merch.id.toString() }
-    }
- })
-
-    return{
-      paths,
-      fallback:false
-    }
-}
-
-export const getStaticProps = async(context)=>{
+export async function getServerSideProps(context) {
   const id = context.params.id
   const res = await fetch(`https://altclan-api-v1.onrender.com/api/merchandises/${id}`)
   //const res = await fetch(`http://127.0.0.1:8000/api/merchandises/${id}`);
   const data = await res.json()
+  console.log(data)
 
   return {
     props: {merch:data}
@@ -35,32 +19,14 @@ export const getStaticProps = async(context)=>{
 
 }
 
+
 const product = {
-  name: 'Basic Tee 6-Pack',
-  price: '$192',
-  href: '#',
+
   breadcrumbs: [
     { id: 1, name: 'Men', href: '#' },
     { id: 2, name: 'Clothing', href: '/products' },
   ],
-  images: [
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
-      alt: 'Two each of gray, white, and black shirts laying flat.',
-    },
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
-      alt: 'Model wearing plain black basic tee.',
-    },
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
-      alt: 'Model wearing plain gray basic tee.',
-    },
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
-      alt: 'Model wearing plain white basic tee.',
-    },
-  ],
+
   colors: [
     { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
     { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
@@ -331,19 +297,7 @@ export default function ProductDetail({_id, merch}) {
               </div>
             </div>
 
-            <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
 
-              <div className="mt-4">
-                <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                  {product.highlights.map((highlight) => (
-                    <li key={highlight} className="text-gray-400">
-                      <span className="text-gray-600">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
             <div className="mt-10">
               <h2 className="text-sm font-medium text-gray-900">Details</h2>

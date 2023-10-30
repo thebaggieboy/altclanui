@@ -1,5 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.brandnav {
+    overflow: hidden;
+    background-color: #FFF;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    padding: 10px;
+}
+
+.brandnav .searchContainer {
+    margin-left: 16%;
+    float: left;
+}
+
+.brandnav input[type=text] {
+    padding: 6.2px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.brandnav .searchContainer button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #FFF;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-left: none;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.brandnav .searchContainer button:hover {
+    background: #ccc;
+}
+
+.brandfilter {
+    float: right;
+    margin-right: 15%;
+    overflow: hidden;
+}
+
+.brandfilter .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: #000;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.brandnav a:hover, .brandfilter:hover .dropbtn {
+    background-color: #ddd;
+}
+
+.brandfilterContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.brandfilterContent a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.brandfilterContent a:hover {
+    background-color: #ddd;
+}
+
+.brandfilter:hover .brandfilterContent {
+    display: block;
+}
+
 .brandProfileContent{
     margin: auto;
     font-family: 'Poppins', sans-serif;
@@ -387,6 +477,7 @@
     object-position: 50% 50%;
     padding-bottom: 10px;
 }
+
 
 @media screen and (max-width: 600px) {
     .breadcrumbs{

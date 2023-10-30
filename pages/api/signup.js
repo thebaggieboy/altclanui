@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ email, password: hash, token }),
+				body: JSON.stringify({ email, password: hash }),
 			})
 				.then(async (response) => {
 					if (response.status >= 200 && response.status <= 209) {

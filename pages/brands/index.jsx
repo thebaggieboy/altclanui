@@ -1,3 +1,4 @@
+import BrandHeader from "../../components/brands/brandHeader";
 import BrandHeaderTab from "../../components/brands/BrandHeaderTab"
 import styles from "../../styles/brand.module.css";
 import useBrands from '../../hooks/useBrands'
@@ -5,8 +6,8 @@ import useData from '../../hooks/useData'
 import Link from "next/link";
 
 export default function Brands() {
- const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brands/');
- //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brands/');
+ const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brand_profile/');
+ //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brand_profile/');
 
   if (loading) {
     return <div className="text-center p-5 mt-5">
@@ -31,7 +32,7 @@ export default function Brands() {
 </div>
 
   }
-  if(data.length < 1){
+  if(data === null){
     return(
       <p>There are no brands yet</p>
     )
@@ -43,8 +44,8 @@ export default function Brands() {
 
   return (
     <div className="bg-white">
-      <BrandHeaderTab/>
-      <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <BrandHeader/>
+      <div className="max-w-2xl px-4  mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         {/* <h2 className={styles.brands}>Brands</h2> <br/>
         
         <p className="text-gray-600 lead">Explore from our list of aesthetic brands</p> */}
@@ -53,7 +54,7 @@ export default function Brands() {
 
         <div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
           {data.map((brand) => (
-            <Link key={brand.id} href={'/brands/' + brand.id} className="group">
+            <Link key={brand.id} href={`/brands/${brand.id}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
                 <img
                   src={brand.brand_logo}

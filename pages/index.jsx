@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component,useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import HeaderTab from "../components/headers/HeaderTab";
@@ -18,13 +18,13 @@ import Cards from "../components/components/component6";
 import Form from "../components/components/component7";
 import MoreToExplore from "../components/MoreToExplore";
 import Image from "next/image";
+import Preloader from "../components/preloader"
 import SponsoredBrands from '../components/SponsoredBrands';
 import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 
-const featured_brands = fetch('https://altclan-api-v1.onrender.com/api/brands/')
-const brands = [1, 2, 3, 4];
+const brands = [1, 2, 3,4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const carouselBreakpoints = {
@@ -39,7 +39,21 @@ const carouselBreakpoints = {
 };
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
+    console.log("Brand Profile", brands)
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+
+
+  }, []);
   return (
+    <>
+    {loading ? <Preloader /> :
     <>
       <Head>
         <title>Altclan - Community of aesthetics</title>
@@ -65,35 +79,49 @@ export default function Home() {
 					<Image src="/img/b-shah.jpg" fill alt="hero-umg" />
 				</CarouselWrapper>
 
-				<MainColumn />
-				<FullImages />
-				<NewIn />
+        <MainColumn/>
+        <FullImages/>
+        <NewIn/>
+        <Category/>
+        <ShopDiv/>
+        <br/>
+       <div className="mt-5 p-5">
+         <h1 className="text-4xl text-center capitalize">Featured Brands</h1>
+         <br/>
+         <CarouselWrapper
+            slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={carouselBreakpoints}
+            controls
+          >
+            {brands.map((id) => {
+              return <BrandCard key={id} id={id} />
+            })}
+          </CarouselWrapper>
+      
+         </div>
 
-				<MoreToExplore />
-				{/* <Category/>  */}
-
-				<SponsoredBrands />
-
-				<div className="mt-2 p-10">
-					<h1 className="text-center text-3xl capitalize">
-						Trending Merchandise
-					</h1>
-					<br />
-					<CarouselWrapper
-						slidesPerView={2}
-						spaceBetween={10}
-						breakpoints={carouselBreakpoints}
-						controls
-					>
-						{products.map((id) => {
-							return <ProductCard key={id} id={id} />;
-						})}
-					</CarouselWrapper>
-				</div>
-
-				<Cards />
-				<Form />
-			</div>
+         <div className="pt-5 p-5 ">
+         <h1 className="text-4xl text-center capitalize">Trending Merchandise</h1>
+         <br/>
+         <CarouselWrapper
+            slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={carouselBreakpoints}
+            controls
+          >
+            {products.map((id) => {
+              return <ProductCard key={id} id={id} />
+            })}
+          </CarouselWrapper>
+      
+         </div>
+        
+        <Cards /> 
+        <Form />
+        </div>
+      </>
+      }
 		</>
 	);
 }

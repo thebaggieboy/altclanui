@@ -4,7 +4,7 @@ import CountUp from "../src/aboutcounter/brand.jsx"
 
 export default function about() {
   return (
-    <div className='mt-20 pt-10'>
+    <div className='pt-5'>
       <div className={styles.section}>
         <p className={styles.p}>
           More To Explore
@@ -16,7 +16,7 @@ export default function about() {
 
           <div className={styles.col33}>
             <div className={styles.team}>
-              <img src="/img/pexels-arianna-jadé-2896823.jpg"/>
+              <img src="/img/robbie-noble.jpg"/>
               <p>
                 BRANDS
               </p>

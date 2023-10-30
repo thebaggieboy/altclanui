@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
-import styles from "../../styles/brand.module.css";
+import styles from "../../styles/profile.module.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
@@ -36,14 +36,15 @@ const Profile = () => {
 		form === "personal" && setFormActive({ active: true, type: form });
 		form === "login" && setFormActive({ active: true, type: form });
 	};
+	const userData = useSelector(selectUser);
 
 	const profileData = {
 		personal: {
-			firstName: "john",
-			lastName: "doe",
-			bio: "Lorem ipsum dolor amet avec",
-			address: "21 Kola Sukanya Street",
-			gender: "male",
+			firstName: "",
+			lastName: "",
+			bio: "",
+			address: "",
+			gender: "",
 		},
 
 		login: {
@@ -56,7 +57,6 @@ const Profile = () => {
 		return <p>Error {error.message}</p>;
 	}
 
-	const userData = useSelector(selectUser);
 
 	return (
 		<>

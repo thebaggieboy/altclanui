@@ -1,9 +1,29 @@
 import Image from "next/image";
 import { useState } from "react";
 import FormInput from "./FormInput";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/user/userSlice";
+import { useRouter } from "next/router";
 
 export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
+	const user = useSelector(selectUser);
+	const [profileInfo, setProfileInfo] = useState([])
 	const { personal, login } = defaultData;
+
+
+	async function getProfileInfo (){
+		await fetch(`https://altclan-api-v1.onrender.com/api/profile/`)
+		.then((res)=>{
+			res.json().then((data) => {
+				const profileData = data;
+				console.log(profileData)
+
+			});
+		})
+		
+
+	}
+	getProfileInfo()
 
 	const [personalData, setPersonalData] = useState({
 		firstName: personal.firstName,
@@ -116,7 +136,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						label="Email"
 						type="email"
 						name="email"
-						value={email}
+						value={user?.email}
 						onChange={handleLoginData}
 					/>
 					<FormInput

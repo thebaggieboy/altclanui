@@ -11,7 +11,9 @@ import { wrapper } from '../features/store';
 import { useDispatch } from 'react-redux';
 import { useEffect, useRef } from 'react';
 import { setUser } from "../features/user/userSlice";
+import {setBrandUser} from "../features/brands/brandUserSlice"
 import { validateUser } from "../lib/validateUser";
+import {validateBrandUser} from "../lib/validateBrandUser";	
 import { useRouter } from 'next/router';
 
 
@@ -42,6 +44,21 @@ function App({ Component, pageProps }: AppProps) {
     getUserData();
   }, []);
 
+  useEffect(() => {
+    async function getBrandUserData() {
+      try {
+        const brandUserData = await validateBrandUser();
+        dispatch(setBrandUser(brandUserData));
+        if (ref.current === "/brands/register/") {
+          router.push("/brands/register/")
+        }
+
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    getBrandUserData();
+  }, []);
   return (
     <>
       <CartContextProvider>
