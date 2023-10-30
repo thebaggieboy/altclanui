@@ -13,6 +13,7 @@ import {
 import { CartContext } from "../../context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "../../features/user/userSlice";
+import { selectBrandUser, setBrandUser } from "../../features/brands/brandUserSlice";
 import logoutUser from "../../lib/logoutUser";
 
 const navigation = {
@@ -135,6 +136,7 @@ export default function HeaderNav() {
 	const { cart } = useContext(CartContext);
 	const [open, setOpen] = useState(false);
 	const user = useSelector(selectUser);
+	const brand_user = useSelector(selectBrandUser);
 	const dispatch = useDispatch();
 
 	async function logout() {
