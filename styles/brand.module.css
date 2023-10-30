@@ -43,12 +43,6 @@
     background: #ccc;
 }
 
-.brandfilter {
-    float: right;
-    margin-right: 15%;
-    overflow: hidden;
-}
-
 .brandfilter .dropbtn {
     font-size: 16px;  
     border: none;

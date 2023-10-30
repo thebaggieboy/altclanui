@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 	const externalApiUrl = "https://altclan-api-v1.onrender.com/api/users/";
 
 	let { email, password } = req.body;
-	const saltRounds = 10;
+	const saltRounds = 12;
 
 	const setCookie = (name, value, days) => {
 		const expires = new Date();

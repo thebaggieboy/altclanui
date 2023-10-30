@@ -2,7 +2,6 @@
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { useRouter, useContext } from "next/router";
-import { TokenContext } from "../../context/TokenContext";
 import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
@@ -40,7 +39,7 @@ export default async function handler(req, res) {
 				.then(async (response) => {
 					if (response.status >= 200 && response.status <= 209) {
 						setCookie("brand_token", token);
-						res.status(response.status).json({ message: "user created" });
+						res.status(response.status).json({ message: "brand user created" });
 						return
 					}
 					const data = await response.json()

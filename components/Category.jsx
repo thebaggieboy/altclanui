@@ -21,7 +21,7 @@ const products = [
   },
   {
     id: 4,
-    name: "Caps & Hats",
+    name: "Caps",
     href: "#",
     price: "$35",
     imageSrc: "/img/cap.jpg",
@@ -30,7 +30,7 @@ const products = [
   },
   {
     id: 5,
-    name: "Chains & Neckpieces",
+    name: "Neckpieces",
     href: "#",
     price: "$35",
     imageSrc: "/img/chain.jpg",
@@ -48,7 +48,7 @@ const products = [
   },
   {
     id: 7,
-    name: "Coats & Hoodies",
+    name: "Coats",
     href: "#",
     price: "$35",
     imageSrc: "/img/vivek-sharma.jpg",
