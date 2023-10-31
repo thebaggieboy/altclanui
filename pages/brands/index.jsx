@@ -44,15 +44,13 @@ export default function Brands() {
 
   return (
     <div className="bg-white">
-      <BrandHeader/>
+
       <div className="max-w-2xl px-4  mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         {/* <h2 className={styles.brands}>Brands</h2> <br/>
         
         <p className="text-gray-600 lead">Explore from our list of aesthetic brands</p> */}
 
-        <br/>
-
-        <div className="grid grid-cols-2 gap-y-10 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
+        <div className="grid pt-2 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
           {data.map((brand) => (
             <Link key={brand.id} href={`/brands/${brand.id}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
@@ -66,7 +64,7 @@ export default function Brands() {
               <h3 className={styles.brandName}>
                 {brand.brand_name }
               </h3>
-              <p className={styles.followers}>{brand.followers} followers</p>
+              <p className={styles.followers}>{brand.brand_type}</p>
             </Link>
           ))}
         </div>

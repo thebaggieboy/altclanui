@@ -416,13 +416,13 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 															/>
 														</Link>
 													</div>
-													<div className="flex justify-between">
+													<div className="flex pt-3 justify-between">
 														<div>
 															<h3 className="text-sm text-gray-700">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name}
 															</h3>
-															<span class="mr-2 rounded border border-green-400 bg-green-100 px-4 py-0.5 text-xs font-medium text-green-800 dark:bg-gray-700 dark:text-green-400">
+															<span class="mr-2 rounded border border-black bg-black px-4 py-0.5 text-xs font-medium text-white dark:bg-gray-700 dark:text-green-400">
 																{category}
 															</span>
 															<p className="mt-1 text-sm text-gray-500">
@@ -431,7 +431,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 														</div>
 
 														<button
-															className="pl-2 text-neutral-600 transition duration-200 hover:text-neutral-700"
+															className="pl-2 text-neutral-600 text-xl transition duration-200 hover:text-neutral-700"
 															onClick={() => addToCart(id)}
 														>
 															{/* didn't properly call add to cart with the id */}
