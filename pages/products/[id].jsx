@@ -73,7 +73,7 @@ export default function ProductDetail({ _id, merch }) {
 			size: selectedSize.name,
 			color: selectedColor.name,
 			qty: 1,
-			price: Number(merch.price.replace(",", "")),
+			price: merch.price,
 		};
 		dispatch(addItem(data));
 	}
