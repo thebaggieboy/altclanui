@@ -7,6 +7,16 @@ const nextConfig = {
         // !! WARN !!
         ignoreBuildErrors: true,
     },
+    images:{
+        remotePatterns:[
+            {
+                protocol:"https",
+                hostname:"altclan-api-v1.onrender.com",
+                port:"",
+                pathname:"/media/**"
+            }
+        ]
+    }
 }
 
 module.exports = nextConfig
