@@ -14,7 +14,7 @@ export async function getServerSideProps(context) {
 	const res = await fetch(
 		`https://altclan-api-v1.onrender.com/api/merchandises`
 	);
-	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/${id}`);
+	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/₦{id}`);
 	const data = await res.json();
 	console.log(data);
 
@@ -68,14 +68,7 @@ export default function Checkout({merchs}) {
 		}
 	}, [user]);
   
-  function submit(e){
-    e.preventDefault()
-  
-
-    
-    console.log('Place order')
-  }
-
+ 
 
   const nextStep = ()=>{
     setStep(step + 1)
@@ -90,8 +83,8 @@ export default function Checkout({merchs}) {
       return (
         <section>
       <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
-    <a href="#" className="text-2xl font-bold text-gray-800">altclan</a>
-    <div className="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
+  
+    <div className="py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
       <div className="relative">
         <ul className="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
           <li className="flex items-center space-x-3 text-left sm:space-x-4">
@@ -139,16 +132,16 @@ export default function Checkout({merchs}) {
      <div className="mt-6 border-t border-b py-2">
         <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-gray-900">Subtotal</p>
-            <p className="font-semibold text-gray-900">${total.toLocaleString()}</p>
+            <p className="font-semibold text-gray-900">₦{total.toLocaleString()}</p>
           </div>
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-gray-900">Shipping</p>
-            <p className="font-semibold text-gray-900">${shippingFee.toFixed(2)}</p>
+            <p className="font-semibold text-gray-900">₦{shippingFee.toFixed(2)}</p>
           </div>
         </div>
         <div className="mt-6 flex items-center justify-between">
           <p className="text-sm font-medium text-gray-900">Total</p>
-          <p className="text-2xl font-semibold text-gray-900">${grandTotal.toLocaleString()}</p>
+          <p className="text-2xl font-semibold text-gray-900">₦{grandTotal.toLocaleString()}</p>
         </div>
       </div>
       <div className="p-5">
@@ -165,8 +158,8 @@ export default function Checkout({merchs}) {
       return (
         <>
         <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
-        <a href="#" className="text-2xl font-bold text-gray-800">altclan</a>
-        <div className="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
+      
+        <div className="py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
           <div className="relative">
             <ul className="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
               <li className="flex items-center space-x-3 text-left sm:space-x-4">
@@ -248,7 +241,7 @@ export default function Checkout({merchs}) {
         <div className="mt-10 bg-gray-50 px-4 pt-6 lg:mt-0">
           <p className="text-xl font-medium">Shipping Details</p>
           <p className="text-gray-400">Complete your order by providing your payment details.</p>
-          <form>
+     
           <div className="">
             <label htmlFor="email"  className="mt-4 mb-2 block text-sm font-medium">Email</label>
             <div className="relative">
@@ -283,22 +276,21 @@ export default function Checkout({merchs}) {
             <div className="mt-6 border-t border-b py-2">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Subtotal</p>
-                <p className="font-semibold text-gray-900">$399.00</p>
+                <p className="font-semibold text-gray-900">₦{total.toLocaleString()}</p>
               </div>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Shipping</p>
-                <p className="font-semibold text-gray-900">$8.00</p>
+                <p className="font-semibold text-gray-900">₦{shippingFee.toFixed(2)}</p>
               </div>
             </div>
             <div className="mt-6 flex items-center justify-between">
               <p className="text-sm font-medium text-gray-900">Total</p>
-              <p className="text-2xl font-semibold text-gray-900">$408.00</p>
+              <p className="text-2xl font-semibold text-gray-900">₦{grandTotal.toLocaleString()}</p>
             </div>
           </div>
          
-          <PaystackButton   className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white" {...componentProps} />
-       
-          </form>
+          <PaystackButton className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white" {...componentProps} />
+    
         </div>
         <br/><br/>
       </div>

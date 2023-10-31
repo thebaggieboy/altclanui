@@ -11,7 +11,7 @@ export async function getServerSideProps(context) {
 	const res = await fetch(
 		`https://altclan-api-v1.onrender.com/api/merchandises`
 	);
-	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/${id}`);
+	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/₦{id}`);
 	const data = await res.json();
 	console.log(data);
 
@@ -45,7 +45,7 @@ export default function Cart({ merchs }) {
 
 	return (
 		<>
-			<section className="bg-gray-100 py-6 sm:py-16 lg:py-20">
+			<section className="bg-gray-100 py-1 sm:py-16 lg:py-4">
 				<div className="mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-center">
 						<h1 className="text-2xl font-semibold text-gray-900">
@@ -54,7 +54,7 @@ export default function Cart({ merchs }) {
 						</h1>
 					</div>
 
-					<div className="mx-auto mt-8 max-w-2xl md:mt-12">
+					<div className="mx-auto max-w-2xl md:mt-12">
 						<div className="bg-white shadow">
 							<div className="px-4 py-6 sm:px-8 sm:py-10">
 								<div className="flow-root">
@@ -70,13 +70,13 @@ export default function Cart({ merchs }) {
 									<div className="flex items-center justify-between">
 										<p className="text-sm text-gray-400">Subtotal</p>
 										<p className="text-lg font-semibold text-gray-900">
-											${total.toLocaleString()}
+											₦{total.toLocaleString()}
 										</p>
 									</div>
 									<div className="flex items-center justify-between">
 										<p className="text-sm text-gray-400">Shipping</p>
 										<p className="text-lg font-semibold text-gray-900">
-											${shippingFee.toFixed(2)}
+											₦{shippingFee.toFixed(2)}
 										</p>
 									</div>
 								</div>
@@ -84,7 +84,7 @@ export default function Cart({ merchs }) {
 									<p className="text-sm font-medium text-gray-900">Total</p>
 									<p className="text-2xl font-semibold text-gray-900">
 										<span className="text-xs font-normal text-gray-400">
-											USD
+											NGN
 										</span>{" "}
 										{grandTotal.toLocaleString()}
 									</p>
