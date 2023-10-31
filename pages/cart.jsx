@@ -61,7 +61,7 @@ export default function Cart({ merchs }) {
 									{cartItems.map((item) => {
 										const data = merchs.find((m) => m.id === item.itemId);
 										return (
-											<CartItem data={{ ...item, ...data, cartId: item.id }} />
+											<CartItem key={item.id} data={{ ...item, ...data, cartId: item.id }} />
 										);
 									})}
 								</div>

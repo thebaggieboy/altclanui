@@ -78,11 +78,6 @@ export default function ProductDetail({ _id, merch }) {
 		dispatch(addItem(data));
 	}
 
-	function addProductToCart() {
-		console.log("Cart button clicked");
-		setSelectedProducts((prev) => [...prev, _id]);
-		console.log(selectedProducts);
-	}
 	return (
 		<div className="bg-white">
 			<div className="pt-6">

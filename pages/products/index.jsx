@@ -15,6 +15,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import ExploreHeaderTab from "../../components/ExploreHeaderTab";
 import generateUniqueId from "../../utils/uuid";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../features/shop/shopSlice";
 
 const sortOptions = [
 	{ name: "Most Popular", href: "#", current: true },
