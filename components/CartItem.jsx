@@ -4,8 +4,7 @@ import { useState } from "react";
 
 const CartItem = ({ data }) => {
 	const dispatch = useDispatch();
-	const { display_image, merchandise_name, price, cartId, color, size, qty } =
-		data;
+	const { display_image, merchandise_name, category, price, cartId, color, size, qty } = data;
 
 	function removeFromCart(id) {
 		dispatch(removeItem(id));

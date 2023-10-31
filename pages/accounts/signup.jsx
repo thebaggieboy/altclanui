@@ -29,7 +29,7 @@ export default function SignUp() {
 	const router = useRouter();
 
 	if (user !== null) {
-		router.push("/profile");
+		router.push("/products");
 	}
 
 	const [email, setEmail] = useState("");

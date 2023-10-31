@@ -102,6 +102,7 @@ export default function Cart({ merchs }) {
 						</div>
 					</div>
 				</div>
+				<br/><br/>
 			</section>
 		</>
 	);
