@@ -23,6 +23,7 @@ import SponsoredBrands from '../components/SponsoredBrands';
 import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
+import TrendingMerch from "../components/TrendingMerch";
 
 const brands = [1, 2, 3,4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -101,22 +102,7 @@ export default function Home() {
       
          </div>
 
-         <div className="pt-5 p-5 ">
-         <h1 className="text-4xl text-center capitalize">Trending Merchandise</h1>
-         <br/>
-         <CarouselWrapper
-            slidesPerView={2}
-            spaceBetween={10}
-            breakpoints={carouselBreakpoints}
-            controls
-          >
-            {products.map((id) => {
-              return <ProductCard key={id} id={id} />
-            })}
-          </CarouselWrapper>
-      
-         </div>
-        
+        <TrendingMerch />
         <Cards /> 
         <Form />
         </div>
