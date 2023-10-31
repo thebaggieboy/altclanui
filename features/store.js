@@ -1,27 +1,37 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import logger from 'redux-logger'
 import userSlice from "./user/userSlice"
 import brandSlice from "./brands/brandSlice"
 import brandUserSlice from "./brands/brandUserSlice";
-import { createWrapper } from "next-redux-wrapper";
 import shopSlice from "./shop/shopSlice";
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: [ "shop", "brands" ]
+}
+
+const rootReducer = combineReducers({
+    user: userSlice,
+    brand_user: brandUserSlice,
+    brands: brandSlice,
+    shop: shopSlice
+})
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
-const makeStore = () =>
-    configureStore({
-        reducer: {
-            user: userSlice,
-            brand_user:brandUserSlice,
-            brands:brandSlice,
-            shop: shopSlice
+const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleWare) => (
+        getDefaultMiddleWare().concat(logger)
+    ),
+    devTools: process.env.NODE_ENV !== "production"
+})
 
-        },
-        middleware: (getDefaultMiddleWare) => (
-            getDefaultMiddleWare().concat(logger)
-        ),
-        devTools: process.env.NODE_ENV !== "production"
-    })
+export const peristor = persistStore(store)
 
 
-
-export const wrapper = createWrapper(makeStore)
+export default store
