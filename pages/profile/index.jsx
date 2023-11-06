@@ -45,6 +45,9 @@ const Profile = () => {
 			bio: "",
 			address: "",
 			gender: "",
+			city: "",
+			state: "",
+			zip: "",
 		},
 
 		login: {
@@ -95,7 +98,7 @@ const Profile = () => {
 								data-form="personal"
 								className={styles.profileButton}
 							>
-								Edit profile
+								Update profile
 							</button>
 
 							<button
@@ -103,7 +106,7 @@ const Profile = () => {
 								onClick={onEdit}
 								className={styles.profileButton}
 							>
-								Edit login
+								Change password
 							</button>
 						</div>
 					</div>

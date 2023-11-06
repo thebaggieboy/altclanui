@@ -1,32 +1,34 @@
 //import { NextApiRequest, NextApiResponse } from "next";
-import jwt from 'jsonwebtoken'
-import { useState } from 'react';
+import jwt from "jsonwebtoken";
+import { NextResponse } from "next/server";
+import { useRouter, useContext } from "next/router";
+import bcrypt from "bcrypt";
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+	const externalApiUrl = "http://127.0.0.1:8000/dj-rest-auth/login/";
+	//const externalApiUrl = "https://altclan-api-v1.onrender.com/api/brand_users/";
 
-    //const externalApiUrl = 'http://127.0.0.1:8000/api/users/'
-	const externalApiUrl = fetch('https://altclan-api-v1.onrender.com/api/users/')
-    const { email, password, token }  = req.body;
-
-    const setCookie = (name, value, days) => {
-        const expires = new Date();
-        expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-        document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;secure;HttpOnly;`;
-        console.log('Cookie Name: ' + name)
-      };
-
-      
-    // Sign the user credentials
-    jwt.sign({email, password}, 'secretkey', { expiresIn:'24h' }, (err, token)=>{
-        res.statusCode(200)
-        res.json({
-            token
-        })
-        setCookie('jwtToken', token, 7); // Set the JWT token in the cookie for 7 days   
+	let {  username, email, password  } = req.body;
+	
+    await fetch(externalApiUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({  username:email, email, password  }),
     })
-    console.log('Api Route')
-    console.log('Going to external api')    
-    console.log(`Email: ${email}, Password: ${password}, Token: ${token}`)
+        .then(async (response) => {
+            if (response.status >= 200 && response.status <= 209) {
+                //setCookie("brand_token", token);
+                res.status(response.status).json({ message: "brand user created" });
+                return
+            }
+            const data = await response.json()
+            res.status(response.status).json({ err: data });
+        })
+        .catch((err) => {
+            res.status(500).json({ error: err.message });
+        })
 
-    
+
 }

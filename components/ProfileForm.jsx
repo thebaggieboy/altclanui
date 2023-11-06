@@ -31,6 +31,11 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 		bio: personal.bio,
 		address: personal.address,
 		gender: personal.gender,
+		city:personal.city,
+		state:personal.state,
+		zip:personal.zip,
+        phone:personal.phone,
+
 	});
 
 	function handlePersonalData(e) {
@@ -53,7 +58,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 		});
 	}
 
-	const { firstName, lastName, address, bio, gender } = personalData;
+	const { firstName, lastName, address, bio, gender, city, state, zip } = personalData;
 
 	const { email, prevPassword, newPassword } = loginData;
 
@@ -93,7 +98,27 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						value={address}
 						onChange={handlePersonalData}
 					/>
-
+				<FormInput
+						label="City"
+						name="city"
+						type="text"
+						value={city}
+						onChange={handlePersonalData}
+					/>
+						<FormInput
+						label="state"
+						name="state"
+						type="text"
+						value={state}
+						onChange={handlePersonalData}
+					/>
+					<FormInput
+						label="zip"
+						name="zip"
+						type="text"
+						value={zip}
+						onChange={handlePersonalData}
+					/>
 					{/* <div className="flex gap-x-8">
 						<FormInput
 							label="Male"
@@ -116,8 +141,8 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 							checked={personal.gender === "female"}
 						/>
 					</div> */}
-					<button className="px-4 py-1 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
-						done
+					<button className="px-4 py-2 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
+						Save
 					</button>
 				</form>
 			</div>
