@@ -32,8 +32,8 @@ export default function BrandProfile({_id, brand}) {
                 {brand.brand_name}
               </h1>
               <div className={styles.numbers}>
-                <p>13 items</p>
-                <p>{brand.followers} followers</p>
+                <p></p>
+                <p>{brand.brand_type}</p>
               </div>
               
               <p className={styles.about}>

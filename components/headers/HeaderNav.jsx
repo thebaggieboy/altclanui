@@ -485,7 +485,7 @@ export default function HeaderNav() {
 									{user === null ? (
 										<>
 											<Link
-												href="/accounts/login"
+												href="/login"
 												className="text-sm font-medium text-gray-700 hover:text-gray-800"
 											>
 												Login
@@ -495,7 +495,7 @@ export default function HeaderNav() {
 												aria-hidden="true"
 											/>
 											<Link
-												href="/accounts/signup"
+												href="/signup"
 												className="text-sm font-medium text-gray-700 hover:text-gray-800"
 											>
 												Sign Up

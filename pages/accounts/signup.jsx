@@ -32,8 +32,10 @@ export default function SignUp() {
 		router.push("/products");
 	}
 
+	const [userName, setUserName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [password2, setPassword2] = useState("");
 	const [error, setError] = useState(null);
 
 	
@@ -45,8 +47,9 @@ export default function SignUp() {
 	const submit = async (e) => {
 		e.preventDefault();
 		console.log("Signup button was clicked");
+		
 		try {
-			const data = await signUp(email, password);
+			const data = await signUp(email, email, password, password2);
 			if (data.err) {
 				setError(data.err);
 				setTimeout(()=>{
@@ -108,6 +111,18 @@ export default function SignUp() {
 								name="password"
 								id="password"
 								placeholder="•••••••"
+								className={styles.input}
+								required
+							/>
+						</div>
+						<div>
+							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
+							<input
+								type="password"
+								onChange={(e) => setPassword2(e.target.value)}
+								name="password2"
+								id="password2"
+								placeholder="Confirm Password"
 								className={styles.input}
 								required
 							/>
