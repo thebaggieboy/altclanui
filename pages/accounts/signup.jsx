@@ -36,11 +36,8 @@ export default function SignUp() {
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(null);
 
-	
 
 	const emailErr = error?.email[0] || null;
-
-	console.log(emailErr);
 
 	const submit = async (e) => {
 		e.preventDefault();

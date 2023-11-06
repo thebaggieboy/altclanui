@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
 
+
 const Profile = () => {
 	const data = [];
 	const loading = false;
