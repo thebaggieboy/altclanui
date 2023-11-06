@@ -4,8 +4,7 @@ import { useState } from "react";
 
 const CartItem = ({ data }) => {
 	const dispatch = useDispatch();
-	const { display_image, merchandise_name, price, cartId, color, size, qty } =
-		data;
+	const { display_image, merchandise_name, category, price, cartId,color, size, qty } = data;
 
 	function removeFromCart(id) {
 		dispatch(removeItem(id));
@@ -57,7 +56,7 @@ const CartItem = ({ data }) => {
 
 						<div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
 							<p className="w-20 shrink-0 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
-								${price.toLocaleString()}
+								₦{price.toLocaleString()}
 							</p>
 
 							<div className="sm:order-1">
