@@ -555,7 +555,7 @@ export default function HeaderNav() {
 
 									{/* Search */}
 								<div className="flex sm: block lg:hidden">
-									<Link href="/profile">
+									<Link href="/signup">
 										<div className="p-2 text-gray-400 hover:text-gray-500">
 											<span className="sr-only">Search</span>
 											

@@ -80,7 +80,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
-	console.log(cart);
+	console.log(data);
 
 	if (loading) {
 		return (

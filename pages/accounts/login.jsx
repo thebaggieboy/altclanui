@@ -128,6 +128,12 @@ export default function SignUp() {
 								Signup here
 							</Link>
 						</p>
+						<p className={styles.alternative}>
+							Forgot your password?
+							<Link href="/accounts/login" className={styles.link}>
+								Reset Password
+							</Link>
+						</p>
 					</form>
 				</div>
 			</div>

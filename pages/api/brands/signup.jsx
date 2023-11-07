@@ -5,7 +5,7 @@ import { useRouter, useContext } from "next/router";
 import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {
-	const externalApiUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/registration/";
+	const externalApiUrl = "https://altclan-brands-api.onrender.com/dj-rest-auth/registration/";
 	//const externalApiUrl = "https://altclan-api-v1.onrender.com/api/brand_users/";
 
 	let {  username, email, password1, password2  } = req.body;
