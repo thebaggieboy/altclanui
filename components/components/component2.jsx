@@ -19,7 +19,7 @@ export default function mainColumn() {
                             <br />
                             <div className={styles.signUpBrandCont}>
                                 <button className={styles.brandButton}>
-                                   <Link href="/brands/register">Signup as a brand</Link> 
+                                   <Link href="/signup">Join the community</Link> 
                                 </button>
                             </div> <br /> 
                             

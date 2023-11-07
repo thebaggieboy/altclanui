@@ -87,21 +87,22 @@
         padding:10px;
         background-image: url("/img/headersweat.jpg");
         background-size:cover;
+        opacity: 0.9;
     }
 
     .headContainer { 
-        margin-top: 70%;
-        height: 200px;
+        margin-top: 20%;
+        height: 300px;
+        padding: 20px;
         position: relative;
     }
 
     .headingText {
         margin: 0;
         position: absolute;
-        top: -25%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+       
+      
+    
     }
 
     .welcomeColumn {
@@ -118,10 +119,10 @@
         color: black;
        width: 100%;
         font-family: "Poppins";
-        font-size: 14px;
+        font-size: 18px;
         
         font-weight: bolder;
-        line-height:28px;
+        line-height:22px;
         text-align: left;
     }
 
@@ -154,14 +155,14 @@
     .brandButton{
         border-radius: 10px;
         border: 1px solid #000;
-        background: #FFF;
-        color: #000;
+        background: black;
+        color: white;
         text-align: center;
         font-family: "Poppins";
         font-size: 13px;
         font-style: normal;
         font-weight: bold;
         line-height: normal;
-        padding: 10px;
+        padding: 20px;
     }
 }

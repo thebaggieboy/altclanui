@@ -26,7 +26,8 @@ const BrandBioForm = (props) => {
   
     }
 
-    const submit =()=>{
+    const submit =(e)=>{
+        e.preventDefault()
         console.log("Brand Bio Form Submit clicked")
     }
 

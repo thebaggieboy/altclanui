@@ -61,7 +61,7 @@ export default function Category() {
   return (
      <div className="bg-white ">
        <div className="px-4 py-4 mx-auto  sm:py-24 sm:px-6 max-w-[80rem] lg:px-8">
-         <h2 className="text-3xl text-center mb-4 sm:mb-16">Shop by category</h2> <br />
+         <h4 className="text-3xl text-center mb-4 sm:mb-16">Shop by category</h4> <br />
           <div className="grid grid-cols-2 gap-y-8 lg:gap-y-16 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
             {products.map((product) => (
               <a key={product.id} href={product.href} className="group">
@@ -75,7 +75,7 @@ export default function Category() {
 
                 <button
                   type="button"
-                  className="text-gray-900 mt-4 bg-dark hover:text-dark border border-black hover:bg-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                  className="text-gray-900 mt-4 hover:text-dark border border-black hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
                 >
                   Shop {product.name}
                 </button>

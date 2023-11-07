@@ -5,7 +5,7 @@ import styles from "./../../../styles/brand.module.css"
 import MyTabs from "./../../../src/aboutcounter/brandProfile"
 export async function getServerSideProps(context) {
   const id = context.params.id
-  const res = await fetch(`https://altclan-api-v1.onrender.com/api/brand_profile/${id}`)
+  const res = await fetch(`https://altclan-brands-api.onrender.com/api/brand_profile/${id}`)
   //const res = await fetch(`http://127.0.0.1:8000/api/brand_profile/${id}`);
   const data = await res.json()
   console.log(data)
@@ -32,8 +32,8 @@ export default function BrandProfile({_id, brand}) {
                 {brand.brand_name}
               </h1>
               <div className={styles.numbers}>
-                <p>13 items</p>
-                <p>{brand.followers} followers</p>
+                <p></p>
+                <p>{brand.brand_type}</p>
               </div>
               
               <p className={styles.about}>

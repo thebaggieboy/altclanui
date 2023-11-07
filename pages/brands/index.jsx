@@ -6,7 +6,7 @@ import useData from '../../hooks/useData'
 import Link from "next/link";
 
 export default function Brands() {
- const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/brand_profile/');
+ const { data, loading, error } = useBrands('https://altclan-brands-api.onrender.com/api/brand_users/');
  //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brand_profile/');
 
   if (loading) {

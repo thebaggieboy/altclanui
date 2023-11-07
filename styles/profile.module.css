@@ -256,12 +256,12 @@
 }
 
 .column2 .h1{
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 1%;
 }
 
 .column2 .p{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 200;
     margin-top: 1%;
 }
@@ -665,7 +665,7 @@
     }
     
     .column1 .image{
-        width: 80%;
+        width: 100%;
         border-radius: 50%;
     }
     
@@ -676,13 +676,13 @@
     }
     
     .column2 .h1{
-        font-size: 23px;
+        font-size: 18px;
         margin-top: -6%;
     }
     
     .column2 .p{
-        font-size: 15px;
-        font-weight: 200;
+        font-size: 14px;
+       
         margin-top: 3%;
     }
     
