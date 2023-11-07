@@ -85,8 +85,8 @@ export default function SignUp() {
 							{/* Altclan     */}
 						</Link>
 
-						<h1 className={styles.greeting}>Welcome to Altclan</h1>
-						<p className={styles.login}>Complete your sign up to join</p>
+						<h1 className={styles.greeting}>Login to your account</h1>
+						
 
 						<div className="">
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
