@@ -252,10 +252,10 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 
 				<main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
-						<div className="p-1">
-							<ExploreHeaderTab />
+						<div className="p-1 ml-3">
+						
 						</div>
-						<div className="flex items-center">
+						<div className="flex items-center mt-3 ">
 							<Menu as="div" className="relative inline-block text-left">
 								<div>
 									<Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -392,9 +392,9 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 							</form>
 
 							{/* Product grid */}
-							<div className="lg:col-span-3">
+							<div className="lg:col-span-3 mt-2">
 								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-									<div className=" grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-4 xl:gap-x-8">
 										{data.map(
 											({
 												id,
@@ -420,9 +420,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name}
 															</h3>
-															<span class="mr-2 rounded border border-black bg-black px-4 py-0.5 text-xs font-medium text-white dark:bg-gray-700 dark:text-green-400">
-																{category}
-															</span>
+															
 															<p className="mt-1 text-sm text-gray-500">
 																₦{price}
 															</p>

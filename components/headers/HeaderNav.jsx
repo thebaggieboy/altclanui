@@ -7,6 +7,7 @@ import {
 	MagnifyingGlassIcon,
 	ShoppingBagIcon,
 	XMarkIcon,
+	
 } from "@heroicons/react/24/outline";
 
 //import Cart from '../Cart'
@@ -548,6 +549,21 @@ export default function HeaderNav() {
 												className="h-6 w-6"
 												aria-hidden="true"
 											/>
+										</div>
+									</Link>
+								</div>
+
+									{/* Search */}
+								<div className="flex sm: block lg:hidden">
+									<Link href="/profile">
+										<div className="p-2 text-gray-400 hover:text-gray-500">
+											<span className="sr-only">Search</span>
+											
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+</svg>
+
+
 										</div>
 									</Link>
 								</div>
