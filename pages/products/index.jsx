@@ -26,11 +26,11 @@ const sortOptions = [
 	{ name: "Price: High to Low", href: "#", current: false },
 ];
 const subCategories = [
-	{ name: "Totes", href: "#" },
-	{ name: "Backpacks", href: "#" },
-	{ name: "Travel Bags", href: "#" },
-	{ name: "Hip Bags", href: "#" },
-	{ name: "Laptop Sleeves", href: "#" },
+	{ name: "New Merch", href: "#" },
+	{ name: "Brands", href: "#" },
+	{ name: "Limited Edition", href: "#" },
+	{ name: "Arts", href: "#" },
+	
 ];
 const filters = [
 	{
@@ -77,7 +77,7 @@ function classNames(...classes) {
 export default function Products({ _id, merchandise_name, price, picture }) {
 	// const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/');
 	const { data, loading, error } = useBrands(
-		"https://altclan-api-v1.onrender.com/api/merchandises/"
+		"https://altclan-brands-api.onrender.com/api/merchandises/"
 	);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const { cart, addToCart } = useContext(CartContext);

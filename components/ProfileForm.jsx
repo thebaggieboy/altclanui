@@ -106,14 +106,14 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						onChange={handlePersonalData}
 					/>
 						<FormInput
-						label="state"
+						label="State"
 						name="state"
 						type="text"
 						value={state}
 						onChange={handlePersonalData}
 					/>
 					<FormInput
-						label="zip"
+						label="Zip Code"
 						name="zip"
 						type="text"
 						value={zip}
