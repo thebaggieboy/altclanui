@@ -14,7 +14,7 @@ export default function about() {
 
         <p className='text-sm'>
         Our startup aims to solve the problem of isolation and lack of community among people who identify with anti-mainstream cultures & fashion. 
-          Many individuals who identify with these subcultures may feel like they are outsiders or marginalized in mainstream society, and may not have a sense of belonging or connection to others who share their interests and values. 
+          Many individuals who identify with these subcultures may feel like they are outsiders in a mainstream fashion society, and may not have a sense of belonging or connection to others who share their interests and values. 
 
         </p>
       </div>
