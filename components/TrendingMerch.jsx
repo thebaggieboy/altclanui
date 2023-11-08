@@ -20,7 +20,7 @@ export default function TrendingMerch() {
 	};
 
 	const { data, isLoading, error } = useSWR(
-		"https://altclan-api-v1.onrender.com/api/merchandises/",
+		"https://altclan-brands-api.onrender.com/api/merchandises/",
 		fetcher
 	);
 
@@ -50,9 +50,9 @@ export default function TrendingMerch() {
 	return (
 		<>
 			<div className="p-5 pt-5 ">
-				<h1 className="text-center text-4xl capitalize">
+				<h4 className="text-center text-4xl capitalize">
 					Trending Merchandise
-				</h1>
+				</h4>
 				<br />
 				<CarouselWrapper
 					slidesPerView={2}
