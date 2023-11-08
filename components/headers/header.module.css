@@ -1,6 +1,6 @@
 .navbar {
     overflow: hidden;
-    background-color: #FFF;
+    background-color: beige;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -11,7 +11,7 @@
 }
 
 .navbar.scrolled {
-    background-color: #fff;
+    background-color: beige;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     top: 0;
 }
@@ -23,7 +23,8 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .navbar .a:hover {
@@ -34,7 +35,7 @@
 @media only screen and (max-width: 600px) {
     .navbar {
         overflow: hidden;
-        background-color: #FFF;
+        background-color: beige;
         position: fixed;
         width: 100%;
         z-index: 1000;
@@ -45,7 +46,7 @@
     }
     
     .navbar.scrolled {
-        background-color: #fff;
+        background-color: beige;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         top: 0%;
     }
@@ -57,6 +58,7 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 11px;
+        font-size: 10px;
+        font-weight: bold
     }
 }
