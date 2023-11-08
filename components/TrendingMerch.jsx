@@ -1,9 +1,7 @@
 import React from "react";
 import CarouselWrapper from "./CarouselWrapper";
 import ProductCard from "./product-card/ProductCard";
-import useSWR from "swr";
-import fetcher from "../lib/fetcher";
-
+import useBrands from '../hooks/useBrands'
 export default function TrendingMerch() {
 	const brands = [1, 2, 3, 4];
 	const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -19,10 +17,7 @@ export default function TrendingMerch() {
 		},
 	};
 
-	const { data, isLoading, error } = useSWR(
-		"https://altclan-brands-api.onrender.com/api/merchandises/",
-		fetcher
-	);
+	const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/")
 
 	if (isLoading) {
 		return (

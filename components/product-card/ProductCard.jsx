@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const ProductCard = ({ data }) => {
 	const [liked, setLiked] = useState(false);
-	console.log(data);
+	
 
 	const { merchandise_name, price, display_image, id } = data;
 

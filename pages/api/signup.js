@@ -1,8 +1,4 @@
-//import { NextApiRequest, NextApiResponse } from "next";
-import jwt from "jsonwebtoken";
-import { NextResponse } from "next/server";
-import { useRouter, useContext } from "next/router";
-import bcrypt from "bcrypt";
+
 
 export default async function handler(req, res) {
 	const externalApiUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/registration/";
@@ -20,6 +16,7 @@ export default async function handler(req, res) {
         .then(async (response) => {
             if (response.status >= 200 && response.status <= 209) {
                 //setCookie("brand_token", token);
+                
                 res.status(response.status).json({ message: "brand user created" });
                 return
             }

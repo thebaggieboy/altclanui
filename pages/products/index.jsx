@@ -11,12 +11,7 @@ import {
 import useBrands from "../../hooks/useBrands";
 import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import ExploreHeaderTab from "../../components/ExploreHeaderTab";
-import generateUniqueId from "../../utils/uuid";
-import { useDispatch } from "react-redux";
-import { addItem } from "../../features/shop/shopSlice";
 
 const sortOptions = [
 	{ name: "Most Popular", href: "#", current: true },
@@ -76,13 +71,13 @@ function classNames(...classes) {
 
 export default function Products({ _id, merchandise_name, price, picture }) {
 	// const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/');
-	const { data, loading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/");
+	const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/");
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
-	console.log(data);
+	
 
-	if (loading) {
+	if (isLoading) {
 		return (
 			<div className="mt-5 p-5 text-center">
 				<br />
@@ -119,9 +114,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	if (error) {
 		return <p>Error {error.message}</p>;
 	}
-	data.map(({ id, merchandise_size }, i) => {
-		console.log(generateUniqueId(id, merchandise_size, i));
-	});
+	
 
 	return (
 		<div className="bg-white">
