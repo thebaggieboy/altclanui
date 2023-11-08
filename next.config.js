@@ -11,7 +11,7 @@ const nextConfig = {
         remotePatterns:[
             {
                 protocol:"https",
-                hostname:"altclan-api-v1.onrender.com",
+                hostname:"altclan-brands-api.onrender.com",
                 port:"",
                 pathname:"/media/**"
             }
