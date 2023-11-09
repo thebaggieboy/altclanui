@@ -7,16 +7,15 @@ import useData from "../../hooks/useData";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../features/shop/shopSlice";
 import Link from "next/link";
+import { QueryClient, useQueryClient } from "@tanstack/react-query";
+import fetchProducts from "../../lib/fetchProducts";
+
+const queryClient = new QueryClient()
 
 export async function getServerSideProps(context) {
 	const id = context.params.id;
-	const res = await fetch(
-		`https://altclan-brands-api.onrender.com/api/merchandises/${id}`
-	);
-	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/${id}`);
-	const data = await res.json();
-	console.log(data);
-
+	const data = await queryClient.fetchQuery({ queryKey: ["product", id], queryFn: () => fetchProducts(`https://altclan-brands-api.onrender.com/api/merchandises/${id}`) })
+	
 	return {
 		props: { merch: data },
 	};

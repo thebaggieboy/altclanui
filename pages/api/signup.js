@@ -1,23 +1,29 @@
 
 
 export default async function handler(req, res) {
-	const externalApiUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/registration/";
-	//const externalApiUrl = "https://altclan-api-v1.onrender.com/api/brand_users/";
+    const externalApiUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/registration/";
+    //const externalApiUrl = "https://altclan-api-v1.onrender.com/api/brand_users/";
 
-	let {  username, email, password1, password2  } = req.body;
-	
+    let { username, email, password1, password2 } = req.body;
+
     await fetch(externalApiUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({  username:email, email, password1, password2  }),
+        body: JSON.stringify({ username: email, email, password1, password2 }),
     })
         .then(async (response) => {
             if (response.status >= 200 && response.status <= 209) {
                 //setCookie("brand_token", token);
-                
-                res.status(response.status).json({ message: "brand user created" });
+                const data = await response.json()
+                console.log(data.access)
+                const token = data.access
+                const expires = new Date();
+                expires.setTime(expires.getTime() + 2 * 24 * 60 * 60 * 1000);
+                const cookie = `token=${token};expires=${expires.toUTCString()};path=/;httpOnly;`;
+                res.setHeader("Set-Cookie", cookie);
+                res.status(response.status).json({ message: " user created" });
                 return
             }
             const data = await response.json()

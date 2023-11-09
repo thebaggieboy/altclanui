@@ -7,6 +7,7 @@ export default function handler(req, res) {
         const claims = jwt.verify(req.cookies.token, "secretkey")
         res.status(200).json({ email: claims.email })
     } catch (error) {
+        console.log(error)
         res.status(401).json({ message: "user unauthorized", error })
     }
 
