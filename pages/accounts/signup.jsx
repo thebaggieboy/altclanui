@@ -47,8 +47,10 @@ export default function SignUp() {
 		console.log("Signup button was clicked");
 		
 		try {
-			setStatus("loading")
-		
+
+			setStatus("loading")			
+			const data = await signUp(email, email, password, password2);
+
 			if (data.err) {
 				setError(data.err);
 				setTimeout(() => {
