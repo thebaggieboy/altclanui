@@ -17,7 +17,7 @@ export function LoginError() {
 			</svg>
 			<span class="sr-only">Info</span>
 			<div class="ml-3 text-sm text-center font-medium">
-				You already have an account with us  <a href="/accounts/login" class="font-semibold underline hover:no-underline">Login</a> to continue.
+				You already have an account with us  <Link href="/accounts/login" class="font-semibold underline hover:no-underline">Login</Link> to continue.
 			</div>
 
 		</div>
@@ -40,32 +40,31 @@ export default function SignUp() {
 	const [error, setError] = useState(null);
 	const [status, setStatus] = useState("idle")
 
-	const emailErr = error?.email[0] || null;
+	const emailErr = error?.email || null;
+	const passwordErr = error?.password || error?.password2 || null
+
+	console.log(passwordErr)
 
 	const submit = async (e) => {
 		e.preventDefault();
-		console.log("Signup button was clicked");
-		
+
+
 		try {
-<<<<<<< HEAD
-			setStatus("loading")
-			const data = await signUp(email, password);
-=======
-			const data = await signUp(email, email, password, password2);
->>>>>>> 5371aa998d99aea7b15ff08deb5e9af58a8fe780
-			if (data.err) {
-				setError(data.err);
-				setTimeout(() => {
-					setError(null)
-				}, 4000)
-				return;
+			if (password !== password2) {
+				throw { err: { password: "passwords do not match" } }
 			}
-			dispatch(setUser({ email }));
+			setStatus("loading")
+			const data = await signUp(email, email, password, password2);
+			dispatch(setUser({ email }))
 		} catch (error) {
-			setError(error);
+			setError(error.err)
+			setTimeout(() => {
+				setError(null)
+			}, 4000)
 		} finally {
 			setStatus("idle")
 		}
+
 	};
 
 	return (
@@ -110,8 +109,10 @@ export default function SignUp() {
 						</div>
 						<div>
 							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
+							{passwordErr !== null && <p className="text-red-500 text-sm mt-2 ml-10">{passwordErr}</p>}
 							<input
 								type="password"
+								autoComplete="passsword"
 								onChange={(e) => setPassword(e.target.value)}
 								name="password"
 								id="password"
@@ -126,15 +127,14 @@ export default function SignUp() {
 								type="password"
 								onChange={(e) => setPassword2(e.target.value)}
 								name="password2"
+								autoComplete="password"
 								id="password2"
 								placeholder="Confirm Password"
 								className={styles.input}
 								required
 							/>
 						</div>
-						<div></div>
-
-						<button type="submit" className={styles.submit}>
+						<button disabled={status === "loading"} type="submit" className={styles.submit}>
 							{
 								status === "loading" ? <Loader /> : status === "idle" && "Submit"
 							}
@@ -146,7 +146,7 @@ export default function SignUp() {
 								Login here
 							</Link>
 						</p>
-					
+
 					</form>
 				</div>
 			</div>
