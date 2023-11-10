@@ -20,7 +20,7 @@ const OrderItem = ({ data }) => {
     <div className="flex w-full flex-col px-4 py-4">
       <span className="font-semibold">{merchandise_name}</span>
       <span className="float-right text-gray-400">{category}</span>
-      <p className="text-lg font-bold">₦{price.toLocaleString()}</p>
+      <p className="text-lg font-bold">₦{price.toLocaleString()} x {itemQty}</p>
     </div>
   </div>
 

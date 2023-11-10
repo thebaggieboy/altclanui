@@ -6,7 +6,7 @@ import styles from "./../../../styles/login.module.css"
 import login from "../../../lib/brandSignup"
 import { useDispatch, useSelector } from "react-redux";
 import { selectBrandUser, setBrandUser } from "../../../features/brands/brandUserSlice";
-import Loader from "../../components/Loader"
+import Loader from "../../../components/Loader"
 export default function Login(req, res) {
 	const dispatch = useDispatch();
 	const brand_user = useSelector(selectBrandUser);
