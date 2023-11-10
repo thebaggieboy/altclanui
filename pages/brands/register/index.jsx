@@ -6,6 +6,7 @@ import styles from "./../../../styles/login.module.css"
 import signUp from "../../../lib/brandSignup"
 import { useDispatch, useSelector } from "react-redux";
 import { selectBrandUser, setBrandUser } from "../../../features/brands/brandUserSlice";
+import Loader from "../../components/Loader"
 
 export default function SignUp(req, res) {
 	const dispatch = useDispatch();
@@ -15,31 +16,36 @@ export default function SignUp(req, res) {
 	if (brand_user !== null) {
 		router.push("/brands/register/brand-bio");
 	}
-
+	const [userName, setUserName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [password2, setPassword2] = useState("");
 	const [error, setError] = useState(null);
+	const [status, setStatus] = useState("idle")
 
-	const emailErr = error?.email[0] || null;
+	const emailErr = error?.email || null;
+	const passwordErr = error?.password || error?.password2 || null
 
-	console.log(emailErr);
+	console.log(passwordErr)
 
 	const submit = async (e) => {
 		e.preventDefault();
-		console.log("Signup button was clicked");
-		const res = await signUp(email,email, password, password2);
-		const data = await res.json();
-		if (data.err) {
-			setError(data.err);
-			return;
+		try {
+			if (password !== password2) {
+				throw { err: { password: "Passwords do not match" } }
+			}
+			setStatus("loading")
+			const data = await signUp(email, email, password, password2);
+			dispatch(setBrandUser({ email }))
+		} catch (error) {
+			setError(error.err)
+			setTimeout(() => {
+				setError(null)
+			}, 4000)
+		} finally {
+			setStatus("idle")
 		}
-		if (res.status >= 200 && res.status <= 209) {
-			dispatch(setBrandUser({ email }));
-		}
-	};
-
-
+	}
   return (
     <div className="">
         <div className={styles.loginContainer}>
@@ -78,9 +84,11 @@ export default function SignUp(req, res) {
 
                 </div>
 
-                <button type="submit" className={styles.submit}>
-                   Register
-                </button>
+				<button disabled={status === "loading"} type="submit" className={styles.submit}>
+							{
+								status === "loading" ? <Loader /> : status === "idle" && "Signup"
+							}
+						</button>
    
                   <p className={styles.alternative}>
                       Already have an account? 

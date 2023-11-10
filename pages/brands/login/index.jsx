@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import React, { useState, FormEvent } from 'react'
 //import styles from "../../../styles/login.module.css";
 import styles from "./../../../styles/login.module.css"
-import signUp from "../../../lib/brandSignup"
+import login from "../../../lib/brandSignup"
 import { useDispatch, useSelector } from "react-redux";
 import { selectBrandUser, setBrandUser } from "../../../features/brands/brandUserSlice";
-
+import Loader from "../../components/Loader"
 export default function Login(req, res) {
 	const dispatch = useDispatch();
 	const brand_user = useSelector(selectBrandUser);
@@ -16,27 +16,35 @@ export default function Login(req, res) {
 		router.push("/brands/register/brand-bio");
 	}
 
+	
+	const [userName, setUserName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
 	const [error, setError] = useState(null);
 
-	const emailErr = error?.email[0] || null;
+	const [status, setStatus] = useState("idle")
 
-	console.log(emailErr);
+	console.log(error)
 
 	const submit = async (e) => {
 		e.preventDefault();
-		console.log("Signup button was clicked");
-		const res = await signUp(email, password);
-		const data = await res.json();
-		if (data.err) {
-			setError(data.err);
-			return;
-		}
-		if (res.status >= 200 && res.status <= 209) {
+		console.log("Login button was clicked");
+		try {
+			setStatus("loading")
+			const data = await login(email, email, password);
+            console.log(data)
 			dispatch(setBrandUser({ email }));
+		} catch (error) {
+			setError(error);
+			setTimeout(() => {
+				setError(null)
+			}, 4000)
+
+		} finally {
+			setStatus("idle")
 		}
-	};
+    }
 
 
   return (
@@ -64,9 +72,11 @@ export default function Login(req, res) {
 
                 </div>
 
-                <button type="submit" className={styles.submit}>
-                   Login
-                </button>
+                <button disabled={status === "loading"} type="submit" className={styles.submit}>
+							{
+								status === "loading" ? <Loader /> : status === "idle" && "login"
+							}
+				</button>
    
                   <p className={styles.alternative}>
                       Dont have an account? 
