@@ -86,6 +86,7 @@ export default function SignUp() {
 						</Link>
 
 						<h1 className={styles.greeting}>Login to your account</h1>
+						<p className={styles.login}>Complete your login to continue</p>
 
 
 						<div className="">

@@ -4,6 +4,7 @@ import FormInput from "./FormInput";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/user/userSlice";
 import { useRouter } from "next/router";
+// Function to get user by email
 
 export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const user = useSelector(selectUser);
@@ -11,7 +12,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const { personal, login } = defaultData;
 
 
-
+	
 
 	const [personalData, setPersonalData] = useState({
 		firstName: personal.firstName,
@@ -49,6 +50,8 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const { firstName, lastName, address, bio, gender, city, state, zip } = personalData;
 
 	const { email, prevPassword, newPassword } = loginData;
+
+
 
 	if (type === "personal") {
 		return (
