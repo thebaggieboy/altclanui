@@ -1,11 +1,11 @@
-
+import Link from "next/link";
 const products = [
   {
     id: 1,
     name: "Shades",
     href: "#",
     price: "$35",
-    imageSrc: "/img/shades.jpg",
+    imageSrc: "/img/glasses.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -55,14 +55,44 @@ const products = [
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
+  {
+  id: 8,
+  name: "Jackets",
+  href: "#",
+  price: "$35",
+  imageSrc: "/img/robbie-noble.jpg",
+  imageAlt:
+    "Hand holding black machined steel mechanical pencil with brass tip and top.",
+},
+{
+  id: 10,
+  name: "Bags",
+  href: "#",
+  price: "$35",
+  imageSrc: "/img/bags.jpg",
+  imageAlt:
+    "Hand holding black machined steel mechanical pencil with brass tip and top.",
+},
+{
+  id: 11,
+  name: "Footwears",
+  href: "#",
+  price: "$35",
+  imageSrc: "/img/footwear.jpg",
+  imageAlt:
+    "Hand holding black machined steel mechanical pencil with brass tip and top.",
+},
+
+
+
 ];
 
 export default function Category() {
   return (
      <div className="bg-white ">
-       <div className="px-4 py-4 mx-auto  sm:py-24 sm:px-6 max-w-[80rem] lg:px-8">
-         <h4 className="text-3xl text-center mb-4 sm:mb-16">Shop by category</h4> <br />
-          <div className="grid grid-cols-2 gap-y-8 lg:gap-y-16 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
+       <div className="px-4 py-4 mx-auto  sm:py-24  max-w-[80rem] lg:px-8">
+         <h4 className="text-2xl text-center mb-4 sm:mb-16">Shop by category</h4> <br />
+          <div className="grid grid-cols-2 gap-y-8 lg:gap-y-16  text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
             {products.map((product) => (
               <a key={product.id} href={product.href} className="group">
                 <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
@@ -73,12 +103,13 @@ export default function Category() {
                   />
                 </div>
 
-                <button
+                <Link
+                href={'/products'}
                   type="button"
-                  className="text-gray-900 mt-4 hover:text-dark border border-black hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+                  className="text-gray-900 mt-4 hover:text-dark underline hover:text-black font-medium  text-lg  text-center mr-2 mb-2 "
                 >
                   Shop {product.name}
-                </button>
+                </Link>
               </a>
             ))}
           </div>
