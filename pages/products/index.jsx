@@ -319,7 +319,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 									className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
 								>
 									{subCategories.map((category) => (
-										<li key={category.name}>
+										<li className="mt-3" key={category.name}>
 											<a href={category.href}>{category.name}</a>
 										</li>
 									))}
