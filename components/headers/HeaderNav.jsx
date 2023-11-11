@@ -608,7 +608,7 @@ export default function HeaderNav() {
 					  
 					  }
                      
-					  {user === null ?     <Menu.Item>
+					  {user === null?     <Menu.Item>
                         {({ active }) => (
                           <Link
                             href="/login"
