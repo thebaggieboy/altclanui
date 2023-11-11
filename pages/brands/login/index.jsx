@@ -51,7 +51,7 @@ export default function Login(req, res) {
     <div className="">
         <div className={styles.loginContainer}>
         <div className={styles.columnImage}>
-            <img src="/alteclan_logo.jpg" alt="" className={styles.img}/>
+            <img src="/img/no-revisions.jpg" alt="" className={styles.img}/>
         </div>
 
         <div className={styles.columnText}>
@@ -62,6 +62,9 @@ export default function Login(req, res) {
 
                 <div>
                     {/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
+                    {error !== null && (
+								<LoginError />
+							)}
                     <input type="email" onChange={e => setEmail(e.target.value)} name="email" id="email" className={styles.input} placeholder="name@company.com" required/>
                 </div>
                 <div>
