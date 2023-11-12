@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import { useRouter, useContext } from "next/router";
-import bcrypt from "bcrypt";
+
 
 export default async function handler(req, res) {
 	const externalApiUrl = "https://altclan-brands-api.onrender.com/dj-rest-auth/registration/";
