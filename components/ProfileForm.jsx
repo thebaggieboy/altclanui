@@ -3,7 +3,7 @@ import { useState } from "react";
 import FormInput from "./FormInput";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/user/userSlice";
-import { useRouter } from "next/router";
+
 // Function to get user by email
 
 export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
@@ -12,7 +12,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const { personal, login } = defaultData;
 
 
-	
+
 
 	const [personalData, setPersonalData] = useState({
 		firstName: personal.firstName,
@@ -20,10 +20,10 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 		bio: personal.bio,
 		address: personal.address,
 		gender: personal.gender,
-		city:personal.city,
-		state:personal.state,
-		zip:personal.zip,
-        phone:personal.phone,
+		city: personal.city,
+		state: personal.state,
+		zip: personal.zip,
+		phone: personal.phone,
 
 	});
 
@@ -51,6 +51,19 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 
 	const { email, prevPassword, newPassword } = loginData;
 
+	const submitHandler = async (e) => {
+		e.preventDefault()
+		const res = await fetch("https://altclan-api-v1.onrender.com/api/users/3", {
+			method: "POST",
+			body: {
+				first_name: firstName,
+				last_name: lastName
+			}
+		})
+		const data = await res.json()
+		console.log(data)
+
+	}
 
 
 	if (type === "personal") {
@@ -60,7 +73,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 					<Image src="/assets/cross.svg" width={30} height={30} alt="cross" />
 				</button>
 				<h1 className="text-xl font-bold mb-8">Edit personal details</h1>
-				<form className="flex flex-col gap-y-4 " onSubmit={() => onSubmit()}>
+				<form className="flex flex-col gap-y-4 " onSubmit={submitHandler}>
 					<FormInput
 						label="First name"
 						name="firstName"
@@ -75,7 +88,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						value={lastName}
 						onChange={handlePersonalData}
 					/>
-					<FormInput
+					{/* <FormInput
 						label="Bio"
 						name="bio"
 						type="text"
@@ -109,7 +122,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						type="text"
 						value={zip}
 						onChange={handlePersonalData}
-					/>
+					/> */}
 					{/* <div className="flex gap-x-8">
 						<FormInput
 							label="Male"
@@ -147,7 +160,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 					<Image src="/assets/cross.svg" width={30} height={30} alt="cross" />
 				</button>
 				<h1 className="text-xl font-bold mb-8">Edit login details</h1>
-				<form className="flex flex-col gap-y-4 " onSubmit={() => onSubmit()}>
+				<form className="flex flex-col gap-y-4 " onSubmit={submitHandler}>
 					<FormInput
 						label="Email"
 						type="email"

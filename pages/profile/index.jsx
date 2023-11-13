@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "../../styles/profile.module.css";
 import { useSelector } from "react-redux";
@@ -13,13 +13,13 @@ const Profile = () => {
 	const user = useSelector(selectUser);
 	const router = useRouter();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (user === null) {
 			router.push("/accounts/signup");
 		}
 	}, [user]);
 
-	const { data, isLoading, error } = useQuery({ queryKey: ["profile", user.id], queryFn: () => fetchUserData(user.id) })
+	const { data, isLoading, error } = useQuery({ queryKey: ["profile", user?.id], queryFn: () => fetchUserData(user?.id), enabled: user !== null })
 	console.log(data)
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
@@ -39,7 +39,7 @@ const Profile = () => {
 		form === "personal" && setFormActive({ active: true, type: form });
 		form === "login" && setFormActive({ active: true, type: form });
 	};
-	const userData = useSelector(selectUser);
+	const userData = data
 
 	const profileData = {
 		personal: {
@@ -131,7 +131,7 @@ const Profile = () => {
 				>
 					Orders
 				</div>
-				
+
 				<div
 					className={`user-profile__nav-item ${activeSection === "inventory" ? "active" : ""
 						}`}
@@ -158,8 +158,8 @@ const Profile = () => {
 					<div className={styles.galleryContent}>
 						<div className="inventory">
 							<div className="grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10">
-							
-							
+
+
 
 								<div className={styles.inventory}>
 									<img
