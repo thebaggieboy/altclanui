@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 
 export async function getServerSideProps(context) {
 	const res = await fetch(
-		`https://altclan-api-v1.onrender.com/api/merchandises`
+		`https://altclan-brands-api.onrender.com/api/merchandises`
 	);
 	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/₦{id}`);
 	const data = await res.json();
@@ -62,11 +62,6 @@ export default function Checkout({merchs}) {
 
   const [step, setStep] = useState(2);
 
-	useEffect(() => {
-		if (user === null) {
-			router.push("/accounts/signup");
-		}
-	}, [user]);
   
  
 
@@ -245,7 +240,7 @@ export default function Checkout({merchs}) {
           <div className="">
             <label htmlFor="email"  className="mt-4 mb-2 block text-sm font-medium">Email</label>
             <div className="relative">
-              <input type="text" value={user?.email} disabled onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" />
+              <input type="text" value={user?.email}  onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="" />
               <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
@@ -271,8 +266,34 @@ export default function Checkout({merchs}) {
                 </svg>
               </div>
             </div>
-      
-      
+            <label htmlFor="text"  className="mt-4 mb-2 block text-sm font-medium">Address</label>
+            <div className="relative">
+              <input type="text" value=""  onChange={(e) => setaddress(e.target.value)} id="text" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+              
+              </div>
+            </div>
+            <label htmlFor="text"  className="mt-4 mb-2 block text-sm font-medium">State</label>
+            <div className="relative">
+              <input type="text" value=""  onChange={(e) => setstate(e.target.value)} id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+             
+              </div>
+            </div>
+            <label htmlFor="text"  className="mt-4 mb-2 block text-sm font-medium">City</label>
+            <div className="relative">
+              <input type="text" value=""  onChange={(e) => setcity(e.target.value)} id="text" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+              
+              </div>
+            </div>
+            <label htmlFor="text"  className="mt-4 mb-2 block text-sm font-medium">Zip</label>
+            <div className="relative">
+              <input type="text" value=""  onChange={(e) => setzip(e.target.value)} id="text" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="" />
+              <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+              
+              </div>
+            </div>
             <div className="mt-6 border-t border-b py-2">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Subtotal</p>

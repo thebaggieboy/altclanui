@@ -37,9 +37,7 @@ const BrandBioForm = (props) => {
         <div>
        <div className="">
         <div className={styles.loginContainer}>
-        <div className={styles.columnImage}>
-            <img src="/alteclan_logo.jpg" alt="" className={styles.img}/>
-        </div>
+      
 
         <div className={styles.columnText}>
         <div id="toast-success" class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
@@ -52,7 +50,7 @@ const BrandBioForm = (props) => {
     <div class="ml-3 text-sm font-normal">You have created a new brand account successfully.</div>
     <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
         <span class="sr-only">Close</span>
-        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+        <svg class="w-5 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
         </svg>
     </button>
@@ -64,17 +62,17 @@ const BrandBioForm = (props) => {
                 <p className={styles.login}>Fill in some of your brand details</p>
 
                 <div>
-                <label for="email" className="block mb-2 ml-12 text-sm font-medium text-black">Brand Name</label> 
-                    <input type="text" onChange={e => setBrandName(e.target.value)} name="brand-name" id="brand-name" className={styles.input} placeholder="" required/>
+           
+                    <input type="text" onChange={e => setBrandName(e.target.value)} name="brand-name" id="brand-name" className={styles.input} placeholder="Brand name" required/>
                     
                 </div>
                 <div>
-                <label for="brand_bio" className="block mb-2 ml-12 text-sm font-medium text-black">Brand bio</label> 
-                    <textarea type="text" onChange={e => setbrandBio(e.target.value)} name="bio" id="bio" placeholder="" className={styles.input} required></textarea>
+
+                    <textarea type="text" onChange={e => setbrandBio(e.target.value)} name="bio" id="bio" placeholder="Brand bio" className={styles.input} required></textarea>
                 </div>
                 <div>
-                <label for="email" className="block mb-2 ml-12 text-sm font-medium text-black">Brand logo</label> 
-                    <input type="file" onChange={e => setbrandLogo(e.target.value)} name="logo" id="logo" placeholder="" className={styles.input} required/>
+                
+                    <input type="file" onChange={e => setbrandLogo(e.target.value)} name="logo" id="logo" placeholder="Upload your brand logo" className={styles.input} required/>
                 </div>
                 <div>
 

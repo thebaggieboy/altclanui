@@ -166,7 +166,7 @@ export default function ProductDetail({ _id, merch }) {
 					<div className="mt-4 lg:row-span-3 lg:mt-0">
 						<h2 className="sr-only">Product information</h2>
 						<p className="text-3xl tracking-tight text-gray-900">
-							{merch.price}
+						₦{merch.price}
 						</p>
 
 						{/* Reviews */}
@@ -248,7 +248,7 @@ export default function ProductDetail({ _id, merch }) {
 									<h3 className="text-sm font-medium text-gray-900">Size</h3>
 									<Link
 										href="#"
-										className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+										className="text-sm font-medium text-black hover:text-beige"
 									>
 										Size guide
 									</Link>

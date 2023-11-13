@@ -47,7 +47,7 @@ export default function Cart({ merchs }) {
 		<>
 			<section className="bg-gray-100 py-1 sm:py-16 lg:py-4">
 				<div className="mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex items-center justify-center">
+					<div className="flex items-center p-3 justify-center">
 						<h1 className="text-2xl font-semibold text-gray-900">
 							{" "}
 							<Link href="/products">Your Cart</Link>{" "}

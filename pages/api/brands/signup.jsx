@@ -1,26 +1,27 @@
 //import { NextApiRequest, NextApiResponse } from "next";
-import jwt from 'jsonwebtoken'
-import { useState } from 'react';
-
+import jwt from "jsonwebtoken";
+import { NextResponse } from "next/server";
+import { useRouter, useContext } from "next/router";
 
 
 export default async function handler(req, res) {
+	const externalApiUrl = "https://altclan-brands-api.onrender.com/dj-rest-auth/registration/";
+	//const externalApiUrl = "https://altclan-api-v1.onrender.com/api/brand_users/";
 
-    //const externalApiUrl = 'http://127.0.0.1:8000/api/users/'
+    let { username, email, password1, password2 } = req.body;
 
-	const externalApiUrl = fetch('https://altclan-api-v1.onrender.com/api/merchandises/')
-    let { username, email, password } = req.body;
     await fetch(externalApiUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username: email, email, password }),
+        body: JSON.stringify({ username: email, email, password1, password2 }),
     })
         .then(async (response) => {
             if (response.status >= 200 && response.status <= 209) {
+                //setCookie("brand_token", token);
                 const data = await response.json()
-                console.log("Access token: ", data.access)
+                console.log(data.access)
                 const token = data.access
                 const expires = new Date();
                 expires.setTime(expires.getTime() + 2 * 24 * 60 * 60 * 1000);

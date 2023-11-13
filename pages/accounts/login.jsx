@@ -15,7 +15,7 @@ export function LoginError() {
 			</svg>
 			<span class="sr-only">Info</span>
 			<div class="ml-3 text-sm text-center font-medium">
-				email or password is incorrect. You don't have an account with us?  <Link href="/accounts/signup" class="font-semibold underline hover:no-underline">Sign up</Link> to continue.
+				Email or password is incorrect. 
 			</div>
 
 		</div>
@@ -80,6 +80,7 @@ export default function SignUp() {
 						</Link>
 
 						<h1 className={styles.greeting}>Login to your account</h1>
+						<p className={styles.login}>Complete your login to continue</p>
 
 
 						<div className="">

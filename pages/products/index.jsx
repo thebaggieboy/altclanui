@@ -319,7 +319,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 									className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
 								>
 									{subCategories.map((category) => (
-										<li key={category.name}>
+										<li className="mt-3" key={category.name}>
 											<a href={category.href}>{category.name}</a>
 										</li>
 									))}
@@ -398,7 +398,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 												price,
 											}) => (
 												<div key={id} className="group relative">
-													<div className="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
 														<Link href={`/products/${id}`}>
 															<img
 																src={display_image}
@@ -407,35 +407,29 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 															/>
 														</Link>
 													</div>
+													<Link href={`/products/${id}`}>
+
+													
 													<div className="flex pt-3 justify-between">
 														<div>
-															<h3 className="text-sm text-gray-700">
+														<div className="container text-gray-500 text-xs">
+																{category}
+															</div>
+															<h3 className="text-sm text-gray-800">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name}
 															</h3>
 															
-															<p className="mt-1 text-sm text-gray-500">
+															<p className="text-md fw-bold">
 																₦{price}
 															</p>
+
+														
 														</div>
 
-														<button
-															className="pl-2 text-neutral-600 text-xl transition duration-200 hover:text-neutral-700"
-															onClick={() => addToCart(id)}
-														>
-															{/* didn't properly call add to cart with the id */}
-															<span className="[&>svg]:w-5 ">
-																<svg
-																	xmlns="http://www.w3.org/2000/svg"
-																	viewBox="0 0 24 24"
-																	fill="currentColor"
-																	className="h-10 w-10"
-																>
-																	<path className="text-xl" d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-																</svg>
-															</span>
-														</button>
+												
 													</div>
+													</Link>
 												</div>
 											)
 										)}
