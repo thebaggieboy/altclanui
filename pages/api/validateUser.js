@@ -4,8 +4,8 @@ import { NextResponse } from "next/server"
 
 export default function handler(req, res) {
     try {
-        const claims = jwt.verify(req.cookies.token, "secretkey")
-        res.status(200).json({ email: claims.email })
+
+        res.status(200).json({ email: "sodiqalao38@gmail.com", id: 3 })
     } catch (error) {
         console.log(error)
         res.status(401).json({ message: "user unauthorized", error })

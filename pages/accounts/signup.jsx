@@ -55,12 +55,10 @@ export default function SignUp() {
 			}
 			setStatus("loading")
 			const data = await signUp(email, email, password, password2);
-			dispatch(setUser({ email }))
+			dispatch(setUser(data))
 		} catch (error) {
+			console.log(error)
 			setError(error.err)
-			setTimeout(() => {
-				setError(null)
-			}, 4000)
 		} finally {
 			setStatus("idle")
 		}

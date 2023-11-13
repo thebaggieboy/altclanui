@@ -2,8 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
-import { TokenContext } from "../../context/TokenContext";
-import useBrands from "./../../hooks/useBrands";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "../../features/user/userSlice";
 import login from "../../lib/login";
@@ -50,14 +48,10 @@ export default function SignUp() {
 		try {
 			setStatus("loading")
 			const data = await login(email, email, password);
-             console.log(data)
-			dispatch(setUser({ email }));
+			console.log(data)
+			dispatch(setUser(data));
 		} catch (error) {
 			setError(error);
-			setTimeout(() => {
-				setError(null)
-			}, 4000)
-
 		} finally {
 			setStatus("idle")
 		}

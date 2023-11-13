@@ -1,16 +1,15 @@
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "../../styles/profile.module.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
+import { useQuery } from "@tanstack/react-query";
+import fetchUserData from "../../lib/fetchUserData";
 
 
 const Profile = () => {
-	const data = [];
-	const loading = false;
-	const error = null;
 	const user = useSelector(selectUser);
 	const router = useRouter();
 
@@ -19,6 +18,9 @@ const Profile = () => {
 			router.push("/accounts/signup");
 		}
 	}, [user]);
+
+	const { data, isLoading, error } = useQuery({ queryKey: ["profile", user.id], queryFn: () => fetchUserData(user.id) })
+	console.log(data)
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
@@ -56,6 +58,10 @@ const Profile = () => {
 			password: "**********",
 		},
 	};
+
+	if (isLoading) {
+		return <div>Loading...</div>
+	}
 
 	if (error) {
 		return <p>Error {error.message}</p>;
@@ -117,9 +123,8 @@ const Profile = () => {
 			<hr />
 			<nav className="user-profile__nav">
 				<div
-					className={`user-profile__nav-item ${
-						activeSection === "orders" ? "active" : ""
-					}`}
+					className={`user-profile__nav-item ${activeSection === "orders" ? "active" : ""
+						}`}
 					onClick={(e) => {
 						setAcvtiveSection("orders");
 					}}
@@ -127,9 +132,8 @@ const Profile = () => {
 					Orders
 				</div>
 				<div
-					className={`user-profile__nav-item ${
-						activeSection === "gallery" ? "active" : ""
-					}`}
+					className={`user-profile__nav-item ${activeSection === "gallery" ? "active" : ""
+						}`}
 					onClick={(e) => {
 						setAcvtiveSection("gallery");
 					}}
@@ -137,9 +141,8 @@ const Profile = () => {
 					Gallery
 				</div>
 				<div
-					className={`user-profile__nav-item ${
-						activeSection === "inventory" ? "active" : ""
-					}`}
+					className={`user-profile__nav-item ${activeSection === "inventory" ? "active" : ""
+						}`}
 					onClick={(e) => {
 						setAcvtiveSection("inventory");
 					}}
