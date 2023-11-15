@@ -1,24 +1,26 @@
-import Image from "next/image";
-import { useEffect, useState } from "react";
+
+import { useEffect, useLayoutEffect, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "../../styles/profile.module.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
+import { useQuery } from "@tanstack/react-query";
+import fetchUserData from "../../lib/fetchUserData";
 
 
 const Profile = () => {
-	const data = [];
-	const loading = false;
-	const error = null;
 	const user = useSelector(selectUser);
 	const router = useRouter();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (user === null) {
 			router.push("/accounts/signup");
 		}
 	}, [user]);
+
+	const { data, isLoading, error } = useQuery({ queryKey: ["profile", user?.id], queryFn: () => fetchUserData(user?.id), enabled: user !== null })
+	console.log(data)
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
@@ -37,7 +39,7 @@ const Profile = () => {
 		form === "personal" && setFormActive({ active: true, type: form });
 		form === "login" && setFormActive({ active: true, type: form });
 	};
-	const userData = useSelector(selectUser);
+	const userData = data
 
 	const profileData = {
 		personal: {
@@ -56,6 +58,10 @@ const Profile = () => {
 			password: "**********",
 		},
 	};
+
+	if (isLoading) {
+		return <div>Loading...</div>
+	}
 
 	if (error) {
 		return <p>Error {error.message}</p>;
@@ -117,20 +123,18 @@ const Profile = () => {
 			<hr />
 			<nav className="user-profile__nav">
 				<div
-					className={`user-profile__nav-item ${
-						activeSection === "orders" ? "active" : ""
-					}`}
+					className={`user-profile__nav-item ${activeSection === "orders" ? "active" : ""
+						}`}
 					onClick={(e) => {
 						setAcvtiveSection("orders");
 					}}
 				>
 					Orders
 				</div>
-				
+
 				<div
-					className={`user-profile__nav-item ${
-						activeSection === "inventory" ? "active" : ""
-					}`}
+					className={`user-profile__nav-item ${activeSection === "inventory" ? "active" : ""
+						}`}
 					onClick={(e) => {
 						setAcvtiveSection("inventory");
 					}}
@@ -154,8 +158,8 @@ const Profile = () => {
 					<div className={styles.galleryContent}>
 						<div className="inventory">
 							<div className="grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-10">
-							
-							
+
+
 
 								<div className={styles.inventory}>
 									<img

@@ -1,4 +1,4 @@
-import React, { Component,useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import HeaderTab from "../components/headers/HeaderTab";
@@ -24,19 +24,20 @@ import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 import TrendingMerch from "../components/TrendingMerch";
+import Link from "next/link";
 
-const brands = [1, 2, 3,4]
+const brands = [1, 2, 3, 4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const carouselBreakpoints = {
-	640: {
-		slidesPerView: 3,
-		spaceBetween: 20,
-	},
-	1024: {
-		slidesPerView: 4,
-		spaceBetween: 30,
-	},
+  640: {
+    slidesPerView: 3,
+    spaceBetween: 20,
+  },
+  1024: {
+    slidesPerView: 4,
+    spaceBetween: 30,
+  },
 };
 
 export default function Home() {
@@ -54,60 +55,74 @@ export default function Home() {
   }, []);
   return (
     <>
-    {loading ? <Preloader /> :
-    <>
-      <Head>
-        <title>Altclan - Community of aesthetics</title>
-        <meta
-          name="description"
-          content="Welcome to our community of aesthetics, and explore between brands and awesome collections"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/alteclan_logo.jpg" />
-      </Head>
-      <HeaderTab />
+      {loading ? <Preloader /> :
+        <>
+          <Head>
+            <title>Altclan - Community of aesthetics</title>
+            <meta
+              name="description"
+              content="Welcome to our community of aesthetics, and explore between brands and awesome collections"
+            />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+          </Head>
+          <HeaderTab />
 
-			<div className={styles.mainComponents}>
-				<CarouselWrapper
-					autoplay={{ delay: 2500 }}
-					disableOnInteraction={false}
-					pagination={true}
-					className="hero-carousel"
-				>
-					<Image src="/img/moh-mckenzie.jpg" fill alt="hero-umg" />
-					<Image src="/img/black-guy-1.jpg" fill alt="hero-umg" />
-					<Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
-					<Image src="/img/b-shah.jpg" fill alt="hero-umg" />
-				</CarouselWrapper>
+          <div className={styles.mainComponents}>
+            <div className="grid text-white place-items-center">
+              <CarouselWrapper
+                autoplay={{ delay: 2500 }}
+                disableOnInteraction={false}
+                pagination={true}
+                className="hero-carousel col-start-1 col-end-2 row-start-1 row-end-2"
+              >
+                <Image src="/img/moh-mckenzie.jpg" fill alt="hero-umg" />
+                <Image src="/img/black-guy-1.jpg" fill alt="hero-umg" />
+                <Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
+                <Image src="/img/b-shah.jpg" fill alt="hero-umg" />
+              </CarouselWrapper>
+              <div className="w-full h-full bg-black/40 flex flex-col items-center justify-center gap-y-8  col-start-1 col-end-2 row-start-1 row-end-2 z-[2]">
+                
+                <p className=" md:text-2xl">Discover top styles of the season, now at better prices.</p>
+                <div className="flex items-center gap-x-8">
+                  <Link href="/products">
+                    <button className="py-2 px-8 uppercase bg-white text-black text-sm md:text-base">shop women</button>
+                  </Link>
+                  <Link href="/products">
+                    <button className="py-2 px-8 uppercase bg-white text-black text-sm md:text-base">shop men</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
 
-        <MainColumn/>
-        <FullImages/>
-        <NewIn/>
-        <Category/>
-        <ShopDiv/>
-        <br/>
-       <div className="mt-5 p-5">
-         <h1 className="text-4xl text-center capitalize">Featured Brands</h1>
-         <br/>
-         <CarouselWrapper
-            slidesPerView={2}
-            spaceBetween={10}
-            breakpoints={carouselBreakpoints}
-            controls
-          >
-            {brands.map((id) => {
-              return <BrandCard key={id} id={id} />
-            })}
-          </CarouselWrapper>
-      
-         </div>
+            <MainColumn />
+            <FullImages />
+            <NewIn />
+            <Category />
+            <ShopDiv />
+            <br />
+            <div className="mt-5 p-5">
+              <h1 className="text-4xl text-center capitalize">Featured Brands</h1>
+              <br />
+              <CarouselWrapper
+                slidesPerView={2}
+                spaceBetween={10}
+                breakpoints={carouselBreakpoints}
+                controls
+              >
+                {brands.map((id) => {
+                  return <BrandCard key={id} id={id} />
+                })}
+              </CarouselWrapper>
 
-        <TrendingMerch />
-        <Cards /> 
-        <Form />
-        </div>
-      </>
+            </div>
+
+            <TrendingMerch />
+            <Cards />
+            <Form />
+          </div>
+        </>
       }
-		</>
-	);
+    </>
+  );
 }
