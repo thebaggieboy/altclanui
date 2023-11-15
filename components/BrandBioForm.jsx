@@ -1,6 +1,21 @@
 import React from 'react'
 import Link from 'next/link'
 import BrandSignupTab from './BrandSignupTab'
+
+const brand_type = [
+  {
+    type:"Clothing & apparel",
+  },
+  {
+    type:"Accessories",
+  },
+  {
+    type:"Arts",
+  },
+  {
+    type:"Footwears",
+  },
+]
 export default function BrandSignUpForm() {
   return (
     

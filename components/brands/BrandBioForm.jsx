@@ -4,6 +4,20 @@ import BrandProfileInfoForm from './BrandProfileInfoForm';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { selectBrandUser } from '../../features/brands/brandUserSlice';
+const brand_type = [
+    {
+      type:"Clothing & apparel",
+    },
+    {
+      type:"Accessories",
+    },
+    {
+      type:"Arts",
+    },
+    {
+      type:"Footwears",
+    },
+  ]
 
 const BrandBioForm = (props) => {
     const [brandName, setBrandName] = useState('');
@@ -40,20 +54,14 @@ const BrandBioForm = (props) => {
       
 
         <div className={styles.columnText}>
-        <div id="toast-success" class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
-    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-        </svg>
-        <span class="sr-only">Check icon</span>
-    </div>
-    <div class="ml-3 text-sm font-normal">You have created a new brand account successfully.</div>
-    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
-        <span class="sr-only">Close</span>
-        <svg class="w-5 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-        </svg>
-    </button>
+        <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+  <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+  </svg>
+  <span class="sr-only">Info</span>
+  <div>
+    <span class="font-medium">Account creation successful!</span> You have created a new brand, please fill in the form to get start setting up your brand profile.
+  </div>
 </div>
       
             <form className={styles.form}>
@@ -62,17 +70,28 @@ const BrandBioForm = (props) => {
                 <p className={styles.login}>Fill in some of your brand details</p>
 
                 <div>
-           
-                    <input type="text" onChange={e => setBrandName(e.target.value)} name="brand-name" id="brand-name" className={styles.input} placeholder="Brand name" required/>
+                <label htmlFor="" className={styles.label}>Brand name</label>
+                    <input type="text" onChange={e => setBrandName(e.target.value)} name="brand-name" id="brand-name" className={styles.input} placeholder="" required/>
                     
                 </div>
                 <div>
+                <label htmlFor="" className={styles.label}>Brand bio</label>
 
-                    <textarea type="text" onChange={e => setbrandBio(e.target.value)} name="bio" id="bio" placeholder="Brand bio" className={styles.input} required></textarea>
+                    <textarea type="text" onChange={e => setbrandBio(e.target.value)} name="bio" id="bio" placeholder="" className={styles.input} required></textarea>
                 </div>
                 <div>
+                    <label htmlFor="" className={styles.label}>Brand type</label>
+                  <div className="pt-2">
+                  <select className={styles.input} name="brand_type" id="">
+                        <option value="select">Choose community type</option>
+                        <option value="clothing">Clothing & apparel</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="arts">Arts & Aesthetics</option>
+                        <option value="footwears">Footwears</option>
+                    </select>
                 
-                    <input type="file" onChange={e => setbrandLogo(e.target.value)} name="logo" id="logo" placeholder="Upload your brand logo" className={styles.input} required/>
+                  </div>
+                    
                 </div>
                 <div>
 
