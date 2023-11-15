@@ -4,6 +4,12 @@
     margin-top: 2%;
     height: 900px;
 }
+.label{
+    margin-left: 10%;
+    margin-right: 10%; 
+    font-size: 16px;
+  
+}
 
 .columnImage {
     float: left;
@@ -13,7 +19,7 @@
 
 .columnText {
     float: left;
-    width: 50%;
+    width: 100%;
     padding: 0px;
     height: 80%;
 }

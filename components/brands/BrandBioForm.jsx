@@ -88,6 +88,13 @@ const BrandBioForm = (props) => {
                         <option value="accessories">Accessories</option>
                         <option value="arts">Arts & Aesthetics</option>
                         <option value="footwears">Footwears</option>
+                        <option value="enigmas">Enigmas</option>
+                        <option value="watches">Wristwatches & Handbands</option>
+            
+              
+                        <option value="skates">Skates & Boards</option>
+                        <option value="caps">Caps</option>
+                        <option value="masks">Masks</option>
                     </select>
                 
                   </div>
@@ -98,13 +105,10 @@ const BrandBioForm = (props) => {
                 </div>
 
                 <button type='submit'  className={styles.submit}>
-                    <button onClick={props.nextStep}>Continue</button>
+                    Continue
                 </button>
    
-                  <p className={styles.alternative}>
-                      Already have an account? 
-                      <Link href="/accounts/login" className={styles.link}>Login here</Link>
-                  </p>
+                
               </form>
         </div>
         </div>
