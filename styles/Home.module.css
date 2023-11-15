@@ -2,6 +2,8 @@
 
 /* Preloader.css */
 
+
+
 .preloader {
   position: fixed;
   top: 0;
@@ -389,7 +391,7 @@
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 18px;
   padding-bottom: 10px;
 }
 
