@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "../../features/user/userSlice";
 import login from "../../lib/login";
 import Loader from "../../components/Loader";
+import useLogin from "../../hooks/useLogin";
 
 export function LoginError() {
 	return (
@@ -15,7 +16,7 @@ export function LoginError() {
 			</svg>
 			<span class="sr-only">Info</span>
 			<div class="ml-3 text-sm text-center font-medium">
-				Email or password is incorrect. 
+				Email or password is incorrect.
 			</div>
 
 		</div>
@@ -31,31 +32,36 @@ export default function SignUp() {
 		router.push("/products");
 	}
 
-	const [userName, setUserName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
 
-	const [error, setError] = useState(null);
+	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin()
 
-	const [status, setStatus] = useState("idle")
+	const [formData, setFormData] = useState({
+		email: "",
+		password: "",
+	})
+
+	const inputChangeHandler = (e) => {
+		const { name, value } = e.target
+		setFormData((prevValue) => {
+			return {
+				...prevValue,
+				[name]: value
+			}
+		})
+
+	}
 
 	console.log(error)
 
 	const submit = async (e) => {
 		e.preventDefault();
-		console.log("Login button was clicked");
-
 		try {
-			setStatus("loading")
-			const data = await login(email, email, password);
-			console.log(data)
-			dispatch(setUser(data));
+			await loginFn(formData)
 		} catch (error) {
-			setError(error);
-		} finally {
-			setStatus("idle")
+			console.log(error)
 		}
 	};
+
 
 	return (
 		<div className="">
@@ -90,7 +96,7 @@ export default function SignUp() {
 							)}
 							<input
 								type="email"
-								onChange={(e) => setEmail(e.target.value)}
+								onChange={inputChangeHandler}
 								name="email"
 								id="email"
 								className={styles.input}
@@ -102,7 +108,7 @@ export default function SignUp() {
 							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
 							<input
 								type="password"
-								onChange={(e) => setPassword(e.target.value)}
+								onChange={inputChangeHandler}
 								name="password"
 								id="password"
 								placeholder="•••••••"
@@ -113,9 +119,9 @@ export default function SignUp() {
 
 						<div></div>
 
-						<button disabled={status === "loading"} type="submit" className={styles.submit}>
+						<button disabled={isPending} type="submit" className={styles.submit}>
 							{
-								status === "loading" ? <Loader /> : status === "idle" && "login"
+								isPending ? <Loader /> : "login"
 							}
 						</button>
 

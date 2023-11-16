@@ -8,8 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "../../features/user/userSlice";
 import signUp from "../../lib/signUp";
 import Loader from "../../components/Loader";
+import { useMutation } from "@tanstack/react-query";
+import useSignUp from "../../hooks/useSignUp";
 
-export function LoginError() {
+export function formError() {
 	return (
 		<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
 			<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -24,44 +26,48 @@ export function LoginError() {
 }
 
 export default function SignUp() {
-	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const router = useRouter();
 
 	if (user !== null) {
-		router.push("/products");
+		// router.push("/products");
 	}
+	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp()
 
-	const [userName, setUserName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [password2, setPassword2] = useState("");
-	const [error, setError] = useState(null);
-	const [status, setStatus] = useState("idle")
+	const [formErr, setFormErr] = useState(error)
+	const [formData, setFormData] = useState({
+		email: "",
+		password1: "",
+		password2: ""
+	})
 
-	const emailErr = error?.email || null;
-	const passwordErr = error?.password || error?.password2 || null
+	const { email, password1, password2 } = formData
 
-	console.log(passwordErr)
+	const emailErr = formErr?.email || null;
+	const passwordErr = formErr?.password || formErr?.password2 || null
+
+	const inputChangeHandler = (e) => {
+		const { name, value } = e.target
+		setFormData((prevValue) => {
+			return {
+				...prevValue,
+				[name]: value
+			}
+		})
+
+	}
 
 	const submit = async (e) => {
 		e.preventDefault();
-
-
 		try {
-			if (password !== password2) {
-				throw { err: { password: "Passwords do not match" } }
+			if (password1 !== password2) {
+				throw { password: "Passwords do not match" }
 			}
-			setStatus("loading")
-			const data = await signUp(email, email, password, password2);
-			dispatch(setUser(data))
+			await signUpFn(formData)
 		} catch (error) {
+			setFormErr(error)
 			console.log(error)
-			setError(error.err)
-		} finally {
-			setStatus("idle")
 		}
-
 	};
 
 	return (
@@ -92,7 +98,7 @@ export default function SignUp() {
 						<div className="">
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
 							{emailErr !== null && (
-								<LoginError />
+								<formError />
 							)}
 							{passwordErr !== null &&
 								<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -107,7 +113,7 @@ export default function SignUp() {
 								</div>}
 							<input
 								type="email"
-								onChange={(e) => setEmail(e.target.value)}
+								onChange={inputChangeHandler}
 								name="email"
 								id="email"
 								className={styles.input}
@@ -120,12 +126,13 @@ export default function SignUp() {
 
 							<input
 								type="password"
-								autoComplete="passsword"
-								onChange={(e) => setPassword(e.target.value)}
-								name="password"
+								autoComplete
+								onChange={inputChangeHandler}
+								name="password1"
 								id="password"
 								placeholder="•••••••"
 								className={styles.input}
+
 								required
 							/>
 						</div>
@@ -133,18 +140,18 @@ export default function SignUp() {
 							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
 							<input
 								type="password"
-								onChange={(e) => setPassword2(e.target.value)}
+								onChange={inputChangeHandler}
 								name="password2"
-								autoComplete="password"
+								autoComplete
 								id="password2"
 								placeholder="Confirm Password"
 								className={styles.input}
 								required
 							/>
 						</div>
-						<button disabled={status === "loading"} type="submit" className={styles.submit}>
+						<button disabled={isPending} type="submit" className={styles.submit}>
 							{
-								status === "loading" ? <Loader /> : status === "idle" && "Submit"
+								isPending ? <Loader /> : "Submit"
 							}
 						</button>
 
