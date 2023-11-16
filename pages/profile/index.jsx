@@ -20,7 +20,7 @@ const Profile = () => {
 	}, [user]);
 
 	const { data, isLoading, error } = useQuery({ queryKey: ["profile", user?.id], queryFn: () => fetchUserData(user?.id), enabled: user !== null })
-	console.log(data)
+	
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
@@ -64,7 +64,7 @@ const Profile = () => {
 	}
 
 	if (error) {
-		return <p>Error {error.message}</p>;
+		return <p> {error.message}</p>;
 	}
 
 
@@ -94,11 +94,13 @@ const Profile = () => {
 					<div className={styles.column2}>
 						<div className={styles.number}>
 							<h1 className={styles.h1}>{userData?.email}</h1>
+
 						</div>
 						<div>
-							<p className={styles.p}>Lorem ipsum dolor amet avec.</p>
+							<p className={styles.p}>firstname: {userData?.first_name}</p>
+							<p className={styles.p}>lastname: {userData?.last_name}</p>
 
-							<p className={styles.p}>21 Kola Sukanya Street.</p>
+							<p className={styles.p}>phone: {userData?.mobile_number}</p>
 
 							<button
 								onClick={onEdit}

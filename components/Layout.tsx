@@ -28,21 +28,21 @@ export default function Layout({
   }, [router.asPath]);
 
 
-  useEffect(() => {
-    async function getUserData() {
-      try {
-        const userData = await validateUser();
-        dispatch(setUser(userData));
-        if (ref.current === "/profile") {
-          router.push("/profile")
-        }
+  // useEffect(() => {
+  //   async function getUserData() {
+  //     try {
+  //       const userData = await validateUser();
+  //       dispatch(setUser(userData));
+  //       if (ref.current === "/profile") {
+  //         router.push("/profile")
+  //       }
 
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    getUserData();
-  }, []);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //     }
+  //   }
+  //   getUserData();
+  // }, []);
 
   useEffect(() => {
     async function getBrandUserData() {
@@ -63,13 +63,8 @@ export default function Layout({
   return (
     <>
       <HeaderNav />
-      { children }
+      {children}
       <Footer />
-
     </>
-
-
-
-
   )
 }
