@@ -32,7 +32,6 @@ export default function Layout({
 
 
   const { isLoading, error, data } = useQuery({ queryKey: ["user", user?.pk], queryFn: fetchUser })
-
   if (data) {
     dispatch(setUser(data))
   }

@@ -2,25 +2,31 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import ProfileForm from "../../components/ProfileForm";
 import styles from "../../styles/profile.module.css";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../features/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { USER_TYPES, selectUser, selectUserType, setUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
-import fetchUserData from "../../lib/fetchUserData";
+import fetchProfileData from "../../lib/fetchProfileData";
+import { selectBrandUser } from "../../features/brands/brandUserSlice";
 
 
 const Profile = () => {
 	const user = useSelector(selectUser);
+	const brand = useSelector(selectBrandUser)
 	const router = useRouter();
+	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
+	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {
-		if (user === null) {
-			router.push("/accounts/signup");
+		if (user === null && brand === null) {
+			router.push("/signup");
 		}
 	}, [user]);
 
-	const { data, isLoading, error } = useQuery({ queryKey: ["profile", user?.id], queryFn: () => fetchUserData(user?.id), enabled: user !== null })
-	
+	const { data, isLoading, error } = useQuery({
+		queryKey: ["profile", user?.id || brand?.id],
+		queryFn: () => fetchProfileData(user?.id || brand?.id, isBrand), enabled: user !== null || brand !== null
+	})
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
@@ -39,7 +45,7 @@ const Profile = () => {
 		form === "personal" && setFormActive({ active: true, type: form });
 		form === "login" && setFormActive({ active: true, type: form });
 	};
-	const userData = data
+
 
 	const profileData = {
 		personal: {
@@ -59,6 +65,8 @@ const Profile = () => {
 		},
 	};
 
+
+
 	if (isLoading) {
 		return <div>Loading...</div>
 	}
@@ -67,6 +75,7 @@ const Profile = () => {
 		return <p> {error.message}</p>;
 	}
 
+	const userData = user
 
 	return (
 		<>
@@ -97,10 +106,22 @@ const Profile = () => {
 
 						</div>
 						<div>
-							<p className={styles.p}>firstname: {userData?.first_name}</p>
-							<p className={styles.p}>lastname: {userData?.last_name}</p>
+							{
+								isBrand ? (
+									<>
+										<p className={styles.p}>brand name: {userData?.brand_name}</p>
+										<p className={styles.p}>brand bio: {userData?.brand_bio}</p>
 
-							<p className={styles.p}>phone: {userData?.mobile_number}</p>
+									</>
+								) : (
+									<>
+										<p className={styles.p}>firstname: {userData?.first_name}</p>
+										<p className={styles.p}>lastname: {userData?.last_name}</p>
+										<p className={styles.p}>phone: {userData?.mobile_number}</p>
+
+									</>
+								)
+							}
 
 							<button
 								onClick={onEdit}

@@ -2,7 +2,6 @@
 
 export default async function handler(req, res) {
     const externalApiUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/login/";
-    //const externalApiUrl = "https://altclan-api-v1.onrender.com/api/brand_users/";
 
     let { username, email, password } = req.body;
     await fetch(externalApiUrl, {
@@ -15,12 +14,15 @@ export default async function handler(req, res) {
         .then(async (response) => {
             if (response.status >= 200 && response.status <= 209) {
                 const { user, access } = await response.json()
+                console.log(response.headers)
                 const token = access
                 const expires = new Date();
                 expires.setTime(expires.getTime() + 2 * 24 * 60 * 60 * 1000);
                 const cookie = `token=${token};expires=${expires.toUTCString()};path=/;httpOnly;`;
                 res.setHeader("Set-Cookie", cookie);
-                res.status(response.status).json({ email: user.email, id: user.pk });
+                const userData = { ...user, id: user.pk }
+                delete user["pk"]
+                res.status(response.status).json(userData);
                 return
             }
             const data = await response.json()

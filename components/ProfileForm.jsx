@@ -3,24 +3,30 @@ import { useState } from "react";
 import FormInput from "./FormInput";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "../features/user/userSlice";
-import useUpdateUserData from "../hooks/useUpdateUserData";
 import Loader from "./Loader"
+import useUpdateProfileData from "../hooks/useUpdateProfileData";
+import { selectBrandUser } from "../features/brands/brandUserSlice";
 
 // Function to get user by email
 
 export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const user = useSelector(selectUser);
+	const brand = useSelector(selectBrandUser)
+
 	const [profileInfo, setProfileInfo] = useState([])
 	const { personal, login } = defaultData;
-	const { isPending, error, mutate: updateFn, } = useUpdateUserData()
-	const dispatch = useDispatch()
+	const { isPending, error, mutateAsync: updateFn, } = useUpdateProfileData("https://altclan-api-v1.onrender.com/api/users/", user?.id, setUser)
+
+	const defaultState = {
+		first_name: "",
+		last_name: "",
+		mobile_number: "",
+	}
 
 	const [personalData, setPersonalData] = useState({
 		first_name: personal.firstName,
 		last_name: personal.lastName,
 		mobile_number: personal.phone,
-
-
 	});
 
 	function handlePersonalData(e) {
@@ -29,12 +35,6 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 			return { ...prevValue, [name]: value };
 		});
 	}
-
-	const [loginData, setLoginData] = useState({
-		email: login.email,
-		prevPassword: "",
-		newPassword: "",
-	});
 
 	function handleLoginData(e) {
 		const { value, name } = e.target;
@@ -48,15 +48,15 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const { first_name, last_name, mobile_number } = personalData;
 
 
-	const { email, prevPassword, newPassword } = loginData;
-
 	const submitHandler = async (e) => {
 		e.preventDefault()
-		updateFn({ id: user.id, newData: personalData })
-	}
 
-	if (error) {
-		console.log(error)
+		try {
+			await updateFn(personalData)
+			setPersonalData(defaultData)
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	if (isPending) {
