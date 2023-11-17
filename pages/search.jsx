@@ -9,7 +9,7 @@ const categories = [
   // More categories...
 ]
 import useDebounce from '../hooks/useDebounce'
-export default function Search() {
+export default function Search({ _id, merchandise_name, price, picture }) {
   const {cart, addToCart} = useContext(CartContext);
   const [searchQuery, setSearchQuery] = useState('');
   // Results of the search query in an array
@@ -19,7 +19,7 @@ export default function Search() {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-  const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
+  const { data, loading, error } = useBrands('https://altclan-brands-api.onrender.com/api/merchandises/')
   //const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
   //const data = fetch('https://altclan-api-v1.onrender.com/api/merchandises/')
  
@@ -28,8 +28,8 @@ export default function Search() {
 
   useEffect(() => {
 
-    if (searchQuery !== "") {
-      const results = data.filter((product) =>
+    if (searchQuery !== null) {
+      const results = data?.filter((product) =>
         product.merchandise_name.toLowerCase().includes(searchQuery.toLowerCase())
         
       );
@@ -62,65 +62,55 @@ export default function Search() {
 
   {searchQuery && searchResult?.map((product) => (
            <section key={product.id } aria-labelledby="products-heading" className="pb-24">
-           <h2 id="products-heading" className="sr-only">
-             Products
-           </h2>
+           <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-4 xl:gap-x-8">
+										{product.map(
+											({
+												id,
+												display_image,
+												imageAlt,
+												merchandise_name,
+												category,
+												price,
+											}) => (
+												<div key={id} className="group relative">
+													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
+														<Link href={`/products/${id}`}>
+															<img
+																src={display_image}
+																alt={imageAlt}
+																className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+															/>
+														</Link>
+													</div>
+													<Link href={`/products/${id}`}>
 
-           <div  className="grid grid-cols-1 gap-x-8 gap-y-4 lg:grid-cols-4">
-    
-            
+													
+													<div className="flex pt-3 justify-between">
+														<div>
+														<div className="container text-gray-500 text-xs">
+																{category}
+															</div>
+															<h3 className="text-sm text-gray-800">
+																{/* An element here was covering the whole card making the add to cart unclickable */}
+																{merchandise_name}
+															</h3>
+															
+															<p className="text-md fw-bold">
+																₦{price}
+															</p>
 
-             {/* Product grid */}
-             <div className="lg:col-span-3">
-                           
-             <div className="mx-auto max-w-2xl  px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
-         
-         <div className="mt-10 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+														
+														</div>
 
-             <div className="group relative">
-               <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                 <Link href={`/products/${product.id}`}>
-                 <img
-                   src={product.display_image}
-                   alt={product.imageAlt}
-                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                 />
-                 </Link>
-               </div>
-               <div className="mt-4 flex justify-between">
-                 <div>
-                   <h3 className="text-sm text-gray-700">
-                     {/* An element here was covering the whole card making the add to cart unclickable */}
-                       {product.merchandise_name}
-            
-                   </h3>
-                   <p className="mt-1 text-sm text-gray-500">₦{product.price}</p>
-
-                   
-                 </div>
-           
-     <button
-       className="pl-2 text-neutral-600 transition duration-200 hover:text-neutral-700"
-       onClick={()=> addToCart(product.id)}> 
-       {/* didn't properly call add to cart with the id */}
-       <span className="[&>svg]:w-5">
-         <svg
-           xmlns="http://www.w3.org/2000/svg"
-           viewBox="0 0 24 24"
-           fill="currentColor"
-           className="h-5 w-5">
-           <path
-             d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-         </svg>
-       </span>
-     </button>
-               </div>
-             </div>
-       
-         </div>
-       </div>
-             </div>
-           </div>
+												
+													</div>
+													</Link>
+												</div>
+											)
+										)}
+									</div>
+								</div>
          </section>
         ))}
 

@@ -1,7 +1,7 @@
 
 export default function form() {
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-white p-5 dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div className="mx-auto max-w-screen-md sm:text-center">
                 <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Sign up for our newsletter</h2>

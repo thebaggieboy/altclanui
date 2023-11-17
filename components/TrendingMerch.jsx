@@ -44,8 +44,8 @@ export default function TrendingMerch() {
 
 	return (
 		<>
-			<div className="p-5 pt-5 ">
-				<h4 className="text-center text-4xl capitalize">
+			<div className="p-5 pt-5 mt-3">
+				<h4 className="text-center text-2xl capitalize">
 					Trending Merchandise
 				</h4>
 				<br />
