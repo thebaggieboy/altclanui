@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import styles from '../../styles/brand-bio.module.css';
 import BrandProfileInfoForm from './BrandProfileInfoForm';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
 import useUpdateProfileData from '../../hooks/useUpdateProfileData';
@@ -13,7 +14,7 @@ import { mutate } from 'swr';
 const BrandBioForm = (props) => {
 
   const brandUserData = useSelector(selectBrandUser);
-
+  const router = useRouter()
   const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
 
   const [formData, setFormData] = useState({
@@ -57,6 +58,7 @@ const BrandBioForm = (props) => {
    
     console.log("Brand Bio Form Submit clicked")
     console.log(formData)
+    router.push('/brands/register/brand-logo')
   }
 
   if (isPending) {
