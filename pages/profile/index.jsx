@@ -40,6 +40,7 @@ const Profile = () => {
 		form === "login" && setFormActive({ active: true, type: form });
 	};
 	const userData = data
+	console.log("User Data: ", userData)
 
 	const profileData = {
 		personal: {
@@ -93,7 +94,7 @@ const Profile = () => {
 
 					<div className={styles.column2}>
 						<div className={styles.number}>
-							<h1 className={styles.h1}>{userData?.email}</h1>
+							<h1 className={styles.h1}>{user?.email}</h1>
 
 						</div>
 						<div>
