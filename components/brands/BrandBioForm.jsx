@@ -8,20 +8,7 @@ import useUpdateProfileData from '../../hooks/useUpdateProfileData';
 import Loader from "../../components/Loader"
 import { mutate } from 'swr';
 
-const brand_type = [
-  {
-    type: "Clothing & apparel",
-  },
-  {
-    type: "Accessories",
-  },
-  {
-    type: "Arts",
-  },
-  {
-    type: "Footwears",
-  },
-]
+
 
 const BrandBioForm = (props) => {
 
