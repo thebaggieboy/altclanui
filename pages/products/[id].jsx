@@ -346,7 +346,7 @@ export default function ProductDetail({ _id, merch }) {
 							<h3 className="sr-only">Description</h3>
 
 							<div className="space-y-6">
-								<p className="text-base text-gray-900">{product.description}</p>
+								<p className="text-base text-gray-900">{merch.merchandise_description}</p>
 							</div>
 						</div>
 
@@ -354,7 +354,7 @@ export default function ProductDetail({ _id, merch }) {
 							<h2 className="text-sm font-medium text-gray-900">Details</h2>
 
 							<div className="mt-4 space-y-6">
-								<p className="text-sm text-gray-600">{product.details}</p>
+								<p className="text-sm text-gray-600">{merch.merchandise_details}</p>
 							</div>
 						</div>
 					</div>

@@ -5,13 +5,14 @@ import styles from "../../styles/login.module.css";
 import { TokenContext } from "../../context/TokenContext";
 import useBrands from "./../../hooks/useBrands";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setUser } from "../../features/user/userSlice";
+import { USER_TYPES, selectUser, setUser, setUserType } from "../../features/user/userSlice";
 import signUp from "../../lib/signUp";
 import Loader from "../../components/Loader";
 import { useMutation } from "@tanstack/react-query";
 import useSignUp from "../../hooks/useSignUp";
 
-export function formError() {
+
+export function LoginError() {
 	return (
 		<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
 			<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -32,7 +33,9 @@ export default function SignUp() {
 	if (user !== null) {
 		// router.push("/products");
 	}
-	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp()
+	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/dj-rest-auth/registration/", setUser,
+		USER_TYPES.shopper
+	)
 
 	const [formErr, setFormErr] = useState(error)
 	const [formData, setFormData] = useState({

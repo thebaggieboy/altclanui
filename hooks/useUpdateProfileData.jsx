@@ -1,22 +1,21 @@
 import { useMutation } from "@tanstack/react-query"
-import { useDispatch, useSelector } from "react-redux"
-import { selectUser, setUser } from "../features/user/userSlice"
+import { useDispatch, } from "react-redux"
+import { setUser } from "../features/user/userSlice"
 
 
-const useUpdateUserData = () => {
+const useUpdateProfileData = (url, id, actionFn) => {
     const dispatch = useDispatch()
-    const user = useSelector(selectUser)
 
     const mutation = useMutation({
-        mutationFn: async (vars) => {
-            console.log(vars.newData, vars.id)
+        mutationFn: async (newData) => {
             try {
-                const res = await fetch(`https://altclan-api-v1.onrender.com/api/users/${vars.id}/`, {
+                const res = await fetch(`${url}${id}/`, {
                     method: "PATCH",
-                    body: JSON.stringify({ ...vars.newData }),
+                    body: JSON.stringify({ ...newData }),
                     headers: {
                         "Content-Type": "application/json"
-                    }
+                    },
+
                 })
 
                 const data = await res.json()
@@ -34,7 +33,8 @@ const useUpdateUserData = () => {
             }
         },
         onSuccess: (data) => {
-            dispatch(setUser({ ...user, ...data }))
+            console.log(data)
+            dispatch(actionFn(data))
         }
     })
 
@@ -42,4 +42,4 @@ const useUpdateUserData = () => {
     return mutation
 }
 
-export default useUpdateUserData
+export default useUpdateProfileData

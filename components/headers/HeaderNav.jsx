@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Fragment, useContext, useState } from "react";
-import { Dialog, Popover, Tab, Transition,  Disclosure, Menu } from "@headlessui/react";
+import { Dialog, Popover, Tab, Transition, Disclosure, Menu } from "@headlessui/react";
 
 
 
@@ -10,13 +10,13 @@ import {
 	MagnifyingGlassIcon,
 	ShoppingBagIcon,
 	XMarkIcon,
-	
+
 } from "@heroicons/react/24/outline";
 
 //import Cart from '../Cart'
 import { CartContext } from "../../context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setUser } from "../../features/user/userSlice";
+import { selectUser, setUser, setUserType } from "../../features/user/userSlice";
 import { selectBrandUser, setBrandUser } from "../../features/brands/brandUserSlice";
 import logoutUser from "../../lib/logoutUser";
 import { selectCartCount } from "../../features/shop/shopSelector";
@@ -143,12 +143,16 @@ export default function HeaderNav() {
 	const [open, setOpen] = useState(false);
 	const user = useSelector(selectUser);
 	const brand_user = useSelector(selectBrandUser);
+
+
 	const dispatch = useDispatch();
 
 	async function logout() {
 		try {
 			await logoutUser();
 			dispatch(setUser(null));
+			dispatch(setBrandUser(null));
+			dispatch(setUserType(null))
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -157,7 +161,6 @@ export default function HeaderNav() {
 	async function brand_logout() {
 		try {
 			await logoutBrandUser();
-			dispatch(setBrandUser(null));
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -480,13 +483,13 @@ export default function HeaderNav() {
 											{page.name}
 										</Link>
 									))}
-									
+
 								</div>
 							</Popover.Group>
 
 							<div className="ml-auto flex items-center">
 								<div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-									{user === null ? (
+									{user === null && brand_user === null ? (
 										<>
 											<Link
 												href="/login"
@@ -526,7 +529,7 @@ export default function HeaderNav() {
 										</>
 									)}
 								</div>
-								
+
 
 								<div className="hidden lg:ml-8 lg:flex">
 									<Link
@@ -557,84 +560,84 @@ export default function HeaderNav() {
 								</div>
 
 
-								 {/* Profile dropdown */}
-								 <Menu as="div" className="relative ml-3">
-                  <div>
-                    <Menu.Button className="relative lg:hidden flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="/img/profile.jpg"
-                        alt=""
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-						{user === null ?
-						  <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/signup"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign up
-                          </Link>
-							
-						  
-                        )}
-                      </Menu.Item>:	
-					<Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/profile"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                           Profile
-                          </Link>
-							
-						  
-                        )}
-                      </Menu.Item> 
-					  
-					  }
-                     
-					  {user === null?     <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/login"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Log in
-                          </Link>
-                        )}
-                      </Menu.Item> : 
-					      <Menu.Item>
-						  {({ active }) => (
-							<Link
-							  href=""
-							  onClick={logout}
-							  className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-red')}
-							>
-							  Logout
-							</Link>
-						  )}
-						</Menu.Item>}
-                  
-                  
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-						
+								{/* Profile dropdown */}
+								<Menu as="div" className="relative ml-3">
+									<div>
+										<Menu.Button className="relative lg:hidden flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+											<span className="absolute -inset-1.5" />
+											<span className="sr-only">Open user menu</span>
+											<img
+												className="h-8 w-8 rounded-full"
+												src="/img/profile.jpg"
+												alt=""
+											/>
+										</Menu.Button>
+									</div>
+									<Transition
+										as={Fragment}
+										enter="transition ease-out duration-100"
+										enterFrom="transform opacity-0 scale-95"
+										enterTo="transform opacity-100 scale-100"
+										leave="transition ease-in duration-75"
+										leaveFrom="transform opacity-100 scale-100"
+										leaveTo="transform opacity-0 scale-95"
+									>
+										<Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+											{user === null && brand_user === null ?
+												<Menu.Item>
+													{({ active }) => (
+														<Link
+															href="/signup"
+															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+														>
+															Sign up
+														</Link>
+
+
+													)}
+												</Menu.Item> :
+												<Menu.Item>
+													{({ active }) => (
+														<Link
+															href="/profile"
+															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+														>
+															Profile
+														</Link>
+
+
+													)}
+												</Menu.Item>
+
+											}
+
+											{user === null && brand_user === null ? <Menu.Item>
+												{({ active }) => (
+													<Link
+														href="/login"
+														className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+													>
+														Log in
+													</Link>
+												)}
+											</Menu.Item> :
+												<Menu.Item>
+													{({ active }) => (
+														<Link
+															href=""
+															onClick={logout}
+															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-red')}
+														>
+															Logout
+														</Link>
+													)}
+												</Menu.Item>}
+
+
+										</Menu.Items>
+									</Transition>
+								</Menu>
+
 
 								{/* Cart */}
 								<div className="ml-4 flow-root lg:ml-6">
