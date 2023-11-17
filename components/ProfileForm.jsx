@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import FormInput from "./FormInput";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, setUser } from "../features/user/userSlice";
+import useUpdateUserData from "../hooks/useUpdateUserData";
+import Loader from "./Loader"
 
 // Function to get user by email
 
@@ -10,20 +12,14 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const user = useSelector(selectUser);
 	const [profileInfo, setProfileInfo] = useState([])
 	const { personal, login } = defaultData;
-
-
-
+	const { isPending, error, mutate: updateFn, } = useUpdateUserData()
+	const dispatch = useDispatch()
 
 	const [personalData, setPersonalData] = useState({
-		firstName: personal.firstName,
-		lastName: personal.lastName,
-		bio: personal.bio,
-		address: personal.address,
-		gender: personal.gender,
-		city: personal.city,
-		state: personal.state,
-		zip: personal.zip,
-		phone: personal.phone,
+		first_name: personal.firstName,
+		last_name: personal.lastName,
+		mobile_number: personal.phone,
+
 
 	});
 
@@ -47,24 +43,25 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 		});
 	}
 
-	const { firstName, lastName, address, bio, gender, city, state, zip } = personalData;
+
+
+	const { first_name, last_name, mobile_number } = personalData;
+
 
 	const { email, prevPassword, newPassword } = loginData;
 
 	const submitHandler = async (e) => {
 		e.preventDefault()
-		const res = await fetch("https://altclan-api-v1.onrender.com/api/users/3", {
-			method: "POST",
-			body: {
-				first_name: firstName,
-				last_name: lastName
-			}
-		})
-		const data = await res.json()
-		console.log(data)
-
+		updateFn({ id: user.id, newData: personalData })
 	}
 
+	if (error) {
+		console.log(error)
+	}
+
+	if (isPending) {
+		console.log("updating user")
+	}
 
 	if (type === "personal") {
 		return (
@@ -76,25 +73,29 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 				<form className="flex flex-col gap-y-4 " onSubmit={submitHandler}>
 					<FormInput
 						label="First name"
-						name="firstName"
+						name="first_name"
 						type="text"
-						value={firstName}
+						value={first_name}
 						onChange={handlePersonalData}
+						disabled={isPending}
 					/>
 					<FormInput
 						label="Last name"
-						name="lastName"
+						name="last_name"
 						type="text"
-						value={lastName}
+						value={last_name}
 						onChange={handlePersonalData}
+						disabled={isPending}
 					/>
-					{/* <FormInput
-						label="Bio"
-						name="bio"
-						type="text"
-						value={bio}
+					<FormInput
+						label="Phone number"
+						name="mobile_number"
+						type="number"
+						value={mobile_number}
 						onChange={handlePersonalData}
+						disabled={isPending}
 					/>
+					{/*
 					<FormInput
 						label="Address"
 						name="address"
@@ -146,7 +147,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						/>
 					</div> */}
 					<button className="px-4 py-2 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
-						Save
+						{isPending ? <Loader /> : "Save"}
 					</button>
 				</form>
 			</div>

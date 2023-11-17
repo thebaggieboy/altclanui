@@ -4,12 +4,13 @@ import HeaderNav from './headers/HeaderNav'
 
 
 import { useEffect, useRef } from 'react'
-import { validateUser } from '../lib/validateUser'
-import { setUser } from '../features/user/userSlice'
-import { useDispatch } from 'react-redux'
+import { fetchUser } from '../lib/fetchUser'
+import { selectUser, setUser } from '../features/user/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { validateBrandUser } from '../lib/validateBrandUser'
 import { setBrandUser } from '../features/brands/brandUserSlice'
+import { useQuery } from '@tanstack/react-query'
 
 export default function Layout({
   children,
@@ -27,22 +28,18 @@ export default function Layout({
     ref.current = router.asPath;
   }, [router.asPath]);
 
+  const user = useSelector(selectUser)
 
-  useEffect(() => {
-    async function getUserData() {
-      try {
-        const userData = await validateUser();
-        dispatch(setUser(userData));
-        if (ref.current === "/profile") {
-          router.push("/profile")
-        }
 
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    getUserData();
-  }, []);
+  const { isLoading, error, data } = useQuery({ queryKey: ["user", user?.pk], queryFn: fetchUser })
+
+  if (data) {
+    dispatch(setUser(data))
+  }
+
+  if (error) {
+    console.log(error)
+  }
 
   useEffect(() => {
     async function getBrandUserData() {
@@ -63,13 +60,8 @@ export default function Layout({
   return (
     <>
       <HeaderNav />
-      { children }
+      {children}
       <Footer />
-
     </>
-
-
-
-
   )
 }

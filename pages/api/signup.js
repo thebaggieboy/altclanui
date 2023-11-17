@@ -2,9 +2,10 @@
 
 export default async function handler(req, res) {
     const externalApiUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/registration/";
-    //const externalApiUrl = "https://altclan-api-v1.onrender.com/api/brand_users/";
-
+ 
     let { username, email, password1, password2 } = req.body;
+
+    console.log(req)
 
     await fetch(externalApiUrl, {
         method: "POST",
@@ -28,7 +29,8 @@ export default async function handler(req, res) {
             res.status(response.status).json({ err: data });
         })
         .catch((err) => {
-            res.status(500).json({ error: err.message });
+            console.log(err)
+            res.status(500).json({ err: err.message });
         })
 
 
