@@ -19,7 +19,9 @@ export default function Bio() {
 		if (brand_user === null) {
 			router.push("/brands/register");
 		}
+		
 	}, [brand_user]);
+
 
   return (
    <BrandSignupForm/>

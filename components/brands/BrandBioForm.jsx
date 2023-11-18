@@ -2,40 +2,30 @@ import React, { use, useState } from 'react';
 import styles from '../../styles/brand-bio.module.css';
 import BrandProfileInfoForm from './BrandProfileInfoForm';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
 import useUpdateProfileData from '../../hooks/useUpdateProfileData';
 import Loader from "../../components/Loader"
 import { mutate } from 'swr';
 
-const brand_type = [
-  {
-    type: "Clothing & apparel",
-  },
-  {
-    type: "Accessories",
-  },
-  {
-    type: "Arts",
-  },
-  {
-    type: "Footwears",
-  },
-]
+
 
 const BrandBioForm = (props) => {
 
   const brandUserData = useSelector(selectBrandUser);
-
+  const router = useRouter()
   const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
 
   const [formData, setFormData] = useState({
     brand_name: "",
     brand_bio: "",
-    // brand_type: ""
+    brand_type: "",
+    mobile_number:"",
+
   })
 
-  const { brand_name, brand_bio } = formData
+  const { brand_name, brand_bio, brand_type, mobile_number } = formData
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target
@@ -65,7 +55,10 @@ const BrandBioForm = (props) => {
   const updateProfile = (e) => {
     e.preventDefault()
     updateFn(formData)
+   
     console.log("Brand Bio Form Submit clicked")
+    console.log(formData)
+    router.push('/brands/register/brand-logo')
   }
 
   if (isPending) {
@@ -97,10 +90,12 @@ const BrandBioForm = (props) => {
 
             <form className={styles.form} onSubmit={updateProfile}>
 
+              
+
               <h1 className={styles.greeting}>About Your Brand</h1>
               <p className={styles.login}>Fill in some of your brand details</p>
 
-              {error && <p className=' text-red-500 text-sm'>something went wrong please try again</p>}
+              {error && <p className=' text-red-500 text-sm'>Something went wrong please try again</p>}
               <div>
                 <label htmlFor="" className={styles.label}>Brand name</label>
                 <input type="text" value={brand_name} onChange={inputChangeHandler} name="brand_name" id="brand-name" className={styles.input} placeholder="" required />
@@ -114,25 +109,30 @@ const BrandBioForm = (props) => {
               <div>
                 <label htmlFor="" className={styles.label}>Brand type</label>
                 <div className="pt-2">
-                  {/* <select className={styles.input} onChange={inputChangeHandler} value={brand_type} name="brand_type" id="">
+                   <select className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                     <option value="">Choose community type</option>
-                    <option value="clothing">Clothing & apparel</option>
-                    <option value="accessories">Accessories</option>
-                    <option value="arts">Arts & Aesthetics</option>
-                    <option value="footwears">Footwears</option>
-                    <option value="enigmas">Enigmas</option>
-                    <option value="watches">Wristwatches & Handbands</option>
+                    <option value="Clothing and Apparel">Clothing & apparel</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Arts">Arts & Aesthetics</option>
+                    <option value="Footwears">Footwears</option>
+                    <option value="Enigmas">Enigmas</option>
+                    <option value="Watches">Wristwatches & Handbands</option>
 
 
-                    <option value="skates">Skates & Boards</option>
-                    <option value="caps">Caps</option>
-                    <option value="masks">Masks</option>
-                  </select> */}
+                    <option value="Skates">Skates</option>
+                    <option value="Caps">Caps</option>
+                    <option value="Masks">Masks</option>
+                  </select> 
 
                 </div>
 
               </div>
               <div>
+
+              </div>
+              <div>
+                <label htmlFor="" className={styles.label}>Mobile number</label>
+                <input type="number" value={mobile_number} onChange={inputChangeHandler} name="mobile_number" id="mobile_number" className={styles.input} placeholder="" required />
 
               </div>
 

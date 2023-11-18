@@ -11,6 +11,13 @@
     padding: 0px;
 }
 
+.label{
+    margin-left: 10%;
+    margin-right: 10%; 
+    font-size: 16px;
+  
+}
+
 .columnText {
     float: left;
     width: 50%;

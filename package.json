@@ -28,6 +28,7 @@
     "date-fns": "^2.29.3",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "formidable": "^3.5.1",
     "gray-matter": "^4.0.3",
     "jquery": "^3.6",
     "jsonwebtoken": "^9.0.0",

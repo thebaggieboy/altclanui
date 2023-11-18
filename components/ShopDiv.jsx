@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-
+import Link from "next/link";
 const images = [
   {
     id: 1,
@@ -29,7 +29,9 @@ export default function ShopDiv() {
               </p>
               
               <button className={styles.shopBtn}>
+                <Link href={'/products'}>
                 SHOP
+                </Link>
               </button>
             </div>
           </div>
@@ -48,7 +50,9 @@ export default function ShopDiv() {
               </p>
               
               <button className={styles.shopBtn}>
+              <Link href={'/brands'}>
                 SHOP
+                </Link>
               </button>
             </div>
           </div>

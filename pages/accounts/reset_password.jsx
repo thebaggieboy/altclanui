@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { USER_TYPES, selectUser, setUser } from "../../features/user/userSlice";
-
+import { selectUser, setUser } from "../../features/user/userSlice";
+import login from "../../lib/login";
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
 
@@ -23,7 +23,7 @@ export function LoginError() {
 	)
 }
 
-export default function SignUp() {
+export default function ForgotPassword() {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const router = useRouter();
@@ -34,7 +34,7 @@ export default function SignUp() {
 	}
 
 
-	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", setUser, USER_TYPES.shopper)
+	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin()
 
 	const [formData, setFormData] = useState({
 		email: "",
@@ -87,8 +87,8 @@ export default function SignUp() {
 							{/* Altclan     */}
 						</Link>
 
-						<h1 className={styles.greeting}>Login to your account</h1>
-						<p className={styles.login}>Complete your login to continue</p>
+						<h1 className={styles.greeting}>Reset password</h1>
+						<p className={styles.login}>Enter your email to receive the link</p>
 
 
 						<div className="">
@@ -105,34 +105,24 @@ export default function SignUp() {
 					
 							</div>
 							)}
+							<label for="email" className={styles.label}>Email</label>
 							<input
 								type="email"
 								onChange={inputChangeHandler}
-								name="email"
-								id="email"
+								name="password1"
+								id="password1"
 								className={styles.input}
-								placeholder="name@company.com"
+								placeholder=""
 								required
 							/>
 						</div>
-						<div>
-							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
-							<input
-								type="password"
-								onChange={inputChangeHandler}
-								name="password"
-								id="password"
-								placeholder="•••••••"
-								className={styles.input}
-								required
-							/>
-						</div>
+					
 
 						<div></div>
 
 						<button disabled={isPending} type="submit" className={styles.submit}>
 							{
-								isPending ? <Loader /> : "login"
+								isPending ? <Loader /> : "Send link"
 							}
 						</button>
 
@@ -142,12 +132,7 @@ export default function SignUp() {
 								Signup here
 							</Link>
 						</p>
-						<p className={styles.alternative}>
-							Forgot your password?
-							<Link href="/accounts/forgot_password" className={styles.link}>
-								Reset Password
-							</Link>
-						</p>
+				
 					</form>
 				</div>
 			</div>

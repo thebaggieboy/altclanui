@@ -2,14 +2,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
-
 import { useDispatch, useSelector } from "react-redux";
-import { USER_TYPES, selectUser, setUser, setUserType } from "../../features/user/userSlice";
-
+import { selectUser, setUser } from "../../features/user/userSlice";
+import login from "../../lib/login";
 import Loader from "../../components/Loader";
-import { useMutation } from "@tanstack/react-query";
-import useSignUp from "../../hooks/useSignUp";
-
+import useLogin from "../../hooks/useLogin";
 
 export function LoginError() {
 	return (
@@ -18,35 +15,31 @@ export function LoginError() {
 				<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
 			</svg>
 			<span class="sr-only">Info</span>
-			<div class="ml-2 text-sm text-center font-medium">
-				You already have an account with us  <Link href="/accounts/login" class="font-semibold underline hover:no-underline">Login</Link> to continue.
+			<div class="ml-3 text-sm text-center font-medium">
+				Email or password is incorrect.
 			</div>
+
 		</div>
 	)
 }
 
-export default function SignUp() {
+export default function ForgotPassword() {
+	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const router = useRouter();
+	const [formErr, setFormErr] = useState()
 
 	if (user !== null) {
 		router.push("/products");
 	}
-	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/dj-rest-auth/registration/", setUser,
-		USER_TYPES.shopper
-	)
 
-	const [formErr, setFormErr] = useState(error)
+
+	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin()
+
 	const [formData, setFormData] = useState({
 		email: "",
-		password1: "",
-		password2: ""
+		password: "",
 	})
-
-	const { email, password1, password2 } = formData
-
-	const emailErr = formErr?.email || null;
-	const passwordErr = formErr?.password || formErr?.password2 || null
 
 	const inputChangeHandler = (e) => {
 		const { name, value } = e.target
@@ -59,25 +52,25 @@ export default function SignUp() {
 
 	}
 
+	console.log(error)
+
 	const submit = async (e) => {
 		e.preventDefault();
 		try {
-			if (password1 !== password2) {
-				throw { password: "Passwords do not match" }
-			}
-			await signUpFn(formData)
+			await loginFn(formData)
 		} catch (error) {
-			setFormErr(error)
 			console.log(error)
+			setFormErr(error)
 		}
 	};
+
 
 	return (
 		<div className="">
 			<div className={styles.loginContainer}>
 				<div className={styles.columnImage}>
 					<img
-						src="https://media.everlane.com/image/upload/c_fill,w_828,ar_380:655,q_auto,dpr_1.0,f_auto,fl_progressive:steep/Modal_Desktop-05102022_pyajh1"
+						src="/img/faith.jpg"
 						alt=""
 						className={styles.img}
 					/>
@@ -94,84 +87,63 @@ export default function SignUp() {
 							{/* Altclan     */}
 						</Link>
 
-						<h1 className={styles.greeting}>Welcome to Altclan</h1>
-						<p className={styles.login}>Complete your sign up to join</p>
+						<h1 className={styles.greeting}>Forgot password</h1>
+						<p className={styles.login}>Enter the new password</p>
+
 
 						<div className="">
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
-							{emailErr !== null && (
+							{error !== null && (
 								<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
 								<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
 								</svg>
 								<span class="sr-only">Info</span>
-								<div class="ml-2 text-sm text-center font-medium">
-									{formErr.email}  <Link href="/accounts/login" class="font-semibold underline hover:no-underline">Login</Link> to continue.
+								<div class="ml-3 text-sm text-center font-medium">
+									{formErr.non_field_errors}
 								</div>
+					
 							</div>
 							)}
-							{passwordErr !== null &&
-								<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-									<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-										<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-									</svg>
-									<span class="sr-only">Info</span>
-									<div class="ml-2 text-sm text-center font-medium">
-										{passwordErr}
-									</div>
-
-								</div>}
+							<label for="password" className={styles.label}>New password</label>
 							<input
-								type="email"
-								onChange={inputChangeHandler}
-								name="email"
-								id="email"
-								className={styles.input}
-								placeholder="name@company.com"
-
-							/>
-						</div>
-						<div>
-							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
-
-							<input
-								type="password"
-								autoComplete
+								type="password1"
 								onChange={inputChangeHandler}
 								name="password1"
-								id="password"
-								placeholder="•••••••"
+								id="password1"
 								className={styles.input}
-
+								placeholder="•••••••"
 								required
 							/>
 						</div>
 						<div>
-							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
+							<label for="password" className={styles.label}>Confirm password</label>
 							<input
-								type="password"
+								type="password2"
 								onChange={inputChangeHandler}
 								name="password2"
-								autoComplete
 								id="password2"
-								placeholder="Confirm Password"
+								placeholder="•••••••"
 								className={styles.input}
 								required
 							/>
 						</div>
+
+						<div></div>
+
 						<button disabled={isPending} type="submit" className={styles.submit}>
 							{
-								isPending ? <Loader /> : "Submit"
+								isPending ? <Loader /> : "Reset password"
 							}
 						</button>
 
 						<p className={styles.alternative}>
-							Already have an account?
-							<Link href="/accounts/login" className={styles.link}>
-								Login here
+							Dont have an account?
+							<Link href="/accounts/signup" className={styles.link}>
+								Signup here
 							</Link>
 						</p>
-
+				
 					</form>
 				</div>
 			</div>

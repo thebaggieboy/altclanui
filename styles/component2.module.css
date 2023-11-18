@@ -69,17 +69,17 @@
 }
 
 .brandButton{
-    border-radius: 10px;
+    border-radius: 0;
     border: 1px solid #000;
-    background: black;
-    color: white;
+    background: beige;
+    color: black;
     text-align: center;
     font-family: "Poppins";
     font-size: 15px;
     font-style: normal;
-    font-weight: 400;
+ 
     line-height: normal;
-    padding: 10px 30px;
+    padding: 15px 30px;
 }
 
 @media screen and (max-width: 600px) {
@@ -119,9 +119,9 @@
         color: black;
        width: 100%;
         font-family: "Poppins";
-        font-size: 18px;
+        font-size: 14px;
         
-        font-weight: bolder;
+        font-weight: 400;
         line-height:22px;
         text-align: left;
     }
@@ -153,10 +153,10 @@
     }
 
     .brandButton{
-        border-radius: 10px;
+        border-radius: 0;
         border: 1px solid #000;
-        background: black;
-        color: white;
+        background: beige;
+        color: black;
         text-align: center;
         font-family: "Poppins";
         font-size: 13px;

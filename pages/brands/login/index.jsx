@@ -58,7 +58,14 @@ export default function Login(req, res) {
 
                 <div className={styles.columnText}>
                     <form className={styles.form} onSubmit={submit}>
-
+                    <Link href="#" className={styles.head}>
+							<img
+								className={styles.logo}
+								src="/alteclan_logo.jpg"
+								alt="logo"
+							/>
+							{/* Altclan     */}
+						</Link>
                         <h1 className={styles.greeting}>Join the clan</h1>
                         <p className={styles.login}>Create a brand account to become part of our community</p>
 

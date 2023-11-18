@@ -4,5 +4,6 @@ export default async function handler(req, response) {
         credentials: "include"
     })
     const data = await res.json()
+    console.log("Validate User: ", data)
     response.status(res.status).json(data)
 }

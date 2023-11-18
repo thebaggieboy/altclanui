@@ -17,6 +17,11 @@ const useLogin = (url, actionFn, userType) => {
                 credentials: "include"
             })
             const data = await res.json()
+            const token = data.access
+            const refresh_token = data.refresh
+            console.log(data.access)
+            
+
             if (res.status >= 200 & res.status <= 209) {
                 const profileRes = await fetch("https://altclan-api-v1.onrender.com/api/users/" + data.user.pk + "/")
                 const profile = await profileRes.json()
