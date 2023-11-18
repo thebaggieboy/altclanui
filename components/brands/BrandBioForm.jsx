@@ -90,6 +90,8 @@ const BrandBioForm = (props) => {
 
             <form className={styles.form} onSubmit={updateProfile}>
 
+              
+
               <h1 className={styles.greeting}>About Your Brand</h1>
               <p className={styles.login}>Fill in some of your brand details</p>
 
