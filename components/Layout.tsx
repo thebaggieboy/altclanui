@@ -8,7 +8,6 @@ import { fetchUser } from '../lib/fetchUser'
 import { selectUser, setUser } from '../features/user/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
-import { validateBrandUser } from '../lib/validateBrandUser'
 import { setBrandUser } from '../features/brands/brandUserSlice'
 import { useQuery } from '@tanstack/react-query'
 
@@ -32,6 +31,7 @@ export default function Layout({
 
 
   const { isLoading, error, data } = useQuery({ queryKey: ["user", user?.pk], queryFn: fetchUser })
+  
   if (data) {
     dispatch(setUser(data))
   }
@@ -40,21 +40,6 @@ export default function Layout({
     console.log(error)
   }
 
-  useEffect(() => {
-    async function getBrandUserData() {
-      try {
-        const brandUserData = await validateBrandUser();
-        dispatch(setBrandUser(brandUserData));
-        if (ref.current === "/brands/register/") {
-          router.push("/brands/register/")
-        }
-
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    getBrandUserData();
-  }, []);
 
   return (
     <>

@@ -20,7 +20,6 @@ import { selectUser, setUser, setUserType } from "../../features/user/userSlice"
 import { selectBrandUser, setBrandUser } from "../../features/brands/brandUserSlice";
 import logoutUser from "../../lib/logoutUser";
 import { selectCartCount } from "../../features/shop/shopSelector";
-import logoutBrandUser from "../../lib/logoutBrandUser";
 
 const navigation = {
 	pages: [
@@ -154,7 +153,7 @@ export default function HeaderNav() {
 			dispatch(setBrandUser(null));
 			dispatch(setUserType(null))
 		} catch (error) {
-			console.log(error.message);
+			console.log(error);
 		}
 	}
 
