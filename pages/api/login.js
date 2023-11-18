@@ -9,13 +9,14 @@ export default async function handler(req, res) {
         headers: {
             "Content-Type": "application/json",
         },
+        credentials:true,
         body: JSON.stringify({ username: email, email, password }),
-    })
-        .then(async (response) => {
+    }).then(async (response) => {
             if (response.status >= 200 && response.status <= 209) {
                 const { user, access } = await response.json()
                 console.log(response.headers)
                 const token = access
+                console.log(access)
                 const expires = new Date();
                 expires.setTime(expires.getTime() + 2 * 24 * 60 * 60 * 1000);
                 const cookie = `token=${token};expires=${expires.toUTCString()};path=/;httpOnly;`;

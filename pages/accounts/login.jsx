@@ -34,8 +34,7 @@ export default function SignUp() {
 	}
 
 
-	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/",
-		setUser, USER_TYPES.shopper)
+	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", setUser, USER_TYPES.shopper)
 
 	const [formData, setFormData] = useState({
 		email: "",
@@ -145,7 +144,7 @@ export default function SignUp() {
 						</p>
 						<p className={styles.alternative}>
 							Forgot your password?
-							<Link href="/accounts/login" className={styles.link}>
+							<Link href="/accounts/forgot_password" className={styles.link}>
 								Reset Password
 							</Link>
 						</p>

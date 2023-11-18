@@ -105,23 +105,24 @@ export default function ForgotPassword() {
 					
 							</div>
 							)}
+							<label for="password" className={styles.label}>New password</label>
 							<input
-								type="email"
+								type="password1"
 								onChange={inputChangeHandler}
-								name="email"
-								id="email"
+								name="password1"
+								id="password1"
 								className={styles.input}
-								placeholder="name@company.com"
+								placeholder="•••••••"
 								required
 							/>
 						</div>
 						<div>
-							{/* <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password</label> */}
+							<label for="password" className={styles.label}>Confirm password</label>
 							<input
-								type="password"
+								type="password2"
 								onChange={inputChangeHandler}
-								name="password"
-								id="password"
+								name="password2"
+								id="password2"
 								placeholder="•••••••"
 								className={styles.input}
 								required
@@ -132,7 +133,7 @@ export default function ForgotPassword() {
 
 						<button disabled={isPending} type="submit" className={styles.submit}>
 							{
-								isPending ? <Loader /> : "login"
+								isPending ? <Loader /> : "Reset password"
 							}
 						</button>
 
@@ -142,12 +143,7 @@ export default function ForgotPassword() {
 								Signup here
 							</Link>
 						</p>
-						<p className={styles.alternative}>
-							Forgot your password?
-							<Link href="/accounts/login" className={styles.link}>
-								Reset Password
-							</Link>
-						</p>
+				
 					</form>
 				</div>
 			</div>

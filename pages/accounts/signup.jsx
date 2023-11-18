@@ -31,7 +31,7 @@ export default function SignUp() {
 	const router = useRouter();
 
 	if (user !== null) {
-		// router.push("/products");
+		router.push("/products");
 	}
 	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/dj-rest-auth/registration/", setUser,
 		USER_TYPES.shopper

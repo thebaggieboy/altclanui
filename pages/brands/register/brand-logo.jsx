@@ -14,56 +14,41 @@ export default function BrandLogo() {
 	const brand_user = useSelector(selectBrandUser);
 	const router = useRouter();
 
-
 	useEffect(() => {
 		if (brand_user === null) {
 			router.push("/brands/register");
 		}
+		
 	}, [brand_user]);
+
+
+
 	
-	const brandUserData = brand_user;
+  const brandUserData = brand_user;
 
   const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
 
-  const [formData, setFormData] = useState({
-    brand_logo: "",
+  const [image, setImage] = useState(null);
+  const [createObjectURL, setCreateObjectURL] = useState(null);
 
+  const uploadToClient = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      const i = event.target.files[0];
 
-  })
+      setImage(i);
+      setCreateObjectURL(URL.createObjectURL(i));
+    }
+  };
 
-  const { brand_logo } = formData
-  const inputChangeHandler = (e) => {
-    const { name, value } = e.target
-    setFormData((prevValue) => {
-      return {
-        ...prevValue,
-        [name]: value
-      }
-    })
-
-  }
-
-  const [step, setStep] = useState(1);
-
-  const nextStep = () => {
-    setStep(step + 1)
-  }
-
-  const prevStep = () => {
-    setStep(step - 1)
-  }
-
-  const handleChange = () => {
-
-  }
-
-  const updateProfile = (e) => {
-    e.preventDefault()
-    updateFn(formData)
-   
-    console.log("Brand Bio Form Submit clicked")
-    console.log(formData)
-  }
+  const uploadToServer = async (event) => {
+    const body = new FormData();
+    body.append("file", image);
+    const response = await fetch("/api/file", {
+      method: "POST",
+      body
+    });
+	console.log(response)
+  };
 
   if (isPending) {
     console.log("updating brand")
@@ -76,7 +61,7 @@ export default function BrandLogo() {
 
   return (
    <>
-    <form className={styles.form} encType='multipart/formdata' onSubmit={updateProfile}>
+    <form className={styles.form}>
 
 <h1 className={styles.greeting}>About Your Brand</h1>
 <p className={styles.login}>Fill in some of your brand details</p>
@@ -85,29 +70,20 @@ export default function BrandLogo() {
 
 
 <div className='p-5'>
-<label htmlFor="" className="text-2xl">Brand Logo</label>
+<label htmlFor="" className="text-2xl">Brand Logo</label> <br />
 <p className='text-xs'>Please note: It is advisable to upload a clean, well compressed and good quality image as your logo</p>
 
-<div class="flex items-center justify-center mt-1 w-full">
 
-    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-            </svg>
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF</p>
-        </div>
-        <input id="dropzone-file" type="file"   />
-    </label>
-</div> 
+<img src={createObjectURL} />
+<input id="file" type="file" name="myImage" className='mt-2 p-1' onChange={uploadToClient}   />
+    
 
-
-</div>
-
-<button type='submit' className={styles.submit}>
+<button type='submit' onClick={uploadToServer} className={styles.submit}>
   {isPending ? <Loader /> : "Submit"}
 </button>
+</div>
+
+
 
 
 </form>
