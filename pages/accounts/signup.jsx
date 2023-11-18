@@ -2,11 +2,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
-import { TokenContext } from "../../context/TokenContext";
-import useBrands from "./../../hooks/useBrands";
+
 import { useDispatch, useSelector } from "react-redux";
 import { USER_TYPES, selectUser, setUser, setUserType } from "../../features/user/userSlice";
-import signUp from "../../lib/signUp";
+
 import Loader from "../../components/Loader";
 import { useMutation } from "@tanstack/react-query";
 import useSignUp from "../../hooks/useSignUp";

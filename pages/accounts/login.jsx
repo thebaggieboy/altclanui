@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { USER_TYPES, selectUser, setUser } from "../../features/user/userSlice";
-import login from "../../lib/login";
+
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
 

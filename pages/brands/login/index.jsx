@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import React, { useState, FormEvent } from 'react'
 //import styles from "../../../styles/login.module.css";
 import styles from "./../../../styles/login.module.css"
-import login from "../../../lib/brandSignup"
 import { useDispatch, useSelector } from "react-redux";
 import { selectBrandUser, setBrandUser } from "../../../features/brands/brandUserSlice";
 import Loader from "../../../components/Loader"
