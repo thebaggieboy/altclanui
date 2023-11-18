@@ -8,7 +8,7 @@ export const config = {
 };
 
 const post = async (req, res) => {
-  const form = formidable.IncomingForm();
+  const form =  formidable.IncomingForm();
   form.parse(req, async function (err, fields, files) {
     await saveFile(files.file);
     return res.status(201).send("Uploaded");

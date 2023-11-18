@@ -14,13 +14,13 @@ export default function BrandLogo() {
 	const brand_user = useSelector(selectBrandUser);
 	const router = useRouter();
 
-	useEffect(() => {
+	{/* useEffect(() => {
 		if (brand_user === null) {
 			router.push("/brands/register");
 		}
 		
 	}, [brand_user]);
-
+*/}
 
 
 	
@@ -43,7 +43,7 @@ export default function BrandLogo() {
   const uploadToServer = async (event) => {
     const body = new FormData();
     body.append("file", image);
-    const response = await fetch("/api/file", {
+    const response = await fetch("https://altclan-brands-api.onrender.com/brand_users", {
       method: "POST",
       body
     });
