@@ -43,7 +43,7 @@ export default function BrandLogo() {
   const uploadToServer = async (event) => {
     const body = new FormData();
     body.append("file", image);
-    const response = await fetch("https://altclan-brands-api.onrender.com/brand_users", {
+    const response = await fetch("https://altclan-brands-api.onrender.com/api/brand_users", {
       method: "POST",
       body
     });
@@ -51,7 +51,7 @@ export default function BrandLogo() {
   };
 
   if (isPending) {
-    console.log("updating brand")
+    console.log("updating brand logo")
   }
 
 
