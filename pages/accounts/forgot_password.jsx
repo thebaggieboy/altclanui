@@ -105,6 +105,19 @@ export default function ForgotPassword() {
 					
 							</div>
 							)}
+
+<div>
+							<label for="password" className={styles.label}>Email address</label>
+							<input
+								type="email"
+								onChange={inputChangeHandler}
+								name="email"
+								id="email"
+								placeholder="•••••••"
+								className={styles.input}
+								required
+							/>
+						</div>
 							<label for="password" className={styles.label}>New password</label>
 							<input
 								type="password1"

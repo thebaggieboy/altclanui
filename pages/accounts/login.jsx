@@ -144,7 +144,7 @@ export default function SignUp() {
 						</p>
 						<p className={styles.alternative}>
 							Forgot your password?
-							<Link href="/accounts/forgot_password" className={styles.link}>
+							<Link href="/accounts/reset_password" className={styles.link}>
 								Reset Password
 							</Link>
 						</p>

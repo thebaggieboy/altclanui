@@ -2,7 +2,7 @@
     max-width: 80%;
     margin: auto;
     margin-top: 2%;
-    height: 800px;
+    height: 900px;
 }
 
 .columnImage {
@@ -36,7 +36,7 @@
 }
 
 .form {
-    height: 650px;
+    height: 750px;
     background-color: #fff;
     padding: 0px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -128,10 +128,10 @@
         max-width: 100%;
         margin: auto;
         margin-top: 10%;
-        height: 650px;
+        height: 850px;
     }
     .form {
-        height: 550px;
+        height: 750px;
         background-color: #fff;
         padding: 0px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
