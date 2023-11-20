@@ -106,7 +106,7 @@ export default function SignUp() {
 								</svg>
 								<span class="sr-only">Info</span>
 								<div class="ml-2 text-sm text-center font-medium">
-									{formErr.email}  <Link href="/accounts/login" class="font-semibold underline hover:no-underline">Login</Link> to continue.
+									{formErr?.email}  <Link href="/accounts/login" class="font-semibold underline hover:no-underline">Login</Link> to continue.
 								</div>
 							</div>
 							)}

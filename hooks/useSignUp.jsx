@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { useDispatch } from 'react-redux'
 import { setUser, setUserType } from '../features/user/userSlice'
+import fetchProfileData from '../lib/fetchProfileData'
 
 
 const useSignUp = (url, actionFn, userType) => {
@@ -18,12 +19,12 @@ const useSignUp = (url, actionFn, userType) => {
 
             })
             const data = await res.json()
-            console.log(data)
 
             if (res.status >= 200 & res.status <= 209) {
-                const user = { ...data.user, id: data.user.pk }
-                delete user["pk"]
-                return user
+                const id = data.user.pk
+                const profileRes = await fetchProfileData(id, isBrand)
+                const profile = await profileRes.json()
+                return profile
             }
 
             const error = { ...data }

@@ -1,10 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { setUser, setUserType } from '../features/user/userSlice'
+import { USER_TYPES, setUser, setUserType } from '../features/user/userSlice'
 import { useMutation, useQuery } from '@tanstack/react-query'
+import fetchProfileData from '../lib/fetchProfileData'
 
 const useLogin = (url, actionFn, userType) => {
     const dispatch = useDispatch()
+
+    const isBrand = userType === USER_TYPES.brand
 
     const mutation = useMutation({
         mutationFn: async ({ username, email, password }) => {
@@ -17,13 +20,10 @@ const useLogin = (url, actionFn, userType) => {
                 credentials: "include"
             })
             const data = await res.json()
-            const token = data.access
-            const refresh_token = data.refresh
-            console.log(data.access)
-            
 
             if (res.status >= 200 & res.status <= 209) {
-                const profileRes = await fetch("https://altclan-api-v1.onrender.com/api/users/" + data.user.pk + "/")
+                const id = data.user.pk
+                const profileRes = await fetchProfileData(id, isBrand)
                 const profile = await profileRes.json()
                 return profile
             }

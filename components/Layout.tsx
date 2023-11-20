@@ -20,26 +20,23 @@ export default function Layout({
   const dispatch = useDispatch()
   const router = useRouter()
 
-
   const ref = useRef("");
 
   useEffect(() => {
     ref.current = router.asPath;
   }, [router.asPath]);
 
-  const user = useSelector(selectUser)
-
-
-  const { isLoading, error, data } = useQuery({ queryKey: ["user", user?.pk], queryFn: fetchUser })
-  
-  if (data) {
-    dispatch(setUser(data))
-  }
-
-  if (error) {
-    console.log(error)
-  }
-
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const user = await fetchUser()
+        dispatch(setUser(user))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getUser()
+  }, [])
 
   return (
     <>
