@@ -23,8 +23,7 @@ const useLogin = (url, actionFn, userType) => {
 
             if (res.status >= 200 & res.status <= 209) {
                 const id = data.user.pk
-                const profileRes = await fetchProfileData(id, isBrand)
-                const profile = await profileRes.json()
+                const profile = await fetchProfileData(id, isBrand)
                 return profile
             }
 
