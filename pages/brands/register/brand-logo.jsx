@@ -66,7 +66,7 @@ export default function BrandLogo() {
 <h1 className={styles.greeting}>About Your Brand</h1>
 <p className={styles.login}>Fill in some of your brand details</p>
 
-{error && <p className=' text-red-500 text-sm'>Something went wrong please try again</p>}
+{error && <p className=' text-red-500 text-sm'>{error}</p>}
 
 
 <div className='p-5'>

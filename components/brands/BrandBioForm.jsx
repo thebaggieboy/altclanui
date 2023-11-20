@@ -111,14 +111,12 @@ const BrandBioForm = (props) => {
                 <div className="pt-2">
                    <select className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                     <option value="">Choose community type</option>
-                    <option value="Clothing and Apparel">Clothing & apparel</option>
+                    <option value="Clothing & Apparel">Clothing & apparel</option>
                     <option value="Accessories">Accessories</option>
-                    <option value="Arts">Arts & Aesthetics</option>
+                    <option value="Arts & Aesthetics">Arts & Aesthetics</option>
                     <option value="Footwears">Footwears</option>
                     <option value="Enigmas">Enigmas</option>
-                    <option value="Watches">Wristwatches & Handbands</option>
-
-
+                    <option value="Watches">Watches</option>
                     <option value="Skates">Skates</option>
                     <option value="Caps">Caps</option>
                     <option value="Masks">Masks</option>
