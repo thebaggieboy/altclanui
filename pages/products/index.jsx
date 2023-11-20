@@ -412,15 +412,15 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 													
 													<div className="flex pt-3 justify-between">
 														<div>
-														<div className="container text-gray-500 text-xs">
+														<div className="container text-gray-300 text-xs">
 																{category}
 															</div>
-															<h3 className="text-sm text-gray-800">
+															<h3 className="text-md text-gray-500">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name}
 															</h3>
 															
-															<p className="text-md fw-bold">
+															<p className="text-sm mt-1 text-gray-800">
 																₦{price}
 															</p>
 

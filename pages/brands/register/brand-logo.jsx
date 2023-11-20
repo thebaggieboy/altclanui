@@ -14,13 +14,7 @@ export default function BrandLogo() {
 	const brand_user = useSelector(selectBrandUser);
 	const router = useRouter();
 
-	{/* useEffect(() => {
-		if (brand_user === null) {
-			router.push("/brands/register");
-		}
-		
-	}, [brand_user]);
-*/}
+
 
 
 	
@@ -63,19 +57,24 @@ export default function BrandLogo() {
    <>
     <form className={styles.form}>
 
-<h1 className={styles.greeting}>About Your Brand</h1>
-<p className={styles.login}>Fill in some of your brand details</p>
+<h1 className={styles.greeting}>Brand Logo</h1>
+<p className={styles.login}>Please note: It is advisable to upload a clean, well compressed and good quality image as your logo</p>
 
-{error && <p className=' text-red-500 text-sm'>{error}</p>}
+{error && <div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+									<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+									</svg>
+									<span class="sr-only">Info</span>
+									<div class="mx-auto text-sm text-center font-medium">
+									{error}
+									</div>
+
+								</div>}
 
 
-<div className='p-5'>
-<label htmlFor="" className="text-2xl">Brand Logo</label> <br />
-<p className='text-xs'>Please note: It is advisable to upload a clean, well compressed and good quality image as your logo</p>
-
-
-<img src={createObjectURL} />
-<input id="file" type="file" name="myImage" className='mt-2 p-1' onChange={uploadToClient}   />
+<div className='text-center'>
+<img className={styles.logoSize} src={createObjectURL}  />
+<input id="file" type="file" name="file" className='mt-2 p-1' onChange={uploadToClient}   />
     
 
 <button type='submit' onClick={uploadToServer} className={styles.submit}>
