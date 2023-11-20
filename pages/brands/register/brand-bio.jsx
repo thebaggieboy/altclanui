@@ -16,13 +16,13 @@ export default function Bio() {
 	const router = useRouter();
 
 
-	{/* useEffect(() => {
+ useEffect(() => {
 		if (brand_user === null) {
 			router.push("/brands/register");
 		}
 		
 	}, [brand_user]);
-*/}
+
   return (
    <BrandSignupForm/>
   )

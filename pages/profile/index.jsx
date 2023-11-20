@@ -18,7 +18,7 @@ const Profile = () => {
 	const dispatch = useDispatch()
 
 	useLayoutEffect(() => {
-		if (user === null && brand === null) {
+		if (user === null) {
 			router.push("/signup");
 		}
 	}, [user, brand, router]);
