@@ -1,10 +1,14 @@
-import { useMutation } from "@tanstack/react-query"
-import { useDispatch, } from "react-redux"
-import { setUser } from "../features/user/userSlice"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useDispatch, useSelector, } from "react-redux"
+import { selectUser, setUser } from "../features/user/userSlice"
+import { selectBrandUser } from "../features/brands/brandUserSlice"
 
 
 const useUpdateProfileData = (url, id, actionFn) => {
     const dispatch = useDispatch()
+    const queryClient = useQueryClient()
+    const user = useSelector(selectUser)
+    const brand = useSelector(selectBrandUser)
 
     const mutation = useMutation({
         mutationFn: async (newData) => {
@@ -15,7 +19,6 @@ const useUpdateProfileData = (url, id, actionFn) => {
                     headers: {
                         "Content-Type": "application/json"
                     },
-
                 })
 
                 const data = await res.json()
@@ -34,6 +37,7 @@ const useUpdateProfileData = (url, id, actionFn) => {
         },
         onSuccess: (data) => {
             console.log(data)
+            queryClient.setQueryData(["profile", user?.id || brand?.id], data)
             dispatch(actionFn(data))
         }
     })

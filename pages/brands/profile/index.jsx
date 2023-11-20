@@ -17,8 +17,6 @@ export async function getServerSideProps(context) {
 }
 
 
-
-
 export default function BrandProfile({_id, brand}) {
   
   return (
