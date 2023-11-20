@@ -1,11 +1,13 @@
 import { useMutation } from '@tanstack/react-query'
 import { useDispatch } from 'react-redux'
-import { setUser, setUserType } from '../features/user/userSlice'
+import { USER_TYPES, setUser, setUserType } from '../features/user/userSlice'
 import fetchProfileData from '../lib/fetchProfileData'
 
 
 const useSignUp = (url, actionFn, userType) => {
     const dispatch = useDispatch()
+
+    const isBrand = userType === USER_TYPES.brand
 
     const mutation = useMutation({
         mutationFn: async ({ email, password1, password2 }) => {
