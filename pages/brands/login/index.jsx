@@ -15,7 +15,7 @@ export default function Login(req, res) {
     const router = useRouter();
 
     if (brand_user !== null) {
-        router.push("/brands/register/brand-bio");
+        router.push("/brands/profile");
     }
 
 

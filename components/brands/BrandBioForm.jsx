@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use, useState, useLayoutEffect} from 'react';
 import styles from '../../styles/brand-bio.module.css';
 import BrandProfileInfoForm from './BrandProfileInfoForm';
 import Link from 'next/link';
@@ -58,7 +58,7 @@ const BrandBioForm = (props) => {
    
     console.log("Brand Bio Form Submit clicked")
     console.log(formData)
-    router.push('/brands/register/brand-logo')
+    router.push('/brands/profile')
   }
 
   if (isPending) {

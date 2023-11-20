@@ -31,6 +31,7 @@ export default function BrandLogo() {
 
       setImage(i);
       setCreateObjectURL(URL.createObjectURL(i));
+      router.push('/brands/profile')
     }
   };
 
@@ -42,6 +43,7 @@ export default function BrandLogo() {
       body
     });
 	console.log(response)
+  router.push('/brands/profile')
   };
 
   if (isPending) {
@@ -74,7 +76,7 @@ export default function BrandLogo() {
 
 <div className='text-center'>
 <img className={styles.logoSize} src={createObjectURL}  />
-<input id="file" type="file" name="file" className='mt-2 p-1' onChange={uploadToClient}   />
+<input id="file" type="file" name="file" className=' p-1' onChange={uploadToClient}   />
     
 
 <button type='submit' onClick={uploadToServer} className={styles.submit}>

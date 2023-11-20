@@ -1,7 +1,7 @@
 import { Tab } from '@headlessui/react';
 import React from 'react'; 
 import styles from "../../styles/brand.module.css";
-
+import Link from 'next/link';
 const MyTabs = () => {
   return (
     <div>
@@ -11,9 +11,7 @@ const MyTabs = () => {
           Shop
         </Tab>
 
-        <Tab className="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black-700">
-          Content
-        </Tab>
+       
 
         <Tab className="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black-700">
           Reviews
@@ -23,39 +21,19 @@ const MyTabs = () => {
       <Tab.Panels className={styles.tab}>
       <Tab.Panel className="rounded-xl bg-white p-3">
       <div className="grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
-        <div>
-          <div className={styles.card}>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt=""/>
-            <h1>Bottle</h1>
-            <p className={styles.price}>$59.99</p>
-            <p>lorem ipsum dolor amet</p> <br/>
-            <p><button className="bg-black text-white p-2 text-center">+ cart</button></p>
-          </div>
-        </div>
+      
+     <div className='text-center'>
+     <p className={styles.bio}>You have no merchandises yet</p> <br/>
+    	
+      <Link className='bg-black text-white  p-3 text-xs' href=''>Add new merch</Link>
 
-       
+
+
+     </div>
       </div>
 
       </Tab.Panel>
-      <Tab.Panel className="rounded-xl bg-white p-3">
-        <div className="grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
-          <div>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"/>
-          </div>
-          
-          <div>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"/>
-          </div>
-
-          <div>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"/>
-          </div>
-
-          <div>
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"/>
-          </div>
-        </div>
-      </Tab.Panel>
+    
       <Tab.Panel className="rounded-xl bg-white p-3">
           <div className={styles.reviews}>
             <div className={styles.box}>
