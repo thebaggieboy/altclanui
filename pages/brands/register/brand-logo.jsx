@@ -40,20 +40,18 @@ export default function BrandLogo() {
   const uploadToServer = async (event) => {
     event.preventDefault();
     
-    const body = new FormData();
-    console.log(body.append("file", image));
+    const formData = new FormData();
+    formData.append("file", image);
     console.log("Image: ", image)
     console.log( "Image URL: ", createObjectURL  )
-    console.log(formPersonalData)
-   
-    const response = await fetch(url, {
-      method: "POST",
-      body 
-    });
-  
-console.log(response)
-   
+
+  const data = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
+  method: 'POST',
+  body: formData
+}).then(r => r.json());
  
+
+    console.log(data)
   };
 
   if (isPending) {
