@@ -103,6 +103,10 @@ export default function Login(req, res) {
                             Dont have an account?
                             <Link href="/brands/register" className={styles.link}>Signup here</Link>
                         </p>
+                        <p className={styles.alternative}>
+                            Forgot your password?
+                            <Link href="/brands/register" className={styles.link}>Reset Password</Link>
+                        </p>
                     </form>
                 </div>
             </div>

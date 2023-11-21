@@ -99,7 +99,7 @@
     letter-spacing: 1px;
 }
 .logoSize{
-    height: 120px;
+    height: 80px;
   
 
     justify-items: center;
@@ -127,7 +127,7 @@
         display: none;
     }
     .logoSize{
-        height: 180px;
+        height: 80x;
         margin-left: 30%;
         margin-right: 30%;
         
