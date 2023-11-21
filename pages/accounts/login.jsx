@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { USER_TYPES, selectUser, setUser } from "../../features/user/userSlice";
+import { USER_TYPES, selectUser, selectUserType, setUser, setUserType } from "../../features/user/userSlice";
 
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
@@ -33,8 +33,13 @@ export default function SignUp() {
 		router.push("/products");
 	}
 
+	function loginSuccess(user) {
+		dispatch(setUser(user))
+		dispatch(setUserType(USER_TYPES.shopper))
+	}
 
-	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", setUser, USER_TYPES.shopper)
+
+	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", loginSuccess, USER_TYPES.shopper)
 
 	const [formData, setFormData] = useState({
 		email: "",

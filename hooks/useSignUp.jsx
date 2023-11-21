@@ -4,9 +4,7 @@ import { USER_TYPES, setUser, setUserType } from '../features/user/userSlice'
 import fetchProfileData from '../lib/fetchProfileData'
 
 
-const useSignUp = (url, actionFn, userType) => {
-    const dispatch = useDispatch()
-
+const useSignUp = (url, successCallback, userType) => {
     const isBrand = userType === USER_TYPES.brand
 
     const mutation = useMutation({
@@ -26,15 +24,14 @@ const useSignUp = (url, actionFn, userType) => {
                 const id = data.user.pk
                 const profile = await fetchProfileData(id, isBrand)
                 return profile
+                return
             }
 
             const error = { ...data }
             throw error
         },
         onSuccess: (user) => {
-            console.log(user)
-            dispatch(setUserType(userType))
-            dispatch(actionFn(user))
+            successCallback(user)
         }
     })
 

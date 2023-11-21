@@ -1,14 +1,9 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { USER_TYPES, setUser, setUserType } from '../features/user/userSlice'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { USER_TYPES, } from '../features/user/userSlice'
+import { useMutation} from '@tanstack/react-query'
 import fetchProfileData from '../lib/fetchProfileData'
 
-const useLogin = (url, actionFn, userType) => {
-    const dispatch = useDispatch()
-
+const useLogin = (url, successCallback, userType) => {
     const isBrand = userType === USER_TYPES.brand
-
     const mutation = useMutation({
         mutationFn: async ({ username, email, password }) => {
             const res = await fetch(url, {
@@ -31,9 +26,7 @@ const useLogin = (url, actionFn, userType) => {
             throw error
         },
         onSuccess: (user) => {
-            console.log(user)
-            dispatch(setUserType(userType))
-            dispatch(actionFn(user))
+            successCallback(user)
         }
     })
 
