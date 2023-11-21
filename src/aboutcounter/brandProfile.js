@@ -10,17 +10,9 @@ import { mutate } from 'swr';
 import { Tab } from '@headlessui/react';
 
 import styles from "../../styles/brand.module.css";
+import { USER_TYPES, selectUser, selectUserType } from '../../features/user/userSlice';
 
 const MyTabs = () => {
-  const user = useSelector(selectUser);
-	const brand_user = useSelector(selectBrandUser)
-	const router = useRouter();
-	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
-	const dispatch = useDispatch()
-  const { data, isLoading, error } = useQuery({
-		queryKey: ["profile", user?.id || brand_user?.id],
-		queryFn: () => fetchProfileData(user?.id || brand_user?.id, isBrand), enabled: user !== null || brand_user !== null
-	})
 
   return (
    
@@ -47,9 +39,7 @@ const MyTabs = () => {
      <div className='text-center'>
      <p className={styles.bio}>No merchandises yet</p> <br/>
     	
-     {isBrand ?  <Link className='bg-black text-white  p-3 text-xs' href='/brands/merchandise/new'>Add new merch</Link>: ""}
-
-)
+ 
 
      </div>
       </div>
