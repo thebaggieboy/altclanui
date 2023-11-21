@@ -6,6 +6,7 @@ import {selectBrandUser, setBrandUser} from "../../../features/brands/brandUserS
 import styles from "../../../styles/brand-bio.module.css";
 import useUpdateProfileData from '../../../hooks/useUpdateProfileData';
 import Loader from "../../../components/Loader"
+import { create } from 'domain';
 export default function BrandLogo() {
   
   //const data = [];
@@ -14,7 +15,7 @@ export default function BrandLogo() {
 	const brand_user = useSelector(selectBrandUser);
 	const router = useRouter();
 
-
+  const url = 'api/file'
 
 
 	
@@ -24,26 +25,35 @@ export default function BrandLogo() {
 
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
+  const [formPersonalData, setFormPersonalData] = useState(null)
 
   const uploadToClient = (event) => {
+   
     if (event.target.files && event.target.files[0]) {
       const i = event.target.files[0];
-
       setImage(i);
       setCreateObjectURL(URL.createObjectURL(i));
-      router.push('/brands/profile')
-    }
+   
+      }
   };
 
   const uploadToServer = async (event) => {
+    event.preventDefault();
+    
     const body = new FormData();
-    body.append("file", image);
-    const response = await fetch("https://altclan-brands-api.onrender.com/api/brand_users", {
+    console.log(body.append("file", image));
+    console.log("Image: ", image)
+    console.log( "Image URL: ", createObjectURL  )
+    console.log(formPersonalData)
+   
+    const response = await fetch(url, {
       method: "POST",
-      body
+      body 
     });
-	console.log(response)
-  router.push('/brands/profile')
+  
+console.log(response)
+   
+ 
   };
 
   if (isPending) {
