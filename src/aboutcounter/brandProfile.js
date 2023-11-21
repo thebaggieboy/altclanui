@@ -25,7 +25,7 @@ const MyTabs = () => {
      <div className='text-center'>
      <p className={styles.bio}>You have no merchandises yet</p> <br/>
     	
-      <Link className='bg-black text-white  p-3 text-xs' href=''>Add new merch</Link>
+      <Link className='bg-black text-white  p-3 text-xs' href='/brands/merchandise/new'>Add new merch</Link>
 
 
 
