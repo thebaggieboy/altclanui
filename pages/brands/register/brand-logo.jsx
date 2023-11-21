@@ -41,18 +41,10 @@ export default function BrandLogo() {
     event.preventDefault();
     
     const body = new FormData();
-    console.log(body.append("file", image));
+    body.append("file", image);
     console.log("Image: ", image)
     console.log( "Image URL: ", createObjectURL  )
-    console.log(formPersonalData)
-   
-    const response = await fetch(url, {
-      method: "POST",
-      body 
-    });
-  
-console.log(response)
-   
+
  
   };
 
