@@ -12,7 +12,7 @@ import fetchProfileData from "../../../lib/fetchProfileData";
 export default function BrandProfile({_id, brand}) {
 
   const user = useSelector(selectUser);
-	const brand_user = useSelector(selectBrandUser)
+	const brand_user = useSelector(selectUser)
 	const router = useRouter();
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()

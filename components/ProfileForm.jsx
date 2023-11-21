@@ -6,6 +6,8 @@ import { selectUser, setUser } from "../features/user/userSlice";
 import Loader from "./Loader"
 import useUpdateProfileData from "../hooks/useUpdateProfileData";
 import { selectBrandUser } from "../features/brands/brandUserSlice";
+import useChangePassword from "../hooks/useChangePassword";
+import { MdErrorOutline, MdOutlineCheck } from "react-icons/md";
 
 // Function to get user by email
 
@@ -13,14 +15,20 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const user = useSelector(selectUser);
 	const brand = useSelector(selectBrandUser)
 
-	const [profileInfo, setProfileInfo] = useState([])
 	const { personal, login } = defaultData;
 	const { isPending, error, mutateAsync: updateFn, } = useUpdateProfileData("https://altclan-api-v1.onrender.com/api/users/", user?.id, setUser)
+	const { isPending: pwdChangePending, error: pwdChangeErr, data, mutateAsync: changePassword } = useChangePassword(false)
 
 	const defaultState = {
 		first_name: "",
 		last_name: "",
 		mobile_number: "",
+	}
+
+	const defaultLoginState = {
+		new_password1: "",
+		new_password2: "",
+		old_password: ""
 	}
 
 	const [personalData, setPersonalData] = useState({
@@ -29,12 +37,23 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 		mobile_number: personal.phone,
 	});
 
+	const [loginData, setLoginData] = useState({
+		new_password1: "",
+		new_password2: "",
+		old_password: ""
+	})
+
+
+
 	function handlePersonalData(e) {
 		const { value, name } = e.target;
 		setPersonalData((prevValue) => {
 			return { ...prevValue, [name]: value };
 		});
 	}
+
+	const [succesMsg, setSuccessMsg] = useState("")
+
 
 	function handleLoginData(e) {
 		const { value, name } = e.target;
@@ -46,22 +65,71 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 
 
 	const { first_name, last_name, mobile_number } = personalData;
+	const { new_password1, new_password2, old_password } = loginData
 
-
-	const submitHandler = async (e) => {
+	const personalDataSubmit = async (e) => {
 		e.preventDefault()
-
 		try {
+			setPwdChangeIdle(false)
 			await updateFn(personalData)
+			setPwdChangeIdle(true)
 			setPersonalData(defaultData)
 		} catch (error) {
 			console.log(error)
 		}
 	}
 
-	if (isPending) {
-		console.log("updating user")
+	const loginDataSubmit = async (e) => {
+		e.preventDefault()
+		console.log(loginData)
+		try {
+			const res = await changePassword(loginData)
+			setLoginData(defaultLoginState)
+			setSuccessMsg(res.message)
+			setTimeout(() => {
+				onClose()
+				setSuccessMsg("")
+			}, 1300)
+			console.log(res.message)
+		} catch (error) {
+			console.log(error)
+		}
 	}
+
+
+	const StatusMessages = () => {
+		return (
+			<>
+				{
+					pwdChangeErr && (
+						<h1 className="my-2 mt-4 text-xs md:text-sm bg-red-300 p-2 rounded font-medium flex items-center gap-2">
+							<div className=" w-[2rem]">
+								<MdErrorOutline className="w-4 h-4" />
+							</div>
+							<div className=" flex items-center gap-x-1 flex-wrap">{
+								pwdChangeErr.new_password2.map((msg) => (
+									<span key={msg}>{msg}</span>
+								))
+							}</div>
+						</h1>
+					)
+				}
+				{
+					succesMsg !== "" && (
+						<h1 className="my-2 mt-4 text-xs md:text-sm bg-green-300 p-2 rounded font-medium flex items-center gap-x-2">
+							<div className="w-[2rem]">
+								<MdOutlineCheck className="w-4 h-4" />
+							</div>
+							<span>{succesMsg}</span>
+						</h1>
+					)
+				}
+			</>
+		)
+	}
+
+
+
 
 	if (type === "personal") {
 		return (
@@ -70,14 +138,14 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 					<Image src="/assets/cross.svg" width={30} height={30} alt="cross" />
 				</button>
 				<h1 className="text-xl font-bold mb-8">Edit personal details</h1>
-				<form className="flex flex-col gap-y-4 " onSubmit={submitHandler}>
+				<form className="flex flex-col gap-y-4 " onSubmit={personalDataSubmit}>
 					<FormInput
 						label="First name"
 						name="first_name"
 						type="text"
 						value={first_name}
 						onChange={handlePersonalData}
-						disabled={isPending}
+						disabled={pwdChangePending}
 					/>
 					<FormInput
 						label="Last name"
@@ -85,7 +153,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						type="text"
 						value={last_name}
 						onChange={handlePersonalData}
-						disabled={isPending}
+						disabled={pwdChangePending}
 					/>
 					<FormInput
 						label="Phone number"
@@ -93,60 +161,9 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						type="number"
 						value={mobile_number}
 						onChange={handlePersonalData}
-						disabled={isPending}
+						disabled={pwdChangePending}
 					/>
-					{/*
-					<FormInput
-						label="Address"
-						name="address"
-						type="text"
-						value={address}
-						onChange={handlePersonalData}
-					/>
-				<FormInput
-						label="City"
-						name="city"
-						type="text"
-						value={city}
-						onChange={handlePersonalData}
-					/>
-						<FormInput
-						label="State"
-						name="state"
-						type="text"
-						value={state}
-						onChange={handlePersonalData}
-					/>
-					<FormInput
-						label="Zip Code"
-						name="zip"
-						type="text"
-						value={zip}
-						onChange={handlePersonalData}
-					/> */}
-					{/* <div className="flex gap-x-8">
-						<FormInput
-							label="Male"
-							type="radio"
-							name="gender"
-							col={false}
-							className="w-4 h-4 self-center mt-1"
-							onChange={handlePersonalData}
-							value="male"
-							checked={personal.gender === "male"}
-						/>
-						<FormInput
-							label="Female"
-							type="radio"
-							name="gender"
-							col={false}
-							className="w-4 h-4 self-center mt-1"
-							onChange={handlePersonalData}
-							value="female"
-							checked={personal.gender === "female"}
-						/>
-					</div> */}
-					<button className="px-4 py-2 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
+					<button className=" disabled:bg-gray-300 px-4 py-2 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
 						{isPending ? <Loader /> : "Save"}
 					</button>
 				</form>
@@ -160,31 +177,33 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 				<button className="absolute top-3 right-4" onClick={() => onClose()}>
 					<Image src="/assets/cross.svg" width={30} height={30} alt="cross" />
 				</button>
-				<h1 className="text-xl font-bold mb-8">Edit login details</h1>
-				<form className="flex flex-col gap-y-4 " onSubmit={submitHandler}>
-					<FormInput
-						label="Email"
-						type="email"
-						name="email"
-						value={user?.email}
-						onChange={handleLoginData}
-					/>
+
+				<StatusMessages />
+				<h1 className="text-xl font-bold mb-4">Edit login details</h1>
+				<form className="flex flex-col gap-y-4 " onSubmit={loginDataSubmit}>
 					<FormInput
 						label="Previous password"
 						type="password"
-						name="prevPassword"
-						value={prevPassword}
+						name="old_password"
+						value={old_password}
 						onChange={handleLoginData}
 					/>
 					<FormInput
 						label="New password"
 						type="password"
-						name="newPassword"
-						value={newPassword}
+						name="new_password1"
+						value={new_password1}
 						onChange={handleLoginData}
 					/>
-					<button className="px-4 mt-4 py-1 bg-black text-white md:text-xl rounded-sm self-start">
-						Submit
+					<FormInput
+						label="New password confirm"
+						type="password"
+						name="new_password2"
+						value={new_password2}
+						onChange={handleLoginData}
+					/>
+					<button disabled={pwdChangePending} className="disabled:bg-gray-300 disabled:border disabled:border-black px-4 mt-4 py-1 bg-black text-white md:text-xl rounded-sm self-start">
+						{pwdChangePending ? <Loader /> : "Submit"}
 					</button>
 				</form>
 			</div>

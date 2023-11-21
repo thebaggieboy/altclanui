@@ -7,12 +7,13 @@ import {selectBrandUser} from "../../../features/brands/brandUserSlice"
 import styles from "../../../styles/brand-bio.module.css";
 import BrandBioForm from '../../../components/brands/BrandSignupForm';
 import BrandSignupForm from '../../../components/brands/BrandSignupForm';
+import { selectUser } from '../../../features/user/userSlice';
 export default function Bio() {
   
   const data = [];
 	const loading = false;
 	const error = null;
-	const brand_user = useSelector(selectBrandUser);
+	const brand_user = useSelector(selectUser);
 	const router = useRouter();
 
 
