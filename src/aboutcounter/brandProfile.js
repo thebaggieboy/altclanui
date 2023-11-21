@@ -17,9 +17,13 @@ const MyTabs = () => {
 	const router = useRouter();
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()
-  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
+  const { data, isLoading, error } = useQuery({
+		queryKey: ["profile", user?.id || brand_user?.id],
+		queryFn: () => fetchProfileData(user?.id || brand_user?.id, isBrand), enabled: user !== null || brand_user !== null
+	})
 
   return (
+   
     <div>
     <Tab.Group>
       <Tab.List  className="flex space-x-1 rounded-xl bg-white-900/20 p-1">
@@ -41,11 +45,11 @@ const MyTabs = () => {
 
 
      <div className='text-center'>
-     <p className={styles.bio}>You have no merchandises yet</p> <br/>
+     <p className={styles.bio}>No merchandises yet</p> <br/>
     	
-    <Link className='bg-black text-white  p-3 text-xs' href='/brands/merchandise/new'>Add new merch</Link>
+     {isBrand ?  <Link className='bg-black text-white  p-3 text-xs' href='/brands/merchandise/new'>Add new merch</Link>: ""}
 
-
+)
 
      </div>
       </div>
