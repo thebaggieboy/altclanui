@@ -7,6 +7,7 @@ const nextConfig = {
         // !! WARN !!
         ignoreBuildErrors: true,
     },
+    
     images:{
         remotePatterns:[
             {
@@ -16,7 +17,8 @@ const nextConfig = {
                 pathname:"/media/**"
             }
         ]
-    }
+    },
+    
 }
 
 module.exports = nextConfig
