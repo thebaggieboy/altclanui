@@ -15,8 +15,12 @@ export default function BrandLogo() {
 	const brand_user = useSelector(selectBrandUser);
 	const router = useRouter();
 
-  const url = 'api/file'
-
+  useEffect(() => {
+		if (brand_user === null) {
+			router.push("/brands/register");
+		}
+		
+	}, [brand_user]);
 
 	
   const brandUserData = brand_user;
@@ -42,18 +46,29 @@ export default function BrandLogo() {
     
     const formData = new FormData();
     formData.append("file", image);
+    formData.append("upload_preset", 'altclan')
     console.log("Image: ", image)
-    console.log( "Image URL: ", createObjectURL  )
-
-  const data = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
-  method: 'POST',
-  body: formData
-}).then(r => r.json());
- 
-
+      const data = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
+      method: 'POST',
+      body: formData
+    }).then(r => r.json());
+   
+    console.log(brandUserData.id)
     console.log(data)
+
+
+    const logoData = await fetch (`https://altclan-brands-api.onrender.com/api/brand_users/${brandUserData?.id}`, {
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json"
+    },
+      body: JSON.stringify({brand_logo:data.url})
+    })
+    console.log(logoData)
+    //router.push('/brands/profile')
   };
 
+  
   if (isPending) {
     console.log("updating brand logo")
   }

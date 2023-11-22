@@ -14,16 +14,12 @@ export default function SignUp(req, res) {
 	const brand_user = useSelector(selectUser);
 	const router = useRouter();
 
-	useEffect(() => {
-		if (brand_user !== null) {
-			router.push("/brands/profile")
-		}
-	}, [brand_user, router])
+	
 
 	async function signUpSuccess(user) {
 		dispatch(setUser(user))
 		dispatch(setUserType(USER_TYPES.brand))
-		await router.push("/brands/register/brand-bio");
+		await router.push("/brands/login");
 	}
 
 	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-brands-api.onrender.com/dj-rest-auth/registration/", signUpSuccess, USER_TYPES.brand)

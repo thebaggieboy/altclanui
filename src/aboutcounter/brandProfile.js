@@ -1,29 +1,9 @@
-import React, { use, useState, useLayoutEffect} from 'react';
-
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
-import useUpdateProfileData from '../../hooks/useUpdateProfileData';
-import Loader from "../../components/Loader"
-import { mutate } from 'swr';
 import { Tab } from '@headlessui/react';
-
+import React from 'react'; 
 import styles from "../../styles/brand.module.css";
-
+import Link from 'next/link';
 const MyTabs = () => {
-  const user = useSelector(selectUser);
-	const brand_user = useSelector(selectBrandUser)
-	const router = useRouter();
-	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
-	const dispatch = useDispatch()
-  const { data, isLoading, error } = useQuery({
-		queryKey: ["profile", user?.id || brand_user?.id],
-		queryFn: () => fetchProfileData(user?.id || brand_user?.id, isBrand), enabled: user !== null || brand_user !== null
-	})
-
   return (
-   
     <div>
     <Tab.Group>
       <Tab.List  className="flex space-x-1 rounded-xl bg-white-900/20 p-1">
@@ -42,14 +22,10 @@ const MyTabs = () => {
       <Tab.Panel className="rounded-xl bg-white p-3">
       <div className="grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
       
-
-
      <div className='text-center'>
-     <p className={styles.bio}>No merchandises yet</p> <br/>
+     <p className={styles.bio}>no merchandises yet</p> 
     	
-     {isBrand ?  <Link className='bg-black text-white  p-3 text-xs' href='/brands/merchandise/new'>Add new merch</Link>: ""}
-
-)
+  
 
      </div>
       </div>

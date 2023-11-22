@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
-import useUpdateProfileData from '../../hooks/useUpdateProfileData';
+import useUpdateProfileData from '../../hooks/useUpdateProfileData'
 import Loader from "../../components/Loader"
 import { mutate } from 'swr';
 
@@ -22,10 +22,11 @@ const BrandBioForm = (props) => {
     brand_bio: "",
     brand_type: "",
     mobile_number:"",
+   
 
   })
 
-  const { brand_name, brand_bio, brand_type, mobile_number } = formData
+  const { brand_name, brand_bio, brand_type, mobile_number,  } = formData
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target
@@ -40,25 +41,14 @@ const BrandBioForm = (props) => {
 
   const [step, setStep] = useState(1);
 
-  const nextStep = () => {
-    setStep(step + 1)
-  }
-
-  const prevStep = () => {
-    setStep(step - 1)
-  }
-
-  const handleChange = () => {
-
-  }
-
+ 
   const updateProfile = (e) => {
     e.preventDefault()
     updateFn(formData)
    
     console.log("Brand Bio Form Submit clicked")
     console.log(formData)
-    router.push('/brands/profile')
+    router.push('/brands/register/brand-logo')
   }
 
   if (isPending) {
