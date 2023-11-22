@@ -27,11 +27,7 @@ const MyTabs = () => {
      <div className='text-center'>
      <p className={styles.bio}>no merchandises yet</p> 
     	
-<<<<<<< HEAD
-  
-=======
  
->>>>>>> 4616c597203bb49f8034c56a4a1125ce74c56d9c
 
      </div>
       </div>
