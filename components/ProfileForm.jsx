@@ -70,9 +70,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 	const personalDataSubmit = async (e) => {
 		e.preventDefault()
 		try {
-			setPwdChangeIdle(false)
 			await updateFn(personalData)
-			setPwdChangeIdle(true)
 			setPersonalData(defaultData)
 		} catch (error) {
 			console.log(error)

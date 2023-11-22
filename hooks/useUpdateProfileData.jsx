@@ -8,7 +8,6 @@ const useUpdateProfileData = (url, id, actionFn) => {
     const dispatch = useDispatch()
     const queryClient = useQueryClient()
     const user = useSelector(selectUser)
-    const brand = useSelector(selectBrandUser)
 
     const mutation = useMutation({
         mutationFn: async (newData) => {
@@ -37,7 +36,7 @@ const useUpdateProfileData = (url, id, actionFn) => {
         },
         onSuccess: (data) => {
             console.log(data)
-            queryClient.setQueryData(["profile", user?.id || brand?.id], data)
+            queryClient.setQueryData(["profile", user?.id], data)
             dispatch(actionFn(data))
         }
     })

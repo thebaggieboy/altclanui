@@ -14,7 +14,11 @@ export default function SignUp(req, res) {
 	const brand_user = useSelector(selectUser);
 	const router = useRouter();
 
-	
+	useEffect(() => {
+		if (brand_user !== null) {
+			// router.push("/brands/profile")
+		}
+	}, [brand_user, router])
 
 	async function signUpSuccess(user) {
 		dispatch(setUser(user))

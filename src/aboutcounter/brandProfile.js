@@ -1,8 +1,10 @@
 import { Tab } from '@headlessui/react';
 import React from 'react'; 
 import styles from "../../styles/brand.module.css";
-import Link from 'next/link';
+import { USER_TYPES, selectUser, selectUserType } from '../../features/user/userSlice';
+
 const MyTabs = () => {
+
   return (
     <div>
     <Tab.Group>
@@ -25,7 +27,11 @@ const MyTabs = () => {
      <div className='text-center'>
      <p className={styles.bio}>no merchandises yet</p> 
     	
+<<<<<<< HEAD
   
+=======
+ 
+>>>>>>> 4616c597203bb49f8034c56a4a1125ce74c56d9c
 
      </div>
       </div>

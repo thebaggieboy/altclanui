@@ -8,14 +8,15 @@ import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSl
 import useUpdateProfileData from '../../hooks/useUpdateProfileData'
 import Loader from "../../components/Loader"
 import { mutate } from 'swr';
+import { selectUser, setUser } from '../../features/user/userSlice';
 
 
 
 const BrandBioForm = (props) => {
 
-  const brandUserData = useSelector(selectBrandUser);
+  const brandUserData = useSelector(selectUser);
   const router = useRouter()
-  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
+  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setUser)
 
   const [formData, setFormData] = useState({
     brand_name: "",
