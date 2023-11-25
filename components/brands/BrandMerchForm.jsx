@@ -9,7 +9,10 @@ import useUpdateProfileData from '../../hooks/useUpdateProfileData';
 import Loader from "../../components/Loader"
 import { mutate } from 'swr';
 
+const clothing_size = [
 
+
+]
 
 const BrandMerchForm = (props) => {
 
@@ -82,7 +85,7 @@ const BrandMerchForm = (props) => {
 
               
 
-              <h1 className={styles.greeting}>About Your new product</h1>
+      
               <p className={styles.login}>Fill in some of your product details</p>
 
               {error && <p className=' text-red-500 text-sm'>Something went wrong please try again</p>}
@@ -99,9 +102,7 @@ const BrandMerchForm = (props) => {
               <div>
                 <label htmlFor="" className={styles.label}>Merchandise display image</label>
                 <input type="file"  onChange={inputChangeHandler} name="brand_name" id="brand-name" className={styles.input} placeholder="" required />
-               <div className="p-5">
-               <p className="text-xs text-gray-600">Your display image means the inital product image consumers would see while shopping. You can add up to 5 more product images in the next page for more details</p>
-               </div>
+              
               </div>
               <div>
                 <label htmlFor="" className={styles.label}>Merchandise description</label>
@@ -158,60 +159,16 @@ const BrandMerchForm = (props) => {
                 </div>
 
               </div>
-            
-            
-
-            <div className=" justify-items-center">
-            <p className={styles.label}>Choose all available sizes</p>
-<ul class="w-60 text-sm font-medium p-5 justify-items-center text-gray-900 bg-white rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="vue-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="vue-checkbox" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">XS</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="react-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="react-checkbox" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">S</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="angular-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="angular-checkbox" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">M</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="laravel-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="laravel-checkbox" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">L</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="laravel-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="laravel-checkbox" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">XL</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="laravel-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="laravel-checkbox" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">2XL</label>
-        </div>
-    </li>
-    <li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-        <div class="flex items-center ps-3">
-            <input id="laravel-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-            <label for="laravel-checkbox" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">3XL</label>
-        </div>
-    </li>
-</ul>
-
-            </div>
-
-
-            
+  
+              <label htmlFor="" className={styles.label}>Size Type</label>
+              <select className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
+                    <option value="">Select size type</option>
+                    <option value="None">Clothing size</option>
+                    <option value="New Merchandise">Ring Size</option>
+                    <option value="Limited Stock">Wrist Size</option>
+                    <option value="FREE DELIVERY">Foot size</option>
+          
+                  </select> 
            
               <div>
                 <label htmlFor="" className={styles.label}>Merhandise Price</label>
