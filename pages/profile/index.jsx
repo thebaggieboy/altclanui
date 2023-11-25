@@ -17,11 +17,7 @@ const Profile = () => {
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()
 
-	useLayoutEffect(() => {
-		if (isBrand) {
-			router.push("/brands/profile")
-			return
-		}
+	useEffect(() => {
 		if (user === null) {
 			router.push("/signup");
 		}

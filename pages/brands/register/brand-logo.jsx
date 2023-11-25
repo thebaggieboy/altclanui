@@ -17,16 +17,16 @@ export default function BrandLogo() {
   const router = useRouter();
 
   useEffect(() => {
-		if (brand_user === null) {
-			router.push("/brands/register");
-		}
-		
-	}, [brand_user]);
+    if (brand_user === null) {
+      router.push("/brands/register");
+    }
+
+  }, [brand_user]);
 
 
   const brandUserData = brand_user;
 
-  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
+  const { isPending, error, mutateAsync: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
 
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
@@ -59,19 +59,11 @@ export default function BrandLogo() {
 
     console.log(data)
 
-
-    const logoData = await fetch (`https://altclan-brands-api.onrender.com/api/brand_users/${brandUserData?.id}`, {
-      method:"POST",
-      headers: {
-        "Content-Type": "application/json"
-    },
-      body: JSON.stringify({brand_logo:data.url})
-    })
-    console.log(logoData)
-    //router.push('/brands/profile')
+    await updateFn({ brand_logo: data.url })
+    router.push('/brands/profile')
   };
 
-  
+
   if (isPending) {
     console.log("updating brand logo")
   }

@@ -1,22 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const USER_TYPES = {
-    brand: "BRAND",
-    shopper: "SHOPPER"
+    brand: "brand",
+    user: "user"
 }
 
 const userSlice = createSlice({
     name: "user",
     initialState: {
         user: null,
-        type: null
     },
     reducers: {
         setUser: (state, action) => {
             state.user = action.payload
-        },
-        setUserType: (state, action) => {
-            state.type = action.payload
         }
     }
 })
@@ -27,6 +23,6 @@ export const { setUser, setUserType } = userSlice.actions
 
 //selectors
 export const selectUser = mainState => mainState.user.user
-export const selectUserType = mainState => mainState.user.type
+export const selectUserType = mainState => mainState.user.user?.user_type
 
 export default userSlice.reducer

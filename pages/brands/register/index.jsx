@@ -21,8 +21,6 @@ export default function SignUp(req, res) {
 	}, [brand_user, router])
 
 	async function signUpSuccess(user) {
-		dispatch(setUser(user))
-		dispatch(setUserType(USER_TYPES.brand))
 		await router.push("/brands/login");
 	}
 

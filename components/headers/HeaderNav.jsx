@@ -16,7 +16,7 @@ import {
 //import Cart from '../Cart'
 import { CartContext } from "../../context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setUser, setUserType } from "../../features/user/userSlice";
+import { USER_TYPES, selectUser, selectUserType, setUser, setUserType } from "../../features/user/userSlice";
 import { selectBrandUser, setBrandUser } from "../../features/brands/brandUserSlice";
 import logoutUser from "../../lib/logoutUser";
 import { selectCartCount } from "../../features/shop/shopSelector";
@@ -141,8 +141,8 @@ export default function HeaderNav() {
 	const cartCount = useSelector(selectCartCount);
 	const [open, setOpen] = useState(false);
 	const user = useSelector(selectUser);
-	const brand_user = useSelector(selectBrandUser);
-
+	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
+	console.log(isBrand)
 
 	const dispatch = useDispatch();
 
@@ -157,13 +157,7 @@ export default function HeaderNav() {
 		}
 	}
 
-	async function brand_logout() {
-		try {
-			await logoutBrandUser();
-		} catch (error) {
-			console.log(error.message);
-		}
-	}
+	
 
 	return (
 		<div className="sticky top-0 z-50 bg-white">
@@ -488,7 +482,7 @@ export default function HeaderNav() {
 
 							<div className="ml-auto flex items-center">
 								<div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-									{user === null && brand_user === null ? (
+									{user === null ? (
 										<>
 											<Link
 												href="/login"
@@ -511,7 +505,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={"/profile"}
+												href={`${isBrand ? "/brands/profile" : "/profile"}`}
 											>
 												Profile
 											</Link>
@@ -582,7 +576,7 @@ export default function HeaderNav() {
 										leaveTo="transform opacity-0 scale-95"
 									>
 										<Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-											{user === null && brand_user === null ?
+											{user === null ?
 												<Menu.Item>
 													{({ active }) => (
 														<Link
@@ -598,7 +592,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href="/profile"
+															href={`${isBrand ? "/brands/profile" : "/profile"}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile
@@ -610,7 +604,7 @@ export default function HeaderNav() {
 
 											}
 
-											{user === null && brand_user === null ? <Menu.Item>
+											{user === null ? <Menu.Item>
 												{({ active }) => (
 													<Link
 														href="/login"

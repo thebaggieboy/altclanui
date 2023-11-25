@@ -16,14 +16,12 @@ export default function Login(req, res) {
 
     useLayoutEffect(() => {
         if (brand_user !== null) {
-            router.push("/brands/profile");
+            router.push("/brands/register/brand-bio");
         }
     }, [brand_user, router])
 
     async function loginSuccess(user) {
         dispatch(setUser(user))
-        dispatch(setUserType(USER_TYPES.brand))
-       
     }
 
     const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-brands-api.onrender.com/dj-rest-auth/login/", loginSuccess, USER_TYPES.brand)

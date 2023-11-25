@@ -35,7 +35,6 @@ export default function SignUp() {
 
 	function loginSuccess(user) {
 		dispatch(setUser(user))
-		dispatch(setUserType(USER_TYPES.shopper))
 	}
 
 
