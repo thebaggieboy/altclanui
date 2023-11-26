@@ -42,6 +42,7 @@ export default function Layout({
     <>
       <HeaderNav />
       {children}
+      <Analytics />
       <Footer />
     </>
   )

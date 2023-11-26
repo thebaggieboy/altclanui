@@ -49,7 +49,14 @@ const BrandBioForm = (props) => {
    
     console.log("Brand Bio Form Submit clicked")
     console.log(formData)
-    router.push('/brands/register/brand-logo')
+
+    if(brand_name != "" && brand_bio != "" && brand_type != "" && mobile_number != ""){
+      router.push('/brands/profile')
+    }else{
+      router.push('/brands/register/brand-logo')
+    }
+
+   
   }
 
   if (isPending) {
