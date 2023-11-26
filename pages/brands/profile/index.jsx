@@ -34,7 +34,7 @@ export default function BrandProfile({ _id, brand }) {
       <>
         <div key={brand_user.id} className={styles.brandProfileContent}>
           <div className={styles.left}>
-            <img src={brand_user.brand_logo} alt="You have not uploaded a logo yet" className={styles.image} />
+            <img src={brand_user?.brand_logo} alt="You have not uploaded a logo yet" className={styles.image} />
           </div>
        
           <div className={styles.right}>

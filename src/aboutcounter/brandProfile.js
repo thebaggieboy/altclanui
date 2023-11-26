@@ -2,8 +2,17 @@ import { Tab } from '@headlessui/react';
 import React from 'react'; 
 import styles from "../../styles/brand.module.css";
 import { USER_TYPES, selectUser, selectUserType } from '../../features/user/userSlice';
+import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
+import { useRouter } from 'next/router';
+import { useSelector } from "react-redux";
+
 
 const MyTabs = () => {
+  const loading = false;
+  //const error = null;
+  const brand_user = useSelector(selectBrandUser);
+  const router = useRouter();
+
 
   return (
     <div>
@@ -24,12 +33,10 @@ const MyTabs = () => {
       <Tab.Panel className="rounded-xl bg-white p-3">
       <div className="grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
       
-     <div className='text-center'>
-     <p className={styles.bio}>no merchandises yet</p> 
-    	
- 
-
-     </div>
+      <div className='p-2 text-center flex justify-items-center justify-center'>
+      <p className='text-center text-sm'>No merchandises</p>
+      
+    </div>
       </div>
 
       </Tab.Panel>
