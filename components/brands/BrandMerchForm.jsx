@@ -163,23 +163,26 @@ const BrandMerchForm = (props) => {
               <label htmlFor="" className={styles.label}>Size Type</label>
               <select className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                     <option value="">Select size type</option>
-                    <option value="None">Clothing size</option>
-                    <option value="New Merchandise">Ring Size</option>
-                    <option value="Limited Stock">Wrist Size</option>
-                    <option value="FREE DELIVERY">Foot size</option>
+                    <option name="clothing" value="Clothing">Clothing size</option>
+                    <option value="Ring Size">Ring Size</option>
+                    <option value="Wrist Size">Wrist Size</option>
+                    <option value="Foot size">Foot size</option>
           
                   </select> 
-                  <label htmlFor="" className={styles.label}>Size Guide</label>
-              <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
-                   
-                    <option value="None">S</option>
-                    <option value="New Merchandise">M</option>
-                    <option value="Limited Stock">L</option>
-                    <option value="FREE DELIVERY">XL</option>
-                    <option value="FREE DELIVERY">XXL</option>
-                    <option value="FREE DELIVERY">3XL</option>
-          
-                  </select> 
+               <div className='hidden'>
+               <label htmlFor="" className={styles.label}>Size Guide (Choose all available sizes)</label>
+                 
+                 <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
+                      
+                       <option value="None">S</option>
+                       <option value="New Merchandise">M</option>
+                       <option value="Limited Stock">L</option>
+                       <option value="FREE DELIVERY">XL</option>
+                       <option value="FREE DELIVERY">XXL</option>
+                       <option value="FREE DELIVERY">3XL</option>
+             
+                     </select> 
+               </div>
            
            
               <div>
