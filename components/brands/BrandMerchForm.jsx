@@ -55,7 +55,7 @@ const BrandMerchForm = (props) => {
 
   }
   function available_size(){
-    
+    console.log(available_size)
   }
   const updateMerchandise = (e) => {
     e.preventDefault()
@@ -176,14 +176,14 @@ const BrandMerchForm = (props) => {
                  
                  <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                       
-                       <option value="None">S</option>
-                       <option value="New Merchandise">M</option>
-                       <option value="Limited Stock">L</option>
-                       <option value="FREE DELIVERY">XL</option>
-                       <option value="FREE DELIVERY">XXL</option>
-                       <option value="FREE DELIVERY">3XL</option>
+                       <option  value="S">S</option>
+                       <option  value="M">M</option>
+                       <option value="L">L</option>
+                       <option value="XL">XL</option>
+                       <option value="XXL">XXL</option>
+                       <option value="3XL">3XL</option>
              
-                     </select> 
+                  </select> 
                </div>
            
            
