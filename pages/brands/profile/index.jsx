@@ -16,7 +16,7 @@ export default function BrandProfile({ _id, brand }) {
   const isBrand = useSelector(selectUserType) === USER_TYPES.brand
   const router = useRouter();
 
-  const dispatch = useDispatch()
+  
 
   useLayoutEffect(() => {
     if (brand_user === null) {
@@ -29,28 +29,43 @@ export default function BrandProfile({ _id, brand }) {
     queryFn: () => fetchProfileData(brand_user?.id, true), enabled: brand_user !== null
   })
 
+  console.log(data)
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    console.log(error)
+    return <div>Error fetching profile</div>
+  }
 
   return (
     brand_user !== null ? (
       <>
-        <div key={brand_user.id} className={styles.brandProfileContent}>
+        <div key={data.id} className={styles.brandProfileContent}>
           <div className={styles.left}>
-            <img src={brand_user?.brand_logo} alt="You have not uploaded a logo yet" className={styles.image} />
+            <img src={data.brand_logo} alt="You have not uploaded a logo yet" className={styles.image} />
           </div>
        
           <div className={styles.right}>
             <h1>
-              {brand_user.brand_name}
+              {data.brand_name}
             </h1>
             <div className={styles.numbers}>
               <p></p>
-              <p>{brand_user.brand_type}</p>
+              <p>{data.brand_type}</p>
             </div>
 
             <p className={styles.about}>
+<<<<<<< HEAD
               {brand_user.brand_bio}
             </p> <br />
             {isBrand? <Link href='/brands/merchandise/new' className='bg-black p-3 border-0 text-white text-sm'>Add new merchandise</Link> : "" }
+=======
+              {data.brand_bio}
+            </p>
+>>>>>>> 219ae613744a78b146672d3ca6d70d0f314406dc
             <br />
           </div>
 
