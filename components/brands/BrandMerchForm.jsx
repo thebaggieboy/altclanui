@@ -54,7 +54,9 @@ const BrandMerchForm = (props) => {
   const handleChange = () => {
 
   }
-
+  function available_size(){
+    
+  }
   const updateMerchandise = (e) => {
     e.preventDefault()
     updateFn(formData)
@@ -169,7 +171,7 @@ const BrandMerchForm = (props) => {
                     <option value="Foot size">Foot size</option>
           
                   </select> 
-               <div className='hidden'>
+               <div className=''>
                <label htmlFor="" className={styles.label}>Size Guide (Choose all available sizes)</label>
                  
                  <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">

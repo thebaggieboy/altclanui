@@ -16,7 +16,7 @@ export default function BrandProfile({ _id, brand }) {
   const isBrand = useSelector(selectUserType) === USER_TYPES.brand
   const router = useRouter();
 
-  
+ 
 
   useLayoutEffect(() => {
     if (brand_user === null) {
