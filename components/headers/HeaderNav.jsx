@@ -149,6 +149,7 @@ export default function HeaderNav() {
 	async function logout() {
 		try {
 			await logoutUser();
+			document.cookie = "user_type=brand; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;"
 			dispatch(setUser(null));
 			dispatch(setBrandUser(null));
 			dispatch(setUserType(null))
@@ -157,7 +158,7 @@ export default function HeaderNav() {
 		}
 	}
 
-	
+
 
 	return (
 		<div className="sticky top-0 z-50 bg-white">
@@ -505,7 +506,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${isBrand ? "/brands/profile" : "/profile"}`}
+												href={`${isBrand ? "/brands/profile/" + user.id : "/profile"}`}
 											>
 												Profile
 											</Link>
@@ -592,7 +593,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${isBrand ? "/brands/profile" : "/profile"}`}
+															href={`${isBrand ? "/brands/profile/" + user.id : "/profile"}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile

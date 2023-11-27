@@ -8,18 +8,24 @@ import Layout from "../components/Layout"
 
 import { CartContextProvider } from '../context/CartContext'
 import Providers from '../features/Providers';
-
+import usePreviousRoute from '../hooks/usePreviousRoute'
+import { HistoryProvider } from "../context/HistoryContext"
 
 function App({ Component, pageProps }: AppProps) {
+
+  const route = usePreviousRoute()
+  
 
   return (
     <>
       <CartContextProvider>
-        <Providers>
-          <Layout>
-            <Component { ...pageProps } />
-          </Layout>
-        </Providers>
+        <HistoryProvider value={route}>
+          <Providers>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </Providers>
+        </HistoryProvider>
 
       </CartContextProvider>
 

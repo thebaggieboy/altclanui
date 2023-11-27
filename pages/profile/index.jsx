@@ -17,7 +17,13 @@ const Profile = () => {
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()
 
-	
+
+	useEffect(() => {
+		if (user === null) {
+			router.push("/signup")
+		}
+	}, [user])
+
 	const { data, isLoading, error } = useQuery({
 		queryKey: ["profile", user?.id || brand?.id],
 		queryFn: () => fetchProfileData(user?.id || brand?.id, isBrand), enabled: user !== null || brand !== null

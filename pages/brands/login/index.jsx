@@ -6,7 +6,6 @@ import styles from "./../../../styles/login.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../components/Loader"
 import useLogin from '../../../hooks/useLogin';
-import { LoginError } from '../../accounts/login';
 import { USER_TYPES, selectUser, setUser, setUserType } from '../../../features/user/userSlice';
 
 export default function Login(req, res) {
@@ -21,6 +20,7 @@ export default function Login(req, res) {
     }, [brand_user, router])
 
     async function loginSuccess(user) {
+        document.cookie = "user_type=brand; expires=Tue, 28 Nov 2023 18:47:36 GMT; Path=/;"
         dispatch(setUser(user))
     }
 

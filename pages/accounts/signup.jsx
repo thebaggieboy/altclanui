@@ -38,7 +38,7 @@ export default function SignUp() {
 	}
 
 	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/dj-rest-auth/registration/", signUpSuccess,
-		USER_TYPES.shopper
+		USER_TYPES.user
 	)
 
 	const [formErr, setFormErr] = useState(error)
