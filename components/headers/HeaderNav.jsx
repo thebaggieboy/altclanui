@@ -506,7 +506,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${isBrand ? "/brands/profile/" + user.id : "/profile"}`}
+												href={`${isBrand ? "/brands/profile/" + user.id : "/profile/" + user.id}`}
 											>
 												Profile
 											</Link>
@@ -593,7 +593,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${isBrand ? "/brands/profile/" + user.id : "/profile"}`}
+															href={`${isBrand ? "/brands/profile/" + user.id : "/profile/" + user.id}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile

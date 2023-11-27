@@ -12,7 +12,7 @@ const Signup = () => {
     console.log(route)
 
     useEffect(() => {
-        if (user !== null && (route === "/brands/profile/[id]" || route === "/profile")) {
+        if (user !== null && (route === "/brands/profile/[id]" || route === "/profile/[id]")) {
             router.back()
         }
     }, [user])
