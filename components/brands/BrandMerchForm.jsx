@@ -169,8 +169,21 @@ const BrandMerchForm = (props) => {
                     <option value="FREE DELIVERY">Foot size</option>
           
                   </select> 
+                  <label htmlFor="" className={styles.label}>Size Guide</label>
+              <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
+                   
+                    <option value="None">S</option>
+                    <option value="New Merchandise">M</option>
+                    <option value="Limited Stock">L</option>
+                    <option value="FREE DELIVERY">XL</option>
+                    <option value="FREE DELIVERY">XXL</option>
+                    <option value="FREE DELIVERY">3XL</option>
+          
+                  </select> 
+           
            
               <div>
+
                 <label htmlFor="" className={styles.label}>Merhandise Price</label>
                 <input type="number" value={mobile_number} onChange={inputChangeHandler} name="mobile_number" id="mobile_number" className={styles.input} placeholder="" required />
 

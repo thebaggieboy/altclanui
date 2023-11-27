@@ -13,6 +13,7 @@ import Link from 'next/link';
 export default function BrandProfile({ _id, brand }) {
 
   const brand_user = useSelector(selectUser)
+  const isBrand = useSelector(selectUserType) === USER_TYPES.brand
   const router = useRouter();
 
   const dispatch = useDispatch()
@@ -48,11 +49,13 @@ export default function BrandProfile({ _id, brand }) {
 
             <p className={styles.about}>
               {brand_user.brand_bio}
-            </p>
+            </p> <br />
+            {isBrand? <Link href='/brands/merchandise/new' className='bg-black p-3 border-0 text-white text-sm'>Add new merchandise</Link> : "" }
             <br />
           </div>
 
           <div>
+            
             <MyTabs />
           </div>
         </div>
