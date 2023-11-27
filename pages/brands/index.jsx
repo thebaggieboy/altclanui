@@ -66,9 +66,11 @@ export default function Brands() {
               </h3>
               <p className={styles.followers}>{brand.brand_type}</p>
             </Link>
+            
           ))}
         </div>
       </div>
+      <br/>
     </div>
   )
 }

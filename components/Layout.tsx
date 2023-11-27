@@ -1,4 +1,4 @@
-
+import { Analytics } from '@vercel/analytics/react';
 import Footer from './Footer'
 import HeaderNav from './headers/HeaderNav'
 
@@ -42,6 +42,7 @@ export default function Layout({
     <>
       <HeaderNav />
       {children}
+      <Analytics />
       <Footer />
     </>
   )

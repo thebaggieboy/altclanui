@@ -60,6 +60,7 @@ export default function BrandLogo() {
     console.log(data)
 
     await updateFn({ brand_logo: data.url })
+    
     router.push('/brands/profile')
   };
 

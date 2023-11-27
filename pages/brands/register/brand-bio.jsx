@@ -24,6 +24,13 @@ export default function Bio() {
 		
 	}, [brand_user]);
 
+	useEffect(() => {
+		if (brand_user?.brand_name != "") {
+			router.push("/brands/profile");
+		}
+		
+	}, [brand_user]);
+
   return (
    <BrandSignupForm/>
   )

@@ -46,7 +46,7 @@ export default function BrandProfile({ _id, brand }) {
           <div className={styles.left}>
             <img src={data.brand_logo} alt="You have not uploaded a logo yet" className={styles.image} />
           </div>
-          <Link href="/brands/register/brand-bio">Bio</Link>
+       
           <div className={styles.right}>
             <h1>
               {data.brand_name}
