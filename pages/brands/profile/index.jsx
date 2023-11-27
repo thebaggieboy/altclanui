@@ -15,7 +15,7 @@ export default function BrandProfile({ _id, brand }) {
   const brand_user = useSelector(selectUser)
   const router = useRouter();
 
-  const dispatch = useDispatch()
+  
 
   useLayoutEffect(() => {
     if (brand_user === null) {
@@ -28,26 +28,36 @@ export default function BrandProfile({ _id, brand }) {
     queryFn: () => fetchProfileData(brand_user?.id, true), enabled: brand_user !== null
   })
 
+  console.log(data)
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    console.log(error)
+    return <div>Error fetching profile</div>
+  }
 
   return (
     brand_user !== null ? (
       <>
-        <div key={brand_user.id} className={styles.brandProfileContent}>
+        <div key={data.id} className={styles.brandProfileContent}>
           <div className={styles.left}>
-            <img src={brand_user.brand_logo} alt="You have not uploaded a logo yet" className={styles.image} />
+            <img src={data.brand_logo} alt="You have not uploaded a logo yet" className={styles.image} />
           </div>
           <Link href="/brands/register/brand-bio">Bio</Link>
           <div className={styles.right}>
             <h1>
-              {brand_user.brand_name}
+              {data.brand_name}
             </h1>
             <div className={styles.numbers}>
               <p></p>
-              <p>{brand_user.brand_type}</p>
+              <p>{data.brand_type}</p>
             </div>
 
             <p className={styles.about}>
-              {brand_user.brand_bio}
+              {data.brand_bio}
             </p>
             <br />
           </div>
