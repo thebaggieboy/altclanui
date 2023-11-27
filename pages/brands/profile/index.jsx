@@ -58,14 +58,8 @@ export default function BrandProfile({ _id, brand }) {
             </div>
 
             <p className={styles.about}>
-<<<<<<< HEAD
-              {brand_user.brand_bio}
-            </p> <br />
-            {isBrand? <Link href='/brands/merchandise/new' className='bg-black p-3 border-0 text-white text-sm'>Add new merchandise</Link> : "" }
-=======
               {data.brand_bio}
             </p>
->>>>>>> 219ae613744a78b146672d3ca6d70d0f314406dc
             <br />
           </div>
 
