@@ -54,7 +54,9 @@ const BrandMerchForm = (props) => {
   const handleChange = () => {
 
   }
-
+  function available_size(){
+    console.log(available_size)
+  }
   const updateMerchandise = (e) => {
     e.preventDefault()
     updateFn(formData)
@@ -163,14 +165,30 @@ const BrandMerchForm = (props) => {
               <label htmlFor="" className={styles.label}>Size Type</label>
               <select className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                     <option value="">Select size type</option>
-                    <option value="None">Clothing size</option>
-                    <option value="New Merchandise">Ring Size</option>
-                    <option value="Limited Stock">Wrist Size</option>
-                    <option value="FREE DELIVERY">Foot size</option>
+                    <option name="clothing" value="Clothing">Clothing size</option>
+                    <option value="Ring Size">Ring Size</option>
+                    <option value="Wrist Size">Wrist Size</option>
+                    <option value="Foot size">Foot size</option>
           
                   </select> 
+               <div className=''>
+               <label htmlFor="" className={styles.label}>Size Guide (Choose all available sizes)</label>
+                 
+                 <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
+                      
+                       <option  value="S">S</option>
+                       <option  value="M">M</option>
+                       <option value="L">L</option>
+                       <option value="XL">XL</option>
+                       <option value="XXL">XXL</option>
+                       <option value="3XL">3XL</option>
+             
+                  </select> 
+               </div>
+           
            
               <div>
+
                 <label htmlFor="" className={styles.label}>Merhandise Price</label>
                 <input type="number" value={mobile_number} onChange={inputChangeHandler} name="mobile_number" id="mobile_number" className={styles.input} placeholder="" required />
 
