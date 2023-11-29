@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
 import useUpdateProfileData from '../../hooks/useUpdateProfileData';
-import Loader from "../../components/Loader"
+import Loader from "../Loader"
 import { mutate } from 'swr';
 
 const clothing_size = [
@@ -77,20 +77,20 @@ const BrandMerchForm = (props) => {
 
 
   return (
-    <div>
+ 
       <div className="">
         <div className={styles.loginContainer}>
 
 
           <div className={styles.columnText}>
-            <form className={styles.form} onSubmit={updateMerchandise}>
-
-              
+         
 
       
               <p className={styles.login}>Fill in some of your product details</p>
 
               {error && <p className=' text-red-500 text-sm'>Something went wrong please try again</p>}
+          
+              
               <div className='hidden'>
                 <label htmlFor="" className="">Brand name</label>
                 <input type="text" value={brand_name} onChange={inputChangeHandler} name="brand_name" id="brand-name" className={styles.input} placeholder="" required />
@@ -263,16 +263,16 @@ const BrandMerchForm = (props) => {
 
               </div>
 
-              <button type='submit' className={styles.submit}>
+              <button type='submit' onClick={updateMerchandise}  className={styles.submit}>
                 {isPending ? <Loader /> : "Submit"}
               </button>
 
 
-            </form>
+           
           </div>
         </div>
-      </div>
-    </div>
+    
+  
   );
 }
 
