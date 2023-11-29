@@ -5,22 +5,32 @@ import styles from "../../styles/profile.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { USER_TYPES, selectUser, selectUserType, setUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import fetchProfileData from "../../lib/fetchProfileData";
-import { selectBrandUser } from "../../features/brands/brandUserSlice";
+
 
 
 const Profile = () => {
 	const user = useSelector(selectUser);
-	const brand = useSelector(selectBrandUser)
 	const router = useRouter();
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()
+	const client = useQueryClient()
 
-	
-	const { data, isLoading, error } = useQuery({
-		queryKey: ["profile", user?.id || brand?.id],
-		queryFn: () => fetchProfileData(user?.id || brand?.id, isBrand), enabled: user !== null || brand !== null
+	const userId = router.query?.id
+
+
+
+	useEffect(() => {
+		console.log("data", client.getQueryData(["profile", user?.id, user?.user_type]))
+		if (user === null) {
+			router.push("/signup")
+		}
+	}, [user])
+
+	const { data: userData, isLoading, error } = useQuery({
+		queryKey: ["profile", userId, user?.user_type],
+		queryFn: () => fetchProfileData(userId, isBrand), enabled: user !== null
 	})
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
@@ -78,7 +88,6 @@ const Profile = () => {
 		return <p> {error.message}</p>;
 	}
 
-	const userData = data
 
 
 	return (

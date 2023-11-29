@@ -36,7 +36,10 @@ const useUpdateProfileData = (url, id, actionFn) => {
         },
         onSuccess: (data) => {
             console.log(data)
-            queryClient.setQueryData(["profile", user?.id], data)
+            console.log(user.id, user.user_type)
+            queryClient.setQueryData(["profile", user.id, user.user_type], (old) => {
+                return { ...old, ...data }
+            })
             dispatch(actionFn(data))
         }
     })

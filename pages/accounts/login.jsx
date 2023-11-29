@@ -34,11 +34,11 @@ export default function SignUp() {
 	}
 
 	function loginSuccess(user) {
+		document.cookie = "user_type=user; expires=Tue, 28 Nov 2023 18:47:36 GMT; Path=/;"
 		dispatch(setUser(user))
 	}
 
-
-	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", loginSuccess, USER_TYPES.shopper)
+	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", loginSuccess, USER_TYPES.user)
 
 	const [formData, setFormData] = useState({
 		email: "",
