@@ -59,11 +59,8 @@ const BrandMerchForm = (props) => {
   }
   const updateMerchandise = (e) => {
     e.preventDefault()
-    updateFn(formData)
+    console.log("Submit button clicked")
    
-    console.log("Brand Bio Form Submit clicked")
-    console.log(formData)
-    router.push('/brands/profile')
   }
 
   if (isPending) {
@@ -172,7 +169,7 @@ const BrandMerchForm = (props) => {
           
                   </select> 
                <div className=''>
-               <label htmlFor="" className={styles.label}>Size Guide (Choose all available sizes)</label>
+               <label htmlFor="" className={styles.label}>Clothing Sizes</label>
                  
                  <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                       
@@ -187,7 +184,7 @@ const BrandMerchForm = (props) => {
                </div>
 
                <div className=''>
-               <label htmlFor="" className={styles.label}> Ring Size Guide (Choose all available sizes)</label>
+               <label htmlFor="" className={styles.label}> Ring Sizes</label>
                  
                  <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                  
@@ -218,7 +215,7 @@ const BrandMerchForm = (props) => {
                   </select> 
                </div>
 
-               <label htmlFor="" className={styles.label}> Wrist Size Guide (Choose all available sizes)</label>
+               <label htmlFor="" className={styles.label}> Wrist Size</label>
                  
                  <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                  
@@ -238,7 +235,7 @@ const BrandMerchForm = (props) => {
                </div>
 
                <div className=''>
-               <label htmlFor="" className={styles.label}>Shoe Size Guide (Choose all available sizes)</label>
+               <label htmlFor="" className={styles.label}>Shoe Size Guide</label>
                  
                  <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
                       
