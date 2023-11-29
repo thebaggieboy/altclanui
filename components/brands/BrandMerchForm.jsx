@@ -218,6 +218,25 @@ const BrandMerchForm = (props) => {
                   </select> 
                </div>
 
+               <label htmlFor="" className={styles.label}> Wrist Size Guide (Choose all available sizes)</label>
+                 
+                 <select multiple className={styles.input} onChange={inputChangeHandler} name="brand_type" id="">
+                 
+                       
+                       <option value="5">5</option>
+                       <option  value="5.5">5.5</option>
+                       <option  value="6">6</option>
+                       <option  value="6.5">6.5</option>
+                       <option value="7">7</option>
+                       <option value="7.5">7.5</option>
+                       <option value="8">8</option>
+                       <option value="8.5">8.5</option>
+                     
+
+             
+                  </select> 
+               </div>
+
                <div className=''>
                <label htmlFor="" className={styles.label}>Shoe Size Guide (Choose all available sizes)</label>
                  
