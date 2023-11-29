@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { selectUser, } from "../../../features/user/userSlice";
 import { useQuery } from "@tanstack/react-query";
 import fetchProfileData from "../../../lib/fetchProfileData";
-
+import Link from "next/link"
 
 export default function BrandProfile({ _id, brand }) {
     const brand_user = useSelector(selectUser)
@@ -57,6 +57,8 @@ export default function BrandProfile({ _id, brand }) {
                             {data.brand_bio}
                         </p>
                         <br />
+                        <Link className="bg-black p-4 text-xs border-0 text-white" href="/brands/merchandise/new">+New merchandise</Link>
+
                     </div>
 
                     <div>

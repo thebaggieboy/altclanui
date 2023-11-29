@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, FormEvent, useLayoutEffect } from 'react'
+import React, { useState, FormEvent, useLayoutEffect, useEffect } from 'react'
 //import styles from "../../../styles/login.module.css";
 import styles from "./../../../styles/login.module.css"
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,7 @@ export default function Login(req, res) {
     const dispatch = useDispatch();
     const brand_user = useSelector(selectUser);
     const router = useRouter();
+
 
     useLayoutEffect(() => {
         if (brand_user !== null) {
