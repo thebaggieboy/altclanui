@@ -34,7 +34,9 @@ export default function SignUp() {
 	}
 
 	function loginSuccess(user) {
-		document.cookie = "user_type=user; expires=Tue, 28 Nov 2023 18:47:36 GMT; Path=/;"
+		const today = new Date();
+		const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+		document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
 		dispatch(setUser(user))
 	}
 
