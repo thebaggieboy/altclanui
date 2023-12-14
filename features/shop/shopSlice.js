@@ -41,6 +41,9 @@ const shopSlice = createSlice({
 
 
         },
+        clearCart: (state, action) => {
+            state.cart = []
+        },
         updateItemQuantity: (state, action) => {
             const { id, value } = action.payload
             const existingItem = state.cart.find((cartItem) => cartItem.id === id)
@@ -54,6 +57,6 @@ const shopSlice = createSlice({
     }
 })
 
-export const { addItem, setCartActive, removeItem, updateItemQuantity } = shopSlice.actions
+export const { addItem, setCartActive, removeItem, updateItemQuantity, clearCart } = shopSlice.actions
 
 export default shopSlice.reducer

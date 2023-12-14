@@ -8,8 +8,7 @@ import { fetchUser } from '../lib/fetchUser'
 import { selectUser, setUser } from '../features/user/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
-import { setBrandUser } from '../features/brands/brandUserSlice'
-import { useQuery } from '@tanstack/react-query'
+
 
 export default function Layout({
   children,
