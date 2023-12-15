@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
+
 
 const Login = () => {
+
+ 
     return (
         <section className="bg-gray-900">
             <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
