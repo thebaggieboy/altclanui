@@ -138,7 +138,7 @@ export default function SignUp() {
 
 						<button disabled={isPending} type="submit" className={styles.submit}>
 							{
-								isPending ? <Loader /> : "login"
+								isPending ? <Loader /> : "Login"
 							}
 						</button>
 
