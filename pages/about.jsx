@@ -11,11 +11,11 @@ export default function about() {
           About us
         </h1>
 
-        <p style={{fontSize:16}}>
+        <p style={{fontSize:12}}>
         Our startup aims to solve the problem of isolation and lack of community among people who identify with alternative cultures, creative & digital arts, exciting aesthetics & fashion. 
           Many individuals who identify with these communities may feel like they are outsiders in a mainstream society, and may not have a sense of belonging or connection to others who share their interests and values. 
 
-        </p>
+        </p> <br/>
       </div>
 
       <div className={styles.section}>
