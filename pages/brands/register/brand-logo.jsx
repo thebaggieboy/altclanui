@@ -16,12 +16,7 @@ export default function BrandLogo() {
   const brand_user = useSelector(selectUser);
   const router = useRouter();
 
-  useEffect(() => {
-    if (brand_user === null) {
-      router.push("/brands/register");
-    }
-
-  }, [brand_user]);
+ 
 
 
   const brandUserData = brand_user;
@@ -93,9 +88,9 @@ export default function BrandLogo() {
         </div>}
 
 
-        <div className='text-center'>
+        <div className='text-center' p-2 >
           <img className={styles.logoSize} src={createObjectURL} />
-          <input id="file" type="file" name="file" className=' p-1' onChange={uploadToClient} />
+          <input id="file" type="file" name="file" className=' p-1 text-center' onChange={uploadToClient} />
 
 
           <button type='submit' onClick={uploadToServer} className={styles.submit}>

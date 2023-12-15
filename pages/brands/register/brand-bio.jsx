@@ -24,7 +24,7 @@ export default function Bio() {
 
 	useEffect(() => {
 		if (brand_user?.brand_name != "") {
-			router.push("/brands/profile/" + brand_user?.id);
+			router.push("/brands/register/brand-logo/");
 		}
 
 	}, [brand_user]);

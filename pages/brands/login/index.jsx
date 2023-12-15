@@ -86,8 +86,7 @@ export default function Login(req, res) {
                                     </svg>
                                     <span class="sr-only">Info</span>
                                     <div class="ml-3 text-sm text-center font-medium">
-                                        {error?.detail}
-                                    </div>
+                                        {error?.non_field_errors}                                    </div>
 
                                 </div>
                             )}
