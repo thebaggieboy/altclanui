@@ -50,7 +50,7 @@ export default function Brands() {
         
         <p className="text-gray-600 lead">Explore from our list of aesthetic brands</p> */}
 
-        <div className="grid pt-1 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
+        <div className="grid pt-3 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
           {data?.map((brand) => (
             <Link key={brand.id} href={`/brands/${brand.id}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
