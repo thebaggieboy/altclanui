@@ -12,8 +12,8 @@ export default function about() {
         </h1>
 
         <p style={{fontSize:16}}>
-        Our startup aims to solve the problem of isolation and lack of community among people who identify with alternative cultures & fashion. 
-          Many individuals who identify with these subcultures may feel like they are outsiders in a mainstream fashion society, and may not have a sense of belonging or connection to others who share their interests and values. 
+        Our startup aims to solve the problem of isolation and lack of community among people who identify with alternative cultures, creative & digital arts, exciting aesthetics & fashion. 
+          Many individuals who identify with these communities may feel like they are outsiders in a mainstream society, and may not have a sense of belonging or connection to others who share their interests and values. 
 
         </p>
       </div>
@@ -79,7 +79,7 @@ export default function about() {
         </h1>
 
         <p>
-        There are several reasons why consumers and audiences might want to use a platform that connects people from different anti-mainstream cultures together.
+        There are several reasons why consumers and audiences might want to use a platform that connects people from different cultures together.
         </p>
 
         <div className={styles.contentContainer}>
@@ -106,7 +106,7 @@ export default function about() {
                 Second
               </p>
               <p>
-     Our platform provides an opportunity for people to interact and learn from different unethical and anti-mainstream cultures. 
+     Our platform provides an opportunity for people to interact and learn from different unethical, trendy, unique and diverse communities. 
                
               </p>
             </div>
@@ -151,8 +151,8 @@ export default function about() {
         </div>
 
         <p>
-          In summary, our platform offers a sense of belonging and community, a unique way to explore different subcultures, amplifies the voices of anti-mainstream culture, and offers inspiration and opportunities for its users. 
-          These features make it an extremely valuable resource for consumers and audiences who are interested in anti-mainstream cultures and movements.
+          In summary, our platform offers a sense of belonging and community, a unique way to explore different subcultures & communities, amplifies the voices of anti-mainstream culture, and offers inspiration and opportunities for its users. 
+          These features make it an extremely valuable resource for consumers and audiences who are interested in unethical, anti-mainstream and new cultures and movements.
         </p>
 
       </div> 

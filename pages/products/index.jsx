@@ -394,7 +394,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 												display_image,
 												imageAlt,
 												merchandise_name,
-												category,
+												merchandise_type,
 												price,
 											}) => (
 												<div key={id} className="group relative">
@@ -412,15 +412,15 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 													
 													<div className="flex pt-3 justify-between">
 														<div>
-														<div className="container text-gray-400 text-xs">
-																{category}
+														<div className="container text-gray-500 text-xs">
+																{merchandise_type}
 															</div>
-															<h3 className="text-md text-gray-700">
+															<h3 style={{fontWeight:'bold'}} className="text-md  text-black">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name}
 															</h3>
 															
-															<p className="text-sm text-gray-900">
+															<p className="text-sm text-gray-800">
 																₦{price}
 															</p>
 
