@@ -43,7 +43,8 @@ const MERCH_FORM_DATA = {
     clothing: ["S", "M", "L", "XL", "2XL", "3XL"],
     wrist: [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5],
     ring: [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5],
-    foot: [38, 39, 40, 41, 42, 43, 44, 45, 46]
+    foot: [38, 39, 40, 41, 42, 43, 44, 45, 46],
+    neck: [ 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5],
   }
 }
 
@@ -239,6 +240,22 @@ const BrandMerchForm = (props) => {
               <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
                 {
                   MERCH_FORM_DATA.size_types.wrist.map((s) => <div key={s} className=' flex items-center  gap-2'>
+                    <input type='checkbox' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                    <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
+                  </div>)
+                }
+              </div>
+            </div>
+          }
+
+{sizeType === "neck" &&
+            <div>
+
+              <label htmlFor="" className={styles.label} > Neck Size</label>
+
+              <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
+                {
+                  MERCH_FORM_DATA.size_types.neck.map((s) => <div key={s} className=' flex items-center  gap-2'>
                     <input type='checkbox' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                     <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                   </div>)
