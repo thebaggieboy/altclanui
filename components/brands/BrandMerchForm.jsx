@@ -36,9 +36,9 @@ const MERCH_FORM_DATA = {
 
   labels: 
   ["None",
-    "new_merchandise",
-    "limited_stock",
-    "free_delivery"],
+    "New Merchandise",
+    "Limited Stock",
+    "FREE DELIVERY"],
   size_types: {
     clothing: ["S", "M", "L", "XL", "2XL", "3XL"],
     wrist: [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5],
@@ -168,7 +168,7 @@ const BrandMerchForm = (props) => {
               <select className={styles.input} name="merchandise_type" id="">
                 <option value="" selected disabled>Choose merch category</option>
                 {
-                  MERCH_FORM_DATA.categories.map((c) => <option key={c} value={c}>{c.replaceAll("_", " ")}</option>)
+                  MERCH_FORM_DATA.categories.map((c) => <option key={c} value={c}>{c}</option>)
                 }
               </select>
 
@@ -181,7 +181,7 @@ const BrandMerchForm = (props) => {
               <select className={styles.input} name="labels" id="">
                 <option value="">Choose merch label</option>
                 {
-                  MERCH_FORM_DATA.labels.map((l) => <option key={l} value="l">{l.replaceAll("_", " ")}</option>)
+                  MERCH_FORM_DATA.labels.map((l) => <option key={l} value="l">{l}</option>)
                 }
 
               </select>
