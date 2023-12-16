@@ -74,8 +74,8 @@ export default function Login(req, res) {
                             />
                             {/* Altclan     */}
                         </Link>
-                        <h1 className={styles.greeting}>Join the clan</h1>
-                        <p className={styles.login}>Create a brand account to become part of our community</p>
+                        <h1 className={styles.greeting}>Login to your brand account</h1>
+                        <p className={styles.login}>Continue managing your brand and community</p>
 
                         <div>
                             {/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}

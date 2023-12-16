@@ -7,23 +7,36 @@ import Loader from "../Loader"
 import { selectUser } from '../../features/user/userSlice';
 
 const MERCH_FORM_DATA = {
-  categories: ["tees",
-    "rings",
-    "chains_&_necklaces",
-    "jeans",
-    "jackets",
-    "joggers",
-    "skating",
-    "sweatshirts",
-    "hoodies",
-    "kicks_&_slides",
-    "caps_and_hats",
-    "masks",
-    "shades",
-    "lumberjack_and_vintage",
-    "piercings_&_studs",
-    "baggy_wears"],
-  labels: ["new_merchandise",
+  categories:
+   ["T-shirts",
+    "Tops",
+    "Rings",
+    "Chains & Necklaces",
+    "Jeans",
+    "Jackets",
+    "Joggers",
+    "Skating",
+    "Sweatshirts",
+    "Hoodies",
+    "Kicks & Slides",
+    "Hats & Caps",
+    "Masks",
+    "Shades",
+    "Slides",
+    "Earrings",
+    "Wallets",
+    "Belts",
+    "Shoes",
+    "Native Wears",
+    "Vintage Shirts",
+    "Pendants",
+    "Lumberjacks",
+    "Piercings & Studs",
+    "Baggy Wears"],
+
+  labels: 
+  ["None",
+    "new_merchandise",
     "limited_stock",
     "free_delivery"],
   size_types: {
@@ -132,22 +145,25 @@ const BrandMerchForm = (props) => {
 
           </div>
           <div>
-            <label htmlFor="" className={styles.label}>Merchandise display image</label>
+            <label htmlFor="" className={styles.label}>Display image</label> <br />
+            <span className={styles.label} style={{fontSize:12}}>(This is how your product would be displayed on the shop page. Additional images can be added later)</span>
+
             <input type="file" name="display_image" id="brand-name" className={styles.input} placeholder="" required />
 
           </div>
           <div>
-            <label htmlFor="" className={styles.label}>Merchandise description</label>
+            <label htmlFor="" className={styles.label}>Description</label>
 
             <textarea type="text" name="merchandise_description" id="bio" placeholder="" className={styles.input} required></textarea>
           </div>
           <div>
-            <label htmlFor="" className={styles.label}>Merchandise details</label>
+            <label htmlFor="" className={styles.label}>Details </label> <br />
+            <span className={styles.label} style={{fontSize:12}}>(Fill in additional details like highlights etc)</span>
 
             <textarea type="text" name="merchandise_details" id="bio" placeholder="" className={styles.input} required></textarea>
           </div>
           <div>
-            <label htmlFor="" className={styles.label}>Merchandise category</label>
+            <label htmlFor="" className={styles.label}>Category</label>
             <div className="pt-2">
               <select className={styles.input} name="merchandise_type" id="">
                 <option value="" selected disabled>Choose merch category</option>
@@ -160,7 +176,7 @@ const BrandMerchForm = (props) => {
 
           </div>
           <div>
-            <label htmlFor="" className={styles.label}>Merchandise labels</label>
+            <label htmlFor="" className={styles.label}>Labels</label>
             <div className="pt-2">
               <select className={styles.input} name="labels" id="">
                 <option value="">Choose merch label</option>
@@ -250,7 +266,7 @@ const BrandMerchForm = (props) => {
 
           <div>
 
-            <label htmlFor="" className={styles.label}>Merhandise Price</label>
+            <label htmlFor="" className={styles.label}>Price (₦)</label>
             <input type="number" name="merchandise_price" id="mobile_number" className={styles.input} placeholder="" required />
 
           </div>

@@ -75,7 +75,7 @@ export default function BrandProfile({ _id, brand }) {
                 </div>
             </>
         ) : <div className='p-10 text-center'>
-            <p>You have been logged out</p>
+            <p></p>
         </div>
 
     )
