@@ -393,6 +393,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 												id,
 												display_image,
 												imageAlt,
+												brand_name,
 												merchandise_name,
 												merchandise_type,
 												labels,
@@ -425,7 +426,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 															<h3 className="text-sm pt-2  text-black">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name} 
-															</h3> by 
+															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>{brand_name}</span> 
 															
 															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
 																₦{price}
