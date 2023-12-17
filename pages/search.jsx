@@ -5,6 +5,8 @@ import {CartContext} from '../context/CartContext'
 import HeaderTab from './../components/headers/HeaderTab'
 import Category from './../components/Category'
 import useBrands from "../hooks/useBrands"
+
+import { useSearchParams } from 'next/navigation'
 const categories = [
   // More categories...
 ]
@@ -15,7 +17,9 @@ export default function Search({ _id, merchandise_name, price, picture }) {
   // Results of the search query in an array
   const [filteredSearch, setFilteredSearch] = useState([]);
   const [searchResult, setSearchResult] = useState([])
-
+	const searchParams = useSearchParams();
+	const search = searchParams.get('search')
+	console.log(search)
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
