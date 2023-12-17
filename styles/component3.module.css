@@ -16,7 +16,8 @@
     position: relative;
     text-align: center;
     color: white;
-    height: 90%;
+    height: 100%;
+  
 }
 
 .fullImageTextCont {
@@ -79,12 +80,14 @@
         float: left;
         width: 100%;
         padding: 20px;
+
     }
 
     .fullImages {
         position: relative;
         text-align: center;
         color: white;
+         height: 100%;
     }
 
     .fullImageTextCont {
