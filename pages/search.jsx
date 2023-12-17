@@ -64,13 +64,14 @@ export default function Search({ _id, merchandise_name, price, picture }) {
            <section key={product.id } aria-labelledby="products-heading" className="pb-24">
            <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
 									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-4 xl:gap-x-8">
-										{product.map(
+                  {data?.map(
 											({
 												id,
 												display_image,
 												imageAlt,
 												merchandise_name,
-												category,
+												merchandise_type,
+												labels,
 												price,
 											}) => (
 												<div key={id} className="group relative">
@@ -81,6 +82,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 																alt={imageAlt}
 																className="h-full w-full object-cover object-center lg:h-full lg:w-full"
 															/>
+															
 														</Link>
 													</div>
 													<Link href={`/products/${id}`}>
@@ -89,14 +91,19 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 													<div className="flex pt-3 justify-between">
 														<div>
 														<div className="container text-gray-500 text-xs">
-																{category}
+															{labels != "None" ?
+															 <span class="bg-white text-black text-xs me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
+															{labels}
+															</span> : ""}
+
+														
 															</div>
-															<h3 className="text-sm text-gray-800">
+															<h3 className="text-sm pt-2  text-black">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name}
 															</h3>
 															
-															<p className="text-md fw-bold">
+															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
 																₦{price}
 															</p>
 
