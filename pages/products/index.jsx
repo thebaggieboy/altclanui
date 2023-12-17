@@ -416,18 +416,18 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 														<div>
 														<div className="container text-gray-500 text-xs">
 															{labels != "None" ?
-															 <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500">
+															 <span class="bg-white text-black text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-gray-500 border border-gray-500">
 															{labels}
 															</span> : ""}
 
 														
 															</div>
-															<h3 style={{fontWeight:'bold'}} className="text-md pt-1  text-black">
+															<h3 className="text-sm pt-2  text-black">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name}
 															</h3>
 															
-															<p className="text-sm pt-1 text-gray-900">
+															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
 																₦{price}
 															</p>
 

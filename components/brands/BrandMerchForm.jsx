@@ -147,7 +147,7 @@ const BrandMerchForm = (props) => {
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Display image</label> <br />
-            <span className={styles.label} style={{fontSize:12}}>(This is how your product would be displayed on the shop page. Additional images can be added later)</span>
+            <span className={styles.label} style={{fontSize:8.5}}>(This is how your product would be displayed on the shop page.)</span>
 
             <input type="file" name="display_image" id="brand-name" className={styles.input} placeholder="" required />
 
