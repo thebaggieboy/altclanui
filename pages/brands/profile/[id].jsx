@@ -65,7 +65,8 @@ export default function BrandProfile({ _id, brand }) {
                             {data.brand_bio}
                         </p>
                         <br />
-                        <Link className="bg-black p-4 text-xs border-0 text-white" href="/brands/merchandise/new">+New merchandise</Link>
+                        <Link style={{backgroundColor:'beige', fontWeight:'bolder'}} className=" p-2 text-xs border-0 text-black" href="/brands/merchandise/new">+Add merch</Link>
+                        <Link  className="bg-black ml-2 p-2 text-xs border-0 text-white" href="/brands/merchandise/new">Dashboard</Link>
 
                     </div>
 
