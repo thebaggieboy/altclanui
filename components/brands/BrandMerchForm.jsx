@@ -33,19 +33,22 @@ const MERCH_FORM_DATA = {
     "Lumberjacks",
     "Piercings & Studs",
     "Baggy Wears"],
-
+gender : ["Male", "Female", "Non-Binary"],
   labels: 
   ["None",
     "New Merchandise",
     "Limited Stock",
     "FREE DELIVERY"],
   size_types: {
+    none:"",
     clothing: ["S", "M", "L", "XL", "2XL", "3XL"],
     wrist: [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5],
     ring: [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5],
     foot: [38, 39, 40, 41, 42, 43, 44, 45, 46],
     neck: [ 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5],
-  }
+  },
+  colors:["Black", "White", "Blue", "Red", "Yellow", "Green", "Pink", "Purple"],
+
 }
 
 
@@ -57,6 +60,10 @@ const BrandMerchForm = (props) => {
     merch_name: "",
     merch_type: "",
     merch_category: "",
+    labels:"",
+    size_type:"",
+    available_sizes:"",
+    price:""
 
   })
   const [sizeType, setSizeType] = useState("")
@@ -150,6 +157,34 @@ const BrandMerchForm = (props) => {
             <span className={styles.label} style={{fontSize:8.5}}>(This is how your product would be displayed on the shop page.)</span>
 
             <input type="file" name="display_image" id="brand-name" className={styles.input} placeholder="" required />
+
+          </div>
+          <div>
+            <label htmlFor="" className={styles.label}>Gender</label>
+            <div className="pt-2">
+              <select className={styles.input} name="labels" id="">
+                <option value="">Choose merch gender</option>
+                {
+                  MERCH_FORM_DATA.gender.map((l) => <option key={l} value="l">{l}</option>)
+                }
+
+              </select>
+
+            </div>
+
+          </div>
+          <div>
+            <label htmlFor="" className={styles.label}>Available colors</label>
+            <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
+            {
+                MERCH_FORM_DATA.colors.map((s) => <div key={s} className=' flex items-center  gap-2'>
+                  <input type='checkbox' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                  <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
+                </div>)
+              }
+
+            </div>
+        
 
           </div>
           <div>

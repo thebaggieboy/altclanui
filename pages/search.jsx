@@ -20,6 +20,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 	const searchParams = useSearchParams();
 	const search = searchParams.get('search')
 	console.log(search)
+	
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -39,8 +40,6 @@ export default function Search({ _id, merchandise_name, price, picture }) {
       );
       console.log(results)
       setSearchResult(results);
-
-
     } else {
       setSearchResult([]);
     }
@@ -58,7 +57,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 
                 </div>
-                <input type="text" onChange={handleSearchChange} value={searchQuery} id="simple-search" className="bg-gray-50 mt-2   border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="brand, merch, category" required/>
+                <input type="text" style={{borderRadius:0}} onChange={handleSearchChange} value={searchQuery} id="simple-search" className="bg-gray-50 mt-2   border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full pl-10 p-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Search" required/>
             </div>
       
         </div>

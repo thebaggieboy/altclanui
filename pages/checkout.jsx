@@ -24,6 +24,12 @@ export async function getServerSideProps(context) {
   };
 }
 
+function postPayment(){
+  console.log("Payment button clicked")
+
+}
+
+
 export default function Checkout({ merchs }) {
 
   const user = useSelector(selectUser);
@@ -44,7 +50,7 @@ export default function Checkout({ merchs }) {
 
   const shippingFee = 8;
   const grandTotal = shippingFee + total;
-
+ 
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
   const router = useRouter()
   const amount = grandTotal * 100
@@ -60,6 +66,7 @@ export default function Checkout({ merchs }) {
     text: "Pay Now",
     onSuccess: () => {
       dispatch(clearCart())
+      postPayment()
       router.push('/payment-success')
     }
 
