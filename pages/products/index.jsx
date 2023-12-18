@@ -21,10 +21,10 @@ const sortOptions = [
 	{ name: "Price: High to Low", href: "#", current: false },
 ];
 const subCategories = [
-	{ name: "New Merch", href: "#" },
-	{ name: "Brands", href: "#" },
-	{ name: "Limited Edition", href: "#" },
-	{ name: "Arts", href: "#" },
+	{ name: "New Merch", href: "/products?q=new_merch" },
+	{ name: "Brands", href: "/brands" },
+	{ name: "Limited Edition", href: "/products?q=limited_edition" },
+	{ name: "Arts", href: "/products?q=arts" },
 	
 ];
 const filters = [
@@ -168,7 +168,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 										<h3 className="sr-only">Categories</h3>
 										<ul
 											role="list"
-											className="px-2 py-3 font-medium text-gray-900"
+											className="px-2 py-5 mt-5 font-medium text-gray-900"
 										>
 											{subCategories.map((category) => (
 												<li key={category.name}>
@@ -417,7 +417,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 														<div>
 														<div className="container text-gray-500 text-xs">
 															{labels != "None" ?
-															 <span class="bg-white text-black text-xs me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
+															 <span style={{backgroundColor:'#F5F5DC', borderRadius:0, fontSize:10}} class=" text-black me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
 															{labels}
 															</span> : ""}
 

@@ -4,8 +4,21 @@ import styles from "../../styles/brand.module.css";
 import useBrands from '../../hooks/useBrands'
 import useData from '../../hooks/useData'
 import Link from "next/link";
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function Brands() {
+  const [searchQuery, setSearchQuery] = useState('');
+  // Results of the search query in an array
+  const [filteredSearch, setFilteredSearch] = useState([]);
+  const [searchResult, setSearchResult] = useState([])
+	const searchParams = useSearchParams();
+	const search = searchParams.get('search')
+	console.log(search)
+	
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
  const { data, loading, error } = useBrands('https://altclan-brands-api.onrender.com/api/brand_users/');
  //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brand_profile/');
   console.log(data)
@@ -45,6 +58,7 @@ export default function Brands() {
   return (
     <div className="bg-white">
 
+      
       <div className="max-w-2xl px-4  mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         {/* <h2 className={styles.brands}>Brands</h2> <br/>
         
