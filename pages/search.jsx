@@ -5,7 +5,7 @@ import {CartContext} from '../context/CartContext'
 import HeaderTab from './../components/headers/HeaderTab'
 import Category from './../components/Category'
 import useBrands from "../hooks/useBrands"
-
+import Head from "next/head"
 import { useSearchParams } from 'next/navigation'
 const categories = [
   // More categories...
@@ -48,7 +48,19 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 
 
   return (
-   
+   <>
+    <Head>
+       <title>Search for merch</title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="Search for products using keywords."
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
   <div className="pt-2 m-2 ">
       <div className="mx-auto p-5 ">
         <div className="flex items-center" >   
@@ -129,6 +141,6 @@ export default function Search({ _id, merchandise_name, price, picture }) {
     
   </div>
 </div>
-
+</>
   )
 }

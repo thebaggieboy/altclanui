@@ -1,9 +1,22 @@
 import React from 'react'
 import styles from "../styles/Home.module.css";
 import CountUp from "../src/aboutcounter/brand.jsx" 
-
+import Head from "next/head"
 export default function about() {
   return (
+    <>
+      <Head>
+       <title>About us</title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="About us | Learn more"
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
     <div>
   
       <div className={styles.padding}>
@@ -199,5 +212,6 @@ export default function about() {
       </div>
       
     </div>
+    </>
   )
 }

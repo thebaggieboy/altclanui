@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../components/Loader"
 import useLogin from '../../../hooks/useLogin';
 import { USER_TYPES, selectUser, setUser, setUserType } from '../../../features/user/userSlice';
-
+import Head from "next/head"
 export default function Login(req, res) {
     const dispatch = useDispatch();
     const brand_user = useSelector(selectUser);
@@ -58,6 +58,19 @@ export default function Login(req, res) {
 
 
     return (
+        <>
+     <Head>
+       <title>Login as a brand </title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="Login to your brand account."
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
         <div className="">
             <div className={styles.loginContainer}>
                 <div className={styles.columnImage}>
@@ -118,5 +131,6 @@ export default function Login(req, res) {
                 </div>
             </div>
         </div>
+        </>
     )
 }

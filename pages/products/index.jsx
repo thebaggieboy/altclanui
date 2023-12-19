@@ -12,7 +12,7 @@ import useBrands from "../../hooks/useBrands";
 import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
 import Link from "next/link";
-
+import Head from "next/head"
 const sortOptions = [
 	{ name: "Most Popular", href: "#", current: true },
 	{ name: "Best Rating", href: "#", current: false },
@@ -117,6 +117,19 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	
 
 	return (
+		<>
+		<Head>
+       <title>Explore - Start Shopping </title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="You can start to shop and explore between different brands, their exclusive deals and amazing creative products."
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
 		<div className="bg-white">
 			<div>
 				{/* Mobile filter dialog */}
@@ -449,5 +462,6 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 				</main>
 			</div>
 		</div>
+		</>
 	);
 }

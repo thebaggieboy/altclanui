@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { USER_TYPES, selectUser, selectUserType, setUser, setUserType } from "../../features/user/userSlice";
-
+import Head from "next/head"
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
 
@@ -72,6 +72,19 @@ export default function SignUp() {
 
 
 	return (
+		<>
+		<Head>
+       <title>Login as a user </title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="Login to continue."
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
 		<div className="">
 			<div className={styles.loginContainer}>
 				<div className={styles.columnImage}>
@@ -158,5 +171,7 @@ export default function SignUp() {
 				</div>
 			</div>
 		</div>
+		</>
 	);
+
 }

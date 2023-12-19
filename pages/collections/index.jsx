@@ -1,14 +1,14 @@
 import React, { useState, useEffect, Component } from 'react';
 import Category from "../../components/Category"
 import styles from "../../styles/category.module.css";
-
+import Head from "next/head"
 const products = [
 
 
   {
     id: 1,
     name: "Tees",
-    href: "#",
+    href: "/products?q=Tees",
     price: "$48",
     imageSrc: "/img/tees.jpg",
     imageAlt:
@@ -17,7 +17,7 @@ const products = [
   {
     id: 2,
     name: "Accessories",
-    href: "#",
+    href: "/products?q=Accessories",
     price: "$35",
     imageSrc: "/img/rings.jpg",
     imageAlt:
@@ -26,7 +26,7 @@ const products = [
   {
     id: 3,
     name: "Jeans",
-    href: "#",
+    href: "/products?q=Jeans",
     price: "$89",
     imageSrc: "/img/jeans.jpg",
     imageAlt:
@@ -35,7 +35,7 @@ const products = [
   {
     id: 4,
     name: "Sweaters",
-    href: "#",
+    href: "/products?q=Sweaters",
     price: "$35",
     imageSrc: "/img/sweaters.jpg",
     imageAlt:
@@ -44,7 +44,7 @@ const products = [
   {
     id: 5,
     name: "Glasses",
-    href: "#",
+    href: "/products?q=Shades",
     price: "$35",
     imageSrc: "/img/shades.jpg",
     imageAlt:
@@ -55,14 +55,14 @@ const products = [
     name: "Jackets",
     href: "#",
     price: "$35",
-    imageSrc: "/img/jackets.jpg",
+    imageSrc: "/img/jackets?q=Jackets.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
   {
     id: 7,
     name: "Bags",
-    href: "#",
+    href: "/products?q=Bags",
     price: "$35",
     imageSrc: "/img/bag.jpg",
     imageAlt:
@@ -71,17 +71,31 @@ const products = [
   {
     id: 8,
     name: "Caps",
-    href: "#",
+    href: "/products?q=Caps",
     price: "$35",
     imageSrc: "/img/cap.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
+
 ];
 
 
 export default function Collection() {
   return (
+    <>
+      <Head>
+       <title>Search for merch</title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="Collections -  Select your merchandise category."
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
     <div className={styles.content}>
         <div className="grid sm:grid-cols-3 gap-12 max-w-[100%] mx-auto">
         {products.map((product) => (
@@ -105,5 +119,6 @@ export default function Collection() {
         ))}
         </div>
     </div>
+    </>
   )
 }

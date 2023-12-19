@@ -8,7 +8,7 @@ import { selectBrandUser, setBrandUser } from "../../../features/brands/brandUse
 import Loader from "../../../components/Loader"
 import useSignUp from '../../../hooks/useSignUp';
 import { USER_TYPES, selectUser, setUser, setUserType } from '../../../features/user/userSlice';
-
+import Head from "next/head"
 export default function SignUp(req, res) {
 	const dispatch = useDispatch();
 	const brand_user = useSelector(selectUser);
@@ -63,6 +63,19 @@ export default function SignUp(req, res) {
 	};
 
 	return (
+		<>
+		<Head>
+       <title>Become a brand </title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="You can start creating your brand account now"
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, brands, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
 		<div className="">
 			<div className={styles.loginContainer}>
 				<div className={styles.columnImage}>
@@ -167,5 +180,6 @@ export default function SignUp(req, res) {
 				</div>
 			</div>
 		</div>
+		</>
 	)
 }

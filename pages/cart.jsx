@@ -6,7 +6,7 @@ import {
 	selectCartTotal,
 } from "../features/shop/shopSelector";
 import CartItem from "../components/CartItem";
-
+import Head  from "next/head"
 export async function getServerSideProps(context) {
 	const res = await fetch(
 		`https://altclan-brands-api.onrender.com/api/merchandises`
@@ -31,6 +31,18 @@ export default function Cart({ merchs }) {
 	if (cartItems.length < 1) {
 		return (
 			<>
+				  <Head>
+       <title>Your cart </title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="These are the items in your cart."
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
 				<div className="text-black-700 mb-10 mt-10 p-10 text-center">
 					<p>There are no items in your cart</p>
 					<br />
@@ -45,6 +57,18 @@ export default function Cart({ merchs }) {
 
 	return (
 		<>
+		  <Head>
+       <title>Your cart </title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="These are the items in your cart."
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
 			<section className="bg-gray-100 py-1 sm:py-16 lg:py-4">
 				<div className="mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex items-center p-3 justify-center">

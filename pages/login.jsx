@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 
@@ -6,6 +7,20 @@ const Login = () => {
 
  
     return (
+        <>
+
+       <Head>
+       <title>Login - Community of aesthetics</title>
+            <meta charset="UTF-8" />
+            <meta
+              name="description"
+              content="Login to your user or brand account and continue exploring"
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
         <section className="bg-gray-900">
             <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
                 <a href="#" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
@@ -58,6 +73,7 @@ const Login = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 }
 
