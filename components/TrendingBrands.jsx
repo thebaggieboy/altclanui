@@ -2,7 +2,7 @@ import React from "react";
 import CarouselWrapper from "./CarouselWrapper";
 import ProductCard from "./product-card/ProductCard";
 import useBrands from '../hooks/useBrands'
-export default function TrendingMerch() {
+export default function TrendingBrands() {
 	const brands = [1, 2, 3, 4];
 	const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 

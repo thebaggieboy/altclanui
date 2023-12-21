@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "./../styles/component5.module.css";
 import useData from "./../hooks/useData";
 const SponsoredBrands = () => {
-	const { data, loading, error } = useData('https://altclan-api-v1.onrender.com/api/brand_profile/');
+	const { data, loading, error } = useData('https://altclan-brands-api.onrender.com/api/brand_users');
 
 
 
@@ -50,7 +50,7 @@ const SponsoredBrands = () => {
 		<div>
 			<h1 className="text-center text-3xl capitalize">Featured Brands</h1>
 			<div className={styles.row}>
-				{data.map((product) => (
+				{data?.map((product) => (
 					<div key={product.id}>
 						<Link href={"/brands/" + product.id}>
 							<div className={styles.imageCol}>

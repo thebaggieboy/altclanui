@@ -24,6 +24,7 @@ import useBrands from '../hooks/useBrands';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 import TrendingMerch from "../components/TrendingMerch";
+import TrendingBrands from "../components/TrendingBrands";
 import Link from "next/link";
 
 const brands = [1, 2, 3, 4]
@@ -105,7 +106,7 @@ export default function Home() {
             <ShopDiv />
             <br /> 
           
-
+            <SponsoredBrands/>
             <TrendingMerch />
             <Cards />
             <Form />
