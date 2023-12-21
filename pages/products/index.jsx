@@ -400,7 +400,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 							{/* Product grid */}
 							<div className="lg:col-span-3 mt-2">
 								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-4 xl:gap-x-8">
+									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
 										{data?.map(
 											({
 												id,
