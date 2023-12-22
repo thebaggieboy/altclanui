@@ -69,7 +69,7 @@ const BrandMerchForm = (props) => {
     labels:"",
     merchandise_description:"",
     merchandise_details:"",
-    category:"",
+    merchandise_gender:"",
     display_image:"",
     size_type:"",
     available_sizes:"",
@@ -100,7 +100,7 @@ const BrandMerchForm = (props) => {
   console.log("Available Colors: ",availableColors)
 
   const brand = useSelector(selectUser)
-	const {brand_name, merchandise_name, size_type, available_sizes,  labels, display_image,merchandise_type, merchandise_gender, discount_price,merchandise_description, merchandise_details,category, price } = formData
+	const {brand_name, merchandise_name, size_type, available_sizes,  labels, display_image,merchandise_type, merchandise_gender, discount_price,merchandise_description, merchandise_details, price } = formData
 
 	//const merchError = formErr?.email || null;
   const inputChangeHandler = (e) => {
@@ -170,7 +170,7 @@ const BrandMerchForm = (props) => {
           <div>
             <label htmlFor="" className={styles.label}>Gender</label>
             <div className="pt-2">
-              <select 	onChange={inputChangeHandler} className={styles.input} name="labels" id="">
+              <select 	onChange={inputChangeHandler} className={styles.input} name="gender" id="gender">
                 <option value="">Choose merch gender</option>
                 {
                   MERCH_FORM_DATA.gender.map((g) => <option key={g} value={g}>{g}</option>)
