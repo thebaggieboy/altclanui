@@ -1,19 +1,17 @@
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
-import { selectUser } from '../features/user/userSlice'
+import { USER_TYPES, selectUser } from '../features/user/userSlice'
 
-const useAddMerchandise = () => {
-    const router = useRouter()
-    const user = useSelector(selectUser)
-
+const useAddMerchandise = (url, successCallback, userType) => {
+    const brand = useSelector(selectUser)
+    const isBrand = userType === USER_TYPES.brand
     const mutation = useMutation({
-        mutationFn: async (merchData) => {
-            console.log(merchData)
-            try {
-                const res = await fetch("https://altclan-brands-api.onrender.com/api/merchandises/", {
+        mutationFn: async ({brand_name, merchandise_name, merchandise_type, merchandise_category, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }) => {
+          
+                const res = await fetch(url, {
                     method: "POST",
-                    body: JSON.stringify(merchData),
+                    body: JSON.stringify({brand_name:brand.brand_name, merchandise_name, merchandise_type, merchandise_category, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }),
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -26,17 +24,18 @@ const useAddMerchandise = () => {
                     return data
                 }
 
+
                 const err = { ...data }
                 throw { err }
 
-            } catch (error) {
-                console.log(error)
+            } ,
+            onSuccess: (data) => {
+                successCallback(user)
+                router.push(`/profile/${user.id}`)
+                console.log(data)
             }
-        },
-        onSuccess: (data) => {
-            router.push(`/profile/${user.id}`)
-            console.log(data)
-        }
+        
+       
     })
 
     return mutation
