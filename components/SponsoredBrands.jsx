@@ -63,7 +63,7 @@ const SponsoredBrands = () => {
 
 									<h1 className={styles.name}>{product.brand_name}</h1>
 
-									<p className={styles.details}>{product.brand_bio}</p>
+								
 								</div>
 							</div>
 						</Link>
