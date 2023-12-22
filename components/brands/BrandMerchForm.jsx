@@ -173,7 +173,7 @@ const BrandMerchForm = (props) => {
               <select 	onChange={inputChangeHandler} className={styles.input} name="labels" id="">
                 <option value="">Choose merch gender</option>
                 {
-                  MERCH_FORM_DATA.gender.map((g) => <option key={g} value={g}>{l}</option>)
+                  MERCH_FORM_DATA.gender.map((g) => <option key={g} value={g}>{g}</option>)
                 }
 
               </select>
