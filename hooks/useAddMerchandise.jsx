@@ -7,7 +7,7 @@ const useAddMerchandise = (url, successCallback, userType) => {
     const brand = useSelector(selectUser)
     const isBrand = userType === USER_TYPES.brand
     const mutation = useMutation({
-        mutationFn: async ({brand_name, merchandise_name, merchandise_type, merchandise_category, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }) => {
+        mutationFn: async ({brand_name, merchandise_name, merchandise_type, merchandise_gender, discount_price, merchandise_category, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }) => {
           
                 const res = await fetch(url, {
                     method: "POST",

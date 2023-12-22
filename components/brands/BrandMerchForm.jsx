@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import useAddMerchandise from '../../hooks/useAddMerchandise';
 import Loader from "../Loader"
-import { selectUser } from '../../features/user/userSlice';
+import { USER_TYPES, selectUser } from '../../features/user/userSlice';
 
 const MERCH_FORM_DATA = {
   categories:
@@ -66,13 +66,11 @@ const BrandMerchForm = (props) => {
     brand_name: "",
     merchandise_name: "",
     merchandise_type: "",
-   
     labels:"",
     merchandise_description:"",
     merchandise_details:"",
     category:"",
     display_image:"",
-
     size_type:"",
     available_sizes:"",
     price:""
@@ -98,13 +96,13 @@ const BrandMerchForm = (props) => {
       setAvailableColors(availableColors.filter((color) => color !== value));
     }
   }
-  console.log(availableSizes)
-  console.log(availableColors)
+  console.log("Available Sizes: ", availableSizes)
+  console.log("Available Colors: ",availableColors)
 
   const brand = useSelector(selectUser)
-	const {brand_name, merchandise_name, size_type, available_sizes,  labels, display_image,merchandise_type, merchandise_description, merchandise_details,category, price } = formData
+	const {brand_name, merchandise_name, size_type, available_sizes,  labels, display_image,merchandise_type, merchandise_gender, discount_price,merchandise_description, merchandise_details,category, price } = formData
 
-	const emailErr = formErr?.email || null;
+	//const merchError = formErr?.email || null;
   const inputChangeHandler = (e) => {
     const { name, value } = e.target
     setFormData((prevValue) => {
@@ -113,29 +111,10 @@ const BrandMerchForm = (props) => {
         [name]: value
       }
     })
-
-  }
-	const submit = async (e) => {
-		e.preventDefault();
-		
-	};
-
-  const [step, setStep] = useState(1);
-
-  const nextStep = () => {
-    setStep(step + 1)
+    console.log("Form Data: ", formData)
   }
 
-  const prevStep = () => {
-    setStep(step - 1)
-  }
 
-  const handleChange = () => {
-
-  }
-  function available_size() {
-    console.log(available_size)
-  }
   const updateMerchandise = async (e) => {
     e.preventDefault()
     
@@ -147,9 +126,9 @@ const BrandMerchForm = (props) => {
       data[key] = value
     }
     console.log(data)
-    // return
-    
-    await updateFn({ ...data, available_sizes: ["S", "M"], display_image: File, brand_name: brand.brand_name })
+  
+
+    await updateFn({ ...data})
 
   }
 
@@ -208,7 +187,7 @@ const BrandMerchForm = (props) => {
             {
                 MERCH_FORM_DATA.colors.map((s) => <div key={s} className=' flex items-center  gap-2'>
                   <input 	onChange={colorInputChange} type='checkbox' className='w-4 h-4' id={s}  value={s} />
-                  <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
+                  <label className='cursor-pointer text-lg' htmlFor={s}>{s}</label>
                 </div>)
               }
 
@@ -246,7 +225,7 @@ const BrandMerchForm = (props) => {
               <select 	onChange={inputChangeHandler} className={styles.input} name="labels" id="">
                 <option value="">Choose merch label</option>
                 {
-                  MERCH_FORM_DATA.labels.map((l) => <option key={l} value="l">{l}</option>)
+                  MERCH_FORM_DATA.labels.map((l) => <option key={l} value={l}>{l}</option>)
                 }
 
               </select>
