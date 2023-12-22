@@ -173,7 +173,7 @@ const BrandMerchForm = (props) => {
               <select 	onChange={inputChangeHandler} className={styles.input} name="labels" id="">
                 <option value="">Choose merch gender</option>
                 {
-                  MERCH_FORM_DATA.gender.map((l) => <option key={l} value="l">{l}</option>)
+                  MERCH_FORM_DATA.gender.map((g) => <option key={g} value={g}>{l}</option>)
                 }
 
               </select>
@@ -267,7 +267,7 @@ const BrandMerchForm = (props) => {
               <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
                 {
                   MERCH_FORM_DATA.size_types.ring.map((s) => <div key={s} className=' flex items-center  gap-2'>
-                    <input type='checkbox' onChange={inputChangeHandler}  className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                    <input type='checkbox'   className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                     <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                   </div>)
                 }
@@ -283,7 +283,7 @@ const BrandMerchForm = (props) => {
               <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
                 {
                   MERCH_FORM_DATA.size_types.wrist.map((s) => <div key={s} className=' flex items-center  gap-2'>
-                    <input type='checkbox' 	onChange={inputChangeHandler} className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                    <input type='checkbox'  className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                     <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                   </div>)
                 }
