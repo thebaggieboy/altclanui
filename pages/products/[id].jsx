@@ -8,14 +8,14 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../features/shop/shopSlice";
 import Link from "next/link";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
-import fetchProducts from "../../lib/fetchProducts";
+import fetchProductData from '../../lib/fetchProductData'
 
 const queryClient = new QueryClient()
 
 export async function getServerSideProps(context) {
 	const id = context.params.id;
-	const data = await queryClient.fetchQuery({ queryKey: ["product", id], queryFn: () => fetchProducts(`https://altclan-brands-api.onrender.com/api/merchandises/${id}`) })
-	
+	const data = await queryClient.fetchQuery({ queryKey: ["product", id], queryFn: () => fetchProductData(id) })
+	console.log(data, id)
 	return {
 		props: { merch: data },
 	};
@@ -65,6 +65,7 @@ export default function ProductDetail({ _id, merch }) {
 	const [selectedSize, setSelectedSize] = useState(product.sizes[1]);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [open, setOpen] = useState(false);
+	console.log(merch.available_sizes)
 
 	console.log(Number("1,000".replace(",", "")));
 	function addToCart() {
@@ -121,30 +122,30 @@ export default function ProductDetail({ _id, merch }) {
 				</nav>
 
 				{/* Image gallery */}
-				
 
-<div class="grid gap-4 p-5">
-    <div>
-        <img class="h-auto max-w-full rounded-lg text-center" src={merch.display_image} alt=""/>
-    </div>
-    <div class="grid grid-cols-5 gap-4">
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt=""/>
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt=""/>
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt=""  />
-        </div>
-        <div>
-            <img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
-        </div>
-    </div>
-</div>
+
+				<div class="grid gap-4 p-5">
+					<div>
+						<img class="h-auto max-w-full rounded-lg text-center" src={merch.display_image} alt="" />
+					</div>
+					<div class="grid grid-cols-5 gap-4">
+						<div>
+							<img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
+						</div>
+						<div>
+							<img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
+						</div>
+						<div>
+							<img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
+						</div>
+						<div>
+							<img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
+						</div>
+						<div>
+							<img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
+						</div>
+					</div>
+				</div>
 
 
 				{/* Product info */}
@@ -159,7 +160,7 @@ export default function ProductDetail({ _id, merch }) {
 					<div className="mt-4 lg:row-span-3 lg:mt-0">
 						<h2 className="sr-only">Product information</h2>
 						<p className="text-3xl tracking-tight text-gray-900">
-						₦{merch.price}
+							₦{merch.price}
 						</p>
 
 						{/* Reviews */}
@@ -205,7 +206,7 @@ export default function ProductDetail({ _id, merch }) {
 										Choose a color{" "}
 									</RadioGroup.Label>
 									<div className="flex items-center space-x-3">
-										{product.colors.map((color) => (
+										{merch.available_colors && merch.available_colors.map((color) => (
 											<RadioGroup.Option
 												key={color.name}
 												value={color}
@@ -257,7 +258,7 @@ export default function ProductDetail({ _id, merch }) {
 										Choose a size{" "}
 									</RadioGroup.Label>
 									<div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-										{product.sizes.map((size) => (
+										{merch.available_sizes && merch.available_sizes.map((size) => (
 											<RadioGroup.Option
 												key={size.name}
 												value={size}
