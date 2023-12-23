@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import styles from "./../../../styles/brand.module.css"
 import MyTabs from "./../../../src/aboutcounter/brandProfile"
 import { useRouter } from 'next/router';
@@ -8,10 +8,11 @@ import { useQuery } from "@tanstack/react-query";
 import fetchProfileData from "../../../lib/fetchProfileData";
 import Link from "next/link"
 
-export default function BrandProfile({ _id, brand }) {
+export default function BrandProfile({ _id, merchandise_name, price, display_image }) {
     const brand_user = useSelector(selectUser)
     const router = useRouter();
     const userId = router.query.id
+
 
     useLayoutEffect(() => {
         if (brand_user === null) {

@@ -5,19 +5,52 @@ import { USER_TYPES, selectUser, selectUserType } from '../../features/user/user
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
 import { useRouter } from 'next/router';
 import { useSelector } from "react-redux";
-
-
-const MyTabs = () => {
+import useBrands from "../../hooks/useBrands"
+import Link from "next/link"
+const MyTabs = ({
+  id,
+  display_image,
+  imageAlt,
+  brand_name,
+  merchandise_name,
+  merchandise_type,
+  labels,
+  price,
+}) => {
   const loading = false;
   //const error = null;
   const brand_user = useSelector(selectBrandUser);
   const router = useRouter();
 
+  const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/")
+
+  
+
+
+
+  if (isLoading) {
+		return (
+			<div className="p-5 pt-5">
+				<h1>Loading...</h1>
+			</div>
+		);
+	}
+
+	if (error) {
+		return (
+			<div className="p-5">
+				<h3>
+					<span className="text-red-600">{error.message}</span>
+				</h3>
+			</div>
+		);
+	}
+  console.log(data)
 
   return (
     <div>
     <Tab.Group>
-      <Tab.List  className="flex space-x-1 rounded-xl bg-white-900/20 p-1">
+      <Tab.List  className="flex space-x-1 rounded-xl bg-white-900/20 p-5 pt-5">
         <Tab className="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black-700">
           Shop
         </Tab>
@@ -31,13 +64,65 @@ const MyTabs = () => {
 
       <Tab.Panels className={styles.tab}>
       <Tab.Panel className="rounded-xl bg-white p-3">
-      <div className="grid grid-cols-2 gap-y-8 lg:gap-y-20 gap-x-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
-      
-      <div className='p-2 text-center flex justify-items-center justify-center'>
-      <p className='text-center text-sm'>No merchandises</p>
-      
-    </div>
-      </div>
+      <div className="lg:col-span-3 mt-2">
+								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
+										{data?.map(
+											({
+												id,
+												display_image,
+												imageAlt,
+												brand_name,
+												merchandise_name,
+												merchandise_type,
+												labels,
+												price,
+											}) => (
+												<div key={id} className="group relative">
+													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
+														<Link href={`/products/${id}`}>
+															<img
+																src={display_image}
+																alt={imageAlt}
+																className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+															/>
+															
+														</Link>
+													</div>
+													<Link href={`/products/${id}`}>
+
+													
+													<div className="flex pt-3 justify-between">
+														<div>
+														<div className="container text-gray-500 text-xs">
+															{labels !== "None" ?
+															 <span style={{backgroundColor:'#F5F5DC', borderRadius:0, fontSize:10}} class=" text-black me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
+															{labels}
+															</span> : ""}
+
+														
+															</div>
+															<h3 className="text-sm pt-2  text-black">
+																{/* An element here was covering the whole card making the add to cart unclickable */}
+																{merchandise_name} 
+															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>{brand_name}</span> 
+															
+															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
+																₦{price}
+															</p>
+
+														
+														</div>
+
+												
+													</div>
+													</Link>
+												</div>
+											)
+										)}
+									</div>
+								</div>
+							</div>
 
       </Tab.Panel>
     

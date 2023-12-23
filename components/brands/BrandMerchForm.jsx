@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useAddMerchandise from '../../hooks/useAddMerchandise';
 import Loader from "../Loader"
 import { USER_TYPES, selectUser } from '../../features/user/userSlice';
+import { selectBrandUser } from '../../features/brands/brandUserSlice';
 
 const MERCH_FORM_DATA = {
   categories:
@@ -55,10 +56,12 @@ gender : ["Male", "Female", "Non-Binary"],
 const BrandMerchForm = (props) => {
   const { isPending, error, mutateAsync: updateFn, data } = useAddMerchandise('https://altclan-brands-api.onrender.com/api/merchandises/', newMerchSuccess,  USER_TYPES.brand)
   const dispatch = useDispatch();
-  const brand_user = useSelector(selectUser);
+  const brand_user = useSelector(selectBrandUser);
   const router = useRouter()
-  async function newMerchSuccess(user) {
-		await router.push("/brands/login");
+  console.log(brand_user)
+
+  async function newMerchSuccess() {
+		await router.push("/brands/profile/" + brand_user?.id);
 	}
 
   const [formErr, setFormErr] = useState(error)
@@ -100,7 +103,21 @@ const BrandMerchForm = (props) => {
   console.log("Available Colors: ",availableColors)
 
   const brand = useSelector(selectUser)
-	const {brand_name, merchandise_name, size_type, available_sizes,  labels, display_image,merchandise_type, merchandise_gender, discount_price,merchandise_description, merchandise_details, price } = formData
+	const {brand_name, merchandise_name, size_type, available_sizes, merchandise_gender,  labels, display_image,merchandise_type, discount_price,merchandise_description, merchandise_details, price } = formData
+  const [image, setImage] = useState(null);
+  const [createObjectURL, setCreateObjectURL] = useState(null);
+  const [formPersonalData, setFormPersonalData] = useState(null)
+
+  const uploadToClient = (event) => {
+
+    if (event.target.files && event.target.files[0]) {
+      const i = event.target.files[0];
+      setImage(i);
+      setCreateObjectURL(URL.createObjectURL(i));
+
+    }
+  };
+
 
 	//const merchError = formErr?.email || null;
   const inputChangeHandler = (e) => {
@@ -117,23 +134,36 @@ const BrandMerchForm = (props) => {
 
   const updateMerchandise = async (e) => {
     e.preventDefault()
-    
     const formData = new FormData(e.target)
+    const imageformData = new FormData(e.target)
+  
     let data = {}
     console.log("Submit button clicked")
     const map = formData.entries()
     for (const [key, value] of map) {
       data[key] = value
     }
-    console.log(data)
-  
 
-    await updateFn({ ...data})
+    imageformData.append("file", image);
+    imageformData.append("upload_preset", 'altclan')
+    
+    const imageData = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
+      method: 'POST',
+      body: imageformData
+    }).then(r => r.json());
+
+    console.log("Image Form Data: ", image)
+    console.log("Image Form URL: ", createObjectURL)
+    console.log(data)
+    console.log(imageData.url)
+    console.log(imageformData)
+
+    await updateFn({brand_name:"",merchandise_name:data.merchandise_name, size_type:data.size_type, labels:data.labels, merchandise_gender:data.gender,merchandise_description:data.merchandise_description, merchandise_details:data.merchandise_details, display_image:imageData.url, price:data.price})
 
   }
 
   if (isPending) {
-    console.log("updating brand")
+    console.log("Updating new merch ")
   }
 
 
@@ -154,7 +184,17 @@ const BrandMerchForm = (props) => {
 
           <p className={styles.login}>Fill in some of your product details</p>
 
-          {error && <p className=' text-red-500 text-sm'>Something went wrong please try again</p>}
+          {error && <div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+          <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>
+          <span class="sr-only">Info</span>
+          <div class="mx-auto text-sm text-center font-medium">
+              Something is wrong
+          </div>
+
+        </div>}
+
           <div>
             <label htmlFor="" className={styles.label}>Merchandise name</label>
             <input type="text" 	onChange={inputChangeHandler} name="merchandise_name" id="brand-name" className={styles.input} placeholder="" required />
@@ -162,9 +202,9 @@ const BrandMerchForm = (props) => {
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Display image</label> <br />
-            <span className={styles.label} style={{fontSize:8.5}}>(This is how your product would be displayed on the shop page.)</span>
+            <span className={styles.label} style={{fontSize:9}}>(This is how your product would be displayed on the shop page.)</span>
 
-            <input type="file" 	onChange={inputChangeHandler} name="display_image" id="brand-name" className={styles.input} placeholder="" required />
+            <input type="file" 	onChange={uploadToClient} name="file" id="file" className={styles.input} placeholder=""  />
 
           </div>
           <div>
@@ -251,7 +291,7 @@ const BrandMerchForm = (props) => {
             <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
               {
                 MERCH_FORM_DATA.size_types.clothing.map((s) => <div key={s} className=' flex items-center  gap-2'>
-                  <input type='checkbox' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                  <input type='checkbox' name='clothing' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                   <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                 </div>)
               }
@@ -267,7 +307,7 @@ const BrandMerchForm = (props) => {
               <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
                 {
                   MERCH_FORM_DATA.size_types.ring.map((s) => <div key={s} className=' flex items-center  gap-2'>
-                    <input type='checkbox'   className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                    <input type='checkbox' name='ring'  className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                     <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                   </div>)
                 }
@@ -283,7 +323,7 @@ const BrandMerchForm = (props) => {
               <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
                 {
                   MERCH_FORM_DATA.size_types.wrist.map((s) => <div key={s} className=' flex items-center  gap-2'>
-                    <input type='checkbox'  className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                    <input type='checkbox' name='wrist' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                     <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                   </div>)
                 }
@@ -299,7 +339,7 @@ const BrandMerchForm = (props) => {
               <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
                 {
                   MERCH_FORM_DATA.size_types.neck.map((s) => <div key={s} className=' flex items-center  gap-2'>
-                    <input type='checkbox' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                    <input type='checkbox' name='neck' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                     <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                   </div>)
                 }
@@ -314,7 +354,7 @@ const BrandMerchForm = (props) => {
               <div className='mx-[10%] my-2 grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-y-2'>
                 {
                   MERCH_FORM_DATA.size_types.foot.map((s) => <div key={s} className=' flex items-center  gap-2'>
-                    <input type='checkbox' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
+                    <input type='checkbox' name='foot' className='w-4 h-4' id={s} onChange={sizeInputChange} value={s} />
                     <label className=' cursor-pointer text-lg' htmlFor={s}>{s}</label>
                   </div>)
                 }
@@ -327,7 +367,7 @@ const BrandMerchForm = (props) => {
           <div>
 
             <label htmlFor="" className={styles.label}>Price (₦)</label>
-            <input type="number" 	onChange={inputChangeHandler} name="merchandise_price" id="mobile_number" className={styles.input} placeholder="" required />
+            <input type="number" 	onChange={inputChangeHandler} name="price" id="price" className={styles.input} placeholder="" required />
 
           </div>
 
