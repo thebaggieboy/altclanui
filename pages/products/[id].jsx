@@ -66,6 +66,7 @@ export default function ProductDetail({ _id, merch }) {
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [open, setOpen] = useState(false);
 	console.log(merch.available_sizes)
+	console.log(merch.available_colors)
 
 	console.log(Number("1,000".replace(",", "")));
 	function addToCart() {

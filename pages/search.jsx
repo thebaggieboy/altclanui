@@ -15,15 +15,27 @@ export default function Search({ _id, merchandise_name, price, picture }) {
   const {cart, addToCart} = useContext(CartContext);
   const [searchQuery, setSearchQuery] = useState('');
   // Results of the search query in an array
+  const router = useRouter()
   const [filteredSearch, setFilteredSearch] = useState([]);
   const [searchResult, setSearchResult] = useState([])
 	const searchParams = useSearchParams();
 	const search = searchParams.get('search')
-	console.log(search)
 	
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
+
+    setTimeout(() => {
+      router.push(`/search?q=${searchQuery}`)
+  
+      console.log("Delayed for 500 millisecond.");
+      clearTimeout(searchQuery);
+    }, 500);
+   
+    
+  
+
   };
+  console.log("Search Query: ", searchQuery)
   const { data, loading, error } = useBrands('https://altclan-brands-api.onrender.com/api/merchandises/')
   //const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
   //const data = fetch('https://altclan-api-v1.onrender.com/api/merchandises/')
@@ -34,12 +46,12 @@ export default function Search({ _id, merchandise_name, price, picture }) {
   useEffect(() => {
 
     if (searchQuery !== null) {
-      const results = data?.filter((product) =>
-        product.merchandise_name.toLowerCase().includes(searchQuery.toLowerCase())
+      const results = data?.filter((product) => product.merchandise_name.toLowerCase().includes(searchQuery.toLowerCase())
         
       );
-      console.log(results)
       setSearchResult(results);
+      
+      console.log("Search Results for ", searchQuery, searchResult)
     } else {
       setSearchResult([]);
     }
@@ -79,7 +91,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
            <section key={product.id } aria-labelledby="products-heading" className="pb-24">
            <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
 									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-4 xl:gap-x-8">
-                  {data?.map(
+                  {searchResult?.map(
 											({
 												id,
 												display_image,
@@ -89,7 +101,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 												merchandise_type,
 												labels,
 												price,
-											}) => (
+											}) =>(
 												<div key={id} className="group relative">
 													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
 														<Link href={`/products/${id}`}>
@@ -108,7 +120,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 														<div>
 														<div className="container text-gray-500 text-xs">
 															{labels != "None" ?
-															 <span class="bg-white text-black text-xs me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
+															 <span style={{backgroundColor:'#F5F5DC', borderRadius:0, fontSize:10}} class=" text-black me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
 															{labels}
 															</span> : ""}
 
@@ -131,6 +143,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 													</Link>
 												</div>
 											)
+
 										)}
 									</div>
 								</div>
