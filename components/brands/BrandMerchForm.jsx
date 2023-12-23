@@ -158,7 +158,7 @@ const BrandMerchForm = (props) => {
     console.log(imageData.url)
     console.log(imageformData)
 
-    await updateFn({brand_name:"",merchandise_name:data.merchandise_name, size_type:data.size_type, labels:data.labels, merchandise_gender:data.gender,merchandise_description:data.merchandise_description, merchandise_details:data.merchandise_details, display_image:imageData.url, price:data.price})
+    await updateFn({brand_name:"",merchandise_name:data.merchandise_name, size_type:data.size_type, labels:data.labels, merchandise_gender:data.merchandise_gender,merchandise_description:data.merchandise_description, merchandise_details:data.merchandise_details, merchandise_type:data.merchandise_type, display_image:imageData.url, price:data.price})
 
   }
 
@@ -210,7 +210,7 @@ const BrandMerchForm = (props) => {
           <div>
             <label htmlFor="" className={styles.label}>Gender</label>
             <div className="pt-2">
-              <select 	onChange={inputChangeHandler} className={styles.input} name="gender" id="gender">
+              <select 	onChange={inputChangeHandler} className={styles.input} name="merchandise_gender" id="merchandise_gender">
                 <option value="">Choose merch gender</option>
                 {
                   MERCH_FORM_DATA.gender.map((g) => <option key={g} value={g}>{g}</option>)
@@ -249,7 +249,7 @@ const BrandMerchForm = (props) => {
           <div>
             <label htmlFor="" className={styles.label}>Category</label>
             <div className="pt-2">
-              <select 	onChange={inputChangeHandler} className={styles.input} name="merchandise_type" id="">
+              <select onChange={inputChangeHandler} className={styles.input} name="merchandise_type" id="">
                 <option value="" selected disabled>Choose merch category</option>
                 {
                   MERCH_FORM_DATA.categories.map((c) => <option key={c} value={c}>{c}</option>)
