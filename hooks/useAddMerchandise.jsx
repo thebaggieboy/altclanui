@@ -33,7 +33,7 @@ const useAddMerchandise = (url, successCallback, userType) => {
             } ,
             onSuccess: (data) => {
                 successCallback(brand)
-                router.push(`/brands/profile/${brand.id}`)
+                //router.push(`/brands/profile/${brand.id}`)
                 console.log(data)
             }
         

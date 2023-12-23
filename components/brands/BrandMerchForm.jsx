@@ -236,7 +236,7 @@ const BrandMerchForm = (props) => {
           <div>
             <label htmlFor="" className={styles.label}>Gender</label>
             <div className="pt-2">
-              <select onChange={inputChangeHandler} className={styles.input} name="gender" id="gender">
+              <select 	onChange={inputChangeHandler} className={styles.input} name="merchandise_gender" id="merchandise_gender">
                 <option value="">Choose merch gender</option>
                 {
                   MERCH_FORM_DATA.gender.map((g) => <option key={g} value={g}>{g}</option>)
