@@ -19,14 +19,14 @@ const MyTabs = ({
 }) => {
   const loading = false;
   //const error = null;
-  const brand_user = useSelector(selectBrandUser);
+  const brand_user = useSelector(selectUser);
   const router = useRouter();
-
+  const searchQuery = brand_user?.brand_name
   const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/")
 
-  
-
-
+  const results = data?.filter(product => product.brand_name == searchQuery)
+  console.log("Results: " + results)
+  console.log("brand_user: " + brand_user.brand_name)
 
   if (isLoading) {
 		return (
@@ -67,7 +67,7 @@ const MyTabs = ({
       <div className="lg:col-span-3 mt-2">
 								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
 									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
-										{data?.map(
+										{results?.map(
 											({
 												id,
 												display_image,
@@ -105,7 +105,7 @@ const MyTabs = ({
 															<h3 className="text-sm pt-2  text-black">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
 																{merchandise_name} 
-															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>{brand_name}</span> 
+															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>{brand_name} (You)</span> 
 															
 															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
 																₦{price}

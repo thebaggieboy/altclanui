@@ -46,9 +46,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
   useEffect(() => {
 
     if (searchQuery !== null) {
-      const results = data?.filter((product) => product.merchandise_name.toLowerCase().includes(searchQuery.toLowerCase())
-        
-      );
+      const results = data?.filter((product) => product.merchandise_name.toLowerCase().includes(searchQuery.toLowerCase()) );
       setSearchResult(results);
       
       console.log("Search Results for ", searchQuery, searchResult)

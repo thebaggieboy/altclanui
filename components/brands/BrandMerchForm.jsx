@@ -1,4 +1,4 @@
-import React, { use, useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import styles from '../../styles/brand-merchandise.module.css';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,7 +6,7 @@ import useAddMerchandise from '../../hooks/useAddMerchandise';
 import Loader from "../Loader"
 import { USER_TYPES, selectUser } from '../../features/user/userSlice';
 import { selectBrandUser } from '../../features/brands/brandUserSlice';
-
+useEffect
 const MERCH_FORM_DATA = {
   categories:
     ["T-shirts",
@@ -56,7 +56,7 @@ const MERCH_FORM_DATA = {
 const BrandMerchForm = (props) => {
   const { isPending, error, mutateAsync: updateFn, data } = useAddMerchandise('https://altclan-brands-api.onrender.com/api/merchandises/', newMerchSuccess, USER_TYPES.brand)
   const dispatch = useDispatch();
-  const brand_user = useSelector(selectBrandUser);
+  const brand_user = useSelector(selectUser)
   const router = useRouter()
   // console.log(brand_user)
 
@@ -66,7 +66,7 @@ const BrandMerchForm = (props) => {
 
   const [formErr, setFormErr] = useState(error)
   const [formData, setFormData] = useState({
-    brand_name: "",
+    brand_name: brand_user?.brand_name,
     merchandise_name: "",
     merchandise_type: "",
     labels: "",
@@ -102,11 +102,18 @@ const BrandMerchForm = (props) => {
   console.log("Available Sizes: ", availableSizes)
   console.log("Available Colors: ", availableColors)
 
-  const brand = useSelector(selectUser)
+  console.log("Brand User: ", brand_user)
   const { brand_name, merchandise_name, size_type, available_sizes, merchandise_gender, labels, display_image, merchandise_type, discount_price, merchandise_description, merchandise_details, price } = formData
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
   const [formPersonalData, setFormPersonalData] = useState(null)
+
+	useEffect(() => {
+		if (brand_user === null) {
+			router.push("/brands/login");
+		}
+
+	}, [brand_user]);
 
   const uploadToClient = (event) => {
 
@@ -157,33 +164,21 @@ const BrandMerchForm = (props) => {
     console.log(data)
     console.log(imageData.url)
     console.log(imageformData)
-    console.log({
-      brand_name: "",
-      merchandise_name: data.merchandise_name,
-      size_type: sizeType,
-      labels: data.labels,
-      merchandise_gender: data.gender,
-      merchandise_description: data.merchandise_description,
-      merchandise_details: data.merchandise_details,
-      display_image: imageData.url,
-      price: data.price,
-      available_sizes: availableSizes,
-      available_colors: availableColors
-    })
 
     await updateFn(
       {
-        brand_name: "",
+        brand_name: brand_user?.brand_name,
         merchandise_name: data.merchandise_name,
         size_type: sizeType,
         labels: data.labels,
-        merchandise_gender: data.gender,
+        merchandise_gender: data.merchandise_gender,
         merchandise_description: data.merchandise_description,
         merchandise_details: data.merchandise_details,
         display_image: imageData.url,
         price: data.price,
         available_sizes: availableSizes,
-        available_colors: availableColors
+        available_colors: availableColors,
+        merchandise_type:data.merchandise_type
       }
     )
   }
@@ -228,8 +223,7 @@ const BrandMerchForm = (props) => {
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Display image</label> <br />
-            <span className={styles.label} style={{ fontSize: 9 }}>(This is how your product would be displayed on the shop page.)</span>
-
+      
             <input type="file" onChange={uploadToClient} name="file" id="file" className={styles.input} placeholder="" />
 
           </div>
@@ -268,8 +262,7 @@ const BrandMerchForm = (props) => {
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Details </label> <br />
-            <span className={styles.label} style={{ fontSize: 12 }}>(Fill in additional details like highlights etc)</span>
-
+        
             <textarea onChange={inputChangeHandler} type="text" name="merchandise_details" id="bio" placeholder="" className={styles.input} required></textarea>
           </div>
           <div>

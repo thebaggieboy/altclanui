@@ -74,10 +74,14 @@ export default function BrandProfile({ _id, merchandise_name, price, display_ima
                     <div>
                         <MyTabs />
                     </div>
-                </div>
+                </div> <br/><br/>
+                <div className='pt-10 text-center'>
+        
+        </div>
             </>
         ) : <div className='p-10 text-center'>
             <p></p>
+
         </div>
 
     )
