@@ -25,9 +25,7 @@ export default function about() {
         </h1>
 
         <p style={{fontSize:12}}>
-        Our startup aims to solve the problem of isolation and lack of community among people who identify with alternative cultures, creative & digital arts, exciting aesthetics & fashion. 
-          Many individuals who identify with these communities may feel like they are outsiders in a mainstream society, and may not have a sense of belonging or connection to others who share their interests and values. 
-
+        Our startup wants to help people who love unique cultures, creative arts, and cool styles connect with each other. Sometimes, those who are into these things feel a bit left out in regular society. We want to create a place where they can feel part of a community and connect with like-minded people who share their interests.
         </p> <br/>
       </div>
 
