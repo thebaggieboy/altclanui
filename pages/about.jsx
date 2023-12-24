@@ -149,9 +149,7 @@ export default function about() {
                 Fourth
               </p>
               <p>
-                It can be a source of inspiration for people looking to start their own brands, projects or movements. 
-                Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. 
-                This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
+                 In short, our platform is a cool place where people feel like they belong, discover unique subcultures, and embrace anti-mainstream vibes. It also boosts the voices of those who go against the norm and provides inspiration and opportunities. It's a valuable resource for anyone into unconventional, anti-mainstream, and new cultures.
               </p>
             </div>
             <div className={styles.columnTwo}>
