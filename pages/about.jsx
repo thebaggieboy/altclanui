@@ -117,8 +117,7 @@ export default function about() {
                 Second
               </p>
               <p>
-     Our platform provides an opportunity for people to interact and learn from different unethical, trendy, unique and diverse communities. 
-               
+     Our platform offers a chance for individuals to engage and gain insights from various unconventional, stylish, distinctive, and diverse communities.
               </p>
             </div>
             <div className={styles.columnTwo}>
