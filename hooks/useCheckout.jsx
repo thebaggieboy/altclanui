@@ -4,16 +4,16 @@ import { useSelector } from 'react-redux'
 import { USER_TYPES, selectUser } from '../features/user/userSlice'
 import { selectBrandUser } from '../features/brands/brandUserSlice'
 
-const useAddMerchandise = (url, successCallback, userType) => {
-    const brand = useSelector(selectUser)
+const useCheckout = (url, successCallback, userType) => {
+    const user = useSelector(selectUser)
     const router= useRouter()
-    const isBrand = userType === USER_TYPES.brand
+    const isBrand = userType === USER_TYPES.user
     const mutation = useMutation({
-        mutationFn: async ({brand_name, merchandise_name, merchandise_type, merchandise_gender, discount_price, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }) => {
+        mutationFn: async ({paystack_charge_id, amount, status, time }) => {
           
                 const res = await fetch(url, {
                     method: "POST",
-                    body: JSON.stringify({brand_name, merchandise_name, merchandise_type, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }),
+                    body: JSON.stringify({paystack_charge_id, amount, status, time}),
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -32,7 +32,7 @@ const useAddMerchandise = (url, successCallback, userType) => {
 
             } ,
             onSuccess: (data) => {
-                successCallback(brand)
+                successCallback(user)
                 //router.push(`/brands/profile/${brand.id}`)
                 console.log(data)
             }
@@ -43,4 +43,4 @@ const useAddMerchandise = (url, successCallback, userType) => {
     return mutation
 }
 
-export default useAddMerchandise
+export default useCheckout
