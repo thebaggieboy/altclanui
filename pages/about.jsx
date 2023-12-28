@@ -25,9 +25,7 @@ export default function about() {
         </h1>
 
         <p style={{fontSize:12}}>
-        Our startup aims to solve the problem of isolation and lack of community among people who identify with alternative cultures, creative & digital arts, exciting aesthetics & fashion. 
-          Many individuals who identify with these communities may feel like they are outsiders in a mainstream society, and may not have a sense of belonging or connection to others who share their interests and values. 
-
+        Our startup wants to help people who love unique cultures, creative arts, and cool styles connect with each other. Sometimes, those who are into these things feel a bit left out in regular society. We want to create a place where they can feel part of a community and connect with like-minded people who share their interests.
         </p> <br/>
       </div>
 
@@ -119,8 +117,7 @@ export default function about() {
                 Second
               </p>
               <p>
-     Our platform provides an opportunity for people to interact and learn from different unethical, trendy, unique and diverse communities. 
-               
+     Our platform offers a chance for individuals to engage and gain insights from various unconventional, stylish, distinctive, and diverse communities.
               </p>
             </div>
             <div className={styles.columnTwo}>
@@ -152,9 +149,7 @@ export default function about() {
                 Fourth
               </p>
               <p>
-                It can be a source of inspiration for people looking to start their own brands, projects or movements. 
-                Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. 
-                This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
+                It can be a source of inspiration for people looking to start their own brands, projects or movements. Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
               </p>
             </div>
             <div className={styles.columnTwo}>
@@ -164,8 +159,9 @@ export default function about() {
         </div>
 
         <p>
-          In summary, our platform offers a sense of belonging and community, a unique way to explore different subcultures & communities, amplifies the voices of anti-mainstream culture, and offers inspiration and opportunities for its users. 
-          These features make it an extremely valuable resource for consumers and audiences who are interested in unethical, anti-mainstream and new cultures and movements.
+          In short, our platform is a cool place where people feel like they belong, discover unique subcultures, and embrace anti-mainstream vibes. 
+                It also boosts the voices of those who go against the norm and provides inspiration and opportunities. 
+                It's a valuable resource for anyone into unconventional, anti-mainstream, and new cultures.
         </p>
 
       </div> 
