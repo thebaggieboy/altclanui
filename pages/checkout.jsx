@@ -52,9 +52,9 @@ export default function Checkout({ merchs }) {
   const router = useRouter()
   const amount = grandTotal * 100
   const email = user?.email
-  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-brands-api.onrender.com/api/payments/',  USER_TYPES.user)
+  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/',checkoutSuccess,  USER_TYPES.user)
   async function checkoutSuccess() {
-    await router.push("/brands/profile/" + brand_user?.id);
+    //await router.push("/brands/profile/" + brand_user?.id);
   }  
   const componentProps = {
     email,
