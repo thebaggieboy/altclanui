@@ -13,7 +13,7 @@ const useCheckout = (url, successCallback, userType) => {
           
                 const res = await fetch(url, {
                     method: "POST",
-                    body: JSON.stringify({paystack_charge_id, amount, status, time}),
+                    body: JSON.stringify({paystack_charge_id, amount, status}),
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -32,7 +32,7 @@ const useCheckout = (url, successCallback, userType) => {
 
             } ,
             onSuccess: (data) => {
-                successCallback(user)
+                
                 //router.push(`/brands/profile/${brand.id}`)
                 console.log(data)
             }

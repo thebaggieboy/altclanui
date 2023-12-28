@@ -14,7 +14,7 @@ import useCheckout from '../hooks/useCheckout';
 
 export async function getServerSideProps(context) {
   const res = await fetch(
-    `https://altclan-brands-api.onrender.com/api/merchandises/`
+    `https://altclan-brands-api.onrender.com/api/merchandises`
   );
   //const res = await fetch(`http://127.0.0.1:8000/api/merchandises/₦{id}`);
   const data = await res.json();
@@ -23,26 +23,6 @@ export async function getServerSideProps(context) {
   return {
     props: { merchs: data },
   };
-}
-
-async function postPayment(e){
-  e.preventDefault()
-  const formData = new FormData(e.target)
-  let checkoutData = {}
-  console.log("Submit button clicked")
-  const map = formData.entries()
-  for (const [key, value] of map) {
-    checkoutData[key] = value
-  }
-
-  console.log("Payment button clicked")
-  await updateFn(
-    {
-      paystack_charge_id:checkoutData.paystack_charge_id,
-      amount:checkoutData.amount,
-      status:checkoutData.status
-    }
-  )
 }
 
 
@@ -72,10 +52,10 @@ export default function Checkout({ merchs }) {
   const router = useRouter()
   const amount = grandTotal * 100
   const email = user?.email
-  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-brands-api.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
+  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-brands-api.onrender.com/api/payments/',  USER_TYPES.user)
   async function checkoutSuccess() {
-    //await router.push("/payment-success");
-  }
+    await router.push("/brands/profile/" + brand_user?.id);
+  }  
   const componentProps = {
     email,
     amount,
@@ -86,10 +66,16 @@ export default function Checkout({ merchs }) {
     publicKey,
     text: "Pay Now",
     onSuccess: () => {
-
-      postPayment()
-      dispatch(clearCart())
-      router.push('/payment-success')
+      console.log("Payment button clicked")
+  
+      updateFn({
+        paystack_charge_id:"",
+        amount:amount,
+        status:"C",
+      })
+      //postPayment()
+      //dispatch(clearCart())
+      //router.push('/payment-success')
     }
 
   }

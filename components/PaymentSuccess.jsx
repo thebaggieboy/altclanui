@@ -14,9 +14,9 @@ export default function PaymentSuccess() {
             <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">Payment Done!</h3>
             <p className="text-gray-600 my-2">Thank you for completing your secure online payment.</p>
             <p> Have a great day!  </p>
-            <div className="py-10 text-center">
-              <a href="#" className="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
-                GO BACK
+            <div className="py-5 text-center">
+              <a href="/products" className="px-12 bg-black text-white font-semibold py-3">
+                Continue shopping
               </a>
             </div>
           </div>
