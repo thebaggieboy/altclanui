@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -13,6 +13,9 @@ import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
 import Link from "next/link";
 import Head from "next/head"
+import { useSearchParams } from 'next/navigation'
+
+
 const sortOptions = [
 	{ name: "Most Popular", href: "#", current: true },
 	{ name: "Best Rating", href: "#", current: false },
@@ -75,7 +78,28 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
+	const [searchQuery, setSearchQuery] = useState('');
+	// Results of the search query in an array
+	//const router = useRouter()
+	const [filteredSearch, setFilteredSearch] = useState([]);
+	const searchParams = useSearchParams();
+	const search = searchParams.get('q')
+	const gender = searchParams.get('g')
 	
+	console.log("Search params: " + search)
+	console.log("Gender params: " + gender)
+
+	useEffect(() => {
+
+		
+		  const labelResults = data?.filter((product) => product.labels.toLowerCase().includes(search.toLowerCase()) );
+		  const merchandiseTypeResult = data?.filter((product) => product.merchandise_type.toLowerCase().includes(search.toLowerCase()) );
+		  console.log("Label Results: ", labelResults)
+		  console.log("Product Type Results: ", merchandiseTypeResult)
+		
+		  console.log("Search Results for ", search)
+		
+	  }, [searchQuery, data]);
 
 	if (isLoading) {
 		return (

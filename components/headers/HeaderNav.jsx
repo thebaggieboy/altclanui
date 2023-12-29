@@ -37,7 +37,7 @@ const navigation = {
 			featured: [
 				{
 					name: "New Arrivals",
-					href: "#",
+					href: "/products?q=New Merchandise",
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
 					imageAlt:
@@ -45,7 +45,7 @@ const navigation = {
 				},
 				{
 					name: "Basic Tees",
-					href: "#",
+					href: "/products?q=T-shirts",
 
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
@@ -58,26 +58,31 @@ const navigation = {
 					id: "clothing",
 					name: "Clothing",
 					items: [
-						{ name: "Tops", href: "#" },
-						{ name: "Dresses", href: "#" },
-						{ name: "Pants", href: "#" },
-						{ name: "Denim", href: "#" },
-						{ name: "Sweaters", href: "#" },
-						{ name: "T-Shirts", href: "#" },
-						{ name: "Jackets", href: "#" },
-						{ name: "Browse All", href: "#" },
+						{ name: "Tops", href: "/products?q=Tops&g=women" },
+						{ name: "Dresses", href: "/products?q=Dresses&g=women" },
+						{ name: "Pants", href: "/products?q=Pants&g=women" },
+						{ name: "Denim", href: "/products?q=Denim&g=women" },
+						{ name: "Sweaters", href: "/products?q=Sweatshirts&g=women" },
+						{ name: "T-Shirts", href: "/products?q=T-shirts&g=women" },
+						{ name: "Jackets", href: "/products?q=Jackets&g=women" },
+						{ name: "Hoodies", href: "/products?q=Hoodies&g=women" },
+						{ name: "Masks", href: "/products?q=Masks&g=women" },
+						{ name: "Browse All", href: "/products?g=women" },
 					],
 				},
 				{
 					id: "accessories",
 					name: "Accessories",
 					items: [
-						{ name: "Watches", href: "#" },
-						{ name: "Wallets", href: "#" },
-						{ name: "Bags", href: "#" },
-						{ name: "Sunglasses", href: "#" },
-						{ name: "Hats", href: "#" },
-						{ name: "Belts", href: "#" },
+						{ name: "Watches", href: "/products?q=Watches" },
+				
+						{ name: "Bags", href: "/products?q=Bags" },
+						{ name: "Sunglasses", href: "/products?q=Shades" },
+						{ name: "Hats", href: "/products?q=Hats" },
+						{ name: "Pendants", href: "/products?q=Pendants" },
+						{ name: "Piercings & Studs", href: "/products?q=Piercings & Studs" },
+						{ name: "Belts", href: "/products?q=Belts" },
+				
 					],
 				},
 			],
@@ -88,7 +93,7 @@ const navigation = {
 			featured: [
 				{
 					name: "New Arrivals",
-					href: "#",
+					href: "/products?q=New Merchandise",
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
 					imageAlt:
@@ -96,7 +101,7 @@ const navigation = {
 				},
 				{
 					name: "Artwork Tees",
-					href: "#",
+					href: "/products?q=T-shirts",
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
 					imageAlt:
@@ -108,24 +113,31 @@ const navigation = {
 					id: "clothing",
 					name: "Clothing",
 					items: [
-						{ name: "Tops", href: "#" },
-						{ name: "Pants", href: "#" },
-						{ name: "Sweaters", href: "#" },
-						{ name: "T-Shirts", href: "#" },
-						{ name: "Jackets", href: "#" },
-						{ name: "Browse All", href: "#" },
+						{ name: "Tops", href: "/products?q=Tops&g=men" },
+						
+						{ name: "Pants", href: "/products?q=Pants&g=men" },
+						{ name: "Denim", href: "/products?q=Denim&g=men" },
+						{ name: "Sweaters", href: "/products?q=Sweatshirts&g=men" },
+						{ name: "T-Shirts", href: "/products?q=T-shirts&g=men" },
+						{ name: "Jackets", href: "/products?q=Jackets&g=men" },
+						{ name: "Hoodies", href: "/products?q=Hoodies&g=men" },
+						{ name: "Masks", href: "/products?q=Masks&g=men" },
+						{ name: "Browse All", href: "/products?g=men" },
 					],
 				},
 				{
 					id: "accessories",
 					name: "Accessories",
 					items: [
-						{ name: "Watches", href: "#" },
-						{ name: "Wallets", href: "#" },
-						{ name: "Bags", href: "#" },
-						{ name: "Sunglasses", href: "#" },
-						{ name: "Hats", href: "#" },
-						{ name: "Belts", href: "#" },
+						{ name: "Watches", href: "/products?q=Watches&g=men" },
+				
+						{ name: "Bags", href: "/products?q=Bags&g=men" },
+						{ name: "Sunglasses", href: "/products?q=Shades&g=men" },
+						{ name: "Hats", href: "/products?q=Hats&g=men" },
+						{ name: "Pendants", href: "/products?q=Pendants&g=men" },
+						{ name: "Piercings & Studs", href: "/products?q=Piercings & Studs&g=men" },
+						{ name: "Belts", href: "/products?q=Belts&g=men" },
+				
 					],
 				},
 			],

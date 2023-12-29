@@ -15,10 +15,12 @@ const MERCH_FORM_DATA = {
       "T-shirts",
       "Tops",
       "Rings",
+
       "Chains & Necklaces",
       "Jeans",
       "Jackets",
       "Joggers",
+      "Denim",
       "Skating",
       "Sweatshirts",
       "Hoodies",

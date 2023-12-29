@@ -71,6 +71,8 @@ const SponsoredBrands = () => {
 				))}
 			</div>
 		</div>
+
+		
 	);
 };
 
