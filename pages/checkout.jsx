@@ -11,7 +11,7 @@ import Shipping from "../components/Shipping"
 import { useRouter } from 'next/router';
 import { clearCart } from '../features/shop/shopSlice';
 import useCheckout from '../hooks/useCheckout';
-
+import Link from "next/link"
 export async function getServerSideProps(context) {
   const res = await fetch(
     `https://altclan-brands-api.onrender.com/api/merchandises`
@@ -34,8 +34,9 @@ export default function Checkout({ merchs }) {
   //const email = "thebaggieboy@protonmail.com"
 
   const phone = "+2349093329384"
-  const [firstName, setfirstName] = useState('')
-  const [lastName, setlastName] = useState('')
+  const firstName = user?.first_name
+  const lastName = user?.last_name
+
   //const name = "Enimofe"
   const name = firstName + " " + lastName
   const [city, setcity] = useState('')
@@ -45,7 +46,7 @@ export default function Checkout({ merchs }) {
   const cartItems = useSelector(selectCartItems);
   const total = useSelector(selectCartTotal);
 
-  const shippingFee = 8;
+  const shippingFee = 0;
   const grandTotal = shippingFee + total;
  
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
@@ -56,12 +57,27 @@ export default function Checkout({ merchs }) {
   async function checkoutSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
   }  
+  const https = require('https')
+
+  const randomAlphaNumeric = length => {
+    let s = '';
+    Array.from({ length }).some(() => {
+      s += Math.random().toString(36).slice(2);
+      return s.length >= length;
+    });
+    return s.slice(0, length);
+  };
+  
+  const ref = randomAlphaNumeric(16); 
+  
+console.log(ref)
   const componentProps = {
     email,
     amount,
     metadata: {
       name,
       phone,
+      ref,
     },
     publicKey,
     text: "Pay Now",
@@ -70,15 +86,17 @@ export default function Checkout({ merchs }) {
   
       updateFn({
         paystack_charge_id:"",
-        amount:amount,
+        amount:amount/100,
         status:"C",
       })
-      //postPayment()
+    
+      
       //dispatch(clearCart())
       //router.push('/payment-success')
     }
 
   }
+  console.log(componentProps)
 
   const [step, setStep] = useState(2);
 
@@ -138,7 +156,7 @@ export default function Checkout({ merchs }) {
               {cartItems.map((item) => {
                 const data = merchs.find((m) => m.id === item.itemId);
                 return (
-                  <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} />
+                 <Link href={`/products/${item.id}`}> <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
                 );
               })}
 
@@ -215,7 +233,7 @@ export default function Checkout({ merchs }) {
               {cartItems.map((item) => {
                 const data = merchs?.find((m) => m.id === item.itemId);
                 return (
-                  <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} />
+                  <Link href={`/products/${item.itemId}`}><OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
                 );
               })}
 
