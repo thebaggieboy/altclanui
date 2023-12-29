@@ -79,9 +79,6 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [searchQuery, setSearchQuery] = useState('');
-	// Results of the search query in an array
-	//const router = useRouter()
-	const [filteredSearch, setFilteredSearch] = useState([]);
 	const searchParams = useSearchParams();
 	const search = searchParams.get('q')
 	const gender = searchParams.get('g')
@@ -90,13 +87,10 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	console.log("Gender params: " + gender)
 
 	useEffect(() => {
-
-		
 		  const labelResults = data?.filter((product) => product.labels.toLowerCase().includes(search.toLowerCase()) );
 		  const merchandiseTypeResult = data?.filter((product) => product.merchandise_type.toLowerCase().includes(search.toLowerCase()) );
 		  console.log("Label Results: ", labelResults)
 		  console.log("Product Type Results: ", merchandiseTypeResult)
-		
 		  console.log("Search Results for ", search)
 		
 	  }, [searchQuery, data]);
