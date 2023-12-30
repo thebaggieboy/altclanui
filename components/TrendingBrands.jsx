@@ -2,8 +2,10 @@ import React from "react";
 import CarouselWrapper from "./CarouselWrapper";
 import ProductCard from "./product-card/ProductCard";
 import useBrands from '../hooks/useBrands'
+import BrandCard from "./BrandCard"
+
 export default function TrendingBrands() {
-	const brands = [1, 2, 3, 4];
+	const brands = [1, 2, 3, 4, 5];
 	const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 	const carouselBreakpoints = {
@@ -40,7 +42,7 @@ export default function TrendingBrands() {
 	const num = 2;
 	num.toLocaleString();
 
-	console.log(data);
+	console.log("Trending brands: ", data);
 
 	return (
 		<>
@@ -57,7 +59,7 @@ export default function TrendingBrands() {
 				>
 					{data.map((d, i) => {
 						if (i <= 10) {
-							return <ProductCard key={d.id} data={d} />;
+							return <BrandCard key={d.id} data={d} />;
 						}
 					})}
 				</CarouselWrapper>

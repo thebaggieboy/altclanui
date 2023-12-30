@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
@@ -13,6 +13,9 @@ import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
 import Link from "next/link";
 import Head from "next/head"
+import { useSearchParams } from 'next/navigation'
+
+
 const sortOptions = [
 	{ name: "Most Popular", href: "#", current: true },
 	{ name: "Best Rating", href: "#", current: false },
@@ -21,7 +24,7 @@ const sortOptions = [
 	{ name: "Price: High to Low", href: "#", current: false },
 ];
 const subCategories = [
-	{ name: "New Merch", href: "/products?q=new_merch" },
+	{ name: "New Merch", href: "/products?q=New Merchandise" },
 	{ name: "Brands", href: "/brands" },
 	{ name: "Limited Edition", href: "/products?q=limited_edition" },
 	{ name: "Arts", href: "/products?q=arts" },
@@ -75,7 +78,29 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
+	const [searchQuery, setSearchQuery] = useState('');
+	const [genderQuery, setGenderQuery] = useState('');
+	const searchParams = useSearchParams();
+	const search = searchParams.get('q')
+	const gender = searchParams.get('g')
+
 	
+	useEffect(() => {
+		if (searchQuery != null){
+		setSearchQuery(search)
+	    setGenderQuery(search)
+		console.log("Search params: " + searchQuery)
+		console.log("Gender params: " + genderQuery)
+
+        const labelResults = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
+		  const merchandiseTypeResult = data?.filter((product) => product.merchandise_type.toLowerCase().includes(genderQuery.toLowerCase()) );
+		  console.log("Label Results: ", labelResults)
+		  console.log("Product Type Results: ", merchandiseTypeResult)
+		  //console.log("Search Results for ", search)
+		}
+		  
+		
+	  }, [search, searchQuery, data]);
 
 	if (isLoading) {
 		return (
@@ -185,9 +210,9 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 										>
 											{subCategories.map((category) => (
 												<li key={category.name}>
-													<a href={category.href} className="block px-2 py-3">
+													<Link href={category.href} className="block px-2 py-3">
 														{category.name}
-													</a>
+													</Link>
 												</li>
 											))}
 										</ul>
@@ -333,7 +358,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 								>
 									{subCategories.map((category) => (
 										<li className="mt-3" key={category.name}>
-											<a href={category.href}>{category.name}</a>
+											<Link href={category.href}>{category.name}</Link>
 										</li>
 									))}
 								</ul>

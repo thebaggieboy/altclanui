@@ -40,7 +40,7 @@ export default function TrendingMerch() {
 	const num = 2;
 	num.toLocaleString();
 
-	console.log(data);
+	console.log("Trending merchandise: ", data);
 
 	return (
 		<>

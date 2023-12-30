@@ -4,21 +4,21 @@ import { FiExternalLink, FiHeart } from "react-icons/fi";
 
 import Link from "next/link";
 
-const ProductCard = ({ data }) => {
+const BrandCard = ({ data }) => {
 	const [liked, setLiked] = useState(false);
 	
 
-	const { merchandise_name, price, display_image, id } = data;
+	const { brand_name, display_image, brand_type, id } = data;
 
 	return (
 		<div className="product-card">
 			<div className="product-card__img relative">
-				<Image src={display_image} fill alt={merchandise_name} />
+				<Image src={display_image} fill alt={brand_name} />
 			</div>
 			<div className="product-card__content">
 				<div className="product-card__info">
-					<h1 className="product-card__name">{merchandise_name}</h1>
-					<p className="product-card__price">₦ {price}</p>
+					<h1 className="product-card__name">{brand_name}</h1>
+					<p className="product-card__price">{brand_type}</p>
 				</div>
 				<div className="product-card__actions flex flex-col items-center justify-between gap-y-3">
 					<button
@@ -42,4 +42,4 @@ const ProductCard = ({ data }) => {
 	);
 };
 
-export default ProductCard;
+export default BrandCard;

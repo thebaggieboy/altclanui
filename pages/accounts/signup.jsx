@@ -34,7 +34,7 @@ export default function SignUp() {
 	}
 
 	function signUpSuccess() {
-		router.push("/accounts/login")
+		router.push("/accounts/login?user=success")
 	}
 
 	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/dj-rest-auth/registration/", signUpSuccess,

@@ -16,9 +16,10 @@ const nextConfig = {
                 port:"",
                 pathname:"/media/**"
             }
-        ]
+        ],
+        domains: ['res.cloudinary.com'],
     },
-    
+   
 }
 
 module.exports = nextConfig
