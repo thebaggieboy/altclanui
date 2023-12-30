@@ -91,8 +91,8 @@ console.log(ref)
       })
     
       
-      //dispatch(clearCart())
-      //router.push('/payment-success')
+      dispatch(clearCart())
+      router.push('/payment-success?order=success')
     }
 
   }

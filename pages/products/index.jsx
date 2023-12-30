@@ -54,18 +54,7 @@ const filters = [
 			{ value: "accessories", label: "Accessories", checked: false },
 		],
 	},
-	{
-		id: "size",
-		name: "Size",
-		options: [
-			{ value: "2l", label: "2L", checked: false },
-			{ value: "6l", label: "6L", checked: false },
-			{ value: "12l", label: "12L", checked: false },
-			{ value: "18l", label: "18L", checked: false },
-			{ value: "20l", label: "20L", checked: false },
-			{ value: "40l", label: "40L", checked: true },
-		],
-	},
+
 ];
 
 function classNames(...classes) {
@@ -80,6 +69,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [genderQuery, setGenderQuery] = useState('');
+	const [filteredData, setFilteredData] = useState('')
 	const searchParams = useSearchParams();
 	const search = searchParams.get('q')
 	const gender = searchParams.get('g')
@@ -88,7 +78,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	useEffect(() => {
 		if (searchQuery != null){
 		setSearchQuery(search)
-	    setGenderQuery(search)
+	    setGenderQuery(gender)
 		console.log("Search params: " + searchQuery)
 		console.log("Gender params: " + genderQuery)
 
@@ -97,6 +87,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 		  console.log("Label Results: ", labelResults)
 		  console.log("Product Type Results: ", merchandiseTypeResult)
 		  //console.log("Search Results for ", search)
+		  
 		}
 		  
 		
@@ -426,7 +417,59 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 							<div className="lg:col-span-3 mt-2">
 								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
 									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
-										{data?.map(
+										{merchandiseTypeResult !== "" ? merchandiseTypeResult?.map(
+											({
+												id,
+												display_image,
+												imageAlt,
+												brand_name,
+												merchandise_name,
+												merchandise_type,
+												labels,
+												price,
+											}) => (
+												<div key={id} className="group relative">
+													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
+														<Link href={`/products/${id}`}>
+															<img
+																src={display_image}
+																alt={imageAlt}
+																className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+															/>
+															
+														</Link>
+													</div>
+													<Link href={`/products/${id}`}>
+
+													
+													<div className="flex pt-3 justify-between">
+														<div>
+														<div className="container text-gray-500 text-xs">
+															{labels != "None" ?
+															 <span style={{backgroundColor:'#F5F5DC', borderRadius:0, fontSize:10}} class=" text-black me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
+															{labels}
+															</span> : ""}
+
+														
+															</div>
+															<h3 className="text-sm pt-2  text-black">
+																{/* An element here was covering the whole card making the add to cart unclickable */}
+																{merchandise_name} 
+															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>{brand_name}</span> 
+															
+															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
+																₦{price}
+															</p>
+
+														
+														</div>
+
+												
+													</div>
+													</Link>
+												</div>
+											)
+										) : data?.map(
 											({
 												id,
 												display_image,
