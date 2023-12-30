@@ -156,7 +156,7 @@ console.log(ref)
               {cartItems.map((item) => {
                 const data = merchs.find((m) => m.id === item.itemId);
                 return (
-                 <Link href={`/products/${item.id}`}> <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
+                 <Link key={item.id} href={`/products/${item.id}`}> <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
                 );
               })}
 
@@ -233,7 +233,7 @@ console.log(ref)
               {cartItems.map((item) => {
                 const data = merchs?.find((m) => m.id === item.itemId);
                 return (
-                  <Link href={`/products/${item.itemId}`}><OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
+                  <Link key={item.id} href={`/products/${item.itemId}`}><OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
                 );
               })}
 
