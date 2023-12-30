@@ -8,11 +8,16 @@ import Loader from "../../../components/Loader"
 import useLogin from '../../../hooks/useLogin';
 import { USER_TYPES, selectUser, setUser, setUserType } from '../../../features/user/userSlice';
 import Head from "next/head"
+import { useSearchParams } from 'next/navigation';
+
 export default function Login(req, res) {
     const dispatch = useDispatch();
     const brand_user = useSelector(selectUser);
     const router = useRouter();
-
+    const searchParams = useSearchParams()
+	const search = searchParams.get('user')
+	
+	console.log("Query params: ", search)
 
     useLayoutEffect(() => {
         if (brand_user !== null) {
@@ -89,7 +94,7 @@ export default function Login(req, res) {
                         </Link>
                         <h1 className={styles.greeting}>Login to your brand account</h1>
                         <p className={styles.login}>Continue managing your brand and community</p>
-
+                        {search == "success" ? signupSuccess : ""}
                         <div>
                             {/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
                             {error !== null && (

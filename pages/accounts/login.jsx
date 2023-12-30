@@ -7,6 +7,7 @@ import { USER_TYPES, selectUser, selectUserType, setUser, setUserType } from "..
 import Head from "next/head"
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
+import { useSearchParams } from 'next/navigation'
 
 export function LoginError() {
 	return (
@@ -28,6 +29,22 @@ export default function SignUp() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
 	const [formErr, setFormErr] = useState(null)
+	const [searchQuery, setSearchQuery] = useState('');
+	const searchParams = useSearchParams()
+	const search = searchParams.get('user')
+	
+	console.log("Query params: ", search)
+	const signupSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+		<svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+		  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+		</svg>
+		<span class="sr-only">Info</span>
+		<div>
+		You have created a new account, please login to complete your profile
+		</div>
+	  </div>
+
+	
 
 	if (user !== null) {
 		router.push("/products");
@@ -37,6 +54,7 @@ export default function SignUp() {
 		const today = new Date();
 		const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
 		document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
+
 		dispatch(setUser(user))
 	}
 
@@ -109,7 +127,7 @@ export default function SignUp() {
 						<h1 className={styles.greeting}>Login to your account</h1>
 						<p className={styles.login}>Complete your login to continue</p>
 
-
+						{search == "success" ? signupSuccess : ""}
 						<div className="">
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
 							{error !== null && (
