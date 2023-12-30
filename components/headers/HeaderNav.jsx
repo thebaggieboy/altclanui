@@ -154,7 +154,6 @@ export default function HeaderNav() {
 	const [open, setOpen] = useState(false);
 	const user = useSelector(selectUser);
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
-	console.log(isBrand)
 
 	const dispatch = useDispatch();
 

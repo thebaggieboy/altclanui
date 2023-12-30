@@ -24,7 +24,7 @@ const sortOptions = [
 	{ name: "Price: High to Low", href: "#", current: false },
 ];
 const subCategories = [
-	{ name: "New Merch", href: "/products?q=new_merch" },
+	{ name: "New Merch", href: "/products?q=New Merchandise" },
 	{ name: "Brands", href: "/brands" },
 	{ name: "Limited Edition", href: "/products?q=limited_edition" },
 	{ name: "Arts", href: "/products?q=arts" },
@@ -83,22 +83,24 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const searchParams = useSearchParams();
 	const search = searchParams.get('q')
 	const gender = searchParams.get('g')
-	setSearchQuery(search)
-	setGenderQuery(gender)
-	console.log("Search params: " + search)
-	console.log("Gender params: " + gender)
 
+	
 	useEffect(() => {
 		if (searchQuery != null){
-//const labelResults = data?.filter((product) => product.labels.toLowerCase().includes(search.toLowerCase()) );
-		  //const merchandiseTypeResult = data?.filter((product) => product.merchandise_type.toLowerCase().includes(search.toLowerCase()) );
-		  //console.log("Label Results: ", labelResults)
-		  //console.log("Product Type Results: ", merchandiseTypeResult)
+		setSearchQuery(search)
+	    setGenderQuery(search)
+		console.log("Search params: " + searchQuery)
+		console.log("Gender params: " + genderQuery)
+
+        const labelResults = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
+		  const merchandiseTypeResult = data?.filter((product) => product.merchandise_type.toLowerCase().includes(genderQuery.toLowerCase()) );
+		  console.log("Label Results: ", labelResults)
+		  console.log("Product Type Results: ", merchandiseTypeResult)
 		  //console.log("Search Results for ", search)
 		}
 		  
 		
-	  }, [searchQuery, data]);
+	  }, [search, searchQuery, data]);
 
 	if (isLoading) {
 		return (
@@ -208,9 +210,9 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 										>
 											{subCategories.map((category) => (
 												<li key={category.name}>
-													<a href={category.href} className="block px-2 py-3">
+													<Link href={category.href} className="block px-2 py-3">
 														{category.name}
-													</a>
+													</Link>
 												</li>
 											))}
 										</ul>
@@ -356,7 +358,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 								>
 									{subCategories.map((category) => (
 										<li className="mt-3" key={category.name}>
-											<a href={category.href}>{category.name}</a>
+											<Link href={category.href}>{category.name}</Link>
 										</li>
 									))}
 								</ul>
