@@ -55,7 +55,7 @@ const products = [
     name: "Jackets",
     href: "#",
     price: "$35",
-    imageSrc: "/img/jackets?q=Jackets.jpg",
+    imageSrc: "/img/jackets.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -118,7 +118,7 @@ const products = [
     name: "Lumberjacks",
     href: "/products?q=Lumberjacks",
     price: "$35",
-    imageSrc: "/img/lmbg.jpg",
+    imageSrc: "/img/lmbg.jpeg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -136,7 +136,7 @@ const products = [
     name: "Baggy wears",
     href: "/products?q=Baggy wears",
     price: "$35",
-    imageSrc: "/img/baggy.jpg",
+    imageSrc: "/img/baggy.webp",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -154,7 +154,7 @@ const products = [
     name: "Denim",
     href: "/products?q=Denim",
     price: "$35",
-    imageSrc: "/img/denim.jpg",
+    imageSrc: "/img/denim.jpeg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
