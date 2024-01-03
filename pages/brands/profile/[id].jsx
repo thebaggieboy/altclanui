@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { selectUser, } from "../../../features/user/userSlice";
 import { useQuery } from "@tanstack/react-query";
 import fetchProfileData from "../../../lib/fetchProfileData";
+import fetchProductData from "../../../lib/fetchProductData";
+
 import Link from "next/link"
 
 export default function BrandProfile({ _id, merchandise_name, price, display_image }) {
@@ -21,8 +23,8 @@ export default function BrandProfile({ _id, merchandise_name, price, display_ima
     }, [brand_user]);
 
     const { data, isLoading, error } = useQuery({
-        queryKey: ["profile", userId],
-        queryFn: () => fetchProfileData(userId, true), enabled: brand_user !== null
+        queryKey: ["products"],
+        queryFn: () => fetchProductData()
     })
 
     console.log(data)
