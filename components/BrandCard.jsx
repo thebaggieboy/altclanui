@@ -8,12 +8,12 @@ const BrandCard = ({ data }) => {
 	const [liked, setLiked] = useState(false);
 	
 
-	const { brand_name, display_image, brand_type, id } = data;
+	const { brand_name, brand_logo, brand_type, id } = data;
 
 	return (
 		<div className="product-card">
 			<div className="product-card__img relative">
-				<Image src={display_image} fill alt={brand_name} />
+				<Image src={brand_logo} fill alt={brand_name} />
 			</div>
 			<div className="product-card__content">
 				<div className="product-card__info">

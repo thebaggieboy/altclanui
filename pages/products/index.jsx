@@ -8,7 +8,7 @@ import {
 	PlusIcon,
 	Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import useBrands from "../../hooks/useBrands";
+import useBrands from "../../hooks/useMerch";
 import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
 import Link from "next/link";

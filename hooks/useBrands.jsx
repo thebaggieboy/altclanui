@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import fetchProducts from "../lib/fetchProducts"
+import fetchBrands from "../lib/fetchBrands"
 
 const useBrands = (url) => {
-  return useQuery({ queryKey: ["products",], queryFn: () => fetchProducts(url) })
+  return useQuery({ queryKey: ["brands",], queryFn: () => fetchBrands(url) })
 };
 
 export default useBrands;

@@ -20,7 +20,7 @@ import MoreToExplore from "../components/MoreToExplore";
 import Image from "next/image";
 import Preloader from "../components/preloader"
 import SponsoredBrands from '../components/SponsoredBrands';
-import useBrands from '../hooks/useBrands';
+import useBrands from '../hooks/useMerch';
 import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 import TrendingMerch from "../components/TrendingMerch";
@@ -107,6 +107,7 @@ export default function Home() {
             <br /> 
           
             <SponsoredBrands/>
+            <TrendingBrands/>
             <TrendingMerch />
             <Cards />
             <Form />
