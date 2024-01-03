@@ -8,7 +8,7 @@ import {
 	PlusIcon,
 	Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import useBrands from "../../hooks/useMerch";
+import useMerch from "../../hooks/useMerch";
 import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
 import Link from "next/link";
@@ -74,7 +74,7 @@ function classNames(...classes) {
 
 export default function Products({ _id, merchandise_name, price, picture }) {
 	// const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/');
-	const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/");
+	const { data, isLoading, error } = useMerch("https://altclan-brands-api.onrender.com/api/merchandises/");
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);

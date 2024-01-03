@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {CartContext} from '../context/CartContext'
 import HeaderTab from './../components/headers/HeaderTab'
 import Category from './../components/Category'
-import useBrands from "../hooks/useBrands"
+import useMerch from "../hooks/useMerch"
 import Head from "next/head"
 import { useSearchParams } from 'next/navigation'
 const categories = [
@@ -36,8 +36,8 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 
   };
   console.log("Search Query: ", searchQuery)
-  const { data, loading, error } = useBrands('https://altclan-brands-api.onrender.com/api/merchandises/')
-  //const { data, loading, error } = useBrands('https://altclan-api-v1.onrender.com/api/merchandises/')
+  const { data, loading, error } = useMerch('https://altclan-brands-api.onrender.com/api/merchandises/')
+  //const { data, loading, error } = useMerch('https://altclan-api-v1.onrender.com/api/merchandises/')
   //const data = fetch('https://altclan-api-v1.onrender.com/api/merchandises/')
  
  
