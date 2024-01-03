@@ -5,7 +5,7 @@ import { USER_TYPES, selectUser, selectUserType } from '../../features/user/user
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
 import { useRouter } from 'next/router';
 import { useSelector } from "react-redux";
-import useMerch from "../../hooks/useMerch"
+import useMerch from "../../../hooks/useMerch"
 import Link from "next/link"
 
 const MyTabs = () => {
