@@ -105,8 +105,7 @@ export default function Home() {
             <Category />
             <ShopDiv />
             <br /> 
-          
-            <SponsoredBrands/>
+      
             <TrendingBrands/>
             <TrendingMerch />
             <Cards />
