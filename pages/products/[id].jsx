@@ -263,10 +263,10 @@ export default function ProductDetail({ _id, merch }) {
 											<RadioGroup.Option
 												key={size.name}
 												value={size}
-												disabled={!size.inStock}
+
 												className={({ active }) =>
 													classNames(
-														size.inStock
+														size
 															? "cursor-pointer bg-white text-gray-900 shadow-sm"
 															: "cursor-not-allowed bg-gray-50 text-gray-200",
 														active ? "ring-2 ring-indigo-500" : "",
@@ -277,9 +277,9 @@ export default function ProductDetail({ _id, merch }) {
 												{({ active, checked }) => (
 													<>
 														<RadioGroup.Label as="span">
-															{size.name}
+															{size}
 														</RadioGroup.Label>
-														{size.inStock ? (
+														{size ? (
 															<span
 																className={classNames(
 																	active ? "border" : "border-2",
