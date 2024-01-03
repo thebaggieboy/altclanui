@@ -1,7 +1,7 @@
 import BrandHeader from "../../components/brands/brandHeader";
 import BrandHeaderTab from "../../components/brands/BrandHeaderTab"
 import styles from "../../styles/brand.module.css";
-import useBrands from '../../hooks/useMerch'
+import useBrands from '../../hooks/useBrands'
 import useData from '../../hooks/useData'
 import Link from "next/link";
 import { useState } from "react";
