@@ -23,8 +23,8 @@ export default function BrandProfile({ _id, merchandise_name, price, display_ima
     }, [brand_user]);
 
     const { data, isLoading, error } = useQuery({
-        queryKey: ["products", userId],
-        queryFn: () => fetchProductData(userId, true), enabled: brand_user !== null
+        queryKey: ["products"],
+        queryFn: () => fetchProductData()
     })
 
     console.log(data)
