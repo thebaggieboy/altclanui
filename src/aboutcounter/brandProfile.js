@@ -16,7 +16,9 @@ const MyTabs = () => {
 
   const results = data?.filter(product => product.brand_name == searchQuery)
   console.log("Results: " + results)
-  console.log("brand_user: " + brand_user.brand_name)
+  
+  
+  //console.log("brand_user: " + brand_user.brand_name)
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
