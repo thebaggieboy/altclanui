@@ -77,6 +77,88 @@ const products = [
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
+  {
+    id: 9,
+    name: "Pendants",
+    href: "/products?q=Pendants",
+    price: "$35",
+    imageSrc: "/img/pendant-4.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 10,
+    name: "Bracelets",
+    href: "/products?q=Bracelets",
+    price: "$35",
+    imageSrc: "/img/bracey-1.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 11,
+    name: "Hoodies",
+    href: "/products?q=Hoodies",
+    price: "$35",
+    imageSrc: "/img/hoodie.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 12,
+    name: "Masks",
+    href: "/products?q=Masks",
+    price: "$35",
+    imageSrc: "/img/maskk.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 13,
+    name: "Lumberjacks",
+    href: "/products?q=Lumberjacks",
+    price: "$35",
+    imageSrc: "/img/lmbg.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 14,
+    name: "Caps",
+    href: "/products?q=Caps",
+    price: "$35",
+    imageSrc: "/img/cap.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 15,
+    name: "Baggy wears",
+    href: "/products?q=Baggy wears",
+    price: "$35",
+    imageSrc: "/img/baggy.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 16,
+    name: "Sunglasses",
+    href: "/products?q=Sunglasses",
+    price: "$35",
+    imageSrc: "/img/shades.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 17,
+    name: "Denim",
+    href: "/products?q=Denim",
+    price: "$35",
+    imageSrc: "/img/denim.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+
 
 ];
 

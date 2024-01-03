@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
 
 
 
-export default function BrandProfile({_id, brand}) {
+export default function BrandProfile({id, brand}) {
   
   return (
      <div key={brand.id} className={styles.brandProfileContent}>
