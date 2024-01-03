@@ -1,7 +1,7 @@
 import BrandHeader from "../../components/brands/brandHeader";
 import BrandHeaderTab from "../../components/brands/BrandHeaderTab"
 import styles from "../../styles/brand.module.css";
-import useBrands from '../../hooks/useBrands'
+import useMerch from '../../hooks/useMerch'
 import useData from '../../hooks/useData'
 import Link from "next/link";
 import { useState } from "react";
@@ -19,8 +19,8 @@ export default function Brands() {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
- const { data, loading, error } = useBrands('https://altclan-brands-api.onrender.com/api/brand_users/');
- //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brand_profile/');
+ const { data, loading, error } = useMerch('https://altclan-brands-api.onrender.com/api/brand_users/');
+ //const { data, loading, error } = useMerch('http://127.0.0.1:8000/api/brand_profile/');
   console.log(data)
   if (loading) {
     return <div className="text-center p-5 mt-5">
