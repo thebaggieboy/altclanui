@@ -5,14 +5,14 @@ import { USER_TYPES, selectUser, selectUserType } from '../../features/user/user
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
 import { useRouter } from 'next/router';
 import { useSelector } from "react-redux";
-import useBrands from "../../hooks/useBrands"
+import useMerch from "../../hooks/useMerch"
 import Link from "next/link"
 
 const MyTabs = () => {
   const brand_user = useSelector(selectUser);
  
   const searchQuery = brand_user?.brand_name
-  const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/")
+  const { data, isLoading, error } = useMerch("https://altclan-brands-api.onrender.com/api/merchandises/")
 
   const results = data?.filter(product => product.brand_name == searchQuery)
   console.log("Results: " + results)
