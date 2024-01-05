@@ -45,7 +45,7 @@ export default function Checkout({ merchs }) {
   const [zip, setzip] = useState('')
   const cartItems = useSelector(selectCartItems);
   const total = useSelector(selectCartTotal);
-
+  console.log("Cart Items: ", cartItems)
   const shippingFee = 0;
   const grandTotal = shippingFee + total;
  
@@ -85,6 +85,14 @@ console.log(ref)
       console.log("Payment button clicked")
   
       updateFn({
+        user_email:email,
+        name_of_item:"",
+        name_of_brand:"",
+        amount_per_item:"",
+        quantity:"",
+        tracking_number:"",
+        number_of_items:"",
+        address:"",
         paystack_charge_id:"",
         amount:amount/100,
         status:"C",

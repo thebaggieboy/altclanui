@@ -15,23 +15,24 @@ const MyTabs = () => {
   const brand_user = useSelector(selectUser);
  const [searchResult,  setSearchResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+  const userId = router.query.id
+
   const { data, isLoading, error } = useQuery({
-    queryKey: ["products",],
+    queryKey: ["products"],
     queryFn: () => fetchProducts()
 })
 
-  const results = data?.filter(product => product.brand_name == product.brand_name)
-  
+
   useEffect(() => {
 
 	
       const brandMerchResults = data?.filter((product) => product.brand_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
-		 
+      setSearchResult(brandMerchResults)
 		  console.log("Brand Merch Results: ", brandMerchResults)
-	
-		
+  
+  
 	  }, [searchQuery, data]);
-  console.log("Results: " + results)
+  console.log("Results: " + searchResult)
   
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -80,7 +81,7 @@ const MyTabs = () => {
             <div className="lg:col-span-3 mt-2">
               <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
                 <div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
-                  {data?.map(
+                  {searchResult?.map(
                     ({
                       id,
                       display_image,

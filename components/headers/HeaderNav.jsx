@@ -609,9 +609,11 @@ export default function HeaderNav() {
 														>
 															Profile
 														</Link>
+														
 
 
 													)}
+													
 												</Menu.Item>
 
 											}
@@ -626,6 +628,7 @@ export default function HeaderNav() {
 													</Link>
 												)}
 											</Menu.Item> :
+											
 												<Menu.Item>
 													{({ active }) => (
 														<Link
