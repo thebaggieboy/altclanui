@@ -462,13 +462,14 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 															</div>
 															<h3 className="text-sm pt-2  text-black">
 																{/* An element here was covering the whole card making the add to cart unclickable */}
-																{merchandise_name} 
-															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>{brand_name}</span> 
+																Current bid
+															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>@username</span> 
 															
 															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
 																₦{price}
 															</p>
-
+												<hr />
+															<p>Auction ends in 2D</p>
 														
 														</div>
 

@@ -25,7 +25,7 @@ const navigation = {
 	pages: [
 		{ name: "Home", href: "/" },
 		{ name: "About", href: "/about" },
-
+		{ name: "Auctions", href: "/auctions" },
 		{ name: "Shop", href: "/products" },
 		{ name: "Start a brand", href: "/brands/register" },
 	],
