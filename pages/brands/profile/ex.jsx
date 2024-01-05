@@ -3,8 +3,6 @@ import styles from "./../../../styles/brand.module.css";
 import MyTabs from '../../../src/aboutcounter/brandProfile'
 import useMerch from '../../../hooks/useMerch';
 
-import Link from 'next/link'
-
 export async function getServerSideProps(context) {
   const id = context.params.id
   const res = await fetch(`https://altclan-brands-api.onrender.com/api/brand_users/${id}`)
@@ -42,9 +40,7 @@ export default function BrandProfile({id, brand}) {
                 {brand.brand_bio}
               </p>
               <br />
-              
-
-                <Link style={{backgroundColor:'beige', fontWeight:'bolder'}} className=" p-2 text-xs border-0 text-black" href="/brands/merchandise/new">+ Add merch</Link>
+                <Link style={{backgroundColor:'beige', fontWeight:'bolder'}} className=" p-2 text-xs border-0 text-black" href="/brands/merchandise/new">+Add merch</Link>
                 <Link  className="bg-black ml-2 p-2 text-xs border-0 text-white" href="/brands/dashboard">Dashboard</Link>
 
             </div>
