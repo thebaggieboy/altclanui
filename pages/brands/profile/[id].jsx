@@ -2,8 +2,10 @@ import React, { useState, useEffect, Component } from 'react';
 import styles from "./../../../styles/brand.module.css";
 import MyTabs from '../../../src/aboutcounter/brandProfile'
 import useMerch from '../../../hooks/useMerch';
-
+import { useSelector } from "react-redux";
 import Link from 'next/link'
+import { USER_TYPES, selectUser, selectUserType, setUser } from '../../../features/user/userSlice';
+import { useRouter } from 'next/router';
 
 export async function getServerSideProps(context) {
   const id = context.params.id
@@ -22,6 +24,16 @@ export async function getServerSideProps(context) {
 
 
 export default function BrandProfile({id, brand}) {
+    const brand_user = useSelector(selectUser)
+	const router = useRouter();
+
+    useEffect(() => {
+		if (brand_user === null) {
+			router.push("/brands/login");
+		}
+
+	}, [brand_user]);
+
   
   return (
      <div key={brand.id} className={styles.brandProfileContent}>
