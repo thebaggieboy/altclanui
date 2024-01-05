@@ -15,25 +15,26 @@ const MyTabs = () => {
   const brand_user = useSelector(selectUser);
  const [searchResult,  setSearchResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
-  const userId = router.query.id
+ 
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["products"],
     queryFn: () => fetchProducts()
 })
 
-
+console.log("Data: ", data)
+console.log("Results: " + searchResult)
+  
   useEffect(() => {
 
 	
-      const brandMerchResults = data?.filter((product) => product.brand_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
-      setSearchResult(brandMerchResults)
-		  console.log("Brand Merch Results: ", brandMerchResults)
+      //const brandMerchResults = data?.filter((product) => product.brand_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
+      //setSearchResult(brandMerchResults)
+		  //console.log("Brand Merch Results: ", brandMerchResults)
   
   
 	  }, [searchQuery, data]);
-  console.log("Results: " + searchResult)
-  
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
