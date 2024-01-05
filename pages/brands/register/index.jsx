@@ -35,7 +35,7 @@ export default function SignUp(req, res) {
 	}, [brand_user, router])
 
 	async function signUpSuccess(user) {
-		await router.push("/brands/login");
+		await router.push("/brands/login?user=success");
 	}
 
 	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-brands-api.onrender.com/dj-rest-auth/registration/", signUpSuccess, USER_TYPES.brand)

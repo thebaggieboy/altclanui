@@ -24,7 +24,7 @@ export async function getServerSideProps(context) {
 
 
 export default function BrandProfile({id, brand}) {
-    const brand_user = useSelector(selectUser)
+  const brand_user = useSelector(selectUser)
 	const router = useRouter();
 
     useEffect(() => {
@@ -56,7 +56,8 @@ export default function BrandProfile({id, brand}) {
               <br />
               
 
-                <Link style={{backgroundColor:'beige', fontWeight:'bolder'}} className=" p-2 text-xs border-0 text-black" href="/brands/merchandise/new">+ Add merch</Link>
+                <Link style={{backgroundColor:'beige', fontWeight:'bolder'}} className=" p-2 text-xs border-0 text-black" href="/brands/merchandise/new">+ Add product</Link>
+
                 <Link  className="bg-black ml-2 p-2 text-xs border-0 text-white" href="/brands/dashboard">Dashboard</Link>
 
             </div>
