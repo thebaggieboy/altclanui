@@ -1,4 +1,6 @@
 import React from 'react';
+import { io } from "socket.io-client";
+
 
 const Communities = () => {
     return (
@@ -8,7 +10,7 @@ const Communities = () => {
         <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Explore communities</h1>
         <p class="mb-6 text-xs font-normal text-gray-500 ">
             
-        Communities are independent galleries on SuperRare that curate, promote, and sell artworks.
+        Communities are independent hubs, galleries & spaces on Altclan that curate, promote, and sell artworks.
         
             .</p>
         <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
