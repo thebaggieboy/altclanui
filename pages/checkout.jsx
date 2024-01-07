@@ -41,6 +41,7 @@ export default function Checkout({ merchs }) {
   const last_name = user?.last_name
   const name = firstName + " " + lastName
   const [searchQuery, setSearchQuery] = useState('');
+  const [results, setResults] = useState('');
   const [city, setcity] = useState('')
   const [state, setstate] = useState('')
   const [address, setaddress] = useState('')
@@ -91,6 +92,7 @@ export default function Checkout({ merchs }) {
 
   const createOrder = async()=>{
     const orderUrl = "https://altclan-api-v1.onrender.com/api/orders/"
+
     console.log("Creating a new order for items in cart.")
 
     const res = await fetch(orderUrl, {
@@ -114,19 +116,16 @@ export default function Checkout({ merchs }) {
   }
   }
   
-  const getOrder = ()=>{
-    fetch(orderUrl)
-    .then(response => response.json())
-    .then(getOrderUrl => {
-      console.log("Get Order: ", getOrderUrl)
-      const results = getOrderUrl?.filter((product) => product.merchandise_name.toLowerCase().includes(email.toLowerCase()) );
-
+  const getOrder = async()=>{
+    console.log("Getting orders from api")
+    const orderUrl = await fetch("https://altclan-api-v1.onrender.com/api/orders/")
 
     
-      console.log("Get Order by email: ", results)
-    })
-    .catch(error => console.error('Error:', error));
-    
+    const data = await orderUrl.json()
+    console.log("User Orders: ", data)
+    const orderResult = data?.filter((product) => product.merchandise_name.toLowerCase().includes(email.toLowerCase()) );
+    setResults(orderResult)
+    console.log("Get Order by email: ", results)
   }
 
   const componentProps = {
