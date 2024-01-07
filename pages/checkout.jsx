@@ -92,13 +92,9 @@ export default function Checkout({ merchs }) {
       name_of_item:"",
       name_of_brand:"",
       amount_per_item:"",
-      quantity:cartItems?.qty,
+      //quantity:cartItems?.qty,
       tracking_number:"",
-      number_of_items:"",
-      address:"",
-      paystack_charge_id:"",
-      amount:amount/100,
-      status:"C",
+      number_of_items:cartItems.length,
     })
   
   }
