@@ -30,7 +30,7 @@ export default function Checkout({ merchs }) {
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch()
-  
+
   //const email = "thebaggieboy@protonmail.com"
 
   const phone = "+2349093329384"
@@ -48,15 +48,15 @@ export default function Checkout({ merchs }) {
 
   const shippingFee = 0;
   const grandTotal = shippingFee + total;
- 
+
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
   const router = useRouter()
   const amount = grandTotal * 100
   const email = user?.email
-  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/',checkoutSuccess,  USER_TYPES.user)
+  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
   async function checkoutSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
-  }  
+  }
   const https = require('https')
 
   const randomAlphaNumeric = length => {
@@ -67,10 +67,10 @@ export default function Checkout({ merchs }) {
     });
     return s.slice(0, length);
   };
-  
-  const ref = randomAlphaNumeric(16); 
-  
-console.log(ref)
+
+  const ref = randomAlphaNumeric(16);
+
+  console.log(ref)
   const componentProps = {
     email,
     amount,
@@ -81,16 +81,17 @@ console.log(ref)
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () => {
+    onSuccess: (data) => {
       console.log("Payment button clicked")
-  
+      console.log(data)
+
       updateFn({
-        paystack_charge_id:"",
-        amount:amount/100,
-        status:"C",
+        paystack_charge_id: "",
+        amount: amount / 100,
+        status: "C",
       })
-    
-      
+
+
       dispatch(clearCart())
       router.push('/payment-success?order=success')
     }
@@ -156,7 +157,7 @@ console.log(ref)
               {cartItems.map((item) => {
                 const data = merchs.find((m) => m.id === item.itemId);
                 return (
-                 <Link key={item.id} href={`/products/${item.id}`}> <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
+                  <Link key={item.id} href={`/products/${item.id}`}> <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
                 );
               })}
 
