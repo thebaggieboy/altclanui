@@ -9,11 +9,11 @@ const useOrder = (url, successCallback, userType) => {
     const router= useRouter()
     const isBrand = userType === USER_TYPES.user
     const mutation = useMutation({
-        mutationFn: async ({paystack_charge_id, amount, status, time }) => {
+        mutationFn: async ({name_of_item, user_email, name_of_brand,  time }) => {
           
                 const res = await fetch(url, {
                     method: "POST",
-                    body: JSON.stringify({paystack_charge_id, amount, status}),
+                    body: JSON.stringify({name_of_item, user_email, name_of_brand, amount_per_item, tracking_number, number_pf_items, time} ),
                     headers: {
                         "Content-Type": "application/json"
                     },

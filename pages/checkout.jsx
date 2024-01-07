@@ -34,8 +34,10 @@ export default function Checkout({ merchs }) {
   //const email = "thebaggieboy@protonmail.com"
 
   const phone = "+2349093329384"
-  const firstName = user?.first_name
-  const lastName = user?.last_name
+  const [firstName, setfirstName] = useState('')
+  const [lastName, setlastName] = useState('')
+  const first_name = user?.first_name
+  const last_name = user?.last_name
 
   //const name = "Enimofe"
   const name = firstName + " " + lastName
@@ -57,6 +59,7 @@ export default function Checkout({ merchs }) {
   async function checkoutSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
   }  
+  
   const https = require('https')
 
   const randomAlphaNumeric = length => {
@@ -69,7 +72,37 @@ export default function Checkout({ merchs }) {
   };
   
   const ref = randomAlphaNumeric(16); 
+  const makePayment =()=>{
+    console.log("Payment button clicked")
+
+    updateFn({
+      user_email:email,
+      address:"",
+      paystack_charge_id:"",
+      full_name:name,
+      amount:amount/100,
+      status:"C",
+    })
+  }
+
+  const createOrder = ()=>{
+    console.log("Creating a new order for items in cart.")
+    updateFn({
+      user_email:email,
+      name_of_item:"",
+      name_of_brand:"",
+      amount_per_item:"",
+      quantity:cartItems?.qty,
+      tracking_number:"",
+      number_of_items:"",
+      address:"",
+      paystack_charge_id:"",
+      amount:amount/100,
+      status:"C",
+    })
   
+  }
+
 console.log(ref)
   const componentProps = {
     email,
@@ -82,24 +115,11 @@ console.log(ref)
     publicKey,
     text: "Pay Now",
     onSuccess: () => {
-      console.log("Payment button clicked")
+      makePayment()
   
-      updateFn({
-        user_email:email,
-        name_of_item:"",
-        name_of_brand:"",
-        amount_per_item:"",
-        quantity:"",
-        tracking_number:"",
-        number_of_items:"",
-        address:"",
-        paystack_charge_id:"",
-        amount:amount/100,
-        status:"C",
-      })
     
       
-      dispatch(clearCart())
+      //dispatch(clearCart())
       router.push('/payment-success?order=success')
     }
 

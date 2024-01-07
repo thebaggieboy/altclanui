@@ -24,6 +24,7 @@ export default function Cart({ merchs }) {
 	const [show, setShow] = useState(false);
 
 	const cartItems = useSelector(selectCartItems);
+	console.log("Cart: ", cartItems)
 	const total = useSelector(selectCartTotal);
 	const shippingFee = 8;
 	const grandTotal = shippingFee + total;
