@@ -31,16 +31,11 @@ export default function Checkout({ merchs }) {
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch()
-  
-  //const email = "thebaggieboy@protonmail.com"
-
   const phone = "+2349093329384"
   const [firstName, setfirstName] = useState('')
   const [lastName, setlastName] = useState('')
   const first_name = user?.first_name
   const last_name = user?.last_name
-
-  //const name = "Enimofe"
   const name = firstName + " " + lastName
   const [city, setcity] = useState('')
   const [state, setstate] = useState('')
@@ -51,7 +46,6 @@ export default function Checkout({ merchs }) {
   console.log("Cart Items: ", cartItems)
   const shippingFee = 0;
   const grandTotal = shippingFee + total;
- 
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
   const router = useRouter()
   const amount = grandTotal * 100
@@ -90,23 +84,29 @@ export default function Checkout({ merchs }) {
     })
   }
 
-  const createOrder = ()=>{
-    const {  isPending, error, mutateAsync: orderFn, data } = useOrder('https://altclan-api-v1.onrender.com/api/order/',orderSuccess,  USER_TYPES.user)
-    console.log("Order data: ", data)
+  const createOrder = async()=>{
+    const orderUrl = "https://altclan-api-v1.onrender.com/api/orders/"
     console.log("Creating a new order for items in cart.")
-    updateFn({
-      user_email:email,
-      name_of_item:"",
-      name_of_brand:"",
-      amount_per_item:"",
-      quantity:"",
-      tracking_number:"",
-      number_of_items:cartItems.length,
-    })
+
+    const res = await fetch(orderUrl, {
+      method: "POST",
+      body: JSON.stringify({name_of_item:"", user_email:email, name_of_brand:"", amount_per_item:200, number_of_items:2} ),
+      headers: {
+          "Content-Type": "application/json"
+      },
+  })
+
+    const data = await res.json()
+    console.log("Order posted successfully")
+    console.log("orderData: ", data)
+
+  if (res.status >= 200 && res.status <= 209) {
+      return data
+      
+  }
   
   }
 
-console.log(ref)
   const componentProps = {
     email,
     amount,
@@ -123,7 +123,7 @@ console.log(ref)
     
       
       //dispatch(clearCart())
-      router.push('/payment-success?order=success')
+      //router.push('/payment-success?order=success')
     }
 
   }

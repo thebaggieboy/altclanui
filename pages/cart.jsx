@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	selectCartItems,
 	selectCartTotal,
+	selectCartCount
 } from "../features/shop/shopSelector";
 import CartItem from "../components/CartItem";
 import Head  from "next/head"
@@ -26,8 +27,11 @@ export default function Cart({ merchs }) {
 	const cartItems = useSelector(selectCartItems);
 	console.log("Cart: ", cartItems)
 	const total = useSelector(selectCartTotal);
+	const cartTotal = useSelector(selectCartCount)
 	const shippingFee = 8;
 	const grandTotal = shippingFee + total;
+	console.log("Cart Quantity: ", cartTotal)
+	console.log("Cart Length: ", cartTotal.length)
 
 	if (cartItems.length < 1) {
 		return (
