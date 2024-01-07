@@ -13,7 +13,7 @@ import { clearCart } from '../features/shop/shopSlice';
 import useCheckout from '../hooks/useCheckout';
 import Link from "next/link"
 import useOrder from '../hooks/useOrder';
-
+import { useSearchParams } from 'next/navigation';
 
 export async function getServerSideProps(context) {
   const res = await fetch(
@@ -32,6 +32,7 @@ export async function getServerSideProps(context) {
 export default function Checkout({ merchs }) {
 
   const user = useSelector(selectUser);
+  
   const dispatch = useDispatch()
   const phone = "+2349093329384"
   const [firstName, setfirstName] = useState('')
@@ -39,6 +40,7 @@ export default function Checkout({ merchs }) {
   const first_name = user?.first_name
   const last_name = user?.last_name
   const name = firstName + " " + lastName
+  const [searchQuery, setSearchQuery] = useState('');
   const [city, setcity] = useState('')
   const [state, setstate] = useState('')
   const [address, setaddress] = useState('')
@@ -52,6 +54,8 @@ export default function Checkout({ merchs }) {
   const router = useRouter()
   const amount = grandTotal * 100
   const email = user?.email
+  const searchParams = useSearchParams();
+	const search = searchParams.get('search')
   const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
 
   async function checkoutSuccess() {
@@ -60,8 +64,6 @@ export default function Checkout({ merchs }) {
   async function orderSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
   }
-
-  const https = require('https')
 
   const randomAlphaNumeric = length => {
     let s = '';
@@ -97,17 +99,34 @@ export default function Checkout({ merchs }) {
       headers: {
           "Content-Type": "application/json"
       },
+
+      
   })
 
     const data = await res.json()
     console.log("Order posted successfully")
     console.log("orderData: ", data)
-
+   
+  
+ 
   if (res.status >= 200 && res.status <= 209) {
-      return data
-      
+      return data          
+  }
   }
   
+  const getOrder = ()=>{
+    fetch(orderUrl)
+    .then(response => response.json())
+    .then(getOrderUrl => {
+      console.log("Get Order: ", getOrderUrl)
+      const results = getOrderUrl?.filter((product) => product.merchandise_name.toLowerCase().includes(email.toLowerCase()) );
+
+
+    
+      console.log("Get Order by email: ", results)
+    })
+    .catch(error => console.error('Error:', error));
+    
   }
 
   const componentProps = {
@@ -123,6 +142,7 @@ export default function Checkout({ merchs }) {
     onSuccess: () => {
       makePayment()
       createOrder()
+      getOrder()
 
 
       //dispatch(clearCart())

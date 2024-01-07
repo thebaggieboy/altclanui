@@ -31,7 +31,7 @@ export default function Cart({ merchs }) {
 	const shippingFee = 8;
 	const grandTotal = shippingFee + total;
 	console.log("Cart Quantity: ", cartTotal)
-	console.log("Cart Length: ", cartTotal.length)
+	console.log("Cart Length: ", cartItems.length)
 
 	if (cartItems.length < 1) {
 		return (
