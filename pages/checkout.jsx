@@ -92,6 +92,7 @@ export default function Checkout({ merchs }) {
 
   const createOrder = ()=>{
     const {  isPending, error, mutateAsync: orderFn, data } = useOrder('https://altclan-api-v1.onrender.com/api/order/',orderSuccess,  USER_TYPES.user)
+    console.log("Order data: ", data)
     console.log("Creating a new order for items in cart.")
     updateFn({
       user_email:email,
@@ -118,7 +119,7 @@ console.log(ref)
     text: "Pay Now",
     onSuccess: () => {
       makePayment()
-  
+      createOrder()
     
       
       //dispatch(clearCart())
