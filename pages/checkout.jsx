@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import { clearCart } from '../features/shop/shopSlice';
 import useCheckout from '../hooks/useCheckout';
 import Link from "next/link"
+import useOrder from '../hooks/useOrder';
 export async function getServerSideProps(context) {
   const res = await fetch(
     `https://altclan-brands-api.onrender.com/api/merchandises`
@@ -56,7 +57,11 @@ export default function Checkout({ merchs }) {
   const amount = grandTotal * 100
   const email = user?.email
   const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/',checkoutSuccess,  USER_TYPES.user)
+  
   async function checkoutSuccess() {
+    //await router.push("/brands/profile/" + brand_user?.id);
+  }  
+  async function orderSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
   }  
   
@@ -86,13 +91,14 @@ export default function Checkout({ merchs }) {
   }
 
   const createOrder = ()=>{
+    const {  isPending, error, mutateAsync: orderFn, data } = useOrder('https://altclan-api-v1.onrender.com/api/order/',orderSuccess,  USER_TYPES.user)
     console.log("Creating a new order for items in cart.")
     updateFn({
       user_email:email,
       name_of_item:"",
       name_of_brand:"",
       amount_per_item:"",
-      //quantity:cartItems?.qty,
+      quantity:"",
       tracking_number:"",
       number_of_items:cartItems.length,
     })
