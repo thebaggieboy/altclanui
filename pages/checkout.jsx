@@ -12,6 +12,9 @@ import { useRouter } from 'next/router';
 import { clearCart } from '../features/shop/shopSlice';
 import useCheckout from '../hooks/useCheckout';
 import Link from "next/link"
+import useOrder from '../hooks/useOrder';
+
+
 export async function getServerSideProps(context) {
   const res = await fetch(
     `https://altclan-brands-api.onrender.com/api/merchandises`
@@ -22,7 +25,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: { merchs: data },
-  };
+  }; ``
 }
 
 
@@ -34,8 +37,10 @@ export default function Checkout({ merchs }) {
   //const email = "thebaggieboy@protonmail.com"
 
   const phone = "+2349093329384"
-  const firstName = user?.first_name
-  const lastName = user?.last_name
+  const [firstName, setfirstName] = useState('')
+  const [lastName, setlastName] = useState('')
+  const first_name = user?.first_name
+  const last_name = user?.last_name
 
   //const name = "Enimofe"
   const name = firstName + " " + lastName
@@ -45,7 +50,7 @@ export default function Checkout({ merchs }) {
   const [zip, setzip] = useState('')
   const cartItems = useSelector(selectCartItems);
   const total = useSelector(selectCartTotal);
-
+  console.log("Cart Items: ", cartItems)
   const shippingFee = 0;
   const grandTotal = shippingFee + total;
 
@@ -54,9 +59,14 @@ export default function Checkout({ merchs }) {
   const amount = grandTotal * 100
   const email = user?.email
   const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
+
   async function checkoutSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
   }
+  async function orderSuccess() {
+    //await router.push("/brands/profile/" + brand_user?.id);
+  }
+
   const https = require('https')
 
   const randomAlphaNumeric = length => {
@@ -69,6 +79,34 @@ export default function Checkout({ merchs }) {
   };
 
   const ref = randomAlphaNumeric(16);
+  const makePayment = () => {
+    console.log("Payment button clicked")
+
+    updateFn({
+      user_email: email,
+      address: "",
+      paystack_charge_id: "",
+      full_name: name,
+      amount: amount / 100,
+      status: "C",
+    })
+  }
+  const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api-v1.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
+
+  const createOrder = () => {
+    console.log("Order data: ", data)
+    console.log("Creating a new order for items in cart.")
+    updateFn({
+      user_email: email,
+      name_of_item: "",
+      name_of_brand: "",
+      amount_per_item: "",
+      quantity: "",
+      tracking_number: "",
+      number_of_items: cartItems.length,
+    })
+
+  }
 
   console.log(ref)
   const componentProps = {
@@ -81,18 +119,12 @@ export default function Checkout({ merchs }) {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: (data) => {
-      console.log("Payment button clicked")
-      console.log(data)
-
-      updateFn({
-        paystack_charge_id: "",
-        amount: amount / 100,
-        status: "C",
-      })
+    onSuccess: () => {
+      makePayment()
+      createOrder()
 
 
-      dispatch(clearCart())
+      //dispatch(clearCart())
       router.push('/payment-success?order=success')
     }
 

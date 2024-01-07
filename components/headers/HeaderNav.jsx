@@ -25,7 +25,7 @@ const navigation = {
 	pages: [
 		{ name: "Home", href: "/" },
 		{ name: "About", href: "/about" },
-
+		{ name: "Auctions", href: "/auctions" },
 		{ name: "Shop", href: "/products" },
 		{ name: "Start a brand", href: "/brands/register" },
 	],
@@ -609,9 +609,11 @@ export default function HeaderNav() {
 														>
 															Profile
 														</Link>
+														
 
 
 													)}
+													
 												</Menu.Item>
 
 											}
@@ -626,6 +628,7 @@ export default function HeaderNav() {
 													</Link>
 												)}
 											</Menu.Item> :
+											
 												<Menu.Item>
 													{({ active }) => (
 														<Link

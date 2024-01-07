@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Auctions = () => {
+const Id = () => {
     return (
         <div>
-            Coming soon
+            
         </div>
     );
 }
 
-export default Auctions;
+export default Id;

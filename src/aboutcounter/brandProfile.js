@@ -1,22 +1,39 @@
 import { Tab } from '@headlessui/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "../../styles/brand.module.css";
 import { USER_TYPES, selectUser, selectUserType } from '../../features/user/userSlice';
 import { selectBrandUser, setBrandUser } from '../../features/brands/brandUserSlice';
 import { useRouter } from 'next/router';
 import { useSelector } from "react-redux";
-import useBrands from "../../hooks/useBrands"
+import useMerch from "../../hooks/useMerch"
 import Link from "next/link"
+import { useQuery } from "@tanstack/react-query";
+import fetchProducts from '../../lib/fetchProducts';
+
 
 const MyTabs = () => {
   const brand_user = useSelector(selectUser);
+ const [searchResult,  setSearchResult] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
  
-  const searchQuery = brand_user?.brand_name
-  const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/")
 
-  const results = data?.filter(product => product.brand_name == searchQuery)
-  console.log("Results: " + results)
-  console.log("brand_user: " + brand_user.brand_name)
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => fetchProducts()
+})
+
+console.log("Data: ", data)
+console.log("Results: " + searchResult)
+  
+  useEffect(() => {
+
+	
+      //const brandMerchResults = data?.filter((product) => product.brand_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
+      //setSearchResult(brandMerchResults)
+		  //console.log("Brand Merch Results: ", brandMerchResults)
+  
+  
+	  }, [searchQuery, data]);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -65,7 +82,7 @@ const MyTabs = () => {
             <div className="lg:col-span-3 mt-2">
               <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
                 <div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
-                  {results?.map(
+                  {searchResult?.map(
                     ({
                       id,
                       display_image,

@@ -3,6 +3,7 @@ import CarouselWrapper from "./CarouselWrapper";
 import ProductCard from "./product-card/ProductCard";
 import useBrands from '../hooks/useBrands'
 import BrandCard from "./BrandCard"
+import useData from "./../hooks/useData"
 
 export default function TrendingBrands() {
 	const brands = [1, 2, 3, 4, 5];
@@ -20,7 +21,7 @@ export default function TrendingBrands() {
 	};
 
 	const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/brand_users/")
-
+	//const fetch_data = fetch()
 	if (isLoading) {
 		return (
 			<div className="p-5 pt-5">
@@ -57,7 +58,7 @@ export default function TrendingBrands() {
 					breakpoints={carouselBreakpoints}
 					controls
 				>
-					{data.map((d, i) => {
+					{data?.map((d, i) => {
 						if (i <= 10) {
 							return <BrandCard key={d.id} data={d} />;
 						}

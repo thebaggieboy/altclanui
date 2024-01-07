@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import styles from "../../styles/brand.module.css";
 import MyTabs from '../../src/aboutcounter/brandProfile'
-import useBrands from '../../hooks/useBrands';
+import useMerch from '../../hooks/useMerch';
 
 export async function getServerSideProps(context) {
   const id = context.params.id
@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
 
 
 
-export default function BrandProfile({_id, brand}) {
+export default function BrandProfile({id, brand}) {
   
   return (
      <div key={brand.id} className={styles.brandProfileContent}>

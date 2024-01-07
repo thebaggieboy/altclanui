@@ -1,10 +1,13 @@
 import React from "react";
-import useBrands from "./../hooks/useBrands";
 import { CartContext } from "../context/CartContext";
 import { ProductContext } from "../context/ProductContext";
 import Link from "next/link";
 import styles from "./../styles/component5.module.css";
-import useData from "./../hooks/useData";
+import CarouselWrapper from "./CarouselWrapper";
+import ProductCard from "./product-card/ProductCard";
+import BrandCard from "./BrandCard"
+import useData from "./../hooks/useData"
+
 const SponsoredBrands = () => {
 	const { data, loading, error } = useData('https://altclan-brands-api.onrender.com/api/brand_users');
 
