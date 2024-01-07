@@ -13,6 +13,8 @@ import { clearCart } from '../features/shop/shopSlice';
 import useCheckout from '../hooks/useCheckout';
 import Link from "next/link"
 import useOrder from '../hooks/useOrder';
+
+
 export async function getServerSideProps(context) {
   const res = await fetch(
     `https://altclan-brands-api.onrender.com/api/merchandises`
@@ -23,7 +25,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: { merchs: data },
-  };
+  }; ``
 }
 
 
@@ -50,15 +52,15 @@ export default function Checkout({ merchs }) {
   const router = useRouter()
   const amount = grandTotal * 100
   const email = user?.email
-  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/',checkoutSuccess,  USER_TYPES.user)
-  
+  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
+
   async function checkoutSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
-  }  
+  }
   async function orderSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
-  }  
-  
+  }
+
   const https = require('https')
 
   const randomAlphaNumeric = length => {
@@ -69,20 +71,21 @@ export default function Checkout({ merchs }) {
     });
     return s.slice(0, length);
   };
-  
-  const ref = randomAlphaNumeric(16); 
-  const makePayment =()=>{
+
+  const ref = randomAlphaNumeric(16);
+  const makePayment = () => {
     console.log("Payment button clicked")
 
     updateFn({
-      user_email:email,
-      address:"",
-      paystack_charge_id:"",
-      full_name:name,
-      amount:amount/100,
-      status:"C",
+      user_email: email,
+      address: "",
+      paystack_charge_id: "",
+      full_name: name,
+      amount: amount / 100,
+      status: "C",
     })
   }
+  const { isPending: useOrderPending, error: useOrderError, mutateAsync: orderFn, data: useOrderData } = useOrder('https://altclan-api-v1.onrender.com/api/order/', orderSuccess, USER_TYPES.user)
 
   const createOrder = async()=>{
     const orderUrl = "https://altclan-api-v1.onrender.com/api/orders/"
@@ -120,8 +123,8 @@ export default function Checkout({ merchs }) {
     onSuccess: () => {
       makePayment()
       createOrder()
-    
-      
+
+
       //dispatch(clearCart())
       //router.push('/payment-success?order=success')
     }
@@ -187,7 +190,7 @@ export default function Checkout({ merchs }) {
               {cartItems.map((item) => {
                 const data = merchs.find((m) => m.id === item.itemId);
                 return (
-                 <Link key={item.id} href={`/products/${item.id}`}> <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
+                  <Link key={item.id} href={`/products/${item.id}`}> <OrderItem key={item.id} data={{ ...item, ...data, cartId: item.id }} /></Link>
                 );
               })}
 

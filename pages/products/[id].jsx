@@ -62,23 +62,24 @@ function classNames(...classes) {
 export default function ProductDetail({ _id, merch }) {
 	const dispatch = useDispatch();
 	const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-	const [selectedSize, setSelectedSize] = useState(product.sizes[1]);
+	const [selectedSize, setSelectedSize] = useState(merch.available_sizes[1]);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [open, setOpen] = useState(false);
-	console.log(merch.available_sizes)
-	console.log(merch.available_colors)
-
-	console.log(Number("1,000".replace(",", "")));
+	
 	function addToCart() {
 		const data = {
 			itemId: merch.id,
-			size: selectedSize.name,
+			size: selectedSize,
 			color: selectedColor.name,
 			qty: 1,
 			price: merch.price,
 		};
 		dispatch(addItem(data));
 	}
+
+
+	
+
 
 	return (
 		<div className="bg-white">

@@ -6,9 +6,12 @@ import { selectBrandUser } from '../features/brands/brandUserSlice'
 
 const useCheckout = (url, successCallback, userType) => {
     const user = useSelector(selectUser)
-    const router= useRouter()
+    const router = useRouter()
     const isBrand = userType === USER_TYPES.user
     const mutation = useMutation({
+<<<<<<< HEAD
+        mutationFn: async ({ paystack_charge_id, amount, status, time }) => {
+=======
         mutationFn: async ({paystack_charge_id, user_email, name, amount, status, time }) => {
           
                 const res = await fetch(url, {
@@ -18,26 +21,35 @@ const useCheckout = (url, successCallback, userType) => {
                         "Content-Type": "application/json"
                     },
                 })
+>>>>>>> 987e646ba0911a99c8f0a127dce5e1475d8f347e
 
-                const data = await res.json()
-                console.log("seen")
+            const res = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify({ paystack_charge_id, amount, status }),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            })
 
-                if (res.status >= 200 && res.status <= 209) {
-                    return data
-                }
+            const data = await res.json()
+            console.log("seen")
 
-
-                const err = { ...data }
-                throw { err }
-
-            } ,
-            onSuccess: (data) => {
-                
-                //router.push(`/brands/profile/${brand.id}`)
-                console.log(data)
+            if (res.status >= 200 && res.status <= 209) {
+                return data
             }
-        
-       
+
+
+            const err = { ...data }
+            throw { err }
+
+        },
+        onSuccess: (data) => {
+
+            //router.push(`/brands/profile/${brand.id}`)
+            console.log(data)
+        }
+
+
     })
 
     return mutation

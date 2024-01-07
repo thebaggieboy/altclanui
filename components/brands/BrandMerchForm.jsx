@@ -10,7 +10,7 @@ import { selectBrandUser } from '../../features/brands/brandUserSlice';
 const MERCH_FORM_DATA = {
   categories:
     [
-      
+
       "Arts",
       "T-shirts",
       "Tops",
@@ -53,7 +53,7 @@ const MERCH_FORM_DATA = {
     ring: [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5],
     foot: [38, 39, 40, 41, 42, 43, 44, 45, 46],
     neck: [14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5],
-    art:["12x16", "16x20", "20x28", "24x32", "16x16", "24x24", "8x16", "8x16"]
+    art: ["12x16", "16x20", "20x28", "24x32", "16x16", "24x24", "8x16", "8x16"]
   },
   colors: ["Black", "White", "Blue", "Red", "Yellow", "Green", "Pink", "Purple"],
 
@@ -98,6 +98,7 @@ const BrandMerchForm = (props) => {
       setAvailableSizes(availableSizes.filter((color) => color !== value));
     }
   }
+  
   const colorInputChange = (e) => {
     const { checked, value } = e.target;
     if (checked) {
@@ -115,12 +116,12 @@ const BrandMerchForm = (props) => {
   const [createObjectURL, setCreateObjectURL] = useState(null);
   const [formPersonalData, setFormPersonalData] = useState(null)
 
-	useEffect(() => {
-		if (brand_user === null) {
-			router.push("/brands/login");
-		}
+  useEffect(() => {
+    if (brand_user === null) {
+      router.push("/brands/login");
+    }
 
-	}, [brand_user]);
+  }, [brand_user]);
 
   const uploadToClient = (event) => {
 
@@ -185,7 +186,7 @@ const BrandMerchForm = (props) => {
         price: data.price,
         available_sizes: availableSizes,
         available_colors: availableColors,
-        merchandise_type:data.merchandise_type
+        merchandise_type: data.merchandise_type
       }
     )
   }
@@ -230,14 +231,14 @@ const BrandMerchForm = (props) => {
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Display image</label> <br />
-      
+
             <input type="file" onChange={uploadToClient} name="file" id="file" className={styles.input} placeholder="" />
 
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Gender</label>
             <div className="pt-2">
-              <select 	onChange={inputChangeHandler} className={styles.input} name="merchandise_gender" id="merchandise_gender">
+              <select onChange={inputChangeHandler} className={styles.input} name="merchandise_gender" id="merchandise_gender">
                 <option value="">Choose merch gender</option>
                 {
                   MERCH_FORM_DATA.gender.map((g) => <option key={g} value={g}>{g}</option>)
@@ -269,7 +270,7 @@ const BrandMerchForm = (props) => {
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Details </label> <br />
-        
+
             <textarea onChange={inputChangeHandler} type="text" name="merchandise_details" id="bio" placeholder="" className={styles.input} required></textarea>
           </div>
           <div>
