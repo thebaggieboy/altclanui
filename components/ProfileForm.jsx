@@ -161,7 +161,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 						onChange={handlePersonalData}
 						disabled={pwdChangePending}
 					/>
-					<button className=" disabled:bg-gray-300 px-4 py-2 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
+					<button  className=" disabled:bg-gray-300 px-4 py-2 mt-4 bg-black text-white md:text-xl rounded-sm self-start">
 						{isPending ? <Loader /> : "Save"}
 					</button>
 				</form>

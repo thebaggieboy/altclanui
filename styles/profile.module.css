@@ -21,7 +21,7 @@
 .profileContent {
     margin: auto;
     font-family: 'Poppins', sans-serif;
-    max-width: 70%;
+    max-width: 100%;
     margin-top: 30px;
     overflow: scroll;
     padding-left: 15%;
@@ -276,9 +276,7 @@
 }
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     padding: 50px;
 }
 
@@ -322,6 +320,7 @@
     margin: auto;
     margin-top: 1%;
     padding-top: 1.5%;
+    overflow-y: hidden;
 }
 
 .navLink{
@@ -441,7 +440,7 @@
         margin: auto;
         font-family: 'Poppins', sans-serif;
         max-width: 100%;
-        margin-top: 30px;
+      
         overflow: scroll;
         padding-left: 15%;
         height: 250px;
@@ -699,7 +698,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 50px;
+        padding: 10px;
     }
     
     .grey{
