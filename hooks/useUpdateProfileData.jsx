@@ -2,13 +2,14 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useDispatch, useSelector, } from "react-redux"
 import { selectUser, setUser } from "../features/user/userSlice"
 import { selectBrandUser } from "../features/brands/brandUserSlice"
+import { useRouter } from "next/router"
 
 
 const useUpdateProfileData = (url, id, actionFn) => {
     const dispatch = useDispatch()
     const queryClient = useQueryClient()
     const user = useSelector(selectUser)
-
+    const router = useRouter()
     const mutation = useMutation({
         mutationFn: async (newData) => {
             try {
@@ -41,6 +42,7 @@ const useUpdateProfileData = (url, id, actionFn) => {
                 return { ...old, ...data }
             })
             dispatch(actionFn(data))
+            router.push(`/profile/${user.id}`)
         }
     })
 
