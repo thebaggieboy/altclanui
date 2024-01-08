@@ -8,15 +8,9 @@ import useUpdateProfileData from "../hooks/useUpdateProfileData";
 import { selectBrandUser } from "../features/brands/brandUserSlice";
 import useChangePassword from "../hooks/useChangePassword";
 import { MdErrorOutline, MdOutlineCheck } from "react-icons/md";
-import { useRouter } from "next/router";
-// Function to get user by email
 
 export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
-	const onUpdateProfileSuccess = ()=>{
-		const user = useSelector(selectUser)
-		const router = useRouter()
-		router.push(`/profile/${user?.id}`)
-	}	
+	
 	const user = useSelector(selectUser);
 	const brand = useSelector(selectBrandUser)
 

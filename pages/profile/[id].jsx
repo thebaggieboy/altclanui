@@ -173,7 +173,7 @@ const Profile = () => {
 					</div>
 				</div>
 			</main>
-
+<br />
 			<hr />
 			<nav className="user-profile__nav" s>
 				<div
