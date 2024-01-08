@@ -9,6 +9,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import fetchProfileData from "../../lib/fetchProfileData";
 
 
+
 const Profile = () => {
 	const user = useSelector(selectUser);
 	const router = useRouter();
@@ -24,26 +25,9 @@ const Profile = () => {
 		const orderUrl = await fetch("https://altclan-api-v1.onrender.com/api/orders/")
 		const data = await orderUrl.json()
 		const orderResult = data?.filter((product) => product.user_email.toLowerCase().includes(user?.email.toLowerCase()) );
-		
-
-		if(orderResult.length > 1){
-		    setOrders(orderResult)
-			console.log(orderError)
-			console.log("Order State: ", orders)
-			setOrderError('You have new orders')
-
-			
-
-  		}
-
-		if(orderResult.length < 1)
-		setOrderError('No orders')
-		  console.log(orderError)
-		  console.log("Order State: ", orders)
-		 
-		}
-	  
-	  
+		setOrders(orderResult)
+		console.log("Order State: ", orders)
+	}	  
 		
 
 
@@ -120,17 +104,15 @@ const Profile = () => {
 
 	return (
 		<>
-			<main className="user-profile" style={{display:"block", overflowY: "scroll",}}>
+			<main className="user-profile">
 				<div
 					className={`user-profile__form ${formActive.active ? "active" : ""}`}
-					
 				>
 					<ProfileForm
 						type={formActive.type}
 						onClose={() => {
 							setFormActive(false);
 						}}
-					
 						defaultData={profileData}
 					/>
 				</div>
@@ -173,9 +155,9 @@ const Profile = () => {
 					</div>
 				</div>
 			</main>
-<br />
+
 			<hr />
-			<nav className="user-profile__nav" s>
+			<nav className="user-profile__nav">
 				<div
 					className={`user-profile__nav-item ${activeSection === "orders" ? "active" : ""
 						}`}
@@ -201,49 +183,49 @@ const Profile = () => {
 				{activeSection === "orders" && (
 					<div className="orders">
 						<div className={styles.center}>
-							<div className={styles.grey}> {orders.length > 1 ? 
+							<p className={styles.grey}> 
 
-<div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+								
+
+<div class="relative p-5 text-center" >
+
+    <table  class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3 rounded-s-lg">
-                    Product name
+                    ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Qty
+                   Items(no)
                 </th>
                 <th scope="col" class="px-6 py-3 rounded-e-lg">
                     Price
                 </th>
+			
             </tr>
         </thead>
-        <tbody>
-        {orders.map(order => (
-			   <tr class="bg-white dark:bg-gray-800">
-			   <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-				   {order.item_name}
-			   </th>
-			   <td class="px-6 py-4">
-				   {order.number_of_items}
-			   </td>
-			   <td class="px-6 py-4">
-				   ${order.amount_per_item}
-			   </td>
-		   </tr>
-		))} 
-
-        </tbody>
-        <tfoot>
-            <tr class="font-semibold text-gray-900 dark:text-white">
-                <th scope="row" class="px-6 py-3 text-base">Total</th>
-                <td class="px-6 py-3">3</td>
-                <td class="px-6 py-3">21,000</td>
+        <tbody >
+		{orders.map(order=>(
+		<tr key={order.id}  class="bg-white dark:bg-gray-800">
+                <th scope="row" style={{fontSize:12}} class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                   <a href="" style={{textDecoration:"underline"}}>{order.tracking_number}</a>
+                </th>
+                <td class="px-6 py-4">
+                  {order.number_of_items}
+                </td>
+                <td class="px-6 py-4">
+				₦{order.total_amount}
+                </td>
+				
             </tr>
-        </tfoot>
-    </table>
+			))}
+        </tbody>
+    </table> 
+	
+	 <br />
 </div>
- : orderError} </div>
+
+							</p>
 						</div>
 					</div>
 				)}

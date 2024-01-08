@@ -98,7 +98,7 @@ export default function Checkout({ merchs }) {
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
       method: "POST",
-      body: JSON.stringify({user_email:email, name_of_brand:"", amount_per_item:amount/100, tracking_number:ref, number_of_items:cartQuantity} ),
+      body: JSON.stringify({user_email:email, name_of_brand:"", amount_per_item:amount/100, tracking_number:ref, number_of_items:cartQuantity, total_amount:amount/100} ),
       headers: {
           "Content-Type": "application/json"
       },
@@ -145,8 +145,8 @@ export default function Checkout({ merchs }) {
       getOrder()
 
 
-      //dispatch(clearCart())
-      //router.push('/payment-success?order=success')
+      dispatch(clearCart())
+      router.push('/payment-success?order=success')
     }
 
   }

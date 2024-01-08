@@ -422,7 +422,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 							</form>
 
 							{/* Product grid */}
-							<div className="lg:col-span-3 mt-2">
+							<div className="lg:col-span-3">
 								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
 									<div className=" grid grid-cols-1 gap-x-6 gap-y-10  lg:grid-cols-2 xl:gap-x-8">
 										{data?.map(
@@ -464,7 +464,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 																							
 															</div>
 														</div> <hr /> 
-														<p class="mt-1 text-sm font-medium text-gray-700 md:mt-2">Auction ends in 9:00:20 </p>
+														<p class="mt-1 text-xs font-bold text-gray-500 md:mt-2">Auction ends in 9:00:20 </p>
 														<div class="flex items-center justify-between md:items-center lg:justify-between ">
 															
 															<div class="flex">

@@ -277,7 +277,7 @@
 
 .center {
 
-    padding: 50px;
+    padding: 20px;
 }
 
 .grey{
@@ -290,6 +290,7 @@
     border-collapse: collapse;
     margin: auto;
     font-size: 20px;
+   
 }
 
 .th, .td {
@@ -711,6 +712,7 @@
         border-collapse: collapse;
         margin: auto;
         font-size: 20px;
+   
     }
     
     .th, .td {
