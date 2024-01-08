@@ -5,7 +5,7 @@ import { selectBrandUser } from "../features/brands/brandUserSlice"
 import { useRouter } from "next/router"
 
 
-const useUpdateProfileData = (url, id, actionFn) => {
+const useUpdateProfileData = (url, id, successCallback, actionFn) => {
     const dispatch = useDispatch()
     const queryClient = useQueryClient()
     const user = useSelector(selectUser)
@@ -42,7 +42,7 @@ const useUpdateProfileData = (url, id, actionFn) => {
                 return { ...old, ...data }
             })
             dispatch(actionFn(data))
-            router.push(`/profile/${user.id}`)
+            successCallback(user)
         }
     })
 

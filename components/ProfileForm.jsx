@@ -2,21 +2,27 @@ import Image from "next/image";
 import { useState } from "react";
 import FormInput from "./FormInput";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setUser } from "../features/user/userSlice";
+import { USER_TYPES, selectUser, setUser } from "../features/user/userSlice";
 import Loader from "./Loader"
 import useUpdateProfileData from "../hooks/useUpdateProfileData";
 import { selectBrandUser } from "../features/brands/brandUserSlice";
 import useChangePassword from "../hooks/useChangePassword";
 import { MdErrorOutline, MdOutlineCheck } from "react-icons/md";
-
+import { useRouter } from "next/router";
 // Function to get user by email
 
 export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
+	const onUpdateProfileSuccess = ()=>{
+		const user = useSelector(selectUser)
+		const router = useRouter()
+		router.push(`/profile/${user?.id}`)
+	}	
 	const user = useSelector(selectUser);
 	const brand = useSelector(selectBrandUser)
 
+
 	const { personal, login } = defaultData;
-	const { isPending, error, mutateAsync: updateFn, } = useUpdateProfileData("https://altclan-api-v1.onrender.com/api/users/", user?.id, setUser)
+	const { isPending, error, mutateAsync: updateFn, } = useUpdateProfileData("https://altclan-api-v1.onrender.com/api/users/", user?.id, onUpdateProfileSuccess, setUser)
 	const { isPending: pwdChangePending, error: pwdChangeErr, data, mutateAsync: changePassword } = useChangePassword(false)
 
 	const defaultState = {
