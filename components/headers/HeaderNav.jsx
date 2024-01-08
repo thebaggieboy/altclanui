@@ -37,7 +37,7 @@ const navigation = {
 			featured: [
 				{
 					name: "New Arrivals",
-					href: "/products?q=New Merchandise",
+					href: "/products?q=New Merchandise&g=women",
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
 					imageAlt:
@@ -45,7 +45,7 @@ const navigation = {
 				},
 				{
 					name: "Basic Tees",
-					href: "/products?q=T-shirts",
+					href: "/products?q=T-shirts&g=women",
 
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
@@ -74,14 +74,14 @@ const navigation = {
 					id: "accessories",
 					name: "Accessories",
 					items: [
-						{ name: "Watches", href: "/products?q=Watches" },
+						{ name: "Watches", href: "/products?q=Watches&g=women" },
 				
-						{ name: "Bags", href: "/products?q=Bags" },
-						{ name: "Sunglasses", href: "/products?q=Shades" },
-						{ name: "Hats", href: "/products?q=Hats" },
-						{ name: "Pendants", href: "/products?q=Pendants" },
-						{ name: "Piercings & Studs", href: "/products?q=Piercings & Studs" },
-						{ name: "Belts", href: "/products?q=Belts" },
+						{ name: "Bags", href: "/products?q=Bags&g=women" },
+						{ name: "Sunglasses", href: "/products?q=Shades&g=women" },
+						{ name: "Hats", href: "/products?q=Hats&g=women" },
+						{ name: "Pendants", href: "/products?q=Pendants&g=women" },
+						{ name: "Piercings & Studs", href: "/products?q=Piercings & Studs&g=women" },
+						{ name: "Belts", href: "/products?q=Belts&g=women" },
 				
 					],
 				},
@@ -93,7 +93,7 @@ const navigation = {
 			featured: [
 				{
 					name: "New Arrivals",
-					href: "/products?q=New Merchandise",
+					href: "/products?q=New Merchandise&g=men",
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
 					imageAlt:
@@ -101,7 +101,7 @@ const navigation = {
 				},
 				{
 					name: "Artwork Tees",
-					href: "/products?q=T-shirts",
+					href: "/products?q=T-shirts&g=men",
 					imageSrc:
 						"https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
 					imageAlt:
@@ -480,13 +480,13 @@ export default function HeaderNav() {
 									))}
 
 									{navigation.pages.map((page) => (
-										<Link
+										<a
 											key={page.name}
 											href={page.href}
 											className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
 										>
 											{page.name}
-										</Link>
+										</a>
 									))}
 
 								</div>

@@ -7,6 +7,7 @@ import { USER_TYPES, selectUser, selectUserType, setUser } from "../../features/
 import { useRouter } from "next/router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import fetchProfileData from "../../lib/fetchProfileData";
+import fetchOrderData from "../../lib/fetchOrderData";
 
 
 
@@ -28,7 +29,9 @@ const Profile = () => {
 		setOrders(orderResult)
 		console.log("Order State: ", orders)
 	}	  
-		
+	const getMerchBrandName = async()=>{
+	
+	}
 
 
 	useEffect(() => {

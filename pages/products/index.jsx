@@ -79,6 +79,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [searchQuery, setSearchQuery] = useState('');
+	const [filteredResult, setFilteredResult] = useState([]);
 	const [genderQuery, setGenderQuery] = useState('');
 	const searchParams = useSearchParams();
 	const search = searchParams.get('q')
@@ -86,21 +87,25 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 
 	
 	useEffect(() => {
-		if (searchQuery != null){
+		if (searchQuery !== null){
 		setSearchQuery(search)
-	    setGenderQuery(search)
+	    setGenderQuery(gender)
 		console.log("Search params: " + searchQuery)
 		console.log("Gender params: " + genderQuery)
 
         const labelResults = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
 		  const merchandiseTypeResult = data?.filter((product) => product.merchandise_type.toLowerCase().includes(genderQuery.toLowerCase()) );
+		  setFilteredResult(labelResults)
 		  console.log("Label Results: ", labelResults)
+		  console.log("Filtered Results: ", filteredResult)
 		  console.log("Product Type Results: ", merchandiseTypeResult)
 		  //console.log("Search Results for ", search)
+
+		  
 		}
 		  
 		
-	  }, [search, searchQuery, data]);
+	  }, [search, searchQuery, data, filteredResult]);
 
 	if (isLoading) {
 		return (
@@ -210,9 +215,9 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 										>
 											{subCategories.map((category) => (
 												<li key={category.name}>
-													<Link href={category.href} className="block px-2 py-3">
+													<a href={category.href} className="block px-2 py-3">
 														{category.name}
-													</Link>
+													</a>
 												</li>
 											))}
 										</ul>
@@ -358,7 +363,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 								>
 									{subCategories.map((category) => (
 										<li className="mt-3" key={category.name}>
-											<Link href={category.href}>{category.name}</Link>
+											<a href={category.href}>{category.name}</a>
 										</li>
 									))}
 								</ul>

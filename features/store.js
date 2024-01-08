@@ -4,6 +4,10 @@ import userSlice from "./user/userSlice"
 import brandSlice from "./brands/brandSlice"
 import brandUserSlice from "./brands/brandUserSlice";
 import shopSlice from "./shop/shopSlice";
+
+import orderSlice from "./orders//ordersSlice";
+
+
 import {
     persistStore, persistReducer, FLUSH,
     REHYDRATE,
@@ -25,6 +29,7 @@ const rootReducer = combineReducers({
     brand_user: brandUserSlice,
     brands: brandSlice,
     shop: shopSlice,
+    orders:orderSlice,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

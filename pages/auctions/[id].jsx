@@ -9,12 +9,14 @@ import { addItem } from "../../features/shop/shopSlice";
 import Link from "next/link";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import fetchProductData from '../../lib/fetchProductData'
+import fetchAuctionData from '../../lib/fetchAuctionData'
+
 
 const queryClient = new QueryClient()
 
 export async function getServerSideProps(context) {
 	const id = context.params.id;
-	const data = await queryClient.fetchQuery({ queryKey: ["product", id], queryFn: () => fetchProductData(id) })
+	const data = await queryClient.fetchQuery({ queryKey: ["auction", id], queryFn: () => fetchAuctionData(id) })
 	console.log(data, id)
 	return {
 		props: { merch: data },
@@ -117,7 +119,7 @@ export default function ProductDetail({ _id, merch }) {
 								aria-current="page"
 								className="font-medium text-gray-500 hover:text-gray-600"
 							>
-								{merch.merchandise_name}
+								{merch.product_name}
 							</Link>
 						</li>
 					</ol>
@@ -154,7 +156,7 @@ export default function ProductDetail({ _id, merch }) {
 				<div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
 					<div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
 						<h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-							{merch.merchandise_name}
+							{merch.product_name}
 						</h1>
 					</div>
 
@@ -162,7 +164,7 @@ export default function ProductDetail({ _id, merch }) {
 					<div className="mt-4 lg:row-span-3 lg:mt-0">
 						<h2 className="sr-only">Product information</h2>
 						<p className="text-3xl tracking-tight text-gray-900">
-							₦{merch.price}
+							₦{merch.product_description}
 						</p>
 
 						{/* Reviews */}
@@ -342,17 +344,11 @@ export default function ProductDetail({ _id, merch }) {
 							<h3 className="sr-only">Description</h3>
 
 							<div className="space-y-6">
-								<p className="text-base text-gray-900">{merch.merchandise_description}</p>
+								<p className="text-base text-gray-900">{merch.product_description}</p>
 							</div>
 						</div>
 
-						<div className="mt-10">
-							<h2 className="text-sm font-medium text-gray-900">Details</h2>
-
-							<div className="mt-4 space-y-6">
-								<p className="text-sm text-gray-600">{merch.merchandise_details}</p>
-							</div>
-						</div>
+	
 					</div>
 				</div>
 			</div>
