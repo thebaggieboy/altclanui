@@ -424,7 +424,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 							{/* Product grid */}
 							<div className="lg:col-span-3 mt-2">
 								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-									<div className=" grid grid-cols-1 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
+									<div className=" grid grid-cols-1 gap-x-6 gap-y-10  lg:grid-cols-2 xl:gap-x-8">
 										{data?.map(
 											({
 												id,
@@ -451,6 +451,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 															<div class="mb-2">
 																<p class="text-lg font-bold text-navy-700"> {merchandise_name} </p>
 																<p class="mt-1 text-sm font-medium text-gray-600 md:mt-2">By {brand_name} </p>
+
 															</div>
 															<div class="flex flex-row-reverse md:mt-2 lg:mt-0">
 
@@ -463,8 +464,11 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 																							
 															</div>
 														</div> <hr /> 
-														<div class="flex items-center pt-2 justify-between md:items-center lg:justify-between ">
+														<p class="mt-1 text-sm font-medium text-gray-700 md:mt-2">Auction ends in 9:00:20 </p>
+														<div class="flex items-center justify-between md:items-center lg:justify-between ">
+															
 															<div class="flex">
+																
 																<p class="!mb-0 text-sm font-bold text-brand-500">Current Bid: 0.91 <span>ETH</span></p>
 															</div>
 															<button href="" class="linear rounded-[20px] bg-black px-4 py-2 text-base font-medium text-white transition duration-200">Place Bid</button>

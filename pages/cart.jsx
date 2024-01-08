@@ -28,10 +28,16 @@ export default function Cart({ merchs }) {
 	console.log("Cart: ", cartItems)
 	const total = useSelector(selectCartTotal);
 	const cartTotal = useSelector(selectCartCount)
-	const shippingFee = 8;
+	const shippingFee = 0;
 	const grandTotal = shippingFee + total;
 	console.log("Cart Quantity: ", cartTotal)
 	console.log("Cart Length: ", cartItems.length)
+	console.log("Cart ID: ", cartItems?.id)
+
+	const findMerchByID = ()=> {
+		console.log("Searching through merch")
+	}
+
 
 	if (cartItems.length < 1) {
 		return (

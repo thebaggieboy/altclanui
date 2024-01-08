@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { PaystackButton } from 'react-paystack'
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectCartCount,
   selectCartItems,
   selectCartTotal,
 } from "../features/shop/shopSelector";
@@ -47,7 +48,8 @@ export default function Checkout({ merchs }) {
   const [address, setaddress] = useState('')
   const [zip, setzip] = useState('')
   const cartItems = useSelector(selectCartItems);
-  const total = useSelector(selectCartTotal);
+  const total = useSelector(selectCartTotal)
+  const cartQuantity = useSelector(selectCartCount)
   console.log("Cart Items: ", cartItems)
   const shippingFee = 0;
   const grandTotal = shippingFee + total;
@@ -96,7 +98,7 @@ export default function Checkout({ merchs }) {
     console.log("Creating a new order for items in cart.")
     const res = await fetch(orderUrl, {
       method: "POST",
-      body: JSON.stringify({name_of_item:"", user_email:email, name_of_brand:"", amount_per_item:200, tacking_number:ref, number_of_items:2} ),
+      body: JSON.stringify({user_email:email, name_of_brand:"", amount_per_item:amount/100, tracking_number:ref, number_of_items:cartQuantity} ),
       headers: {
           "Content-Type": "application/json"
       },
