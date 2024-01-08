@@ -22,7 +22,7 @@ export default function ProfileForm({ type, onSubmit, onClose, defaultData }) {
 
 
 	const { personal, login } = defaultData;
-	const { isPending, error, mutateAsync: updateFn, } = useUpdateProfileData("https://altclan-api-v1.onrender.com/api/users/", user?.id, onUpdateProfileSuccess, setUser)
+	const { isPending, error, mutateAsync: updateFn, } = useUpdateProfileData("https://altclan-api-v1.onrender.com/api/users/", user?.id, setUser)
 	const { isPending: pwdChangePending, error: pwdChangeErr, data, mutateAsync: changePassword } = useChangePassword(false)
 
 	const defaultState = {
