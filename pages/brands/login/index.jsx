@@ -30,7 +30,7 @@ export default function Login(req, res) {
 
     useLayoutEffect(() => {
         if (brand_user !== null) {
-            router.push(`/profile/${brand_user?.id}`);
+            router.push(`brands/profile/${brand_user?.id}`);
         }
     }, [brand_user, router])
 
