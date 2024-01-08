@@ -16,9 +16,20 @@ const Profile = () => {
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()
 	const client = useQueryClient()
-
+	const [orders, setOrders] = useState([])
+	const [orderError, setOrderError] = useState('No current Order')
 	const userId = router.query?.id
 
+	const getOrder = async()=>{
+		console.log("Getting orders from api")
+		const orderUrl = await fetch("https://altclan-api-v1.onrender.com/api/orders/")
+		const data = await orderUrl.json()
+		const orderResult = data?.filter((product) => product.user_email.toLowerCase().includes(user?.email.toLowerCase()) );
+		setOrders(orderResult)
+		if(orderResult.length < 1)
+			console.log(orderError)
+			console.log("Order State: ", orders)
+  		}
 
 
 	useEffect(() => {
@@ -26,12 +37,14 @@ const Profile = () => {
 		if (user === null) {
 			router.push("/signup")
 		}
-	}, [user])
+		getOrder()
+	}, [user, orders])
 
 	const { data: userData, isLoading, error } = useQuery({
 		queryKey: ["profile", userId, user?.user_type],
 		queryFn: () => fetchProfileData(userId, isBrand), enabled: user !== null
 	})
+	
 
 	const [activeSection, setAcvtiveSection] = useState("gallery");
 
@@ -171,7 +184,7 @@ const Profile = () => {
 				{activeSection === "orders" && (
 					<div className="orders">
 						<div className={styles.center}>
-							<p className={styles.grey}>No current orders</p>
+							<p className={styles.grey}> {orders.length < 1 ? orderError : "You have new orders"} </p>
 						</div>
 					</div>
 				)}

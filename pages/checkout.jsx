@@ -41,7 +41,7 @@ export default function Checkout({ merchs }) {
   const last_name = user?.last_name
   const name = firstName + " " + lastName
   const [searchQuery, setSearchQuery] = useState('');
-  const [results, setResults] = useState('');
+  const [results, setResults] = useState([]);
   const [city, setcity] = useState('')
   const [state, setstate] = useState('')
   const [address, setaddress] = useState('')
@@ -76,6 +76,7 @@ export default function Checkout({ merchs }) {
   };
 
   const ref = randomAlphaNumeric(16);
+
   const makePayment = () => {
     console.log("Payment button clicked")
 
@@ -92,25 +93,18 @@ export default function Checkout({ merchs }) {
 
   const createOrder = async()=>{
     const orderUrl = "https://altclan-api-v1.onrender.com/api/orders/"
-
     console.log("Creating a new order for items in cart.")
-
     const res = await fetch(orderUrl, {
       method: "POST",
-      body: JSON.stringify({name_of_item:"", user_email:email, name_of_brand:"", amount_per_item:200, number_of_items:2} ),
+      body: JSON.stringify({name_of_item:"", user_email:email, name_of_brand:"", amount_per_item:200, tacking_number:ref, number_of_items:2} ),
       headers: {
           "Content-Type": "application/json"
       },
-
-      
   })
-
     const data = await res.json()
     console.log("Order posted successfully")
     console.log("orderData: ", data)
-   
-  
- 
+
   if (res.status >= 200 && res.status <= 209) {
       return data          
   }
@@ -123,9 +117,14 @@ export default function Checkout({ merchs }) {
     
     const data = await orderUrl.json()
     console.log("User Orders: ", data)
-    const orderResult = data?.filter((product) => product.merchandise_name.toLowerCase().includes(email.toLowerCase()) );
+    const orderResult = data?.filter((product) => product.user_email.toLowerCase().includes(email.toLowerCase()) );
     setResults(orderResult)
-    console.log("Get Order by email: ", results)
+    console.log("Get Order by email: ", orderResult)
+
+    if(results.length < 1){
+      console.log(results)
+      console.log("No current orders")
+    }
   }
 
   const componentProps = {
