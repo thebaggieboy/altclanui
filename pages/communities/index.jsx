@@ -48,21 +48,17 @@ const Communities = () => {
                                 </defs>
                               </svg>
                               <p class="text-white font-semibold">
-                                twilwind css
+                                Name
                               </p>
                             </div>
-                            <p>
-                              <span class="text-lg font-medium text-neutral-800 uppercase lg:text-xl">
-                                $5</span>
-                              <span class="text-base font-medium ttext-neutral-700"> /mo</span>
-                            </p>
+                        
                           </div>
-                          <p class="mt-8 text-sm font-medium text-white">
+                          <p class="mt-4 text-xs text-white">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
                              since the 1500s.
                           </p>
                           <div class="flex mt-6">
-                            <a class="items-center justify-between inline-flex p-3 font-medium  text-center text-white duration-200 bg-black border border-white/5 rounded-xl h-14 hover:bg-white/10 hover:border-white/10 focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black" href="#">
+                            <a class="items-center tetxt-xs justify-between inline-flex p-3 font-medium  text-center text-white duration-200 bg-white/5 border border-white/5 rounded-xl h-14  focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black" href="#">
                             <span>→</span> Join community 
                             </a>
                           </div>
