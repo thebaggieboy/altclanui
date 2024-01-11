@@ -33,7 +33,7 @@ const Communities = () => {
 
 <div class="lg:order-first">
                       <div class="flex flex-col">
-                        <div class="p-8 rounded-3xl bg-black ring-1 ring-white/10 shadow-sm">
+                        <div class="p-2 rounded-3xl bg-black ring-1 ring-white/10 shadow-sm">
                           <div class="flex justify-between">
                             <div class="flex items-center gap-3">
                               <svg class="w-8 h-8 text-black rounded-full" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
