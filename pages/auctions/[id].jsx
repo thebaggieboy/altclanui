@@ -61,7 +61,7 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export default function ProductDetail({ _id, merch }) {
+export default function AuctionDetail({ _id, merch }) {
 	const dispatch = useDispatch();
 	const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 	const [selectedSize, setSelectedSize] = useState(merch.available_sizes[1]);

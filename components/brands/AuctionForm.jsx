@@ -60,7 +60,7 @@ const MERCH_FORM_DATA = {
 }
 
 
-const BrandMerchForm = (props) => {
+const AuctionForm = (props) => {
   const { isPending, error, mutateAsync: updateFn, data } = useAddMerchandise('https://altclan-brands-api.onrender.com/api/merchandises/', newMerchSuccess, USER_TYPES.brand)
   const dispatch = useDispatch();
   const brand_user = useSelector(selectUser)
@@ -83,7 +83,6 @@ const BrandMerchForm = (props) => {
     display_image: "",
     size_type: "",
     available_sizes: "",
-    available_colors: "",
     price: ""
 
   })
@@ -96,7 +95,7 @@ const BrandMerchForm = (props) => {
     if (checked) {
       setAvailableSizes([...availableSizes, value]);
     } else {
-      setAvailableSizes(availableSizes.filter((size) => size !== value));
+      setAvailableSizes(availableSizes.filter((color) => color !== value));
     }
   }
   
@@ -112,7 +111,7 @@ const BrandMerchForm = (props) => {
   console.log("Available Colors: ", availableColors)
 
   console.log("Brand User: ", brand_user)
-  const { brand_name, merchandise_name, size_type, available_sizes, available_colors, merchandise_gender, labels, display_image, merchandise_type, discount_price, merchandise_description, merchandise_details, price } = formData
+  const { brand_name, merchandise_name, size_type, available_sizes, merchandise_gender, labels, display_image, merchandise_type, discount_price, merchandise_description, merchandise_details, price } = formData
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
   const [formPersonalData, setFormPersonalData] = useState(null)
@@ -413,4 +412,4 @@ const BrandMerchForm = (props) => {
   );
 }
 
-export default BrandMerchForm;
+export default AuctionForm;
