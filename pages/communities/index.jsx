@@ -33,7 +33,7 @@ const Communities = () => {
 
 <div class="lg:order-first">
                       <div class="flex flex-col">
-                        <div class="p-2 rounded-3xl bg-black ring-1 ring-white/10 shadow-sm">
+                        <div style={{backgroundColor: 'beige'}} class="p-5 rounded-3xl  ring-1 ring-white/10 shadow-sm">
                           <div class="flex justify-between">
                             <div class="flex items-center gap-3">
                               <svg class="w-8 h-8 text-black rounded-full" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,18 +47,18 @@ const Communities = () => {
                                   </clipPath>
                                 </defs>
                               </svg>
-                              <p class="text-white font-semibold">
-                                Name
+                              <p class="text-black font-semibold">
+                                Community Name
                               </p>
                             </div>
                         
                           </div>
-                          <p class="mt-4 text-xs text-white">
+                          <p class="mt-4 text-xs text-black">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
                              since the 1500s.
                           </p>
                           <div class="flex mt-6">
-                            <a class="items-center tetxt-xs justify-between inline-flex p-3 font-medium  text-center text-white duration-200 bg-white/5 border border-white/5 rounded-xl h-14  focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black" href="#">
+                            <a class="items-center tetxt-xs justify-between inline-flex p-3 font-medium  text-center text-black duration-200 bg-white/5 border border-white/5 rounded-xl h-14  focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black" href="#">
                             <span>→</span> Join community 
                             </a>
                           </div>
