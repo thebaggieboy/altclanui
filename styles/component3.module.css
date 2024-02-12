@@ -79,14 +79,14 @@
     .welcomeColumn {
         float: left;
         width: 100%;
-        padding: 20px;
+        
 
     }
 
     .fullImages {
         position: relative;
         text-align: center;
-        color: white;
+     
          height: 100%;
     }
 
@@ -115,14 +115,11 @@
     }
 
     .fullImg{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+       
         width: 100%;
         height: 400px;
-        object-fit: cover;
-        object-position: 50% 50%;
-        padding-bottom: 10px;
+       
+     
     }
 
     .fullImageText p{
