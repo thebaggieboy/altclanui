@@ -51,7 +51,7 @@ export default function TrendingBrands() {
 
 	return (
 		<>
-			<div className="p-5 pt-5 mt-3">
+			<div className="p-5 pt-5">
 				<h4 className="text-center text-2xl capitalize">
 					Trending Brands
 				</h4>
