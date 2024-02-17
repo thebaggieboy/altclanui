@@ -26,6 +26,7 @@ import BrandCard from '../components/brand-card';
 import TrendingMerch from "../components/TrendingMerch";
 import TrendingBrands from "../components/TrendingBrands";
 import Link from "next/link";
+import Token from "../components/Token";
 
 const brands = [1, 2, 3, 4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -105,7 +106,7 @@ export default function Home() {
             <Category />
             <ShopDiv />
             <br /> 
-      
+            <Token/>
             <TrendingBrands/>
             <TrendingMerch />
             <Cards />
