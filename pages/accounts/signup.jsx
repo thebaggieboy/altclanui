@@ -92,7 +92,7 @@ export default function SignUp() {
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 
 		<div className="">
-			<div className={styles.loginContainer}>
+			<div className={styles.loginContainer} >
 				<div className={styles.columnImage}>
 					<img
 						src="https://media.everlane.com/image/upload/c_fill,w_828,ar_380:655,q_auto,dpr_1.0,f_auto,fl_progressive:steep/Modal_Desktop-05102022_pyajh1"
