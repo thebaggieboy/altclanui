@@ -31,7 +31,7 @@ const BrandCard = ({ data }) => {
 							}`}
 						/>
 					</button>
-					<Link href={"/products/" + id}>
+					<Link href={"/brands/" + id}>
 						<button className="product-card__see-more">
 							<FiExternalLink className="lg:h-5 lg:w-5" />
 						</button>
