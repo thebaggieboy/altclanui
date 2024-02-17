@@ -4,7 +4,8 @@ export default function
 () {
   return (
     <>
-        <section class="py-24 flex items-center min-h-screen justify-center bg-white">
+        
+        <section class="py-12 flex items-center min-h-screen justify-center bg-white">
   <div class="mx-auto max-w-[43rem]">
     <div class="text-center">
       <p class="text-lg font-medium leading-8 text-indigo-600/95">Introducing Design Data Platform</p>

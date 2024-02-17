@@ -105,11 +105,12 @@ export default function Home() {
             <NewIn />
             <Category />
             <ShopDiv />
-            <br /> 
-            <Token/>
+       
+         
             <TrendingBrands/>
             <TrendingMerch />
             <Cards />
+            <Token/>
             <Form />
           </div>
         </>
