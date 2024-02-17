@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function 
-() {
+export default function Altcoin() {
   return (
     <>
 <section class="bg-black dark:bg-gray-900 mt-5">
