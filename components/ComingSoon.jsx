@@ -40,8 +40,11 @@ export default function ComingSoon() {
                 </h1>
 
                 <p class="max-w-3xl mx-auto mt-6 text-lg text-center text-gray-700 dark:text-white md:text-xl">
-                    Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Fugit alias nihil incidunt.
+                
+🌟 Exciting News Coming Soon! 🌟
+
+We're brewing something special behind the scenes. Stay tuned for our big reveal – it's going to be worth the wait!
+ Keep checking back for updates. 🚀
                 </p>
 
                 <div class="flex flex-col mt-8 space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
