@@ -1,7 +1,8 @@
 import React from 'react'
 
 export default function Altcoin() {
-  return (
+
+    return (
     <>
 <section class="bg-black dark:bg-gray-900 mt-5">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-20 lg:px-12">

@@ -17,7 +17,7 @@ const nextConfig = {
                 pathname:"/media/**"
             }
         ],
-        domains: ['res.cloudinary.com'],
+        domains: ['res.cloudinary.com']
     },
    
 }
