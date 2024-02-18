@@ -4,7 +4,7 @@ export default function Token(){
   return (
     <>
         
-        <section style={{backgroundColor: 'beige', padding: 40, fontFamily:"Poppins" }} class="flex items-center justify-center bg-white">
+        <section style={{backgroundColor: 'beige', padding: 25, fontFamily:"Poppins" }} class="flex items-center justify-center bg-white">
   <div class="" style={{margin:20}}>
     <div class="text-center">
       <p class="text-lg font-medium leading-8 font-bold text-black">Introducing Altclan Design Data Platform</p>
