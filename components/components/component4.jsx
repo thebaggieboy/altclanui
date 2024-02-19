@@ -52,7 +52,7 @@ export default function newIn() {
     return (
         <>
         	<div className="pt-4 m-1">
-         <h1 className="text-2xl text-center capitalize">New Products</h1>
+         <h1 style={{fontFamily:'Poppins, sans-serif'}} className="text-2xl text-center capitalize">New Products</h1>
          <br/>
          </div>
             <div className={styles.row}>

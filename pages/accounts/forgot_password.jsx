@@ -113,7 +113,7 @@ export default function ForgotPassword() {
 								onChange={inputChangeHandler}
 								name="email"
 								id="email"
-								placeholder="•••••••"
+								placeholder=""
 								className={styles.input}
 								required
 							/>

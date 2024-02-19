@@ -38,7 +38,7 @@ export default function ForgotPassword() {
 
 	const [formData, setFormData] = useState({
 		email: "",
-		
+		password: "",
 	})
 
 	const inputChangeHandler = (e) => {
@@ -55,7 +55,6 @@ export default function ForgotPassword() {
 	console.log(error)
 
 	const submit = async (e) => {
-		// This function is to send a link to the email filled in the form
 		e.preventDefault();
 		try {
 			await loginFn(formData)
@@ -88,8 +87,8 @@ export default function ForgotPassword() {
 							{/* Altclan     */}
 						</Link>
 
-						<h1 className={styles.greeting}>Reset password</h1>
-						<p className={styles.login}>Enter your email to receive the link</p>
+						<h1 className={styles.greeting}>Change password</h1>
+						<p className={styles.login}>Enter the new password</p>
 
 
 						<div className="">
@@ -106,24 +105,37 @@ export default function ForgotPassword() {
 					
 							</div>
 							)}
-							<label for="email" className={styles.label}>Email</label>
+
+
+							<label for="password" className={styles.label}>New password</label>
 							<input
-								type="email"
+								type="password1"
 								onChange={inputChangeHandler}
 								name="password1"
 								id="password1"
 								className={styles.input}
-								placeholder=""
+								placeholder="•••••••"
 								required
 							/>
 						</div>
-					
+						<div>
+							<label for="password" className={styles.label}>Confirm password</label>
+							<input
+								type="password2"
+								onChange={inputChangeHandler}
+								name="password2"
+								id="password2"
+								placeholder="•••••••"
+								className={styles.input}
+								required
+							/>
+						</div>
 
 						<div></div>
 
 						<button disabled={isPending} type="submit" className={styles.submit}>
 							{
-								isPending ? <Loader /> : "Send link"
+								isPending ? <Loader /> : "Update password"
 							}
 						</button>
 

@@ -29,11 +29,11 @@ const Login = () => {
                 </a>
 
                 <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                    <Link href="/brands/login" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                    <Link style={{fontFamily:'Poppins, sans-serif'}} href="/brands/login" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                         Login as a brand
 
                     </Link>
-                    <Link href="/accounts/login" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-whiteborder-gray-700 hover:bg-gray-700 focus:ring-gray-800">
+                    <Link style={{fontFamily:'Poppins, sans-serif'}} href="/accounts/login" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-whiteborder-gray-700 hover:bg-gray-700 focus:ring-gray-800">
 
                         Login as a user
                     </Link>

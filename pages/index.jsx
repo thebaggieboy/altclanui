@@ -74,7 +74,7 @@ export default function Home() {
           </Head>
           <HeaderTab />
 
-          <div className={styles.mainComponents}>
+          <div style={{fontFamily:'Poppins, sans-serif'}} className={styles.mainComponents}>
             <div className="grid text-white place-items-center">
               <CarouselWrapper
                 autoplay={{ delay: 2500 }}
