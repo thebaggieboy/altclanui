@@ -1,8 +1,7 @@
 import React from 'react'
 import ComingSoon from '../components/ComingSoon'
 
-export default function 
-() {
+export default function ComingSoon() {
   return (
     <>
         <ComingSoon/>
