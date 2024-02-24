@@ -28,9 +28,9 @@ console.log("Results: " + searchResult)
   useEffect(() => {
 
 	
-      //const brandMerchResults = data?.filter((product) => product.brand_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
-      //setSearchResult(brandMerchResults)
-		  //console.log("Brand Merch Results: ", brandMerchResults)
+      const brandMerchResults = data?.filter((product) => product.brand_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
+      setSearchResult(brandMerchResults)
+		  console.log("Brand Merch Results: ", brandMerchResults)
   
   
 	  }, [searchQuery, data]);
