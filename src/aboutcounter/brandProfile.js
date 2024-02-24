@@ -17,24 +17,21 @@ const MyTabs = () => {
   const [searchQuery, setSearchQuery] = useState('')
  
 
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => fetchProducts()
-})
+ 
+  const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api.onrender.com/api/merchandises/')
 
-console.log("Data: ", data)
-console.log("Results: " + searchResult)
-  
   useEffect(() => {
 
 	
-      const brandMerchResults = data?.filter((product) => product.brand_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
+      const brandMerchResults = data?.filter((product) => product.merchandise_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
       setSearchResult(brandMerchResults)
-		  console.log("Brand Merch Results: ", brandMerchResults)
+		  console.log("Brand Products: ", brandMerchResults)
   
   
 	  }, [searchQuery, data]);
+ 
 
+    
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }

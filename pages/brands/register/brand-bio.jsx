@@ -23,7 +23,7 @@ export default function Bio() {
 	}, [brand_user]);
 
 	useEffect(() => {
-		if (brand_user?.brand_name != "") {
+		if (brand_user?.brand_name !== "" && brand_user?.brand_bio !== "" ) {
 			router.push("/brands/register/brand-logo/");
 		}
 
