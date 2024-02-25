@@ -13,8 +13,8 @@ export default function Brands() {
   const [filteredSearch, setFilteredSearch] = useState([]);
   const [searchResult, setSearchResult] = useState([])
 	const searchParams = useSearchParams();
-	const search = searchParams.get('search')
-	console.log(search)
+	const brand = searchParams.get('brand')
+	console.log(brand)
 	
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -66,7 +66,7 @@ export default function Brands() {
 
         <div className="grid pt-3 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
           {data?.map((brand) => (
-            <Link key={brand.id} href={`/brands/${brand.id}`} className="group">
+            <Link key={brand.id} href={`/brands/${brand.id}?brand=${brand.brand_name}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
                 <img
                   src={brand.brand_logo}

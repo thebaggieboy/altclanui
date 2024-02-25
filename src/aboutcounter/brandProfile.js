@@ -9,10 +9,14 @@ import useMerch from "../../hooks/useMerch"
 import Link from "next/link"
 import { useQuery } from "@tanstack/react-query";
 import fetchProducts from '../../lib/fetchProducts';
-
+import { useSearchParams } from 'next/navigation'
 
 const MyTabs = () => {
   const brand_user = useSelector(selectUser);
+  const router = useRouter()
+  const searchParams = useSearchParams();
+	const brand = searchParams.get('brand')
+  console.log(brand)
  const [searchResult,  setSearchResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
  
@@ -22,11 +26,12 @@ const MyTabs = () => {
 
   useEffect(() => {
 
-	
+      setSearchQuery(brand)
       const brandMerchResults = data?.filter((product) => product.merchandise_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
       setSearchResult(brandMerchResults)
-		  console.log("Brand Products: ", brandMerchResults)
-  
+      console.log("Brand data: ", data)
+      console.log("Brand name: ", searchQuery)
+		
   
 	  }, [searchQuery, data]);
  

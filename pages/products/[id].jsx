@@ -9,7 +9,7 @@ import { addItem } from "../../features/shop/shopSlice";
 import Link from "next/link";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import fetchProductData from '../../lib/fetchProductData'
-
+import Review from "./../../components/Review"
 const queryClient = new QueryClient()
 
 export async function getServerSideProps(context) {
@@ -353,6 +353,8 @@ export default function ProductDetail({ _id, merch }) {
 								<p className="text-sm text-gray-600">{merch.merchandise_details}</p>
 							</div>
 						</div>
+
+						<Review/>
 					</div>
 				</div>
 			</div>
