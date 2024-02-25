@@ -24,17 +24,17 @@ const MyTabs = () => {
  
   const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api.onrender.com/api/merchandises/')
 
-  useEffect(() => {
+    useEffect(() => {
 
-      setSearchQuery(brand)
-      const brandMerchResults = data?.filter((product) => product.merchandise_name.toLowerCase().includes(product.brand_name.toLowerCase()) );
-      setSearchResult(brandMerchResults)
-      console.log("Brand data: ", data)
-      console.log("Brand name: ", searchQuery)
-		
-  
-	  }, [searchQuery, data]);
- 
+      if (searchQuery !== null) {
+        const results = data?.filter((product) => product.brand_name.toLowerCase().includes(brand.toLowerCase()) );
+        setSearchResult(results);
+        
+        console.log("Search Results for ", brand, results)
+      } else {
+        setSearchResult([]);
+      }
+    }, [searchQuery, data]);
 
     
   function classNames(...classes) {
