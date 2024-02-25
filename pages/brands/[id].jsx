@@ -39,6 +39,13 @@ export default function BrandProfile({id, brand}) {
               <p className={styles.about}>
                 {brand.brand_bio}
               </p>
+              
+							<button
+								
+								className="mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-black text-base font-medium text-white  focus:ring-black focus:ring-offset-2"
+							>
+							Follow
+							</button>
               <br/>
             </div>
 

@@ -353,8 +353,7 @@ export default function ProductDetail({ _id, merch }) {
 								<p className="text-sm text-gray-600">{merch.merchandise_details}</p>
 							</div>
 						</div>
-
-						<Review/>
+						
 					</div>
 				</div>
 			</div>

@@ -18,7 +18,7 @@ export default function BrandLogo() {
 
   useEffect(() => {
 		if (brand_user?.brand_logo != "") {
-			router.push(`/brands/profile/${brand_user?.id}`);
+			router.push(`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`);
 		}
 
 	}, [brand_user]);
@@ -62,7 +62,7 @@ export default function BrandLogo() {
 
     await updateFn({ brand_logo: data.url })
 
-    router.push('/brands/profile/' + brand_user.id)
+    router.push(`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`)
   };
 
 
