@@ -25,6 +25,7 @@ import useData from '../hooks/useData';
 import BrandCard from '../components/brand-card';
 import TrendingMerch from "../components/TrendingMerch";
 import TrendingBrands from "../components/TrendingBrands";
+import FeaturedProducts from "../components/FeaturedProducts";
 import Link from "next/link";
 import Token from "../components/Token";
 import Altcoin from "../components/Altcoin";
@@ -110,6 +111,7 @@ export default function Home() {
          
             <TrendingBrands/>
             <TrendingMerch />
+            <FeaturedProducts/>
             <Cards />
             <Token/>
             <Form />
