@@ -4,6 +4,7 @@ import CarouselWrapper from "./CarouselWrapper";
 import useBrands from '../hooks/useBrands'
 import FeaturedProduct from "./product-card/FeaturedProduct";
 import useData from "./../hooks/useData"
+import useMerch from "../hooks/useMerch";
 
 export default function TrendingBrands() {
 	const brands = [1, 2, 3, 4, 5];
@@ -20,7 +21,7 @@ export default function TrendingBrands() {
 		},
 	};
 
-	const { data, isLoading, error } = useBrands("https://altclan-brands-api.onrender.com/api/merchandises/")
+	const { data, isLoading, error } = useMerch("https://altclan-brands-api.onrender.com/api/merchandises/")
 	//const fetch_data = fetch()
 	if (isLoading) {
 		return (
@@ -51,7 +52,7 @@ export default function TrendingBrands() {
 
 	return (
 		<>
-			<div className="p-5 pt-5 mt-3">
+			<div className="p-10 pt-5 mt-10">
 				<h4 className="text-center text-2xl capitalize">
 					Featured Products
 				</h4>

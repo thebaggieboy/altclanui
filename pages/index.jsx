@@ -29,6 +29,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import Link from "next/link";
 import Token from "../components/Token";
 import Altcoin from "../components/Altcoin";
+import Aesthetics from "../components/Aesthetics";
 
 const brands = [1, 2, 3, 4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -105,6 +106,7 @@ export default function Home() {
             <MainColumn />
             <FullImages />
             <NewIn />
+            <Aesthetics/>
             <Category />
             <ShopDiv />
             <Altcoin/>
