@@ -113,7 +113,7 @@ export default function Home() {
          
             <TrendingBrands/>
             <TrendingMerch />
-            <FeaturedProducts/>
+          
             <Cards />
             <Token/>
             <Form />
