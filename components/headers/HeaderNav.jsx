@@ -25,9 +25,10 @@ const navigation = {
 	pages: [
 		{ name: "Home", href: "/" },
 		{ name: "About", href: "/about" },
-		{ name: "Auctions", href: "/coming-soon" },
+		{ name: "Brands", href: "/brands" },
 		{ name: "Shop", href: "/products" },
 		{ name: "Start a brand", href: "/brands/register" },
+		{ name: "Blog", href: "/blog" },
 	],
 
 	categories: [

@@ -55,6 +55,9 @@ export default function BrandProfile({id, brand}) {
               
               <p className={styles.about}>
                 {brand.brand_bio}
+              </p> 
+              <p className='mt-4' style={{fontWeight:'bolder', fontSize:14}}>
+                0 Followers
               </p>
               
 							<button
