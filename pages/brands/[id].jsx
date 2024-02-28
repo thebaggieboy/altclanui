@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect, Component, use } from 'react';
 import styles from "../../styles/brand.module.css";
 import MyTabs from '../../src/aboutcounter/brandProfile'
 import useMerch from '../../hooks/useMerch';
@@ -20,7 +20,24 @@ export async function getServerSideProps(context) {
 
 
 export default function BrandProfile({id, brand}) {
-  
+  const [selectedFollowers, setselectedFollowers] = useState(brand.followers);
+  const [followed, setFollowed ] = useState(false)
+  const getBrandFollowers = async() =>{
+    console.log(brand.followers)
+  }
+
+  const followBrand = ()=>{
+    getBrandFollowers()
+    console.log('Following brand')
+    setFollowed(true)
+  }
+
+  const unFollowBrand = ()=>{
+    getBrandFollowers()
+    console.log('Unfollowing brand')
+    setFollowed(false)
+  }
+
   return (
      <div key={brand.id} className={styles.brandProfileContent}>
           <div className={styles.left}>
@@ -41,10 +58,10 @@ export default function BrandProfile({id, brand}) {
               </p>
               
 							<button
-								
-								className="mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-black text-base font-medium text-white  focus:ring-black focus:ring-offset-2"
+								onClick={followed == false ? followBrand : unFollowBrand}
+								className={followed == false ? "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-black text-base font-medium text-white  focus:ring-black focus:ring-offset-2" : "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-white text-base font-medium text-black  focus:ring-white focus:ring-offset-2"}
 							>
-							Follow
+							 {followed == false ? 'Follow' : 'Unfollow'} 
 							</button>
               <br/>
             </div>
