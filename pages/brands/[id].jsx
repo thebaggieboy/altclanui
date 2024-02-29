@@ -2,6 +2,10 @@ import React, { useState, useEffect, Component, use } from 'react';
 import styles from "../../styles/brand.module.css";
 import MyTabs from '../../src/aboutcounter/brandProfile'
 import useMerch from '../../hooks/useMerch';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { USER_TYPES, selectUser, selectUserType } from '../../features/user/userSlice';
+
 
 export async function getServerSideProps(context) {
   const id = context.params.id
@@ -19,9 +23,21 @@ export async function getServerSideProps(context) {
 
 
 
+
 export default function BrandProfile({id, brand}) {
-  const [selectedFollowers, setselectedFollowers] = useState(brand.followers);
+  const user = useSelector(selectUser)
+  const [selectedFollowers, setselectedFollowers] = useState([]);
+  const [brandFollowers, setbrandFollowers] = useState(brand.followers);
   const [followed, setFollowed ] = useState(false)
+  
+  const [formErr, setFormErr] = useState(error)
+  const [formData, setFormData] = useState({
+   
+    id: user?.id,
+    user_email: user?.email,
+   
+
+  })
   const getBrandFollowers = async() =>{
     console.log(brand.followers)
   }
@@ -29,12 +45,20 @@ export default function BrandProfile({id, brand}) {
   const followBrand = ()=>{
     getBrandFollowers()
     console.log('Following brand')
+    selectedFollowers.push(user?.email)
+   
+    setselectedFollowers(selectedFollowers)
+    console.log('Followers: ', selectedFollowers)
+   
     setFollowed(true)
   }
 
   const unFollowBrand = ()=>{
     getBrandFollowers()
-    console.log('Unfollowing brand')
+    selectedFollowers.pop()
+    
+    console.log('Followers: ', selectedFollowers)
+   
     setFollowed(false)
   }
 
@@ -57,7 +81,7 @@ export default function BrandProfile({id, brand}) {
                 {brand.brand_bio}
               </p> 
               <p className='mt-4' style={{fontWeight:'bolder', fontSize:14}}>
-                0 Followers
+               {selectedFollowers.length} Followers
               </p>
               
 							<button
