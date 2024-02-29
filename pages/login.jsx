@@ -12,6 +12,7 @@ const Login = () => {
        <Head>
        <title>Login to your account</title>
             <meta charset="UTF-8" />
+            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
               name="description"
               content="Login to your user or brand account and continue exploring"

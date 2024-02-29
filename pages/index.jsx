@@ -65,6 +65,7 @@ export default function Home() {
           <Head>
             <title>Community of aesthetics & alternative fashion</title>
             <meta charset="UTF-8" />
+            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
               name="description"
               content="Explore limited edition items, digital arts, decors, antiques and exclusive clothing brands "

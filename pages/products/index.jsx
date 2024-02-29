@@ -151,6 +151,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 		<Head>
        <title>Explore - Start Shopping </title>
             <meta charset="UTF-8" />
+			<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
               name="description"
               content="You can start to shop and explore between different brands, their exclusive deals and amazing creative products."
