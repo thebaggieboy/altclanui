@@ -67,8 +67,8 @@ const MyTabs = () => {
   return (
     <div>
       <Tab.Group>
-        <Tab.List className="flex space-x-1 rounded-xl bg-white-900/20 p-5 pt-5">
-          <Tab className="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black-700">
+        <Tab.List className="flex space-x-1 rounded-xl bg-white-900/20 p-5">
+          <Tab className="w-full active rounded-lg py-2.5 text-sm font-medium leading-5 text-black-700">
             Shop
           </Tab>
 

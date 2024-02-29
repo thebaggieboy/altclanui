@@ -5,7 +5,9 @@ import useMerch from '../../hooks/useMerch';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { USER_TYPES, selectUser, selectUserType } from '../../features/user/userSlice';
-
+import useAddFollowers from '../../hooks/useAddFollowers';
+import { selectBrandUser } from '../../features/brands/brandUserSlice';
+ 
 
 export async function getServerSideProps(context) {
   const id = context.params.id
@@ -26,31 +28,37 @@ export async function getServerSideProps(context) {
 
 export default function BrandProfile({id, brand}) {
   const user = useSelector(selectUser)
+  
   const [selectedFollowers, setselectedFollowers] = useState([]);
   const [brandFollowers, setbrandFollowers] = useState(brand.followers);
   const [followed, setFollowed ] = useState(false)
   
   const [formErr, setFormErr] = useState()
   const [formData, setFormData] = useState({
-   
-    id: user?.id,
-    user_email: user?.email,
-   
+		email: "",
+	
+	})
+ 
+  
 
-  })
   const getBrandFollowers = async() =>{
     console.log('Followers: ', brand.followers)
   }
 
-  const followBrand = ()=>{
+  const followBrand = async()=>{
     getBrandFollowers()
     console.log('Following brand')
     selectedFollowers.push(user?.email)
-   
+    
     setselectedFollowers(selectedFollowers)
+    if(selectedFollowers.includes(user?.email)){
+        console.log('You are already following this brand')
+    }
     console.log('Followers: ', selectedFollowers)
-   
+    
     setFollowed(true)
+
+
   }
 
   const unFollowBrand = ()=>{
