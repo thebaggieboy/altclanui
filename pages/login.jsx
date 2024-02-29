@@ -10,14 +10,15 @@ const Login = () => {
         <>
 
        <Head>
-       <title>Login - Community of aesthetics</title>
+       <title>Login to your account</title>
             <meta charset="UTF-8" />
             <meta
               name="description"
               content="Login to your user or brand account and continue exploring"
             />
               <meta name="keywords"
-                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+                    content="altclan, altclan login, login, altclan signup, login altclan" />
+                    <meta name="author" content="Altclan"></meta>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 

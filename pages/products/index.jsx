@@ -156,7 +156,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
               content="You can start to shop and explore between different brands, their exclusive deals and amazing creative products."
             />
               <meta name="keywords"
-                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+                    content="altclan, altclan products, altclan merchandises, altclan shop, altclan explore" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 

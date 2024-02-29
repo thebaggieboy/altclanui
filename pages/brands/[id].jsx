@@ -30,7 +30,7 @@ export default function BrandProfile({id, brand}) {
   const [brandFollowers, setbrandFollowers] = useState(brand.followers);
   const [followed, setFollowed ] = useState(false)
   
-  const [formErr, setFormErr] = useState(error)
+  const [formErr, setFormErr] = useState()
   const [formData, setFormData] = useState({
    
     id: user?.id,
@@ -39,7 +39,7 @@ export default function BrandProfile({id, brand}) {
 
   })
   const getBrandFollowers = async() =>{
-    console.log(brand.followers)
+    console.log('Followers: ', brand.followers)
   }
 
   const followBrand = ()=>{
