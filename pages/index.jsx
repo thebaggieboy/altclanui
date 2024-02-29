@@ -63,14 +63,14 @@ export default function Home() {
       {loading ? <Preloader /> :
         <>
           <Head>
-            <title>Altclan - Community of aesthetics</title>
+            <title>Community of aesthetics & alternative fashion</title>
             <meta charset="UTF-8" />
             <meta
               name="description"
-              content="Welcome to our community of aesthetics, and explore between brands and awesome collections"
+              content="Explore limited edition items, digital arts, decors, antiques and exclusive clothing brands "
             />
               <meta name="keywords"
-                    content="altclan, alteclan , fashion community, aesthetics, enigmas, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
+                    content="altclan, alteclan , alternative fashion altclan,   fashion community, aesthetics, enigmas, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
             <meta name="author" content="Altclan"></meta>

@@ -168,12 +168,6 @@ const BrandMerchForm = (props) => {
       body: imageformData
     }).then(r => r.json());
 
-    console.log("Image Form Data: ", image)
-    console.log("Image Form URL: ", createObjectURL)
-    console.log(data)
-    console.log(imageData.url)
-    console.log(imageformData)
-
     await updateFn(
       {
         brand_name: brand_user?.brand_name,
