@@ -81,11 +81,18 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const [searchQuery, setSearchQuery] = useState('')
 	const [genderQuery, setGenderQuery] = useState('')
 	const [labelResult, setLabelResult] = useState([]);
-	const [merchTypeResult, setSearchMerchTypeResult] = useState([])
+	const [merchTypeResult, setMerchTypeResult] = useState([])
 	const [genderResult, setGenderResult] = useState([])
+	const [filteredResult, setFilteredResult] = useState([])
+
+	const [productResult, setProductResult] = useState([])
+	const [isMerchType, setIsMerchType] = useState(false)
+	const [isLabelType, setIsLabelType] = useState(false)
+	const [isGenderType, setIsGenderType] = useState(false)
 	const searchParams = useSearchParams();
 	const search = searchParams.get('q')
 	const gender = searchParams.get('g')
+
 	useEffect(() => {
 		setSearchQuery(search)
 		setGenderQuery(gender)
@@ -97,17 +104,22 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 			const label = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
 			const merchType = data?.filter((product) => product.merchandise_type.toLowerCase().includes(searchQuery.toLowerCase()) );
 			const genderType = data?.filter((product) => product.merchandise_gender.toLowerCase().includes(genderQuery.toLowerCase()) );
-			setSearchMerchTypeResult(merchType);
+			setMerchTypeResult(merchType);
 			setLabelResult(label)
 			setGenderResult(genderType)
-			
+			setIsGenderType(true)
+			setIsMerchType(true)
+			setIsLabelType(true) 
 			console.log("Search Results for merch type: ", searchQuery, merchTypeResult)
 			console.log("Search Results for labels: ", searchQuery, labelResult)
 			console.log("Search Results for gender: ", genderQuery, genderResult)
 		  } else {
-			setSearchMerchTypeResult([]);
+			setMerchTypeResult([]);
 			setLabelResult([])
 			setGenderResult([])
+			setIsGenderType(false)
+			setIsMerchType(false)
+			setIsLabelType(false)
 			
 		  }
 				
@@ -438,7 +450,59 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 							<div className="lg:col-span-3 mt-2">
 								<div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
 									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
-										{data?.map(
+										{isMerchType === true ?  merchTypeResult?.map(
+											({
+												id,
+												display_image,
+												imageAlt,
+												brand_name,
+												merchandise_name,
+												merchandise_type,
+												labels,
+												price,
+											}) => (
+												<div key={id} className="group relative">
+													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
+														<Link href={`/products/${id}`}>
+															<img
+																src={display_image}
+																alt={imageAlt}
+																className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+															/>
+															
+														</Link>
+													</div>
+													<Link href={`/products/${id}`}>
+
+													
+													<div className="flex pt-3 justify-between">
+														<div>
+														<div className="container text-gray-500 text-xs">
+															{labels != "None" ?
+															 <span style={{backgroundColor:'#F5F5DC', borderRadius:0, fontSize:10}} class=" text-black me-2 px-2.5 py-0.5 rounded dark:bg-black dark:text-white border border-black">
+															{labels}
+															</span> : ""}
+
+														
+															</div>
+															<h3 className="text-sm pt-2  text-black">
+																{/* An element here was covering the whole card making the add to cart unclickable */}
+																{merchandise_name} 
+															</h3> <span style={{fontSize:12}}>by</span> <span style={{fontSize:13, fontStyle:"italic"}}>{brand_name}</span> 
+															
+															<p style={{fontWeight:'bold'}}  className="text-xs pt-1 text-gray-900">
+																₦{price}
+															</p>
+
+														
+														</div>
+
+												
+													</div>
+													</Link>
+												</div>
+											)
+										):  data?.map(
 											({
 												id,
 												display_image,
