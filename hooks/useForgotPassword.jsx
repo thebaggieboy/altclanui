@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 
 
-const ForgotPassword = (isBrand) => {
+const useForgotPassword = (isBrand) => {
     const userUrl = "https://altclan-api-v1.onrender.com/dj-rest-auth/password/reset/confirm/"
     const brandUrl = "https://altclan-brands-api.onrender.com/dj-rest-auth/password/reset/confirm/"
 
@@ -30,4 +30,4 @@ const ForgotPassword = (isBrand) => {
     return mutation
 }
 
-export default ForgotPassword
+export default useForgotPassword

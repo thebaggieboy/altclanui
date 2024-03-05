@@ -7,6 +7,9 @@ import { selectUser, setUser } from "../../features/user/userSlice";
 
 import Loader from "../../components/Loader";
 import useLogin from "../../hooks/useLogin";
+import useForgotPassword from "../../hooks/useForgotPassword";
+
+
 
 export function LoginError() {
 	return (
@@ -34,7 +37,7 @@ export default function ForgotPassword() {
 	}
 
 
-	const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin()
+	const { isIdle, isPending, error, mutateAsync: forgotPasswordFn } = useForgotPassword()
 
 	const [formData, setFormData] = useState({
 		email: "",
@@ -57,7 +60,7 @@ export default function ForgotPassword() {
 	const submit = async (e) => {
 		e.preventDefault();
 		try {
-			await loginFn(formData)
+			await forgotPasswordFn(formData)
 		} catch (error) {
 			console.log(error)
 			setFormErr(error)

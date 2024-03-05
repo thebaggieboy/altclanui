@@ -305,12 +305,12 @@ export default function HeaderNav() {
 														>
 															{section.items.map((item) => (
 																<li key={item.name} className="flow-root">
-																	<Link
+																	<a
 																		href={item.href}
 																		className="-m-2 block p-2 text-gray-500"
 																	>
 																		{item.name}
-																	</Link>
+																	</a>
 																</li>
 															))}
 														</ul>
@@ -458,12 +458,12 @@ export default function HeaderNav() {
 																								key={item.name}
 																								className="flex"
 																							>
-																								<Link
+																								<a
 																									href={item.href}
 																									className="hover:text-gray-800"
 																								>
 																									{item.name}
-																								</Link>
+																								</a>
 																							</li>
 																						))}
 																					</ul>
