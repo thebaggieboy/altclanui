@@ -26,7 +26,7 @@ const sortOptions = [
 const subCategories = [
 	{ name: "New Merch", href: "/products?q=New Merchandise" },
 	{ name: "Brands", href: "/brands" },
-	{ name: "Limited Edition", href: "/products?q=limited_edition" },
+	{ name: "Limited Edition", href: "/products?q=Limited Stock" },
 	{ name: "Arts", href: "/products?q=arts" },
 	
 ];
@@ -100,7 +100,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	  }, [search, gender, data]);
 	
 	useEffect(() => {
-		if (searchQuery !== null) {
+		if (searchQuery !== null && genderQuery!== null) {
 			const label = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
 			const merchType = data?.filter((product) => product.merchandise_type.toLowerCase().includes(searchQuery.toLowerCase()) );
 			const genderType = data?.filter((product) => product.merchandise_gender.toLowerCase().includes(genderQuery.toLowerCase()) );
@@ -113,6 +113,30 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 			console.log("Search Results for merch type: ", searchQuery, merchTypeResult)
 			console.log("Search Results for labels: ", searchQuery, labelResult)
 			console.log("Search Results for gender: ", genderQuery, genderResult)
+
+			if(isMerchType === true){
+				setFilteredResult(merchTypeResult)
+				console.log('Filtered Result: ', filteredResult)
+			}else{
+				setFilteredResult(data)
+				console.log('Filtered Result: ', filteredResult)
+			}
+			if(isLabelType === true){
+				setFilteredResult(labelResult)
+				console.log('Filtered Result: ', filteredResult)
+			}else{
+				setFilteredResult(data)
+				console.log('Filtered Result: ', filteredResult)
+			}
+			if(isGenderType === true){
+				setFilteredResult(genderResult)
+				console.log('Filtered Result: ', filteredResult)
+			}else{
+				setFilteredResult(data)
+				console.log('Filtered Result: ', filteredResult)
+			}
+
+
 		  } else {
 			setMerchTypeResult([]);
 			setLabelResult([])
@@ -555,6 +579,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 												</div>
 											)
 										)}
+										
 									</div>
 								</div>
 							</div>
