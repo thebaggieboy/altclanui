@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { VectorMap } from "@react-jvectormap/core";
-import { usAea } from "@react-jvectormap/unitedstates";
+import { usAea  } from "@react-jvectormap/unitedstates";
+
 
 const MapOne = () => {
   return (

@@ -78,34 +78,40 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
-	const [searchQuery, setSearchQuery] = useState('');
-	const [filteredResult, setFilteredResult] = useState([]);
-	const [genderQuery, setGenderQuery] = useState('');
+	const [searchQuery, setSearchQuery] = useState('')
+	const [genderQuery, setGenderQuery] = useState('')
+	const [labelResult, setLabelResult] = useState([]);
+	const [merchTypeResult, setSearchMerchTypeResult] = useState([])
+	const [genderResult, setGenderResult] = useState([])
 	const searchParams = useSearchParams();
 	const search = searchParams.get('q')
 	const gender = searchParams.get('g')
-
+	useEffect(() => {
+		setSearchQuery(search)
+		setGenderQuery(gender)
+				
+	  }, [search, gender, data]);
 	
 	useEffect(() => {
-		if (searchQuery !== null){
-		setSearchQuery(search)
-	    setGenderQuery(gender)
-		console.log("Search params: " + searchQuery)
-		console.log("Gender params: " + genderQuery)
-
-        const labelResults = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
-		  const merchandiseTypeResult = data?.filter((product) => product.merchandise_type.toLowerCase().includes(genderQuery.toLowerCase()) );
-		  setFilteredResult(labelResults)
-		  console.log("Label Results: ", labelResults)
-		  console.log("Filtered Results: ", filteredResult)
-		  console.log("Product Type Results: ", merchandiseTypeResult)
-		  //console.log("Search Results for ", search)
-
-		  
-		}
-		  
-		
-	  }, [search, searchQuery, data, filteredResult]);
+		if (searchQuery !== null) {
+			const label = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
+			const merchType = data?.filter((product) => product.merchandise_type.toLowerCase().includes(searchQuery.toLowerCase()) );
+			const genderType = data?.filter((product) => product.merchandise_gender.toLowerCase().includes(genderQuery.toLowerCase()) );
+			setSearchMerchTypeResult(merchType);
+			setLabelResult(label)
+			setGenderResult(genderType)
+			
+			console.log("Search Results for merch type: ", searchQuery, merchTypeResult)
+			console.log("Search Results for labels: ", searchQuery, labelResult)
+			console.log("Search Results for gender: ", genderQuery, genderResult)
+		  } else {
+			setSearchMerchTypeResult([]);
+			setLabelResult([])
+			setGenderResult([])
+			
+		  }
+				
+	  }, [search, gender, data]);
 
 	if (isLoading) {
 		return (

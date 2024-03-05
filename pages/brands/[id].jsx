@@ -57,7 +57,7 @@ export default function BrandProfile({id, brand}) {
     console.log('Followers: ', selectedFollowers)
     
     setFollowed(true)
-
+    
 
   }
 
