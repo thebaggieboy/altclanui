@@ -103,7 +103,7 @@ export default function ForgotPassword() {
 								</svg>
 								<span class="sr-only">Info</span>
 								<div class="ml-3 text-sm text-center font-medium">
-									{formErr.non_field_errors}
+									{error.email}
 								</div>
 					
 							</div>
@@ -112,8 +112,8 @@ export default function ForgotPassword() {
 							<input
 								type="email"
 								onChange={inputChangeHandler}
-								name="password1"
-								id="password1"
+								name="email"
+								id="email"
 								className={styles.input}
 								placeholder=""
 								required
