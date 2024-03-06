@@ -63,7 +63,7 @@ export default function Home() {
       {loading ? <Preloader /> :
         <>
           <Head>
-            <title>Community of aesthetics & alternative fashion</title>
+            <title>Altclan - Community of aesthetics & alternative styles.</title>
             <meta charset="UTF-8" />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
