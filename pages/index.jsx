@@ -86,10 +86,10 @@ export default function Home() {
                 pagination={true}
                 className="hero-carousel col-start-1 col-end-2 row-start-1 row-end-2"
               >
-                <Image src="/img/moh-mckenzie.jpg" fill alt="hero-umg" />
-                <Image src="/img/black-guy-1.jpg" fill alt="hero-umg" />
-                <Image src="/img/natalie-hua.jpg" fill alt="hero-umg" />
-                <Image src="/img/b-shah.jpg" fill alt="hero-umg" />
+                <Image src="/img/moh-mckenzie-compressed.jpg" fill alt="hero-umg" />
+                <Image src="/img/black-guy-1-compressed.jpg" fill alt="hero-umg" />
+                <Image src="/img/natalie-hua-compressed.jpg" fill alt="hero-umg" />
+                <Image src="/img/b-shah-compressed.jpg" fill alt="hero-umg" />
               </CarouselWrapper>
               <div className="w-full h-full p-3 bg-black/40 flex flex-col items-center justify-center gap-y-8  col-start-1 col-end-2 row-start-1 row-end-2 z-[2]">
                 

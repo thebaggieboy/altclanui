@@ -28,7 +28,7 @@ export default function mainColumn() {
                 </div>
 
                 <div className={styles.welcomeColumn}>
-                    <img src="/img/headersweat.jpg" alt="" className={styles.headImage}/>
+                    <img src="/img/headersweat-compressed.jpg" alt="" className={styles.headImage}/>
                 </div>
             </div>
         </div>

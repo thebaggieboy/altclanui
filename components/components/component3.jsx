@@ -6,7 +6,7 @@ export default function fullImages() {
         <div className={styles.row}>
             <div className={styles.welcomeColumn}>                 
                 <div className={styles.fullImages}>
-                    <img src="/img/just-landed.jpg" alt="" className={styles.fullImg}/>
+                    <img src="/img/just-landed-compressed-2.jpg" alt="" className={styles.fullImg}/>
                     <div className={styles.fullImageTextCont}>
                         <div className={styles.fullImageText}>
                             <p>
