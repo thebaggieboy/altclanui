@@ -212,7 +212,7 @@ const Profile = () => {
         </thead>
         <tbody >
 		{orders.map(order=>(
-		<tr key={order.id}  class="bg-white dark:bg-gray-800">
+		<tr key={order.id}  class="bg-white dark:bg-gray-800" style={{overflowX:'hidden'}}>
                 <th scope="row" style={{fontSize:12}} class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    <a href="" style={{textDecoration:"underline"}}>{order.id}</a>
                 </th>
@@ -221,6 +221,12 @@ const Profile = () => {
                 </td>
                 <td class="px-6 py-4">
 				₦{order.total_amount}
+                </td>
+				<td class="px-6 py-4">
+
+				{order.delivered === true ? <img src="/5610944.png" alt=""  style={{height:20}}/>
+  : <img src="/169779.png" alt=""  style={{height:20}}/>
+  }
                 </td>
 				
             </tr>
