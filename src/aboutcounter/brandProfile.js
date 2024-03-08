@@ -16,7 +16,7 @@ const MyTabs = () => {
   const router = useRouter()
   const searchParams = useSearchParams();
 	const brand = searchParams.get('brand')
-  console.log(brand)
+  console.log('Brand: ', brand)
  const [searchResult,  setSearchResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
  
@@ -27,7 +27,9 @@ const MyTabs = () => {
     useEffect(() => {
 
       if (searchQuery !== null) {
-        const results = data?.filter((product) => product.brand_name.toLowerCase().includes(brand.toLowerCase()) );
+        setSearchQuery(brand)
+      console.log('Search query: ', searchQuery)
+        const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
         setSearchResult(results);
         
         console.log("Search Results for ", brand, results)
@@ -83,7 +85,7 @@ const MyTabs = () => {
           <Tab.Panel className="rounded-xl bg-white p-3">
             <div className="lg:col-span-3 mt-2">
               <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-                <div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-3 xl:gap-x-8">
+                <div className=" grid grid-cols-2 gap-x-6 gap-y-2  lg:grid-cols-3 xl:gap-x-8">
                   {searchResult?.map(
                     ({
                       id,
