@@ -204,6 +204,9 @@ const Profile = () => {
                 <th scope="col" class="px-6 py-3 rounded-e-lg">
                     Price
                 </th>
+				<th scope="col" class="px-6 py-3 rounded-e-lg">
+                    Delivered
+                </th>
 			
             </tr>
         </thead>
@@ -211,7 +214,7 @@ const Profile = () => {
 		{orders.map(order=>(
 		<tr key={order.id}  class="bg-white dark:bg-gray-800">
                 <th scope="row" style={{fontSize:12}} class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   <a href="" style={{textDecoration:"underline"}}>{order.tracking_number}</a>
+                   <a href="" style={{textDecoration:"underline"}}>{order.id}</a>
                 </th>
                 <td class="px-6 py-4">
                   {order.number_of_items}

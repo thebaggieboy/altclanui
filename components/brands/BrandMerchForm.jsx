@@ -65,10 +65,10 @@ const BrandMerchForm = (props) => {
   const dispatch = useDispatch();
   const brand_user = useSelector(selectUser)
   const router = useRouter()
-  // console.log(brand_user)
+ 
 
   async function newMerchSuccess() {
-    await router.push("/brands/profile/" + brand_user?.id);
+    await router.push(`/brands/profile/${brand_user?.id}?add_merch=success`);
   }
 
   const [formErr, setFormErr] = useState(error)

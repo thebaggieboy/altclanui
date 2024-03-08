@@ -142,6 +142,7 @@ const MyTabs = () => {
                 </div>
               </div>
             </div>
+            <br/><br/>
 
           </Tab.Panel>
 

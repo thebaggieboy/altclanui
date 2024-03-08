@@ -321,7 +321,7 @@ export default function HeaderNav() {
 									</Tab.Panels>
 								</Tab.Group>
 
-								<div className="border-t border-gray-200 px-4 py-6">
+								{/**  <div className="border-t border-gray-200 px-4 py-6">
 									<Link href="#" className="-m-2 flex items-center p-2">
 										<img
 											src="https://tailwindui.com/img/flags/flag-nigeria.svg"
@@ -333,7 +333,7 @@ export default function HeaderNav() {
 										</span>
 										<span className="sr-only">, change currency</span>
 									</Link>
-								</div>
+								</div> */}
 							</Dialog.Panel>
 						</Transition.Child>
 					</div>
@@ -537,7 +537,7 @@ export default function HeaderNav() {
 								</div>
 
 
-								<div className="hidden lg:ml-8 lg:flex">
+								{/* <div className="hidden lg:ml-8 lg:flex">
 									<Link
 										href="#"
 										className="flex items-center text-gray-700 hover:text-gray-800"
@@ -550,7 +550,7 @@ export default function HeaderNav() {
 										<span className="ml-3 block text-sm font-medium">NGN</span>
 										<span className="sr-only">, change currency</span>
 									</Link>
-								</div>
+								</div>*/}
 
 								{/* Search */}
 								<div className="flex lg:ml-6">
