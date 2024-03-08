@@ -190,21 +190,21 @@ const Profile = () => {
 
 								
 
-<div class="relative p-5 text-center" >
+<div class="p-5" style={{textAlign:"center"}}>
 
     <table  class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+        <thead style={{fontSize:10}} class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3 rounded-s-lg">
+                <th scope="col" class="px-6 py-3 ">
                     ID
                 </th>
                 <th scope="col" class="px-6 py-3">
                    Items(no)
                 </th>
-                <th scope="col" class="px-6 py-3 rounded-e-lg">
+                <th scope="col" class="px-6 py-3 ">
                     Price
                 </th>
-				<th scope="col" class="px-6 py-3 rounded-e-lg">
+				<th scope="col" class="px-6 py-3">
                     Delivered
                 </th>
 			
@@ -213,7 +213,7 @@ const Profile = () => {
         <tbody >
 		{orders.map(order=>(
 		<tr key={order.id}  class="bg-white dark:bg-gray-800" style={{overflowX:'hidden'}}>
-                <th scope="row" style={{fontSize:12}} class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" style={{fontSize:10}} class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    <a href="" style={{textDecoration:"underline"}}>{order.id}</a>
                 </th>
                 <td class="px-6 py-4">
