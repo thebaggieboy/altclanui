@@ -38,7 +38,7 @@ export default function BrandProfile({id, brand}) {
 		email: "",
 	
 	})
- 
+  const [followers, setFollowers] = useState([])
   
 
   const getBrandFollowers = async() =>{
@@ -47,16 +47,22 @@ export default function BrandProfile({id, brand}) {
 
   const followBrand = async()=>{
     getBrandFollowers()
-    console.log('Following brand')
-    selectedFollowers.push(user?.email)
-    
-    setselectedFollowers(selectedFollowers)
-    if(selectedFollowers.includes(user?.email)){
-        console.log('You are already following this brand')
-    }
-    console.log('Followers: ', selectedFollowers)
-    
     setFollowed(true)
+    console.log('Following brand')
+   
+    if (followed === true) {
+      setFollowers([...followers, value]);
+    } 
+    //selectedFollowers.push(user?.email)
+    
+    //setselectedFollowers(selectedFollowers)
+    //if(selectedFollowers.includes(user?.email)){
+       // console.log('You are already following this brand')
+    //}
+
+    //console.log('Followers: ', selectedFollowers)
+    
+    
     
 
   }

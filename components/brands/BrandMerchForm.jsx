@@ -39,7 +39,7 @@ const MERCH_FORM_DATA = {
       "Lumberjacks",
       "Piercings & Studs",
       "Baggy Wears"],
-  gender: ["Male", "Female", "Non-Binary", "Do not specify"],
+  gender: ["Male", "Female", "Non-Binary", "Unisex", "Do not specify"],
   labels:
     ["None",
       "New Merchandise",
@@ -153,12 +153,7 @@ const BrandMerchForm = (props) => {
     const formData = new FormData(e.target)
     const imageformData = new FormData(e.target)
 
-    let data = {}
-    console.log("Submit button clicked")
-    const map = formData.entries()
-    for (const [key, value] of map) {
-      data[key] = value
-    }
+   
 
     imageformData.append("file", image);
     imageformData.append("upload_preset", 'altclan')

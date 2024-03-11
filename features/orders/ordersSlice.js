@@ -12,6 +12,7 @@ const orderSlice = createSlice({
         addOrder: (state, action) => {
             state.order.push(action.payload)
         }
+        
     }
 })
 
