@@ -30,6 +30,7 @@ import Link from "next/link";
 import Token from "../components/Token";
 import Altcoin from "../components/Altcoin";
 import Aesthetics from "../components/Aesthetics";
+import Aesthetics2 from "../components/Aesthetics2";
 
 const brands = [1, 2, 3, 4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -109,6 +110,7 @@ export default function Home() {
             <FullImages />
             <NewIn />
             <Aesthetics/>
+            <Aesthetics2/>
             <Category />
             <ShopDiv />
             <Altcoin/>

@@ -5,13 +5,13 @@ import fetchProfileData from '../lib/fetchProfileData'
 const useAddFollowers = (url, successCallback, userType) => {
     const isBrand = userType === USER_TYPES.brand
     const mutation = useMutation({
-        mutationFn: async ({ email }) => {
+        mutationFn: async ({ followers }) => {
             const res = await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email }),
+                body: JSON.stringify({ followers }),
                 credentials: "include"
             })
             const data = await res.json()

@@ -74,8 +74,10 @@ function classNames(...classes) {
 
 export default function Products({ _id, merchandise_name, price, picture }) {
 	// const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/');
-	const { data, isLoading, error } = useMerch("https://altclan-brands-api.onrender.com/api/merchandises/");
+	const [page, setPage] = useState(1)
+	const { data, isLoading, error } = useMerch(`https://altclan-brands-api.onrender.com/api/merchandises/`);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+	
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [searchQuery, setSearchQuery] = useState('')
@@ -254,6 +256,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 										<h3 className="sr-only">Categories</h3>
 										<ul
 											role="list"
+								
 											className="px-2 py-5 mt-5 font-medium text-gray-900"
 										>
 											{subCategories.map((category) => (
@@ -401,8 +404,9 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 							<form className="hidden lg:block">
 								<h3 className="sr-only">Categories</h3>
 								<ul
+								
 									role="list"
-									className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
+									className=" space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
 								>
 									{subCategories.map((category) => (
 										<li className="mt-3" key={category.name}>
@@ -415,7 +419,7 @@ export default function Products({ _id, merchandise_name, price, picture }) {
 									<Disclosure
 										as="div"
 										key={section.id}
-										className="border-b border-gray-200 py-6"
+										className=" border-b border-gray-200 py-6"
 									>
 										{({ open }) => (
 											<>

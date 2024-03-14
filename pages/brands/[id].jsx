@@ -35,43 +35,57 @@ export default function BrandProfile({id, brand}) {
   
   const [formErr, setFormErr] = useState()
   const [formData, setFormData] = useState({
-		email: "",
+		followers: "",
 	
 	})
   const [followers, setFollowers] = useState([])
   
-
+ 
   const getBrandFollowers = async() =>{
-    console.log('Followers: ', brand.followers)
+    console.log('Followers: ', brandFollowers)
   }
 
   const followBrand = async()=>{
+    const url = `https://altclan-brands-api.onrender.com/api/${brand?.id}`
     getBrandFollowers()
+    
+    selectedFollowers.push(user?.email)
+    setselectedFollowers(selectedFollowers)
+    if(selectedFollowers.includes(user?.email)){
+        console.log('You are following this brand')
+    }
+
+    console.log('Followers: ', selectedFollowers)
     setFollowed(true)
-    console.log('Following brand')
-   
-    if (followed === true) {
-      setFollowers([...followers, value]);
-    } 
-    //selectedFollowers.push(user?.email)
-    
-    //setselectedFollowers(selectedFollowers)
-    //if(selectedFollowers.includes(user?.email)){
-       // console.log('You are already following this brand')
-    //}
-
-    //console.log('Followers: ', selectedFollowers)
-    
-    
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ followers:selectedFollowers }),
+      credentials: "include"
+  })
+    const data = await res.json()
     
 
+    if (res.status >= 200 && res.status <= 209) {
+      return data
+  }
+  const err = { ...data }
+  throw { err }
   }
 
-  const unFollowBrand = ()=>{
-    getBrandFollowers()
-    selectedFollowers.pop()
+  const unFollowBrand = async()=>{
+    //getBrandFollowers()
+    const arrayWithoutB = [];
     
-    console.log('Followers: ', selectedFollowers)
+    const arrayWithoutThisUser = selectedFollowers?.filter(function (user_email) {
+      return user_email !== user?.email;
+  });
+    setselectedFollowers(arrayWithoutThisUser)
+ 
+    
+    console.log('Followers after unfollow: ', selectedFollowers)
    
     setFollowed(false)
   }

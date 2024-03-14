@@ -10,6 +10,7 @@ import Link from "next/link"
 import { useQuery } from "@tanstack/react-query";
 import fetchProducts from '../../lib/fetchProducts';
 import { useSearchParams } from 'next/navigation'
+import useOrder from '../../hooks/useOrder';
 
 const MyTabs = () => {
   const brand_user = useSelector(selectUser);
@@ -17,24 +18,32 @@ const MyTabs = () => {
   const searchParams = useSearchParams();
 	const brand = searchParams.get('brand')
   console.log('Brand: ', brand)
- const [searchResult,  setSearchResult] = useState([])
+ const [searchResult,  setSearchResult] = useState([])]
+ const [orderResult,  setOrderResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+ 
+  const [orderQuery, setOrderQuery] = useState('')
  
 
  
   const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api.onrender.com/api/merchandises/')
+  const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
 
     useEffect(() => {
 
       if (searchQuery !== null) {
         setSearchQuery(brand)
+        setOrderQuery(brand)
       console.log('Search query: ', searchQuery)
         const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
+        const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(orderQuery.toLowerCase()) );
         setSearchResult(results);
-        
+        setOrderResult(orderResults)
         console.log("Search Results for ", brand, results)
+        console.log("Order Results for ", brand, orderResults)
       } else {
         setSearchResult([]);
+        setOrderResult([]);
       }
     }, [searchQuery, data]);
 
