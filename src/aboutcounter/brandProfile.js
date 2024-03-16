@@ -18,7 +18,7 @@ const MyTabs = () => {
   const searchParams = useSearchParams();
 	const brand = searchParams.get('brand')
   console.log('Brand: ', brand)
- const [searchResult,  setSearchResult] = useState([])]
+ const [searchResult,  setSearchResult] = useState([])
  const [orderResult,  setOrderResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
  

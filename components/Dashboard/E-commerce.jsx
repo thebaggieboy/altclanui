@@ -20,12 +20,43 @@ const MapOne = dynamic(() => import("../Sidebar/Maps/MapOne"), {
 });
 import { useSelector } from "react-redux";
 import useData from "../../hooks/useData";
- 
+
+import useOrder from '../../hooks/useOrder'
+
 const ECommerce = ({id, brand}) => {
   const [query, setQuery] = useState([])
   const user = useSelector(selectUser)
 	const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResult,  setSearchResult] = useState([])
+  const [orderResult,  setOrderResult] = useState([])
+
+   const [orderQuery, setOrderQuery] = useState('')
+  
   const { data, isLoading, error } = useData(`https://altclan-brands-api.onrender.com/api/brand_dashboard/${user?.id}`);
+  const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
+
+  useEffect(() => {
+
+    if (searchQuery !== null) {
+      setSearchQuery(brand)
+      setOrderQuery(brand)
+    console.log('Search query: ', searchQuery)
+      const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
+      const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(orderQuery.toLowerCase()) );
+      setSearchResult(results);
+      setOrderResult(orderResults)
+      console.log("Search Results for ", brand, results)
+      console.log("Order Results for ", brand, orderResults)
+    } else {
+      setSearchResult([]);
+      setOrderResult([]);
+    }
+  }, [searchQuery, data]);
+
+  
+
+    
   console.log("Data: ", data)
 
   const totalRevenue = async() =>{
@@ -86,7 +117,7 @@ const ECommerce = ({id, brand}) => {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats title="Products" total="0" rate="0.00%" levelUp>
+        <CardDataStats title="Products" total={searchResult.length} rate="0.00%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
             width="20"
@@ -110,7 +141,7 @@ const ECommerce = ({id, brand}) => {
           </svg>
         </CardDataStats>
        
-        <CardDataStats title="Orders" total="0" rate="0.00%" levelUp>
+        <CardDataStats title="Orders" total={orderResult.length} rate="0.00%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
             width="20"
