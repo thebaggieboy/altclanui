@@ -518,7 +518,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${isBrand ? "/brands/profile/" + user.id : "/profile/" + user.id}`}
+												href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
 											>
 												Profile
 											</Link>
