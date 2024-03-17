@@ -605,7 +605,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${isBrand ? "/brands/profile/" + user.id : "/profile/" + user.id}`}
+															href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile

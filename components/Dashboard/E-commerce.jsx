@@ -46,9 +46,7 @@ const ECommerce = ({id, brand}) => {
       const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
       setSearchResult(results);
       setOrderResult(orderResults)
-      console.log("Search Results for ", brand, results)
-      console.log("Order Results for ", brand, orderResult)
-      console.log("dataOrder: ", dataOrder)
+  
     } else {
       setSearchResult([]);
       setOrderResult([]);
@@ -58,7 +56,9 @@ const ECommerce = ({id, brand}) => {
   
 
     
-  console.log("Data: ", data)
+  console.log("Data order: ", data)
+   
+
 
   const totalRevenue = async() =>{
      // Get all merchandises related to brand A

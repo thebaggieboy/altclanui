@@ -110,7 +110,7 @@ export default function Home() {
             <FullImages />
             <NewIn />
             <Aesthetics/>
-            <Aesthetics2/>
+      
             <Category />
             <ShopDiv />
             <Altcoin/>
