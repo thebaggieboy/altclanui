@@ -137,7 +137,7 @@ const ChartOne: React.FC = () => {
    
 
       {
-        name: "Products",
+        name: "Total sales",
         data: [0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0],
       },
     ],
