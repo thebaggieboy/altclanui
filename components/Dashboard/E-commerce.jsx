@@ -33,7 +33,7 @@ const ECommerce = ({id, brand}) => {
 
    const [orderQuery, setOrderQuery] = useState('')
   
-  const { data, isLoading, error } = useData(`https://altclan-brands-api.onrender.com/api/brand_dashboard/${user?.id}`);
+  const { data, isLoading, error } = useData(`https://altclan-brands-api.onrender.com/api/brand_dashboard/${user?.id}/${user.brand_name}`);
   const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
 
   useEffect(() => {
@@ -43,11 +43,12 @@ const ECommerce = ({id, brand}) => {
       setOrderQuery(brand)
     console.log('Search query: ', searchQuery)
       const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
-      const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(orderQuery.toLowerCase()) );
+      const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
       setSearchResult(results);
       setOrderResult(orderResults)
       console.log("Search Results for ", brand, results)
-      console.log("Order Results for ", brand, orderResults)
+      console.log("Order Results for ", brand, orderResult)
+      console.log("dataOrder: ", dataOrder)
     } else {
       setSearchResult([]);
       setOrderResult([]);
