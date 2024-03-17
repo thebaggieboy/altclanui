@@ -37,9 +37,10 @@ const ECommerce = ({merch}) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [productResult,  setProductResult] = useState([])
   const [orderResult,  setOrderResult] = useState([])
+  const [salesResult,  setSalesResult] = useState([])
   const searchParams = useSearchParams();
 	const loggedInBrand = searchParams.get('q')
-   const [orderQuery, setOrderQuery] = useState('')
+   const [total, setTotal] = useState('')
   
    const { data2, isLoading2, error2} = useGetProducts(`https://altclan-brands-api.onrender.com/api/merchandises`)
   //const { data, isLoading, error } = useData(`https://altclan-brands-api.onrender.com/api/brand_dashboard/${user?.id}/${user.brand_name}`);
@@ -54,35 +55,30 @@ const ECommerce = ({merch}) => {
 
       const productResults = data2?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
       const orderResults = data?.filter((order) => order.name_of_brand.toLowerCase().includes(searchQuery.toLowerCase()) );
+      const sales = data?.filter((order) => order?.delivered == true );
       setProductResult(productResults);
       setOrderResult(orderResults)
+      setSalesResult(sales)
       console.log('products: ', productResults)
 
       console.log('products 2: ', productResult)
       console.log('orders: ', orderResults)
+      console.log('sales: ', sales)
 
-      
-
-    
+      var total = data?.reduce((accum, product) => accum + product.total_amount, 0)
+      console.log('orders total: ', total)
+      setTotal(total)
     } else {
       setProductResult([]);
       setOrderResult([]);
    
     }
-  }, [searchQuery, data]);
+  }, [searchQuery, data, data2, ]);
 
 
 
 
-  const totalRevenue = async() =>{
-     // Get all merchandises related to brand A
-    // Add up all the amount of merchandises purchased by users relating to a particular brand ID
-    // use the reduce method to do this
-   
-    console.log('Calculating total revenue ...')
 
- 
-  }
  const totalProfit = () =>{
     // Revenue minus sales = Profit
     console.log('Calculating total profit ...')
@@ -97,14 +93,13 @@ const ECommerce = ({merch}) => {
   const calculatePercentMargin = ()=>{
     // Generate the amount of % increase in the last 24 hours 
   }
-  totalRevenue()
-
+  
   return (
     
     <>
   <h1 className="mt-5 p-2 bolder text-center" style={{fontFamily:'Poppins, Sans-serif', fontSize:20, fontWeight:"bolder"}}>Welcome Altclan</h1>
       <div className="mt-4 p-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <CardDataStats title="Total Revenue" total="₦0.00" rate="0.00%">
+        <CardDataStats title="Total Revenue" total={total === undefined ? 0 : `₦${total}`} rate="0.00%">
           <svg
             className="fill-primary dark:fill-white"
             width="22"
@@ -170,7 +165,7 @@ const ECommerce = ({merch}) => {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats title="Sales" total="0" rate="0.00%" levelUp>
+        <CardDataStats title="Sales" total={salesResult.length} rate="0.00%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
             width="22"
