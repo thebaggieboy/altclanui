@@ -165,7 +165,7 @@ const ECommerce = ({merch}) => {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats title="Sales" total={salesResult.length} rate="0.00%" levelUp>
+        <CardDataStats title="Sales" total={salesResult?.length} rate="0.00%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
             width="22"
