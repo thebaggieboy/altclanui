@@ -23,13 +23,19 @@ import useData from "../../../hooks/useData";
 
 import useOrder from '../../../hooks/useOrder'
 import useGetProducts from "../../../hooks/useGetProducts";
+import Link from "next/link";
+import { QueryClient, useQueryClient } from "@tanstack/react-query";
+import fetchProductData from '../../../lib/fetchProductData'
+import Review from "./../../../components/Review"
+const queryClient = new QueryClient()
 
-const ECommerce = () => {
+
+const ECommerce = ({merch}) => {
   const [query, setQuery] = useState([])
   const user = useSelector(selectUser)
 	const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchResult,  setSearchResult] = useState([])
+  const [productResult,  setProductResult] = useState([])
   const [orderResult,  setOrderResult] = useState([])
   const searchParams = useSearchParams();
 	const loggedInBrand = searchParams.get('q')
@@ -46,18 +52,20 @@ const ECommerce = () => {
     
     console.log('Search query: ', searchQuery)
 
-      const productResult = data2?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
+      const productResults = data2?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
       const orderResults = data?.filter((order) => order.name_of_brand.toLowerCase().includes(searchQuery.toLowerCase()) );
-      setSearchResult(productResult);
+      setProductResult(productResults);
       setOrderResult(orderResults)
-      console.log('products: ', searchResult)
+      console.log('products: ', productResults)
 
+      console.log('products 2: ', productResult)
       console.log('orders: ', orderResults)
 
+      
 
     
     } else {
-      setSearchResult([]);
+      setProductResult([]);
       setOrderResult([]);
    
     }
@@ -115,7 +123,7 @@ const ECommerce = () => {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats title="Products" total='0' rate="0.00%" levelUp>
+        <CardDataStats title="Products" total={productResult?.length} rate="0.00%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
             width="20"
