@@ -6,7 +6,7 @@ import useData from '../../hooks/useData'
 import Link from "next/link";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-
+import Head from 'next/head'
 export default function Brands() {
   const [searchQuery, setSearchQuery] = useState('');
   // Results of the search query in an array
@@ -24,6 +24,23 @@ export default function Brands() {
   console.log(data)
   if (loading) {
     return (
+      <>
+      
+      <Head>
+       <title>Altclan - alternative fashion brands</title>
+            <meta charset="UTF-8" />
+            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+            <meta
+              name="description"
+              content="Explore alternative fashion brands"
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, altclan signup, login altclan" />
+                    <meta name="author" content="Altclan"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
+
       <div className="mt-5 p-5 text-center">
       <br />
 
@@ -53,6 +70,7 @@ export default function Brands() {
         <span className="sr-only">Loading...</span>
       </div>
     </div>
+    </>
     )
 
   }

@@ -1,7 +1,22 @@
 import React from 'react'
-
+import Head from 'next/head'
 export default function signup() {
   return (
+    <>
+    <Head>
+       <title>Altclan - Signup</title>
+            <meta charset="UTF-8" />
+            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+            <meta
+              name="description"
+              content="Signup as a user or brand and continue exploring or community of aesthetics"
+            />
+              <meta name="keywords"
+                    content="altclan, altclan login, login, altclan signup, login altclan" />
+                    <meta name="author" content="Altclan"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+       </Head> 
     <div>
 
       <ol className="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4">
@@ -53,5 +68,7 @@ export default function signup() {
       </section>
 
     </div>
+    </>
+
   )
 }

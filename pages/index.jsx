@@ -69,10 +69,10 @@ export default function Home() {
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
               name="description"
-              content="Explore limited edition items, digital arts, decors, antiques and exclusive clothing brands "
+              content="Explore limited edition items, exclusive alternative style & clothing brands "
             />
               <meta name="keywords"
-                    content="altclan, alteclan , alternative fashion altclan,   fashion community, aesthetics, enigmas, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
+                    content="altclan, altclan.store, alteclan , alternative fashion,   fashion community, aesthetics, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
             <meta name="author" content="Altclan"></meta>

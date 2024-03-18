@@ -6,7 +6,7 @@ export default function about() {
   return (
     <>
       <Head>
-       <title>About us</title>
+       <title>Altclan - About us</title>
             <meta charset="UTF-8" />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta

@@ -20,11 +20,11 @@ const Signup = () => {
     return (
         <>
         <Head>
-       <title>Create an account</title>
+       <title>Altclan - Create an account</title>
             <meta charset="UTF-8" />
             <meta
               name="description"
-              content="Login to your user or brand account and continue exploring"
+              content="Login to your user or brand account and continue exploring our community of aesthetics."
             />
               <meta name="keywords"
                     content="altclan, altclan login, login, altclan signup, login altclan" />
