@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "../../styles/component2.module.css";
 import Link from 'next/link'
-import Head from 'net/head'
+import Head from 'next/head'
 
 export default function mainColumn() {
     return (
