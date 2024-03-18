@@ -92,7 +92,7 @@ export default function SignUp() {
 	return (
 		<>
 		<Head>
-       <title>Login as a user </title>
+       <title>Altclan - Login as a user </title>
             <meta charset="UTF-8" />
             <meta
               name="description"
