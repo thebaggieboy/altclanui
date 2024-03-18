@@ -104,7 +104,8 @@ export default function about() {
                 First
               </p>
               <p style={{fontSize:12}}>
-                It provides a sense of belonging and community for individuals who may feel isolated in mainstream society. 
+             Altclan is a source of inspiration for people looking to start their own brands, projects or movements. Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
+              
               
               </p>
             </div>
@@ -150,7 +151,7 @@ export default function about() {
                 Fourth
               </p>
               <p style={{fontSize:12}}> 
-                It can be a source of inspiration for people looking to start their own brands, projects or movements. Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
+              It provides a sense of belonging and community for individuals who may feel isolated in mainstream society. 
               </p>
             </div>
             <div className={styles.columnTwo}>
