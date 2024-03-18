@@ -59,8 +59,7 @@ const ECommerce = ({merch}) => {
       setProductResult(productResults);
       setOrderResult(orderResults)
       setSalesResult(sales)
-      console.log('products: ', productResults)
-
+     
       console.log('products 2: ', productResult)
       console.log('orders: ', orderResults)
       console.log('sales: ', sales)
