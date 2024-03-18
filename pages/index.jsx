@@ -108,7 +108,7 @@ export default function Home() {
 
             <MainColumn />
             <FullImages />
-            <NewIn />
+  
       
             <Aesthetics2/>
             <Category />
