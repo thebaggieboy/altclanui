@@ -31,7 +31,7 @@ const BrandCard = ({ data }) => {
 							}`}
 						/>
 					</button>
-					<Link href={"/brands/" + id}>
+					<Link href={`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`}>
 						<button className="product-card__see-more">
 							<FiExternalLink className="lg:h-5 lg:w-5" />
 						</button>
