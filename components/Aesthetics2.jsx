@@ -18,12 +18,6 @@ const data = [
 		
 	},
 	
-	{
-		"id":3,
-		"aesthetic_name":"Decors",
-		"aesthetic_image":"/images/decors.WEBP",
-		
-	},
 
 	{
 		"id":3,
