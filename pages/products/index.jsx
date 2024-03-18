@@ -72,7 +72,7 @@ function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export default function Products({ _id, merchandise_name, price, picture }) {
+export default function Products({ _id, merchandise_name, price, picture,  newLimit,isLast, }) {
 	// const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/');
 	const [page, setPage] = useState(1)
 	const { data, isLoading, error } = useMerch(`https://altclan-brands-api.onrender.com/api/merchandises/`);
