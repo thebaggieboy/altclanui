@@ -8,32 +8,27 @@ const data = [
 	{
 		"id":1,
 		"aesthetic_name":"Art",
-		"aesthetic_image":"/images/art.WEBP",
+		"aesthetic_image":"/images/psychedelic-hand.jpg",
 		
 	},
 	{
 		"id":2,
 		"aesthetic_name":"Aesthetics",
-		"aesthetic_image":"/images/container.WEBP",
+		"aesthetic_image":"/images/aesthetics.jpg",
 		
 	},
 	
 	{
 		"id":3,
 		"aesthetic_name":"Decors",
-		"aesthetic_image":"/images/decors.WEBP",
+		"aesthetic_image":"/images/decors.jpg",
 		
 	},
-	{
-		"id":4,
-		"aesthetic_name":"Antiques",
-		"aesthetic_image":"/images/sofa.jpg",
-		
-	},
+
 	{
 		"id":3,
 		"aesthetic_name":"Enigmas",
-		"aesthetic_image":"/images/enigmas.WEBP",
+		"aesthetic_image":"/images/mystery-box.jpg",
 		
 	},
 ]
