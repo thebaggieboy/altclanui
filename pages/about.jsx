@@ -103,7 +103,7 @@ export default function about() {
               <p className={styles.xlFont}>
                 First
               </p>
-              <p>
+              <p style={{fontSize:12}}>
                 It provides a sense of belonging and community for individuals who may feel isolated in mainstream society. 
               
               </p>
