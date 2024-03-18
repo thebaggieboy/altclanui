@@ -94,7 +94,7 @@ export default function Home() {
               </CarouselWrapper>
               <div className="w-full h-full p-3 bg-black/40 flex flex-col items-center justify-center gap-y-8  col-start-1 col-end-2 row-start-1 row-end-2 z-[2]">
                 
-                <p className=" md:text-2xl ">Discover top styles of the season, exclusive brands and amazing aesthetics now at better prices.</p>
+                <h1 className=" md:text-2xl ">Discover top styles of the season, exclusive brands and amazing aesthetics now at better prices.</h1>
                 <div className="flex items-center gap-x-8">
                   <Link href="/products?q=women">
                     <button className="py-2 px-8 uppercase bg-white text-black text-sm md:text-base">shop women</button>
