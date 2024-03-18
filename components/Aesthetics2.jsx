@@ -73,7 +73,7 @@ export default function Aesthetics2() {
 				>
 					{data.map((d, i) => {
 						if (i <= 10) {
-							return <div className="product-card">
+							return <div key={d.id} className="product-card">
                             <div className="product-card__img relative">
                                 <Image src={d.aesthetic_image} fill alt={d.aesthetic_name} />
                             </div>
