@@ -45,7 +45,15 @@ const ECommerce = ({merch}) => {
    const { data2, isLoading2, error2} = useGetProducts(`https://altclan-brands-api.onrender.com/api/merchandises`)
   //const { data, isLoading, error } = useData(`https://altclan-brands-api.onrender.com/api/brand_dashboard/${user?.id}/${user.brand_name}`);
   const { data, isLoading, error} = useData('https://altclan-api-v1.onrender.com/api/orders/')
+
+
+    useEffect(() => {
+		if (user === null) {
+			router.push("/brands/login");
+		}
   
+
+	}, [user]);
   useEffect(() => {
 
     if (searchQuery !== null) {
