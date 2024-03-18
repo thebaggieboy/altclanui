@@ -31,7 +31,7 @@ const data = [
 	}
 ]
 
-export default function Aesthetics() {
+export default function Aesthetics2() {
 	const brands = [1, 2, 3, 4];
 	const products = [1, 2, 3, 4,];
 
