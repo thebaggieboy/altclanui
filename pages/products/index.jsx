@@ -193,7 +193,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 	return (
 		<>
 		<Head>
-       <title>Explore - Start Shopping </title>
+       <title>Altclcaln - Start Shopping </title>
             <meta charset="UTF-8" />
 			<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta

@@ -8,8 +8,7 @@ export default function Token(){
   <div class="" style={{margin:10}}>
     <div class="text-center">
       <p style={{fontFamily:'Poppins, sans-serif', fontSize:30}} class=" leading-8 font-bold text-black">Introducing Altclan Design Data Platform</p> <hr />
-      <p style={{fontFamily:'Poppins, sans-serif', fontSize:14}} class="mt-5   text-black">Altclan streamlines brand identity management by automatically collecting, storing, and distributing design tokens and assets. Say goodbye to manual organization – with Altclan, your brand elements are effortlessly centralized and readily accessible, ensuring consistency and coherence across all your projects and platforms. 
-      Simplify your workflow and elevate your brand presence with Altclan today.</p>
+      <p style={{fontFamily:'Poppins, sans-serif', fontSize:14}} class="mt-5   text-black">Altclan: Streamline Your Brand Identity with Automated Design Asset Management. Say goodbye to manual organization and hello to effortless brand consistency. Elevate your brand presence today!.</p>
     </div>
 
     <div class="mt-6 flex items-center justify-center gap-4">
