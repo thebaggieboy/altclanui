@@ -27,7 +27,7 @@ const data = [
 	{
 		"id":4,
 		"aesthetic_name":"Antiques",
-		"aesthetic_image":"/images/antiques.WEBP",
+		"aesthetic_image":"/images/sofa.jpeg",
 		
 	},
 	{
