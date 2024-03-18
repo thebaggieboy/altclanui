@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FiExternalLink, FiHeart } from "react-icons/fi";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const BrandCard = ({ data }) => {
 	const [liked, setLiked] = useState(false);
@@ -31,7 +32,7 @@ const BrandCard = ({ data }) => {
 							}`}
 						/>
 					</button>
-					<Link href={`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`}>
+					<Link href={`/brands/${id}?brand=${brand_name}`}>
 						<button className="product-card__see-more">
 							<FiExternalLink className="lg:h-5 lg:w-5" />
 						</button>
