@@ -29,6 +29,7 @@ export default function SignUp(req, res) {
 		</div>
 	  </div>
 	useEffect(() => {
+		
 		if (brand_user !== null) {
 			router.push("/brands/profile")
 		}

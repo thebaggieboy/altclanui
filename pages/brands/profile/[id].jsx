@@ -45,6 +45,7 @@ export default function BrandProfile({id, brand}) {
 		if (brand_user === null) {
 			router.push("/brands/login");
 		}
+  
 
 	}, [brand_user]);
 
