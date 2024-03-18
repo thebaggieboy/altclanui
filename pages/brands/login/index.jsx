@@ -32,8 +32,6 @@ export default function Login(req, res) {
         if (brand_user !== null && brand_user?.brand_name == "") {
             router.push(`/brands/register/brand-bio`);
             
-        }else{
-            router.push(`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`);
         }
 
     }, [brand_user, router])
