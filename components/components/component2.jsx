@@ -1,9 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "../../styles/component2.module.css";
 import Link from 'next/link'
+import Head from 'net/head'
+
 export default function mainColumn() {
     return (
-        <div  className={styles.cover}>
+        <>     
+            <Head>
+            <title>Altclan -  Welcome to our alternative fashion startup!.</title>
+            <meta charset="UTF-8" />
+            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+            <meta
+              name="description"
+              content="Explore limited edition items, exclusive alternative style & clothing brands "
+            />
+              <meta name="keywords"
+                    content="alternative clothing, alternative fashion,Goth & Alternative Clothing,   fashion community, aesthetics, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/alteclan_logo.jpg" />
+            <meta name="author" content="Altclan"></meta>
+          </Head>
+           <div  className={styles.cover}>
             <div className={styles.row}>
                 <div className={styles.welcomeColumn}>                 
                     <div className={styles.headContainer}>
@@ -13,7 +30,7 @@ export default function mainColumn() {
                             </span>
 
                             <p className={styles.welcomeText}>
-                                Celebrate non-conformity, creativity, and self-expression through our curated collection of sustainable aesthetics, ethical & unethical fashion. 
+                                Celebrate alternative style, non-conformity, creativity, and self-expression through our curated collection of sustainable aesthetics, ethical & unethical fashion. 
                                 From vintage to goth, punk to bohemian, embrace your unique style with us.
                             </p>
                             <br />
@@ -32,5 +49,6 @@ export default function mainColumn() {
                 </div>
             </div>
         </div>
+        </>
     );
 };
