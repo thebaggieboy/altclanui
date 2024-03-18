@@ -96,8 +96,8 @@ const ECommerce = ({merch}) => {
   return (
     
     <>
-  <h1 className="mt-5 p-2 bolder text-center" style={{fontFamily:'Poppins, Sans-serif', fontSize:20, fontWeight:"bolder"}}>Welcome {user?.brand_name}</h1>
-      <div className="mt-4 p-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+  
+      <div className="mt-2 p-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats title="Total Revenue" total={total === undefined ? 0 : `₦${total}`} rate="0.00%">
           <svg
             className="fill-primary dark:fill-white"
