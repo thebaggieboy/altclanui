@@ -114,10 +114,10 @@ export default function about() {
         <div className={styles.contentContainer}>
           <div className={styles.colContainer}>
             <div className={styles.columnOne}>
-              <p style={{fontSize:12}} className={styles.xlFont}>
+              <p  className={styles.xlFont}>
                 Second
               </p>
-              <p>
+              <p style={{fontSize:12}}>
      Our platform offers a chance for individuals to engage and gain insights from various unconventional, stylish, distinctive, and diverse communities.
               </p>
             </div>
@@ -133,10 +133,10 @@ export default function about() {
                 <img src="/img/natalie-hua.jpg"/>
             </div>
             <div className={styles.columnOne}>
-              <p style={{fontSize:12}} className={styles.xlFont}>
+              <p  className={styles.xlFont}>
                 Third
               </p>
-              <p>
+              <p style={{fontSize:12}}>
                 It can also be a platform for individuals to express their views and ideas, which can be heard and seen by a wider audience.
               </p>
             </div>
