@@ -3,24 +3,24 @@ import CarouselWrapper from "./CarouselWrapper";
 import ProductCard from "./product-card/ProductCard";
 import AestheticsCard from "./product-card/AestheticsCard";
 import useAesthetic from "../hooks/useAesthetics";
-
+import Image from "next/image"
 const data = [
 	{
 		"id":1,
 		"aesthetic_name":"Art",
-		"aesthetic_image":"",
+		"aesthetic_image":"https://altclanui.vercel.app/_next/image?url=https%3A%2F%2Faltclan-brands-api.onrender.com%2Fmedia%2Fenigmas.jpg&w=1920&q=75",
 		
 	},
 	{
 		"id":2,
 		"aesthetic_name":"Aesthetics",
-		"aesthetic_image":"",
+		"aesthetic_image":"https://altclanui.vercel.app/_next/image?url=https%3A%2F%2Faltclan-brands-api.onrender.com%2Fmedia%2Fdecors.jpg&w=1920&q=75",
 		
 	},
 	{
 		"id":3,
 		"aesthetic_name":"Decors",
-		"aesthetic_image":"",
+		"aesthetic_image":"https://altclanui.vercel.app/_next/image?url=https%3A%2F%2Faltclan-brands-api.onrender.com%2Fmedia%2FScreenshot_2024-02-26_144020.png&w=1920&q=75",
 		
 	},
 	{
