@@ -90,7 +90,7 @@ export default function about() {
           Why use?
         </h1>
 
-        <p>
+        <p style={{fontSize:12}}>
         There are several reasons why consumers and audiences might want to use a platform that connects people from different cultures together.
         </p>
 
@@ -114,7 +114,7 @@ export default function about() {
         <div className={styles.contentContainer}>
           <div className={styles.colContainer}>
             <div className={styles.columnOne}>
-              <p className={styles.xlFont}>
+              <p style={{fontSize:12}} className={styles.xlFont}>
                 Second
               </p>
               <p>
@@ -133,7 +133,7 @@ export default function about() {
                 <img src="/img/natalie-hua.jpg"/>
             </div>
             <div className={styles.columnOne}>
-              <p className={styles.xlFont}>
+              <p style={{fontSize:12}} className={styles.xlFont}>
                 Third
               </p>
               <p>
@@ -149,7 +149,7 @@ export default function about() {
               <p className={styles.xlFont}>
                 Fourth
               </p>
-              <p>
+              <p style={{fontSize:12}}> 
                 It can be a source of inspiration for people looking to start their own brands, projects or movements. Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
               </p>
             </div>
@@ -159,7 +159,7 @@ export default function about() {
           </div>
         </div>
 
-        <p>
+        <p style={{fontSize:12}}>
           In short, our platform is a cool place where people feel like they belong, discover unique subcultures, and embrace anti-mainstream vibes. 
                 It also boosts the voices of those who go against the norm and provides inspiration and opportunities. 
                 It's a valuable resource for anyone into unconventional, anti-mainstream, and new cultures.
