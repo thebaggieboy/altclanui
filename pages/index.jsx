@@ -109,7 +109,7 @@ export default function Home() {
             <MainColumn />
             <FullImages />
             <NewIn />
-            <Aesthetics/>
+      
             <Aesthetics2/>
             <Category />
             <ShopDiv />

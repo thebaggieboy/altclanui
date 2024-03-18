@@ -8,27 +8,34 @@ const data = [
 	{
 		"id":1,
 		"aesthetic_name":"Art",
-		"aesthetic_image":"https://altclanui.vercel.app/_next/image?url=https%3A%2F%2Faltclan-brands-api.onrender.com%2Fmedia%2Fenigmas.jpg&w=1920&q=75",
+		"aesthetic_image":"/images/art.WEBP",
 		
 	},
 	{
 		"id":2,
 		"aesthetic_name":"Aesthetics",
-		"aesthetic_image":"https://altclanui.vercel.app/_next/image?url=https%3A%2F%2Faltclan-brands-api.onrender.com%2Fmedia%2Fdecors.jpg&w=1920&q=75",
+		"aesthetic_image":"/images/container.WEBP",
 		
 	},
+	
 	{
 		"id":3,
 		"aesthetic_name":"Decors",
-		"aesthetic_image":"https://altclanui.vercel.app/_next/image?url=https%3A%2F%2Faltclan-brands-api.onrender.com%2Fmedia%2FScreenshot_2024-02-26_144020.png&w=1920&q=75",
+		"aesthetic_image":"/images/decors.WEBP",
 		
 	},
 	{
 		"id":4,
 		"aesthetic_name":"Antiques",
-		"aesthetic_image":"",
+		"aesthetic_image":"/images/antiques.WEBP",
 		
-	}
+	},
+	{
+		"id":3,
+		"aesthetic_name":"Enigmas",
+		"aesthetic_image":"/images/enigmas.WEBP",
+		
+	},
 ]
 
 export default function Aesthetics2() {
