@@ -53,10 +53,7 @@ console.log(err)
 //throw { err }
 const router = useRouter();
 router.push('/blog/')
-
-
-
-  }
+}
 
     const inputChangeHandler = (e) => {
         const { name, value } = e.target
@@ -89,7 +86,8 @@ router.push('/blog/')
         return <p> {error.message}</p>;
       }
     
-    
+ 
+      
   return (
     <>
     <section style={{padding:20}}>

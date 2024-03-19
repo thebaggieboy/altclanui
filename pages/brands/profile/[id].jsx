@@ -42,7 +42,7 @@ export default function BrandProfile({id, brand}) {
 	const router = useRouter();
 
     useEffect(() => {
-		if (brand_user === null) {
+		if (brand_user == null) {
 			router.push("/brands/login");
 		}
   

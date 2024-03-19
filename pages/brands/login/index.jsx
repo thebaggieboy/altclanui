@@ -28,7 +28,7 @@ export default function Login(req, res) {
   
 	console.log("Query params: ", search)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (brand_user !== null && brand_user?.brand_name == "") {
             router.push(`/brands/register/brand-bio`);
             
