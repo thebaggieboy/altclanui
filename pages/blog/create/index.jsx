@@ -19,6 +19,7 @@ const MDEditor = dynamic(
 
 
 export default function Create() {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [value, setValue] = useState("");
   const [formData, setFormData] = useState({
@@ -51,7 +52,7 @@ const { data, loading, error } = useBlog('https://altclan-brands-api.onrender.co
 const err = { ...data }
 console.log(err)
 //throw { err }
-const router = useRouter();
+
 router.push('/blog/')
 }
 
