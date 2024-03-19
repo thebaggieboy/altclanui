@@ -31,7 +31,7 @@ export default function SignUp(req, res) {
 	useEffect(() => {
 		
 		if (brand_user !== null) {
-			router.push("/brands/profile")
+			router.push(`/brands/dashboard/${brand_user?.id}?q=${brand_user?.brand_user_name}`)
 		}
 	}, [brand_user, router])
 
