@@ -33,7 +33,10 @@ export default function Login(req, res) {
             router.push(`/brands/register/brand-bio`);
             
         }
-
+        if (brand_user !== null && brand_user?.brand_name !== "" && brand_user?.brand_bio !== "" && brand_user?.brand_type !== "" && brand_user?.mobile_number !=="" && brand_user?.brand_logo !== "") {
+            router.push(`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`);
+            
+        }
     }, [brand_user, router])
 
     async function loginSuccess(user) {

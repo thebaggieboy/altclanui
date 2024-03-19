@@ -9,8 +9,6 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import fetchProfileData from "../../lib/fetchProfileData";
 import fetchOrderData from "../../lib/fetchOrderData";
 
-
-
 const Profile = () => {
 	const user = useSelector(selectUser);
 	const router = useRouter();
