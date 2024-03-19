@@ -16,6 +16,12 @@ import styles from '../../../styles/brand-bio.module.css'
 export default function Create() {
   const [value, setValue] = useState("**Hello world!!!**");
   
+  const submit = (e)=>{
+    e.preventDefault()
+    console.log('Article submit button clicked')
+    console.log(value)
+  }
+
     const inputChangeHandler = (e) => {
         const { name, value } = e.target
         setFormData((prevValue) => {
@@ -30,10 +36,11 @@ export default function Create() {
   return (
     <>
     <section style={{padding:20}}>
-      <form action="">
-      <div data-color-mode="light" className='p-5 mt-2'>
+      <form onSubmit={submit}>
+      <div data-color-mode="light" className='p-5'>
         <div className="wmde-markdown-var"> </div>
-        <MDEditor value={value} onChange={setValue} />
+
+        <MDEditor preview="edit" value={value} onChange={setValue} />
       </div> 
 
       <button style={{backgroundColor:'black'}} className='ml-5 text-white p-3' type="submit">Submit Article</button>  
