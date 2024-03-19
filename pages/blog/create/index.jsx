@@ -7,7 +7,7 @@ import * as commands from "@uiw/react-md-editor/commands"
 
 const MDEditor = dynamic(
     () => import("@uiw/react-md-editor"),
-    { ssr: false, fullscreen:true}
+    { ssr: false}
   );
   
 
@@ -40,7 +40,7 @@ export default function Create() {
       <div data-color-mode="light" className='p-5'>
         <div className="wmde-markdown-var"> </div>
 
-        <MDEditor preview="edit" value={value} onChange={setValue} />
+        <MDEditor preview="edit" value={value}  onChange={setValue} />
       </div> 
 
       <button style={{backgroundColor:'black'}} className='ml-5 text-white p-3' type="submit">Submit Article</button>  
