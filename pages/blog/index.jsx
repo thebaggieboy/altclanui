@@ -1,19 +1,27 @@
-import React from 'react'
 import Link from "next/link";
-import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Fragment, useContext, useEffect } from "react";
+import {React,  Fragment, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { USER_TYPES, selectUser, selectUserType, setUser } from "../../features/user/userSlice";
 import { useRouter } from "next/router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
+import dynamic from "next/dynamic";
+import * as commands from "@uiw/react-md-editor/commands"
 
+
+const MDEditor = dynamic(
+    () => import("@uiw/react-md-editor"),
+    { ssr: false }
+  );
+  
 
 export default function Blog() {
     const user = useSelector(selectUser)
     const router = useRouter();
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
-
+  const [value, setValue] = useState("**Hello world!!!**");
     useEffect(() => {
 		
 	
@@ -22,7 +30,7 @@ export default function Blog() {
     <>
    <section class="bg-white dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div class="mx-auto p-3 max-w-screen-sm text-center lg:mb-16 mb-8">
+      <div class="mx-auto p-5 max-w-screen-sm text-center lg:mb-16 mb-8">
           <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Blog</h2>
           <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p> <br /> <br />
           {user ? <a href='/blog/create/' style={{backgroundColor:'black', color:'white', padding:10}}>Write article</a> : <a href='/brands/login' style={{backgroundColor:'black', color:'white', padding:15}}>Login to create new article</a>}
@@ -76,6 +84,8 @@ export default function Blog() {
           </article>                  
       </div>  
   </div>
+
+
 </section> 
     </>
   )
