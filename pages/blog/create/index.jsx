@@ -19,12 +19,13 @@ const MDEditor = dynamic(
 
 
 export default function Create() {
-  const [value, setValue] = useState("**Hello world!!!**");
+  const [title, setTitle] = useState("");
+  const [value, setValue] = useState("");
   const [formData, setFormData] = useState({
 		title: "",
 	})
   const user = useSelector(selectUser)
-  const router = useRouter();
+
 const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 
 const { data, loading, error } = useBlog('https://altclan-brands-api.onrender.com/api/blog/');
@@ -35,14 +36,26 @@ const { data, loading, error } = useBlog('https://altclan-brands-api.onrender.co
     console.log(value)
     const res = await fetch('https://altclan-brands-api.onrender.com/api/blog/', {
       method: "POST",
-      body: JSON.stringify({user_email:user?.brand_name, title, text} ),
+      body: JSON.stringify({user_email:user?.brand_name, title:title, text:value} ),
       headers: {
           "Content-Type": "application/json"
       },
   })
 
   const data = await res.json()
-  console.log("seen")
+  console.log("Blog posted successfully")
+  if (res.status >= 200 && res.status <= 209) {
+    return data
+  
+}
+const err = { ...data }
+console.log(err)
+//throw { err }
+const router = useRouter();
+router.push('/blog/')
+
+
+
   }
 
     const inputChangeHandler = (e) => {
@@ -53,9 +66,12 @@ const { data, loading, error } = useBlog('https://altclan-brands-api.onrender.co
             [name]: value
           }
         })
-        console.log("Form Data: ", formData)
-        console.log("Form Data: ", value)
+        setTitle(value)
+        console.log("Title: ", title)
+        console.log("Value: ", value)
       }
+
+
     	if (loading) {
         return (
           <div role="status" className="p-10 text-center  ml-30 mr-30">
@@ -86,7 +102,7 @@ const { data, loading, error } = useBlog('https://altclan-brands-api.onrender.co
       <div data-color-mode="light" className='p-5'>
         <div className="wmde-markdown-var"> </div>
 
-        <MDEditor preview="edit" value={value}  onChange={setValue} />
+        <MDEditor preview="edit" name="text" value={value}  onChange={setValue} />
       </div> 
 
       <button style={{backgroundColor:'black'}} className='ml-5 text-white p-3' type="submit">Submit Article</button>  
