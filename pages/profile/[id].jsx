@@ -8,6 +8,9 @@ import { useRouter } from "next/router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import fetchProfileData from "../../lib/fetchProfileData";
 import fetchOrderData from "../../lib/fetchOrderData";
+import Billing from "../../components/Billing";
+
+
 
 const Profile = () => {
 	const user = useSelector(selectUser);
@@ -46,7 +49,7 @@ const Profile = () => {
 	})
 	
 
-	const [activeSection, setAcvtiveSection] = useState("gallery");
+	const [activeSection, setAcvtiveSection] = useState("billing");
 
 	const [subSec, setSubSec] = useState({
 		active: false,
@@ -178,6 +181,16 @@ const Profile = () => {
 				>
 					Inventory
 				</div>
+
+				<div
+					className={`user-profile__nav-item ${activeSection === "billing" ? "active" : ""
+						}`}
+					onClick={(e) => {
+						setAcvtiveSection("billing");
+					}}
+				>
+					Billing
+				</div>
 			</nav>
 
 			<section className="user-profile__sections">
@@ -260,6 +273,18 @@ const Profile = () => {
 
 									<p>Stock: 5</p>
 								</div>
+							</div>
+						</div>
+					</div>
+				)}
+
+{activeSection === "billing" && (
+					<div className={styles.galleryContent}>
+						<div className="billing">
+							<div className="p-2">
+
+							<Billing/>
+						
 							</div>
 						</div>
 					</div>
