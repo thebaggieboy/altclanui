@@ -26,7 +26,11 @@ export default function about() {
         </h1>
 
         <p style={{fontSize:12}}>
-        Our startup wants to help people who love unique cultures, creative arts, and cool styles connect with each other. Sometimes, those who are into these things feel a bit left out in regular society. We want to create a place where they can feel part of a community and connect with like-minded people who share their interests.
+        At AltClan, we're all about celebrating uniqueness and self-expression. From alternative fashion to diverse styles in music, art, and lifestyle, we're your ultimate destination for embracing what makes you stand out.
+
+Join our vibrant community of like-minded individuals who dare to be different. Explore curated collections, personalize your look, and connect with fellow trendsetters who share your passion for alternative style.
+
+Come as you are and let your true self shine. Welcome to AltClan, where individuality reigns supreme! 🖤✨
         </p> <br/>
       </div>
 
@@ -104,8 +108,7 @@ export default function about() {
                 First
               </p>
               <p style={{fontSize:12}}>
-             Altclan is a source of inspiration for people looking to start their own brands, projects or movements. Your platform can provide a space for individuals to learn from the experiences of others, to network and to collaborate on projects. This can lead to the emergence of new subcultures or movements and the creation of new opportunities for people.
-              
+              AltClan offers users the opportunity to discover unique styles and trends that aren't typically found in mainstream fashion. Whether it's edgy streetwear, vintage finds, or avant-garde designs, our app provides a platform to explore and embrace diverse forms of self-expression.
               
               </p>
             </div>
@@ -119,7 +122,7 @@ export default function about() {
                 Second
               </p>
               <p style={{fontSize:12}}>
-     Our platform offers a chance for individuals to engage and gain insights from various unconventional, stylish, distinctive, and diverse communities.
+              For users seeking a sense of community and belonging, AltClan fosters connections with fellow enthusiasts of alternative style. Our app features forums, chatrooms, and social networking functionalities, allowing users to interact, share ideas, and find inspiration from others who share their passion.
               </p>
             </div>
             <div className={styles.columnTwo}>
@@ -138,7 +141,7 @@ export default function about() {
                 Third
               </p>
               <p style={{fontSize:12}}>
-                It can also be a platform for individuals to express their views and ideas, which can be heard and seen by a wider audience.
+              Our focus on building a vibrant community sets us apart from competitors, fostering brand loyalty and advocacy among our customer base.
               </p>
             </div>
           </div>
@@ -151,7 +154,7 @@ export default function about() {
                 Fourth
               </p>
               <p style={{fontSize:12}}> 
-              It provides a sense of belonging and community for individuals who may feel isolated in mainstream society. 
+              Unlike traditional fashion retailers, we offer a curated selection of alternative styles that are hard to find elsewhere, giving us a competitive edge in the market.
               </p>
             </div>
             <div className={styles.columnTwo}>
@@ -159,11 +162,25 @@ export default function about() {
             </div>
           </div>
         </div>
-
-        <p style={{fontSize:12}}>
-          In short, our platform is a cool place where people feel like they belong, discover unique subcultures, and embrace anti-mainstream vibes. 
-                It also boosts the voices of those who go against the norm and provides inspiration and opportunities. 
-                It's a valuable resource for anyone into unconventional, anti-mainstream, and new cultures.
+        
+        <div className={styles.contentContainer}>
+          <div className={styles.colContainer}>
+            <div className={styles.columnTwo}>
+                <img src="/img/natalie-hua.jpg"/>
+            </div>
+            <div className={styles.columnOne}>
+              <p  className={styles.xlFont}>
+                Fifth
+              </p>
+              <p style={{fontSize:12}}>
+              With AltClan, users gain access to exclusive collections, limited editions, and collaborations with emerging designers and underground labels. By downloading the app, users can stay updated on new releases and have the opportunity to snag coveted pieces 
+              </p>
+            </div>
+          </div>
+        </div>
+      
+        <p style={{fontSize:14}}>
+        Altclan is poised to disrupt the alternative fashion industry by offering a fresh, community-driven approach to style and self-expression. With our unique vision, curated collections, and commitment to sustainability, we're ready to lead the charge towards a more inclusive and diverse fashion landscape. Join us on this journey and embrace your individuality with Altclan.
         </p>
 
       </div> 
