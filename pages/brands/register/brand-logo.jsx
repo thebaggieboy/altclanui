@@ -48,7 +48,7 @@ export default function BrandLogo() {
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", 'altclan')
-    console.log("Image: ", image)
+    
     console.log("Image URL: ", createObjectURL)
 
     const data = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
@@ -57,7 +57,7 @@ export default function BrandLogo() {
     }).then(r => r.json());
 
 
-    console.log(data)
+    console.log("data: ", data)
 
     await updateFn({ brand_logo: data.url })
 
