@@ -3,7 +3,7 @@ import Settings from '../../components/Settings'
 
 
 
-export default function () {
+export default function setting() {
   return (
     <>
     <Settings/>
