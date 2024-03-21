@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from "next/image"
-export default function () {
+export default function Settings() {
   return (
     <> 
 <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-5 xl:mx-auto">
