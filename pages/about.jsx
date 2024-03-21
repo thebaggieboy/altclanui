@@ -94,9 +94,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
           Why use?
         </h1>
 
-        <p style={{fontSize:12}}>
-        There are several reasons why consumers and audiences might want to use a platform that connects people from different cultures together.
-        </p>
+    
 
         <div className={styles.contentContainer}>
           <div className={styles.colContainer}>
@@ -196,7 +194,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
 
           <div className={styles.col33}>
             <div className={styles.team}>
-              <img src="/img/pexels-arianna-jadé-2896823.jpg"/>
+              <img src="/img/baggy.webp"/>
               <p>
                 BRANDS
               </p>
@@ -206,7 +204,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
 
           <div className={styles.col33}>
             <div className={styles.team}>
-              <img src="/img/pexels-athena-2081199.jpg"/>
+              <img src="/img/no-revisions.jpg"/>
               <p>
                 SHOP
               </p>

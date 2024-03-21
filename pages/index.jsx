@@ -74,6 +74,7 @@ export default function Home() {
               <meta name="keywords"
                     content="alternative clothing, alternative fashion,Goth & Alternative Clothing,   fashion community, aesthetics, altclan fashion, altclan community, community of aesthetics, alternative fashion , alte " />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="google-site-verification" content="5EKq2n_Ml30RyX_JkTTWG8XB2as2tWWkEEfLjPn9go4" />
             <link rel="icon" href="/alteclan_logo.jpg" />
             <meta name="author" content="Altclan"></meta>
           </Head>

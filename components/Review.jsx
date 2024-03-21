@@ -2,6 +2,32 @@ import React from 'react'
 import styles from '../styles/brand-bio.module.css'
 
 export default function Create() {
+
+  const addReview = async()=>{
+    const url = 'https://altclan-brands-api.onrender.com/api/'
+    const res = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({name_of_item, user_email, name_of_brand, amount_per_item, tracking_number, number_of_items, time} ),
+      headers: {
+          "Content-Type": "application/json"
+      },
+  })
+
+  const data = await res.json()
+  console.log("seen")
+
+  if (res.status >= 200 && res.status <= 209) {
+      return data
+  }
+
+
+  const err = { ...data }
+  throw { err }
+    // Add a new review to the product
+    console.log("Adding review")
+  }
+
+
     const inputChangeHandler = (e) => {
         const { name, value } = e.target
         setFormData((prevValue) => {

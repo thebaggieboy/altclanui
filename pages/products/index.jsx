@@ -25,12 +25,16 @@ const sortOptions = [
 ];
 const subCategories = [
 	{ name: "New Merch", href: "/products?q=New Merchandise" },
-	{ name: "Brands", href: "/brands" },
 	{ name: "Limited Edition", href: "/products?q=Limited Stock" },
 	{ name: "Arts", href: "/products?q=arts" },
+	{ name: "FREE DELIVERY", href: "/products?q=Free Delivery" },
 	
 ];
-const filters = [
+
+const filters = []
+
+{/** 
+
 	{
 		id: "color",
 		name: "Color",
@@ -66,7 +70,11 @@ const filters = [
 			{ value: "40l", label: "40L", checked: true },
 		],
 	},
-];
+
+
+*/}
+
+;
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
