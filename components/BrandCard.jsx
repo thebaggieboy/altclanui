@@ -7,8 +7,38 @@ import { useSearchParams } from "next/navigation";
 
 const BrandCard = ({ data }) => {
 	const [liked, setLiked] = useState(false);
+	const [wishList, setWishList] = useState([]);
 	
+	const getWishList = async()=>{
+		console.log("Getting orders from api")
+		const wishListUrl = await fetch("https://altclan-api-v1.onrender.com/api/wishlist/")
+		const data = await wishListUrl.json()
+		const wishListResult = data?.filter((product) => product.user_email.toLowerCase().includes(user?.email.toLowerCase()) );
+		setWishList(wishListResult)
+		console.log("Wish list State: ", wishList)
+	}
+	const submit = async(e)=>{
+		e.preventDefault()
+		console.log('Wishlist submit button clicked')
 
+		const res = await fetch('https://altclan-brands-api.onrender.com/api/wishlist/', {
+		  method: "POST",
+		  body: JSON.stringify({user_email:user?.brand_name, quantity:wishListResult.length} ),
+		  headers: {
+			  "Content-Type": "application/json"
+		  },
+	  })
+	
+	  const data = await res.json()
+	  console.log("wishlist posted successfully")
+	  if (res.status >= 200 && res.status <= 209) {
+		return data
+	  
+	}
+	const err = { ...data }
+	console.log(err)
+	}
+	
 	const { brand_name, brand_logo, brand_type, id } = data;
 
 	return (

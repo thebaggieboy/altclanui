@@ -17,13 +17,12 @@ export default function BrandLogo() {
   const router = useRouter();
 
   useEffect(() => {
-		if (brand_user?.brand_logo != "") {
-			router.push(`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`);
+		if (brand_user === null) {
+			router.push("/brands/login");
 		}
+  
 
 	}, [brand_user]);
-
-
 
   const brandUserData = brand_user;
 
