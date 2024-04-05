@@ -51,7 +51,7 @@ export default function BrandLogo() {
     
     console.log("Image URL: ", createObjectURL)
 
-    const data = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
+    const data = await fetch('https://api.cloudinary.com/v1/baggieboy/image/upload', {
       method: 'POST',
       body: formData
     }).then(r => r.json());

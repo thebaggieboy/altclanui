@@ -12,7 +12,7 @@ import { selectUser, setUser } from '../../features/user/userSlice';
 
 
 
-const BrandBioForm = (props) => {
+const  BrandBioForm = (props) => {
 
   const brandUserData = useSelector(selectUser);
   const router = useRouter()
