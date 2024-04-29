@@ -19,7 +19,7 @@ export default function TrendingMerch() {
 		},
 	};
 
-	const { data, isLoading, error } = useMerch("https://altclan-brands-api.onrender.com/api/merchandises/")
+	const { data, isLoading, error } = useMerch("https://altclan-api-v1.onrender.com/api/merchandises/")
 
 	if (isLoading) {
 		return (

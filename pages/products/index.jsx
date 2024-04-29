@@ -83,7 +83,7 @@ function classNames(...classes) {
 export default function Products({ _id, merchandise_name, price, picture,  newLimit,isLast, }) {
 	// const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/merchandises/');
 	const [page, setPage] = useState(1)
-	const { data, isLoading, error } = useMerch(`https://altclan-brands-api.onrender.com/api/merchandises/`);
+	const { data, isLoading, error } = useMerch(`https://altclan-api-v1.onrender.com/api/merchandises/`);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	
 	const { cart, addToCart } = useContext(CartContext);

@@ -39,7 +39,7 @@ export default function SignUp(req, res) {
 		await router.push("/brands/login?user=success");
 	}
 
-	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1/dj-rest-auth/registration/", signUpSuccess, USER_TYPES.brand)
+	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/dj-rest-auth/registration/", signUpSuccess, USER_TYPES.brand)
 
 	const [formErr, setFormErr] = useState(error)
 	const [formData, setFormData] = useState({
