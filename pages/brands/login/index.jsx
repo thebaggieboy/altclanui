@@ -46,7 +46,7 @@ export default function Login(req, res) {
         dispatch(setUser(user))
     }
 
-    const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-brands-api.onrender.com/dj-rest-auth/login/", loginSuccess, USER_TYPES.brand)
+    const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", loginSuccess, USER_TYPES.brand)
 
     const [formData, setFormData] = useState({
         email: "",
@@ -86,7 +86,7 @@ export default function Login(req, res) {
               content="Login to your brand account."
             />
               <meta name="keywords"
-                    content="altclan, altclan login, login, fashion, community, aesthetics, enigmas, arts, merchandises,  clothing, rings, accessories" />
+                    content="altclan, altclan login" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 
