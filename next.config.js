@@ -12,12 +12,18 @@ const nextConfig = {
         remotePatterns:[
             {
                 protocol:"https",
-                hostname:"altclan-brands-api.onrender.com",
+                hostname:"altclan-brands-api-1-1.onrender.com",
+                port:"",
+                pathname:"/media/**"
+            },
+            {
+                protocol:"https",
+                hostname:"altclan-api-v1.onrender.com",
                 port:"",
                 pathname:"/media/**"
             }
         ],
-        domains: ['res.cloudinary.com']
+        domains: ['res.cloudinary.com', "altclan-api-v1.onrender.com",  "altclan-brands-api-1-1.onrender.com"],
     },
    
 }
