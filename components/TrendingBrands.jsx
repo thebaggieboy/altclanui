@@ -21,6 +21,8 @@ export default function TrendingBrands() {
 	};
 
 	const { data, isLoading, error } = useBrands("https://altclan-brands-api-1-1.onrender.com/api/users/")
+	
+	console.log(data)
 	//const fetch_data = fetch()
 	if (isLoading) {
 		return (
