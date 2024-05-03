@@ -49,16 +49,7 @@ const carouselBreakpoints = {
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const brands = fetch('https://altclan-api-v1.onrender.com/api/brand_profile/')
-    console.log("Brand Profile", brands)
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000, []);
-
-
-
-  }, []);
+ 
   return (
     <>
       {loading ? <Preloader /> :
