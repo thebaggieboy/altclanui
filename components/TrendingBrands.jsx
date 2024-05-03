@@ -20,7 +20,7 @@ export default function TrendingBrands() {
 		},
 	};
 
-	const { data, isLoading, error } = useBrands("https://altclan-api-v1.onrender.com/api/brand_users/")
+	const { data, isLoading, error } = useBrands("https://altclan-brands-api-1-1.onrender.com/api/users/")
 	//const fetch_data = fetch()
 	if (isLoading) {
 		return (

@@ -19,7 +19,7 @@ export default function Brands() {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
- const { data, loading, error } = useBrands('https://altclan-brands-api.onrender.com/api/brand_users/');
+ const { data, loading, error } = useBrands('https://altclan-brands-api-1-1.onrender.com/api/users/');
  //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brand_profile/');
   console.log(data)
   if (loading) {

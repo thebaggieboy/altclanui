@@ -11,7 +11,7 @@ import { selectBrandUser } from '../../features/brands/brandUserSlice';
 
 export async function getServerSideProps(context) {
   const id = context.params.id
-  const res = await fetch(`https://altclan-brands-api.onrender.com/api/brand_users/${id}`)
+  const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${id}`)
   //const res = await fetch(`http://127.0.0.1:8000/api/brand_profile/${id}`);
   const data = await res.json()
   console.log(data)
