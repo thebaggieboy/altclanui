@@ -186,7 +186,7 @@ export default function HeaderNav() {
 						leaveFrom="opacity-100"
 						leaveTo="opacity-0"
 					>
-						<div className="fixed inset-0 bg-black bg-opacity-25" />
+						<div className="sticky fixed inset-0 bg-black bg-opacity-25" />
 					</Transition.Child>
 
 					<div className="fixed inset-0 z-50 flex">
