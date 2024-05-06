@@ -173,7 +173,7 @@ export default function HeaderNav() {
 
 
 	return (
-		<div style={{fontFamily:'Poppins, sans-serif'}} className=" top-0 z-50 bg-white">
+		<div style={{fontFamily:'Poppins, sans-serif'}} className="sticky top-0 z-50 bg-white">
 			{/* Mobile menu */}
 			<Transition.Root show={open} as={Fragment}>
 				<Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -186,7 +186,7 @@ export default function HeaderNav() {
 						leaveFrom="opacity-100"
 						leaveTo="opacity-0"
 					>
-						<div className="sticky fixed inset-0 bg-black bg-opacity-25" />
+						<div className="fixed inset-0 bg-black bg-opacity-25" />
 					</Transition.Child>
 
 					<div className="fixed inset-0 z-50 flex">
