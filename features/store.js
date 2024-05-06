@@ -26,7 +26,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user : userSlice,
-    brand_users: brandUserSlice,
+    brand_user: brandUserSlice,
     brands: brandSlice,
     shop: shopSlice,
     orders:orderSlice,
