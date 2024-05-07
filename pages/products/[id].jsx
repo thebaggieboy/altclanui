@@ -4,12 +4,15 @@ import { RadioGroup } from "@headlessui/react";
 import { ProductContext } from "../../context/ProductContext";
 import { CartContext } from "../../context/CartContext";
 import useData from "../../hooks/useData";
-import { useDispatch } from "react-redux";
 import { addItem } from "../../features/shop/shopSlice";
 import Link from "next/link";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import fetchProductData from '../../lib/fetchProductData'
+import { useRouter } from 'next/router'
+import { useDispatch, useSelector } from "react-redux";
+
 import Review from "./../../components/Review"
+import { selectUser } from "../../features/user/userSlice";
 const queryClient = new QueryClient()
 
 export async function getServerSideProps(context) {
@@ -83,8 +86,80 @@ export default function ProductDetail({ _id, merch }) {
 		dispatch(addItem(data));
 	}
 
+	const router = useRouter()
+	const [formData, setFormData] = useState({
+	  email: "guest",
+	  review: "",
+	})
+  
+	let { email, review } = formData
+  	
+	const user = useSelector(selectUser)
+	if(user !== null || user !== ""){
+	  email = user?.email
+	}
+	const inputChangeHandler = (e) => {
+	  const { name, value } = e.target
+	  setFormData((prevValue) => {
+		return {
+		  ...prevValue,
+		  [name]: value
+		}
+	  })
+	  console.log("Form Data: ", formData)
+	  console.log("Email: ", email)
+	}
 
+	const addReview = async(e)=>{
+		e.preventDefault()
+		const url = 'https://altclan-api-v1.onrender.com/api/reviews/'
+		const res = await fetch(url, {
+		  method: "POST",
+		  body: JSON.stringify({user:email, review}),
+		  headers: {
+			  "Content-Type": "application/json"
+		  },
+	  })
 	
+	  const data = await res.json()
+	
+	  if (res.status >= 200 && res.status <= 209) {
+		console.log("review POSTED")
+		//router.push("#")
+	
+		  console.log(data)
+	  }
+	
+	  const err = { ...data }
+	  throw { err }
+	   
+	  }
+
+
+	  const addWishList = async(e)=>{
+		e.preventDefault()
+		const url = 'https://altclan-api-v1.onrender.com/api/wishlist/'
+		const res = await fetch(url, {
+		  method: "POST",
+		  body: JSON.stringify({user:email, review}),
+		  headers: {
+			  "Content-Type": "application/json"
+		  },
+	  })
+	
+	  const data = await res.json()
+	
+	  if (res.status >= 200 && res.status <= 209) {
+		console.log("review POSTED")
+		//router.push("#")
+	
+		  console.log(data)
+	  }
+	
+	  const err = { ...data }
+	  throw { err }
+	   
+	  }
 
 
 	return (
@@ -305,7 +380,20 @@ export default function ProductDetail({ _id, merch }) {
 <hr />
 		<div className="bg-white">
 			<div className="pt-6">
-			<Review/>
+		    <section style={{padding:20}}>
+         
+<form onSubmit={addReview}>
+  <label for="message" style={{fontSize:20, fontWeight:'bold', fontFamily:"Poppins, Sans-Serif"}} class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your review</label> <br />
+  <textarea onChange={inputChangeHandler} id="review" name="review" rows="4" class="block p-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+  <button
+	type="submit"
+	className="mt-10 flex  items-center justify-center rounded-md border border-black bg-white px-8 py-3  font-medium text-dark  focus:ring-black"
+	>
+	Submit
+ </button>
+</form>
+       
+        </section>
 			</div>
 		</div> <br /><br />
 		</>

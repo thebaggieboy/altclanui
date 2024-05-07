@@ -44,7 +44,7 @@ const Profile = () => {
 		queryFn: () => fetchProfileData(userId, isBrand), enabled: user !== null
 	})
 
-	const [activeSection, setAcvtiveSection] = useState("billing");
+	const [activeSection, setAcvtiveSection] = useState("orders");
 
 	const [subSec, setSubSec] = useState({
 		active: false,

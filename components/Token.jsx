@@ -14,10 +14,10 @@ export default function Token(){
                     <p class="text-xl font-medium text-gray-900 md:text-2xl dark:text-white">"At Altclan, we're on a mission to redefine the world of alternative style and fashion. Our startup is set to disrupt the industry by offering a fresh approach that celebrates individuality, creativity, and self-expression."</p>
                 </blockquote>
                 <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                    <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile picture"/>
+
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                        <div class="pr-3 font-medium text-gray-900 dark:text-white">Micheal Gough</div>
-                        <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">CEO at Google</div>
+                        <div class="pr-3 font-medium text-gray-900 dark:text-white">Enimofe Odujirin</div>
+                        <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">CO-FOUNDER at Altclan</div>
                     </div>
                 </figcaption>
             </figure>
