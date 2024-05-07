@@ -10,7 +10,7 @@ import CartItem from "../components/CartItem";
 import Head  from "next/head"
 export async function getServerSideProps(context) {
 	const res = await fetch(
-		`https://altclan-brands-api.onrender.com/api/merchandises`
+		`https://altclan-brands-api-1-1.onrender.com/api/merchandises`
 	);
 	//const res = await fetch(`http://127.0.0.1:8000/api/merchandises/₦{id}`);
 	const data = await res.json();
