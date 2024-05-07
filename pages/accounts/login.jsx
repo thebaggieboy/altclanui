@@ -132,9 +132,9 @@ export default function SignUp() {
 
 	const submit = async (e) => {
 		e.preventDefault();
-		loginEmail()
+		
 		try {
-			
+			loginEmail()
 			loginSuccess()
 			await loginFn(formData)
 
