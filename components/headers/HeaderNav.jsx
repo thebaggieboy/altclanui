@@ -171,7 +171,6 @@ export default function HeaderNav() {
 			dispatch(setUserEmail(null))
 			dispatch(setUser(null));
 			dispatch(setBrandUser(null));
-			dispatch(setUserType(null))
 			dispatch(setToken(null))
 			
 		} catch (error) {

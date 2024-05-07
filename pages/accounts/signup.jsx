@@ -35,9 +35,7 @@ export default function SignUp() {
 		router.push("/products");
 	}
 
-	function signUpSuccess() {
-		router.push("/accounts/login?user=success")
-	}
+	
 
 	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/auth/users", signUpSuccess, USER_TYPES.user)
 	//const { isIdle, isPending, error, mutateAsync: signUpFn } = useDjoserSignup("https://altclan-api-v1.onrender.com/auth/jwt/create", signUpSuccess, USER_TYPES.user)
@@ -65,14 +63,43 @@ export default function SignUp() {
 		})
 
 	}
-
+	function signUpSuccess() {
+		console.log("Redirecting to login page")
+		router.push("/accounts/login?user=success")
+	}
 	const submit = async (e) => {
+		
 		e.preventDefault();
 		try {
 			if (password1 !== password2) {
 				throw { password: "Passwords do not match" }
 			}
-			await signUpFn(formData)
+			const url = "https://altclan-api-v1.onrender.com/auth/users/"
+			const res = await fetch(url, {
+                method: "POST",
+                headers: {
+
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password:password1, first_name:'', last_name:'', mobile_number:'', display_picture:null}),
+                credentials: "include"
+
+            })
+            const data = await res.json()
+
+            if (res.status >= 200 & res.status <= 209) {
+				console.log("New User Registered.")
+				console.log(data)
+                signUpSuccess()
+
+                
+            }
+			
+            const error = { ...data }
+            throw error
+
+			
+		
 		} catch (error) {
 			setFormErr(error)
 			console.log(error)
@@ -141,24 +168,14 @@ export default function SignUp() {
 									</div>
 
 								</div>}
-							{formErr !== null &&
-								<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-									<svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-										<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-									</svg>
-									<span class="sr-only">Info</span>
-									<div class="mx-auto text-sm text-center font-medium">
-										{formErr?.password1}
-									</div>
-
-								</div>}
+						
 							<input
 								type="email"
 								onChange={inputChangeHandler}
 								name="email"
 								id="email"
 								className={styles.input}
-								placeholder="name@company.com"
+								placeholder="johndoe@mail.com"
 
 							/>
 						</div>
