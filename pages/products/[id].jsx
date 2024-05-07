@@ -82,54 +82,18 @@ export default function ProductDetail({ _id, merch }) {
 
 
 	return (
-		<div className="bg-white">
-			<div className="pt-6">
-				<nav aria-label="Breadcrumb">
-					<ol
-						role="list"
-						className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-					>
-						{product.breadcrumbs.map((breadcrumb) => (
-							<li key={breadcrumb.id}>
-								<div className="flex items-center">
-									<Link
-										href={breadcrumb.href}
-										className="mr-2 text-sm font-medium text-gray-900"
-									>
-										{breadcrumb.name}
-									</Link>
-									<svg
-										width={16}
-										height={20}
-										viewBox="0 0 16 20"
-										fill="currentColor"
-										aria-hidden="true"
-										className="h-5 w-4 text-gray-300"
-									>
-										<path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-									</svg>
-								</div>
-							</li>
-						))}
-						<li className="text-sm">
-							<Link
-								href={"#"}
-								aria-current="page"
-								className="font-medium text-gray-500 hover:text-gray-600"
-							>
-								{merch.merchandise_name}
-							</Link>
-						</li>
-					</ol>
-				</nav>
-
-				{/* Image gallery */}
-
-
+		<>
+	<div class="bg-white dark:bg-gray-800 py-8" style={{fontFamily:"Poppins, Sans-serif", lineHeight:1}}>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row -mx-4">
+            <div class="md:flex-1 px-4">
+                <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+                    <img class="w-full h-full object-cover" src={merch.display_image} alt="Product Image"/>
+                </div>
+				<div>
+        
 				<div class="grid gap-4 p-5">
-					<div>
-						<img class="h-auto max-w-full rounded-lg text-center" src={merch.display_image} alt="" />
-					</div>
+				
 					<div class="grid grid-cols-5 gap-4">
 						<div>
 							<img class="h-auto max-w-full rounded-lg" src={merch.display_image} alt="" />
@@ -148,57 +112,36 @@ export default function ProductDetail({ _id, merch }) {
 						</div>
 					</div>
 				</div>
+    </div>
+                <div class="flex -mx-2 mb-4">
+                    <div class="w-1/2 px-2">
+                        <button onClick={addToCart} class="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
+                    </div>
+                    <div class="w-1/2 px-2">
+                        <button class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+            <div class="md:flex-1 px-4">
+                <h2 style={{fontFamily:"Poppins, Sans-Serif"}} class="text-2xl font-bold text-black dark:text-white mb-2">{merch.merchandise_name}</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+				{merch.details}
+                </p>
+                <div class="flex mb-4">
+                    <div class="mr-4">
+                        <span style={{fontFamily:"Poppins, Sans-Serif"}} class="font-bold text-black dark:text-gray-300">Price:</span>
+                        <span class="text-gray-600 dark:text-gray-300">₦{merch.price}</span>
+                    </div>
+                    <div>
+                        <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
+                        <span class="text-black dark:text-gray-300">In Stock</span>
+                    </div>
+                </div> <br />
+                <div class="mb-4">
+                    <span class="font-bold text-black dark:text-gray-300">Select Color:</span>
+                    <div class="flex items-center mt-2">
 
-
-				{/* Product info */}
-				<div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-					<div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-						<h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-							{merch.merchandise_name}
-						</h1>
-					</div>
-
-					{/* Options */}
-					<div className="mt-4 lg:row-span-3 lg:mt-0">
-						<h2 className="sr-only">Product information</h2>
-						<p className="text-3xl tracking-tight text-gray-900">
-							₦{merch.price}
-						</p>
-
-						{/* Reviews */}
-						<div className="mt-6">
-							<h3 className="sr-only">Reviews</h3>
-							<div className="flex items-center">
-								<div className="flex items-center">
-									{[0, 1, 2, 3, 4].map((rating) => (
-										<StarIcon
-											key={rating}
-											className={classNames(
-												reviews.average > rating
-													? "text-gray-900"
-													: "text-gray-200",
-												"h-5 w-5 flex-shrink-0"
-											)}
-											aria-hidden="true"
-										/>
-									))}
-								</div>
-								<p className="sr-only">{reviews.average} out of 5 stars</p>
-								<Link
-									href={reviews.href}
-									className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-								>
-									{reviews.totalCount} reviews
-								</Link>
-							</div>
-						</div>
-
-						<div className="mt-10">
-							{/* Colors */}
-							<div>
-								<h3 className="text-sm font-medium text-gray-900">Color</h3>
-
-								<RadioGroup
+					<RadioGroup
 									value={selectedColor}
 									onChange={setSelectedColor}
 									className="mt-4"
@@ -236,19 +179,13 @@ export default function ProductDetail({ _id, merch }) {
 										))}
 									</div>
 								</RadioGroup>
-							</div>
-
-							{/* Sizes */}
-							<div className="mt-10">
-								<div className="flex items-center justify-between">
-									<h3 className="text-sm font-medium text-gray-900">Size</h3>
-									<Link
-										href="#"
-										className="text-sm font-medium text-black hover:text-beige"
-									>
-										Size guide
-									</Link>
-								</div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <span class="font-bold text-black dark:text-gray-300">Select Size:</span>
+                    <div class="flex items-center mt-2">
+<div className="mt-10">
+								
 
 								<RadioGroup
 									value={selectedSize}
@@ -320,47 +257,28 @@ export default function ProductDetail({ _id, merch }) {
 								</RadioGroup>
 							</div>
 
-						</div>
-					</div>
-
-					<div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
-						{/* Description and details */}
-						<div>
-							<h3 className="sr-only">Description</h3>
-
-							<div className="space-y-6">
-								<p className="text-base text-gray-900">{merch.merchandise_description}</p>
-							</div>
-						</div>
-
-						<div className="mt-10">
-							<h2 className="text-sm font-medium text-gray-900">Details</h2>
-
-							<div className="mt-4 space-y-6">
-								<p className="text-sm text-gray-600">{merch.merchandise_details}</p>
-							</div>
-						</div>
-
-					
-					<Review/>
-						
-						<button
-								onClick={addToCart}
-								className="mt-10 flex w-full items-center justify-center rounded-md border border-black bg-black px-8 py-3 text-base font-medium text-white  focus:ring-black focus:ring-offset-2"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-									className="h-5 w-5"
-								>
-									<path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-								</svg>
-							</button>
-						
-					</div>
-				</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-bold text-black dark:text-gray-300">Product Description:</span>
+                    <p class="text-black dark:text-gray-300 text-sm mt-2">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                        sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
+                        lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque
+                        ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
+                        sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+		<div className="bg-white">
+			<div className="pt-6">
+			<Review/>
 			</div>
-		</div>
+		</div> <br /><br />
+		</>
 	);
 }
