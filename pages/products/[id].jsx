@@ -91,6 +91,13 @@ export default function ProductDetail({ _id, merch }) {
 	  email: "guest",
 	  review: "",
 	})
+	const [wishData, setWishData] = useState({
+		user_email: "guest",
+		colors: [],
+		display_image:"",
+		product_name:""
+
+	  })
   
 	let { email, review } = formData
   	
@@ -141,7 +148,7 @@ export default function ProductDetail({ _id, merch }) {
 		const url = 'https://altclan-api-v1.onrender.com/api/wishlist/'
 		const res = await fetch(url, {
 		  method: "POST",
-		  body: JSON.stringify({user:email, review}),
+		  body: JSON.stringify({user_email:user?.email, product_name:'',  quantity:'', colors:''}),
 		  headers: {
 			  "Content-Type": "application/json"
 		  },
