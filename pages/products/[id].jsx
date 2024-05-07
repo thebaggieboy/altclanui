@@ -123,22 +123,23 @@ export default function ProductDetail({ _id, merch }) {
                 </div>
             </div>
             <div class="md:flex-1 px-4">
-                <h2 style={{fontFamily:"Poppins, Sans-Serif"}} class="text-2xl font-bold text-black dark:text-white mb-2">{merch.merchandise_name}</h2>
+                <h2 style={{fontFamily:"Poppins, Sans-Serif"}} class="text-4xl text-black font-bold dark:text-white mb-2">{merch.merchandise_name}</h2>
+				  <h6 style={{fontFamily:"Poppins, Sans-Serif", backgroundColor:"beige", padding:10, border:"1px solid black", width:140, fontSize:14, fontWeight:"bold", fontStyle:"oblique"}} class="text-black dark:text-white mb-2">{merch.brand_name}</h6>
                 <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
 				{merch.details}
-                </p>
-                <div class="flex mb-4">
+                </p> <hr />
+                <div class="flex mb-4 mt-4">
                     <div class="mr-4">
-                        <span style={{fontFamily:"Poppins, Sans-Serif"}} class="font-bold text-black dark:text-gray-300">Price:</span>
-                        <span class="text-gray-600 dark:text-gray-300">₦{merch.price}</span>
+                        <span style={{fontFamily:"Poppins, Sans-Serif"}} class=" text-black dark:text-gray-300">Price:</span>
+                        <span class=" text-black text-sm dark:text-gray-300"> ₦{merch.price}</span>
                     </div>
                     <div>
-                        <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
-                        <span class="text-black dark:text-gray-300">In Stock</span>
+                        <span class=" text-gray-700 dark:text-gray-300">Availability:</span>
+                        <span class="text-green-700 font-bold text-sm dark:text-gray-300">In Stock</span>
                     </div>
                 </div> <br />
                 <div class="mb-4">
-                    <span class="font-bold text-black dark:text-gray-300">Select Color:</span>
+                    <span class=" text-black dark:text-gray-300">Select Color:</span>
                     <div class="flex items-center mt-2">
 
 					<RadioGroup
@@ -182,7 +183,7 @@ export default function ProductDetail({ _id, merch }) {
                     </div>
                 </div>
                 <div class="mb-4">
-                    <span class="font-bold text-black dark:text-gray-300">Select Size:</span>
+                    <span class=" text-black dark:text-gray-300">Select Size:</span>
                     <div class="flex items-center mt-2">
 <div className="mt-10">
 								
@@ -260,7 +261,7 @@ export default function ProductDetail({ _id, merch }) {
                     </div>
                 </div>
                 <div>
-                    <span class="font-bold text-black dark:text-gray-300">Product Description:</span>
+                    <span class=" text-black dark:text-gray-300">Product Description:</span>
                     <p class="text-black dark:text-gray-300 text-sm mt-2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                         sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
