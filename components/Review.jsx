@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from '../styles/brand-bio.module.css'
+import { useRouter } from 'next/router'
+
 
 export default function Create() {
-
+  const router = useRouter()
   const [formData, setFormData] = useState({
     email: "",
     review: "",
@@ -11,7 +13,7 @@ export default function Create() {
   const addReview = async()=>{
   
 
-    const url = 'https://altclan-api-v1/api/reviews'
+    const url = 'https://altclan-api-v1.onrender.com/api/reviews/'
     const res = await fetch(url, {
       method: "POST",
       body: JSON.stringify({email, review}),
@@ -21,17 +23,17 @@ export default function Create() {
   })
 
   const data = await res.json()
-  console.log("review POSTED")
 
   if (res.status >= 200 && res.status <= 209) {
+    console.log("review POSTED")
+    router.push("#")
+
       return data
   }
 
-
   const err = { ...data }
   throw { err }
-    // Add a new review to the product
-    console.log("Adding review")
+   
   }
 
 
