@@ -39,8 +39,8 @@ export default function SignUp() {
 		router.push("/accounts/login?user=success")
 	}
 
-	//const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/dj-rest-auth/registration/", signUpSuccess, USER_TYPES.user)
-	const { isIdle, isPending, error, mutateAsync: signUpFn } = useDjoserSignup("https://altclan-api-v1.onrender.com/auth/jwt/create", signUpSuccess, USER_TYPES.user)
+	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/auth/users", signUpSuccess, USER_TYPES.user)
+	//const { isIdle, isPending, error, mutateAsync: signUpFn } = useDjoserSignup("https://altclan-api-v1.onrender.com/auth/jwt/create", signUpSuccess, USER_TYPES.user)
 
 	
 	const [formErr, setFormErr] = useState(error)

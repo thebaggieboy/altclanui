@@ -66,6 +66,7 @@ export default function SignUp() {
         const res = await fetch(url, {
             method: "POST",
             headers: {
+				
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ email:email, password:password1 }),
@@ -93,8 +94,9 @@ export default function SignUp() {
 			setFormErr(error)
 			console.log(error)
 		}
-	};
 
+	};
+	console.log(formData)
 	return (
 		<>
 		 <Head>

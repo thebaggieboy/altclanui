@@ -30,24 +30,19 @@ const Profile = () => {
 		setOrders(orderResult)
 		console.log("Order State: ", orders)
 	}	  
-	const getMerchBrandName = async()=>{
 	
-	}
-
-
 	useEffect(() => {
 		console.log("data", client.getQueryData(["profile", user?.id, user?.user_type]))
 		if (user === null) {
-			router.push("/signup")
+			router.push("/login")
 		}
 		getOrder()
-	}, [user, orders])
+	}, [getOrder, router, user, orders, client])
 
 	const { data: userData, isLoading, error } = useQuery({
 		queryKey: ["profile", userId, user?.user_type],
 		queryFn: () => fetchProfileData(userId, isBrand), enabled: user !== null
 	})
-	
 
 	const [activeSection, setAcvtiveSection] = useState("billing");
 
@@ -131,7 +126,7 @@ const Profile = () => {
 
 					<div className={styles.column2}>
 						<div className={styles.number}>
-							<h1 className={styles.h1}>{user?.email}</h1>
+							<h1 className={styles.h1}>{userData?.email}</h1>
 
 						</div>
 						<div>

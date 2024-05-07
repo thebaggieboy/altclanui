@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useState, useEffect } from "react";
 import { Dialog, Popover, Tab, Transition, Disclosure, Menu } from "@headlessui/react";
 
 
@@ -20,6 +20,9 @@ import { USER_TYPES, selectUser, selectUserType, setUser, setUserType } from "..
 import { selectBrandUser, setBrandUser } from "../../features/brands/brandUserSlice";
 import logoutUser from "../../lib/logoutUser";
 import { selectCartCount } from "../../features/shop/shopSelector";
+import { selectToken, setToken } from "../../features/token/tokenSlice";
+import { selectUserEmail, setUserEmail } from "../../features/user/userActiveEmail";
+
 
 const navigation = {
 	pages: [
@@ -154,22 +157,27 @@ export default function HeaderNav() {
 	const cartCount = useSelector(selectCartCount);
 	const [open, setOpen] = useState(false);
 	const user = useSelector(selectUser);
+	const use_email = useSelector(selectUserEmail);
+	const token = useSelector(selectToken);
+	const [decodedToken, setDecodedToken] = useState("")
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 
 	const dispatch = useDispatch();
 
 	async function logout() {
 		try {
-			await logoutUser();
-			document.cookie = "user_type=brand; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;"
+		
+			document.cookie = ""
+			dispatch(setUserEmail(null))
 			dispatch(setUser(null));
 			dispatch(setBrandUser(null));
 			dispatch(setUserType(null))
+			dispatch(setToken(null))
+			
 		} catch (error) {
 			console.log(error);
 		}
 	}
-
 
 
 	return (
@@ -518,7 +526,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
+												href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user?.id}`}
 											>
 												Profile
 											</Link>
@@ -605,7 +613,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
+															href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user?.id}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile

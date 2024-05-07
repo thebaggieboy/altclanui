@@ -4,7 +4,7 @@ import { USER_TYPES, setUser, setUserType } from '../features/user/userSlice'
 import fetchProfileData from '../lib/fetchProfileData'
 
 
-const  useDjoserSignup   = (url, successCallback, userType) => {
+const useDjoserSignup   = (url, successCallback, userType) => {
     const isBrand = userType === USER_TYPES.brand
 
     const mutation = useMutation({
