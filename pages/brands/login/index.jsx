@@ -9,14 +9,21 @@ import useLogin from '../../../hooks/useLogin';
 import { USER_TYPES, selectUser, setUser, setUserType } from '../../../features/user/userSlice';
 import Head from "next/head"
 import { useSearchParams } from 'next/navigation';
+import { selectUserEmail,  setUserEmail,  setUserEmailType } from "../../../features/user/userActiveEmail";
+import {selectToken, setToken} from "../../../features/token/tokenSlice";
+
 
 export default function Login(req, res) {
     const dispatch = useDispatch();
     const brand_user = useSelector(selectUser);
+    const user_email = useSelector(selectUserEmail);
+    const token = useSelector(selectToken);
+
     const router = useRouter();
     const searchParams = useSearchParams()
 	const search = searchParams.get('user')
-    const signupSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+
+    const signupSuccess =  <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
       <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
     </svg>
@@ -39,14 +46,9 @@ export default function Login(req, res) {
         }
     }, [brand_user, router])
 
-    async function loginSuccess(user) {
-        const today = new Date();
-        const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-        document.cookie = `user_type=brand; expires=${oneMonthFromToday.toUTCString()} Path=/`
-        dispatch(setUser(user))
-    }
+    
 
-    const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-api-v1.onrender.com/dj-rest-auth/login/", loginSuccess, USER_TYPES.brand)
+    const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-brands-api-1-1.onrender.com/auth/jwt/create", loginSuccess, USER_TYPES.brand)
 
     const [formData, setFormData] = useState({
         email: "",
@@ -66,9 +68,55 @@ export default function Login(req, res) {
 
     console.log(error)
 
+
+    function loginEmail(){
+		dispatch(setUserEmail(formData?.email))
+	}
+    async function loginSuccess() {
+		console.log("Successful Login")
+		const today = new Date();
+		const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+		document.cookie = `user_type=brand; expires=${oneMonthFromToday.toUTCString()} Path=/`
+
+		if(token !== null || token == ""){
+			const arrayToken = token.split('.');
+			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
+			console.log("Token Payload ID: ", tokenPayload?.user_id);
+			const url = `https://altclan-brands-api-1-1.onrender.com/api/users/${tokenPayload?.user_id}`
+
+		const res = await fetch(url, {
+			method: "GET",
+			headers: {
+				"Authorization": `Bearer ${token}`,
+				"Content-Type": "application/json"
+			},
+		})
+
+		const data = await res.json()
+	
+		if (res.status >= 200 && res.status <= 209) {
+			console.log("user fetch successful")
+			console.log("Current User: ", data)
+			dispatch(setUser(data))
+		
+			return data
+			
+		}
+		
+		const err = { ...data }
+		throw { err }
+		
+			
+		}
+		
+
+
+	}
     const submit = async (e) => {
         e.preventDefault();
         try {
+            loginEmail()
+			loginSuccess()
             await loginFn(formData)
         } catch (error) {
             console.log(error)

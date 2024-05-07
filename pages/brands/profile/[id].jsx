@@ -7,12 +7,13 @@ import Link from 'next/link'
 import { USER_TYPES, selectUser, selectUserType, setUser } from '../../../features/user/userSlice';
 import { useRouter } from 'next/router';
 import { useSearchParams } from 'next/navigation'
-
+import { selectToken, setToken } from '../../../features/token/tokenSlice';
 
 export async function getServerSideProps(context) {
+  
   const id = context.params.id
-  const res = await fetch(`https://altclan-brands-api.onrender.com/api/brand_users/${id}`)
-  //const res = await fetch(`http://127.0.0.1:8000/api/brand_profile/${id}`);
+  const res = await fetch(`https://altclan-brands-api-1.1.onrender.com/api/users/${id}`)
+ 
   const data = await res.json()
   console.log(data)
 
@@ -21,7 +22,6 @@ export async function getServerSideProps(context) {
   }
 
 }
-
 
 
 
@@ -38,8 +38,17 @@ export default function BrandProfile({id, brand}) {
   You added created a merchandise!
   </div>
 </div>
+
+
   const brand_user = useSelector(selectUser)
+  const token = useSelector(selectToken)
 	const router = useRouter();
+  if(token !== null || token == ""){
+    const arrayToken = token.split('.');
+			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
+			console.log("Token Payload ID: ", tokenPayload?.user_id);
+			const url = `https://altclan-brands-api-1-1.onrender.com/api/users/${tokenPayload?.user_id}`
+  }
 
     useEffect(() => {
 		if (brand_user == null) {
@@ -84,3 +93,4 @@ export default function BrandProfile({id, brand}) {
             </div>
   )
 }
+
