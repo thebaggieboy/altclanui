@@ -3,13 +3,13 @@ import styles from '../styles/brand-bio.module.css'
 
 export default function Create() {
 
-  
+  const [formData, setFormData] = useState({
+    email: "",
+    review: "",
+  })
 
   const addReview = async()=>{
-    const [formData, setFormData] = useState({
-      email: "",
-      review: "",
-    })
+  
 
     const url = 'https://altclan-api-v1/api/reviews'
     const res = await fetch(url, {
