@@ -163,15 +163,17 @@ export default function HeaderNav() {
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 
 	const dispatch = useDispatch();
-
+	
 	async function logout() {
 		try {
 		
 			document.cookie = ""
+			dispatch(setToken(null))
 			dispatch(setUserEmail(null))
 			dispatch(setUser(null));
 			dispatch(setBrandUser(null));
-			dispatch(setToken(null))
+			
+			
 			
 		} catch (error) {
 			console.log(error);

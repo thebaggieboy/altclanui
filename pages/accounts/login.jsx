@@ -83,7 +83,7 @@ export default function SignUp() {
 
 	}
 	function loginEmail(){
-		dispatch(setUserEmail(formData?.email))
+		
 
 	}
 
@@ -113,7 +113,9 @@ export default function SignUp() {
 		if (res.status >= 200 && res.status <= 209) {
 			console.log("user fetch successful")
 			console.log("Current User: ", data)
-			dispatch(setUser(data))
+			
+			dispatch(setUserEmail(formData?.email))
+			//dispatch(setUser(data))
 		
 			return data
 			

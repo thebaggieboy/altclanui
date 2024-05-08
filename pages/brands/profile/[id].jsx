@@ -8,23 +8,12 @@ import { USER_TYPES, selectUser, selectUserType, setUser } from '../../../featur
 import { useRouter } from 'next/router';
 import { useSearchParams } from 'next/navigation'
 import { selectToken, setToken } from '../../../features/token/tokenSlice';
+import fetchProfileData from '../../../lib/fetchProfileData';
+import { QueryClient, useQueryClient, useQuery } from "@tanstack/react-query";
 
-export async function getServerSideProps(context) {
-  
-  const id = context.params.id
-  const res = await fetch(`https://altclan-brands-api-1.1.onrender.com/api/users/${id}`)
+
+
  
-  const data = await res.json()
-  console.log(data)
-
-  return {
-    props: {brand:data}
-  }
-
-}
-
-
-
 export default function BrandProfile({id, brand}) {
   const searchParams = useSearchParams();
   const add_merch = searchParams.get('add_merch')
@@ -39,10 +28,20 @@ export default function BrandProfile({id, brand}) {
   </div>
 </div>
 
-
+const client = useQueryClient()
   const brand_user = useSelector(selectUser)
   const token = useSelector(selectToken)
 	const router = useRouter();
+  const userId = router.query?.id
+  const isBrand = useSelector(selectUserType) === USER_TYPES.brand
+  //const profileData =  client.getQueryData(["profile", brand_user?.id, user?.user_type])
+  const { data: userData, isLoading, error } = useQuery({
+		queryKey: ["profile", userId, "brand"],
+		queryFn: () => fetchProfileData(userId, "brand"), enabled: brand_user !== null
+	})
+  console.log(userData)
+
+
   if(token !== null || token == ""){
     const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
@@ -60,29 +59,29 @@ export default function BrandProfile({id, brand}) {
 
   
   return (
-     <div key={brand.id} className={styles.brandProfileContent}>
+     <div key={userData?.id} className={styles.brandProfileContent}>
           <div className={styles.left}>
-            <img src={brand.brand_logo} alt="" className={styles.image}/>
+            <img src={userData?.brand_logo} alt="" className={styles.image}/>
           </div>
 
             <div className={styles.right}>
               <h1>
-                {brand.brand_name}
+                {userData?.brand_name}
               </h1>
               <div className={styles.numbers}>
                
-                <p>{brand.brand_type}</p>
+                <p>{userData?.brand_type}</p>
               </div>
               
               <p className={styles.about}>
-                {brand.brand_bio}
+                {userData?.brand_bio}
               </p>
               <br />
               
 
                 <Link style={{backgroundColor:'beige', fontWeight:'bolder'}} className=" p-2 text-xs border-0 text-black" href="/brands/merchandise/new">+ Add product</Link>
 
-                <Link  className="bg-black ml-2 p-2 text-xs border-0 text-white" href={`/brands/dashboard/${brand?.id}?q=${brand?.brand_name}`}>Dashboard</Link>
+                <Link  className="bg-black ml-2 p-2 text-xs border-0 text-white" href={`/brands/dashboard/${userData?.id}?q=${userData?.brand_name}`}>Dashboard</Link>
 
             </div>
 

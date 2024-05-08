@@ -81,7 +81,7 @@ const Profile = () => {
 	};
 
 
-
+console.log(data)
 	if (isLoading) {
 		return (
 			<div role="status" className="p-10 text-center  ml-30 mr-30">

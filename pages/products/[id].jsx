@@ -63,6 +63,8 @@ function classNames(...classes) {
 }
 
 export default function ProductDetail({ _id, merch }) {
+	const user = useSelector(selectUser)
+
 	const dispatch = useDispatch();
 	const [selectedColor, setSelectedColor] = useState(product.colors[0]);
 	const [selectedSize, setSelectedSize] = useState(merch.available_sizes[1]);
@@ -88,11 +90,11 @@ export default function ProductDetail({ _id, merch }) {
 
 	const router = useRouter()
 	const [formData, setFormData] = useState({
-	  email: "guest",
+	  email: user !== null || user!==""  ? user?.email : "guest",
 	  review: "",
 	})
 	const [wishData, setWishData] = useState({
-		user_email: "guest",
+		user_email_: "guest",
 		colors: [],
 		display_image:"",
 		product_name:""
@@ -100,11 +102,9 @@ export default function ProductDetail({ _id, merch }) {
 	  })
   
 	let { email, review } = formData
+	let {user_email_, colors, display_image, product_name} = wishData
   	
-	const user = useSelector(selectUser)
-	if(user !== null || user !== ""){
-	  email = user?.email
-	}
+	
 	const inputChangeHandler = (e) => {
 	  const { name, value } = e.target
 	  setFormData((prevValue) => {
@@ -114,7 +114,7 @@ export default function ProductDetail({ _id, merch }) {
 		}
 	  })
 	  console.log("Form Data: ", formData)
-	  console.log("Email: ", email)
+	 
 	}
 
 	const addReview = async(e)=>{
@@ -122,7 +122,7 @@ export default function ProductDetail({ _id, merch }) {
 		const url = 'https://altclan-api-v1.onrender.com/api/reviews/'
 		const res = await fetch(url, {
 		  method: "POST",
-		  body: JSON.stringify({user:email, review}),
+		  body: JSON.stringify({user_email:email, review}),
 		  headers: {
 			  "Content-Type": "application/json"
 		  },
@@ -203,14 +203,14 @@ export default function ProductDetail({ _id, merch }) {
     </div>
                 <div class="flex -mx-2 mb-4">
                     <div class="w-1/2 px-2">
-                        <button onClick={addToCart} class="w-full bg-gray-900 dark:bg-gray-600 text-white py-4 px-4  font-bold hover:bg-black dark:hover:bg-gray-700">Add to Cart</button>
+                        <button onClick={addToCart}  class="w-full bg-gray-900 dark:bg-gray-600 text-white text-sm py-4 px-4  font-bold hover:bg-black dark:hover:bg-gray-700">Add to Cart</button>
                     </div>
                     <div class="w-1/2 px-2">
-                        <button style={{fontWeight:"bold", backgroundColor:"beige", border:"1px solid black"}} class="w-full  dark:bg-gray-700 text-black dark:text-white py-4 px-4 font-bold  dark:hover:bg-gray-600">Add to Wishlist</button>
+                        <button style={{fontWeight:"bold", backgroundColor:"beige", border:"1px solid black"}} class="w-full text-sm  dark:bg-gray-700 text-black dark:text-white py-4 px-4 font-bold  dark:hover:bg-gray-600">Add to Wishlist</button>
                     </div>
                 </div>
             </div>
-            <div class="md:flex-1 px-4">
+            <div  class="md:flex-1 px-4">
 				{added == true ? <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-1 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
 				<svg style={{fontFamily:"Poppins, Sans-Serif"}} class="w-6 h-6 font-bold text-green-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
   <path d="M12.268 6A2 2 0 0 0 14 9h1v1a2 2 0 0 0 3.04 1.708l-.311 1.496a1 1 0 0 1-.979.796H8.605l.208 1H16a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L4.686 5H4a1 1 0 0 1 0-2h1.5a1 1 0 0 1 .979.796L6.939 6h5.329Z"/>
@@ -223,7 +223,7 @@ export default function ProductDetail({ _id, merch }) {
 		</div>
 	  </div> : ""}
                 <h2 style={{fontFamily:"Poppins, Sans-Serif"}} class="text-4xl text-black font-bold dark:text-white mb-2">{merch.merchandise_name}</h2>
-				  <h6 style={{fontFamily:"Poppins, Sans-Serif", backgroundColor:"beige", padding:10, border:"1px solid black", width:140, fontSize:14, fontWeight:"bold", fontStyle:"oblique"}} class="text-black dark:text-white mb-2">{merch.brand_name}</h6>
+				  <h6 style={{fontFamily:"Poppins, Sans-Serif", backgroundColor:"beige", padding:10, border:"1px solid black", width:130, fontSize:14, fontWeight:"bold", fontStyle:"oblique", borderRadius:50}} class="text-black dark:text-white mb-2">{merch.brand_name}</h6>
                 <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
 				{merch.details}
                 </p> <hr />
