@@ -9,7 +9,7 @@ const useAddMerchandise = (url, successCallback, userType) => {
     const router= useRouter()
     const mutation = useMutation({
         mutationFn: async ({brand_name, merchandise_name, merchandise_type, merchandise_gender, discount_price, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }) => {
-          
+                
                 const res = await fetch(url, {
                     method: "POST",
                     body: JSON.stringify({brand_name, merchandise_name, merchandise_type, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }),

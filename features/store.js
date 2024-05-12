@@ -5,6 +5,8 @@ import brandSlice from "./brands/brandSlice"
 import brandUserSlice from "./brands/brandUserSlice";
 import shopSlice from "./shop/shopSlice";
 import tokenSlice from "./token/tokenSlice"
+import brandTokenSlice from "./brand_token/brandTokenSlice"
+
 import userActiveEmailSlice from "./user/userActiveEmail";
 
 
@@ -21,7 +23,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ["shop", "user", "token"]
+    whitelist: ["shop", "user", "token", "brand_token"]
 }
 
 const rootReducer = combineReducers({
@@ -29,6 +31,8 @@ const rootReducer = combineReducers({
     user_email : userActiveEmailSlice,
     brand_user: brandUserSlice,
     shop: shopSlice,
+    
+    brand_token: brandTokenSlice,
     token: tokenSlice,
 })
 

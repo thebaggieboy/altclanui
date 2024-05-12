@@ -5,20 +5,22 @@ import React, { useState, FormEvent, useLayoutEffect, useEffect } from 'react'
 import styles from "./../../../styles/login.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../components/Loader"
-import useLogin from '../../../hooks/useLogin';
+import useBrandLogin from '../../../hooks/useBrandLogin';
 import { USER_TYPES, selectUser, setUser, setUserType } from '../../../features/user/userSlice';
 import Head from "next/head"
 import { useSearchParams } from 'next/navigation';
 import { selectUserEmail,  setUserEmail,  setUserEmailType } from "../../../features/user/userActiveEmail";
 import {selectToken, setToken} from "../../../features/token/tokenSlice";
+import {selectBrandToken, setBrandToken} from "../../../features/brand_token/brandTokenSlice";
+
 
 
 export default function Login(req, res) {
     const dispatch = useDispatch();
     const brand_user = useSelector(selectUser);
     const user_email = useSelector(selectUserEmail);
-    const token = useSelector(selectToken);
-
+    const brand_token = useSelector(selectBrandToken);
+	
     const router = useRouter();
     const searchParams = useSearchParams()
 	const search = searchParams.get('user')
@@ -48,7 +50,7 @@ export default function Login(req, res) {
 
     
 
-    const { isIdle, isPending, error, mutateAsync: loginFn } = useLogin("https://altclan-brands-api-1-1.onrender.com/auth/jwt/create", loginSuccess, USER_TYPES.brand)
+    const { isIdle, isPending, error, mutateAsync: loginFn } = useBrandLogin("https://altclan-brands-api-1-1.onrender.com/auth/jwt/create", loginSuccess, USER_TYPES.brand)
 
     const [formData, setFormData] = useState({
         email: "",
@@ -78,8 +80,8 @@ export default function Login(req, res) {
 		const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
 		document.cookie = `user_type=brand; expires=${oneMonthFromToday.toUTCString()} Path=/`
 
-		if(token !== null || token == ""){
-			const arrayToken = token.split('.');
+		if(brand_token !== null ){
+			const arrayToken = brand_token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 			console.log("Token Payload ID: ", tokenPayload?.user_id);
 			const url = `https://altclan-brands-api-1-1.onrender.com/api/users/${tokenPayload?.user_id}`

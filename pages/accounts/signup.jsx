@@ -90,8 +90,7 @@ export default function SignUp() {
             if (res.status >= 200 & res.status <= 209) {
 				console.log("New User Registered.")
 				console.log(data)
-                signUpSuccess()
-
+                
                 
             }
 			

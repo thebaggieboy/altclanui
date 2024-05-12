@@ -61,7 +61,7 @@ const MERCH_FORM_DATA = {
 
 
 const BrandMerchForm = (props) => {
-  const { isPending, error, mutateAsync: updateFn, data } = useAddMerchandise('https://altclan-brands-api.onrender.com/api/merchandises/', newMerchSuccess, USER_TYPES.brand)
+  const { isPending, error, mutateAsync: updateFn, data } = useAddMerchandise('https://altclan-brands-api-1-1.onrender.com/api/merchandises/', newMerchSuccess, USER_TYPES.brand)
   const dispatch = useDispatch();
   const brand_user = useSelector(selectUser)
   const router = useRouter()
@@ -150,33 +150,21 @@ const BrandMerchForm = (props) => {
 
   const updateMerchandise = async (e) => {
     e.preventDefault()
-    const formData = new FormData(e.target)
-    const imageformData = new FormData(e.target)
-
-   
-
-    imageformData.append("file", image);
-    imageformData.append("upload_preset", 'altclan')
-
-    const imageData = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
-      method: 'POST',
-      body: imageformData
-    }).then(r => r.json());
-
+    
     await updateFn(
       {
         brand_name: brand_user?.brand_name,
-        merchandise_name: data.merchandise_name,
+        merchandise_name: data?.merchandise_name,
         size_type: sizeType,
-        labels: data.labels,
-        merchandise_gender: data.merchandise_gender,
-        merchandise_description: data.merchandise_description,
-        merchandise_details: data.merchandise_details,
-        display_image: imageData.url,
-        price: data.price,
+        labels: data?.labels,
+        merchandise_gender: data?.merchandise_gender,
+        merchandise_description: data?.merchandise_description,
+        merchandise_details: data?.merchandise_details,
+        display_image: data?.display_image,
+        price: data?.price,
         available_sizes: availableSizes,
         available_colors: availableColors,
-        merchandise_type: data.merchandise_type
+        merchandise_type: data?.merchandise_type
       }
     )
   }

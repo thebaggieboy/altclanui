@@ -35,8 +35,8 @@ export default function SignUp() {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const user_email = useSelector(selectUserEmail);
+	
 	const token = useSelector(selectToken);
-
 	
 	const router = useRouter();
 	const [formErr, setFormErr] = useState(null)
@@ -94,7 +94,7 @@ export default function SignUp() {
 		const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
 		document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
 
-		if(token !== null || token == ""){
+		if(token !== null){
 			const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 			console.log("Token Payload ID: ", tokenPayload?.user_id);
@@ -115,8 +115,7 @@ export default function SignUp() {
 			console.log("Current User: ", data)
 			
 			dispatch(setUserEmail(formData?.email))
-			//dispatch(setUser(data))
-		
+			
 			return data
 			
 		}
@@ -125,9 +124,11 @@ export default function SignUp() {
 		throw { err }
 		
 			
+		}else{
+			console.log("token is still present")
 		}
 		
-
+ 
 
 	}
 

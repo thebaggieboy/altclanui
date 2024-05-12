@@ -26,7 +26,7 @@ const MyTabs = () => {
  
 
  
-  const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api.onrender.com/api/merchandises/')
+  const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api.onrender.com-1-1/api/merchandises/')
   const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
 
     useEffect(() => {

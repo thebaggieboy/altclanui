@@ -52,7 +52,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000, []);
+    }, 800, []);
 
   }, []);
   return (
@@ -114,6 +114,8 @@ export default function Home() {
          
             <TrendingBrands/>
             <TrendingMerch />
+            
+
             <br />
           
           
