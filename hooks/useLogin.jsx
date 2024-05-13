@@ -22,33 +22,6 @@ const useLogin = (url, successCallback, userType) => {
 	const [profileQuery, setProfileQuery] = useState([]);
 	 
 	const [userResult, setUserResult] = useState([])
-	
-    async function fetchUsers(){
-		console.log("Fetching users ... ")
-		const  url = "https://altclan-api-v1.onrender.com/api/users/"
-		const res =  await fetch(url, {
-			method: "GET",
-			headers: {
-			
-				"Content-Type": "application/json"
-			},
-		})
-	
-		const data = await res.json()
-	
-        if (user_email !== null){
-			let filteredUsers = data.filter((user) => {
-				return user.email === user_email;
-			});
-			setUserResult(filteredUsers)
-			
-          
-	  
-        }else{
-            console.log("User Email is Empty")
-        }
-	
-	}
 
     const mutation = useMutation({
         mutationFn: async ({ username, email, password }) => {
@@ -63,7 +36,7 @@ const useLogin = (url, successCallback, userType) => {
 
             })
             const data = await res.json()
-            console.log("Access Token: ", data)
+            console.log("Access Token: ", data.access)
            
            
        

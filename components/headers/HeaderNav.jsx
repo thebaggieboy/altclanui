@@ -170,7 +170,7 @@ export default function HeaderNav() {
 		if(token !== null){
 			const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
-			//console.log("Token Payload ID: ", tokenPayload?.user_id);
+			console.log("Token Payload ID: ", tokenPayload?.user_id);
 			const url = `https://altclan-api-v1.onrender.com/api/users/${tokenPayload?.user_id}`
 	
 			setDecodedToken(tokenPayload);
@@ -181,7 +181,7 @@ export default function HeaderNav() {
 
 
 	console.log("Decoded Token: ", decodedToken)
-	console.log("User : ", user)
+	console.log("User : ", user.id)
 	async function logout() {
 		try {
 		
@@ -548,7 +548,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${isBrand ? `/brands/profile/${user.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
+												href={`${isBrand ? `/brands/profile/${decodedToken?.user_id}?brand=${user?.brand_name}`: "/profile/" + decodedToken?.user_id}`}
 											>
 												Profile
 											</Link>
@@ -635,7 +635,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${isBrand ? `/brands/profile/${user.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
+															href={`${isBrand ? `/brands/profile/${decodedToken?.user_id}?brand=${user?.brand_name}`: "/profile/" + decodedToken?.user_id}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile
