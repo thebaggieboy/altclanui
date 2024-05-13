@@ -158,14 +158,24 @@ export default function HeaderNav() {
 	const cartCount = useSelector(selectCartCount);
 	const [open, setOpen] = useState(false);
 	const user = useSelector(selectUser);
-	const use_email = useSelector(selectUserEmail);
+	const user_email = useSelector(selectUserEmail);
 	const token = useSelector(selectToken);
 	const brand_token = useSelector(selectBrandToken);
 	const [decodedToken, setDecodedToken] = useState("")
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 
 	const dispatch = useDispatch();
-	
+
+	if(token !== null){
+		const arrayToken = token.split('.');
+		const tokenPayload = JSON.parse(atob(arrayToken[1]));	
+		console.log("Token Payload ID: ", tokenPayload?.user_id);
+		const url = `https://altclan-api-v1.onrender.com/api/users/${tokenPayload?.user_id}`
+
+		//setDecodedToken(tokenPayload);
+
+	}
+	//console.log("Decoded Token: ", decodedToken)
 	async function logout() {
 		try {
 		

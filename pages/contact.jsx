@@ -17,54 +17,18 @@ export default function contact() {
             </h1>
 
             <p className={styles.text}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Cras laoreet justo ac sapien interdum scelerisque. 
-                Morbi lobortis, purus vitae imperdiet tincidunt, 
-                orci lacus viverra nisi, sit amet maximus enim nisi eu urna. 
-                Vestibulum vel vulputate nisi. Nullam varius laoreet sagittis. 
+                Feel free to reach out to us with any inquiries, suggestions, or collaboration proposals. Our team is here to assist you and cultivate a vibrant community of alternative fashion enthusiasts. We look forward to hearing from you!
             </p>
         </div>
     </div>
 
-    <div>
+    <div className=''>
         <div className={styles.column}>
             <h1 className={styles.head}>
                 How can we help?
             </h1>
 
-            <ol>
-                <li className={styles.list}>
-                   1. Lorem ipsum dolor sit amet?
-                </li>
-
-                <li className={styles.list}>
-                   2. Lorem ipsum dolor sit amet?
-                </li>
-
-                <li className={styles.list}>
-                   3. Lorem ipsum dolor sit amet?
-                </li>
-
-                <li className={styles.list}>
-                  4.  Lorem ipsum dolor sit amet?
-                </li>
-
-                <li className={styles.list}>
-                  5.  Lorem ipsum dolor sit amet?
-                </li>
-
-                <li className={styles.list}>
-                  6.  Lorem ipsum dolor sit amet?
-                </li>
-
-                <li className={styles.list}>
-                  7.  Lorem ipsum dolor sit amet?
-                </li>
-
-                <li className={styles.list}>
-                  8.  Lorem ipsum dolor sit amet?
-                </li>
-            </ol>
+            Need assistance navigating our platform, have feedback to share, or seeking style advice? Our dedicated support team is ready to assist you every step of the way. Don't hesitate to reach out—we're here to ensure your AltClan experience is seamless and enjoyable.
         </div>
         
         <div className={styles.column}>

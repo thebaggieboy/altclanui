@@ -31,7 +31,7 @@ export default function SignUp() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
 
-	if (user !== null) {
+	if (user !== null) {3
 		router.push("/products");
 	}
 

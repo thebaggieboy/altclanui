@@ -82,65 +82,36 @@ export default function SignUp() {
 		})
 
 	}
-	function loginEmail(){
-		
-
-	}
 
 
-	async function loginSuccess() {
-		console.log("Successful Login")
-		const today = new Date();
-		const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-		document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
 
-		if(token !== null){
-			const arrayToken = token.split('.');
-			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
-			console.log("Token Payload ID: ", tokenPayload?.user_id);
-			const url = `https://altclan-api-v1.onrender.com/api/users/${tokenPayload?.user_id}`
-
-		const res = await fetch(url, {
-			method: "GET",
-			headers: {
-				"Authorization": `Bearer ${token}`,
-				"Content-Type": "application/json"
-			},
-		})
-
-		const data = await res.json()
-	
-		if (res.status >= 200 && res.status <= 209) {
-			console.log("user fetch successful")
-			console.log("Current User: ", data)
-			
-			dispatch(setUserEmail(formData?.email))
-			
-			return data
-			
-		}
-		
-		const err = { ...data }
-		throw { err }
-		
-			
-		}else{
-			console.log("token is still present")
-		}
-		
  
-
+	async function loginEmail(){
+		dispatch(setUserEmail(formData?.email))
+		console.log("User Email: ", user_email)
+	
 	}
+	loginEmail()
+	
+	async function loginSuccess() {
+    
+        console.log("Successful Login")
+        const today = new Date();
+        const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+        document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
+    
+		console.log(document.cookie)
+    }
 
 
 	const submit = async (e) => {
 		e.preventDefault();
+		//
 		
 		try {
-			loginEmail()
-			loginSuccess()
+			//
 			await loginFn(formData)
-
+		
 	  
 		} catch (error) {
 			console.log(error)

@@ -112,8 +112,7 @@ export default function Home() {
             <ShopDiv />
             <Altcoin/>
          
-            <TrendingBrands/>
-            <TrendingMerch />
+         
             
 
             <br />

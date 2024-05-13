@@ -26,7 +26,7 @@ const Profile = () => {
 		console.log("Getting orders from api")
 		const orderUrl = await fetch("https://altclan-api-v1.onrender.com/api/orders/")
 		const data = await orderUrl.json()
-		const orderResult = data?.filter((product) => product.user_email.toLowerCase().includes(user?.email.toLowerCase()) );
+		const orderResult = data?.filter((product) => product.user_email == user?.email );
 		setOrders(orderResult)
 		console.log("Order State: ", orders)
 	}	  
@@ -40,8 +40,8 @@ const Profile = () => {
 	}, [getOrder, router, user, orders, client])
 
 	const { data: userData, isLoading, error } = useQuery({
-		queryKey: ["profile", userId, user?.user_type],
-		queryFn: () => fetchProfileData(userId, isBrand), enabled: user !== null
+		queryKey: ["profile", user?.id, user?.user_type],
+		queryFn: () => fetchProfileData(user?.id, isBrand), enabled: user !== null
 	})
 
 	const [activeSection, setAcvtiveSection] = useState("orders");

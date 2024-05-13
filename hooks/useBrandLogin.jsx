@@ -17,7 +17,7 @@ const useBrandLogin = (url, successCallback, userType) => {
     const router = useRouter()
     const dispatch = useDispatch()
     const isBrand = userType === USER_TYPES.brand
-    const { data, loading } = useData("https://altclan-brands-api-1-1.onrender.com/api/users/")
+    //const { data, loading } = useData("https://altclan-brands-api-1-1.onrender.com/api/users/")
 
 	async function loginSuccess() {
     
@@ -35,21 +35,21 @@ const useBrandLogin = (url, successCallback, userType) => {
         const res = await fetch(url, {
             method: "GET",
             headers: {
-                "Authorization": `Bearer ${brand_token}`,
                 "Content-Type": "application/json"
             },
         })
     
         const data = await res.json()
+        
+        dispatch(setBrandToken(brand_token.access))
         dispatch(setUser(data))
         
         if (res.status >= 200 && res.status <= 209) {
             console.log("user fetch successful")
             console.log("Current User: ", data)
-            
-           
-            //router.push(`/profile/${tokenPayload?.user_id}`)
-            
+            const userProfile = data?.filter((profile) => profile.email === user_email );
+            console.log("User Profile: ", userProfile)
+
         }
         
         const err = { ...data }
@@ -58,24 +58,12 @@ const useBrandLogin = (url, successCallback, userType) => {
             
         }
         
-    
-    
     }
-	const userProfile = data?.filter((profile) => profile.email === user_email );
-
+	
     const mutation = useMutation({
         mutationFn: async ({ username, email, password }) => {
-            const res = await fetch(url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, email, password }),
-                credentials: "include"
-            })
-            const data = await res.json()
-            dispatch(setBrandToken(data.access))
-         
+            
+           
             if(brand_token !== null){
                 loginSuccess()
             }
