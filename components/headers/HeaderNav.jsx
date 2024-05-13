@@ -166,26 +166,34 @@ export default function HeaderNav() {
 
 	const dispatch = useDispatch();
 
-	if(token !== null){
-		const arrayToken = token.split('.');
-		const tokenPayload = JSON.parse(atob(arrayToken[1]));	
-		console.log("Token Payload ID: ", tokenPayload?.user_id);
-		const url = `https://altclan-api-v1.onrender.com/api/users/${tokenPayload?.user_id}`
+	useEffect(()=>{
+		if(token !== null){
+			const arrayToken = token.split('.');
+			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
+			//console.log("Token Payload ID: ", tokenPayload?.user_id);
+			const url = `https://altclan-api-v1.onrender.com/api/users/${tokenPayload?.user_id}`
+	
+			setDecodedToken(tokenPayload);
+			
+	
+		} 
+	}, [])
 
-		//setDecodedToken(tokenPayload);
 
-	}
-	//console.log("Decoded Token: ", decodedToken)
+	console.log("Decoded Token: ", decodedToken)
+	console.log("User : ", user)
 	async function logout() {
 		try {
 		
 			document.cookie = ""
-			
+
+			dispatch(setToken(null))
+			dispatch(setBrandToken(null))
 			dispatch(setUserEmail(null))
 			dispatch(setUser(null));
 			dispatch(setBrandUser(null));
-			dispatch(setToken(null))
-			dispatch(setBrandToken(null))
+		
+		
 			
 			
 		} catch (error) {
@@ -540,7 +548,7 @@ export default function HeaderNav() {
 										<>
 											<Link
 												className="text-sm font-bold text-gray-700 hover:text-gray-800"
-												href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user?.id}`}
+												href={`${isBrand ? `/brands/profile/${user.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
 											>
 												Profile
 											</Link>
@@ -627,7 +635,7 @@ export default function HeaderNav() {
 												<Menu.Item>
 													{({ active }) => (
 														<Link
-															href={`${isBrand ? `/brands/profile/${user?.id}?brand=${user?.brand_name}`: "/profile/" + user?.id}`}
+															href={`${isBrand ? `/brands/profile/${user.id}?brand=${user?.brand_name}`: "/profile/" + user.id}`}
 															className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
 														>
 															Profile

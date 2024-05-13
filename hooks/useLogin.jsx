@@ -36,13 +36,13 @@ const useLogin = (url, successCallback, userType) => {
 	
 		const data = await res.json()
 	
-        if (user_email !== null || user_email !== undefined){
+        if (user_email !== null){
 			let filteredUsers = data.filter((user) => {
 				return user.email === user_email;
 			});
 			setUserResult(filteredUsers)
-			console.log("User Result: ", userResult)
-            
+			
+          
 	  
         }else{
             console.log("User Email is Empty")
@@ -50,8 +50,6 @@ const useLogin = (url, successCallback, userType) => {
 	
 	}
 
-
-	console.log("Loading mutation")
     const mutation = useMutation({
         mutationFn: async ({ username, email, password }) => {
             const res = await fetch(url, {
@@ -65,45 +63,37 @@ const useLogin = (url, successCallback, userType) => {
 
             })
             const data = await res.json()
-            console.log("", data)
-            dispatch(setToken(data?.access))
+            console.log("Access Token: ", data)
            
-            const  url2 = "https://altclan-api-v1.onrender.com/api/users/"
-            const res2 =  await fetch(url2, {
-                method: "GET",
-                headers: {
-                
-                    "Content-Type": "application/json"
-                },
-            })
-        
-            const data2 = await res2.json()
-        
-            if (user_email !== null || user_email !== undefined){
-                let filteredUsers = data2.filter((user) => {
-                    return user.email === user_email;
-                });
-              
-                console.log("User Result: ", filteredUsers)
-                dispatch(setUser(filteredUsers))
-          
-            }
            
-            
+       
 
           
             if (res.status >= 200 & res.status <= 209) {
-               // fetchUsers()
-               if(token !== null){
-                const arrayToken = token.split('.');
-                const tokenPayload = JSON.parse(atob(arrayToken[1]));	
-                console.log("Token Payload ID: ", tokenPayload?.user_id);
-                const url = `https://altclan-api-v1.onrender.com/api/users/${tokenPayload?.user_id}`
-        
+                dispatch(setToken(data?.access))
+                const  url2 = "https://altclan-api-v1.onrender.com/api/users/"
+                const res2 =  await fetch(url2, {
+                    method: "GET",
+                    headers: {
+                    
+                        "Content-Type": "application/json"
+                    },
+                })
             
-       
-            }
+                const data2 = await res2.json()
+            
+                if (user_email !== null || user_email !== undefined){
+                    let filteredUsers = data2.filter((user) => {
+                        return user.email === user_email;
+                    });
+                  
+                    console.log("Current User: ", filteredUsers)
+                    dispatch(setUser(filteredUsers))
               
+                }
+               
+                
+                           
                 return
                     
             }

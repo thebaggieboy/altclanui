@@ -83,8 +83,6 @@ export default function SignUp() {
 
 	}
 
-
-
  
 	async function loginEmail(){
 		dispatch(setUserEmail(formData?.email))
