@@ -167,7 +167,7 @@ export default function HeaderNav() {
 	const dispatch = useDispatch();
 
 	useEffect(()=>{
-		if(token !== null){
+		if(user !== null){
 			const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 			console.log("Token Payload ID: ", tokenPayload?.user_id);
@@ -176,12 +176,14 @@ export default function HeaderNav() {
 			setDecodedToken(tokenPayload);
 			
 	
-		} 
+		} else{
+			setDecodedToken("");
+		}
 	}, [])
 
 
 	console.log("Decoded Token: ", decodedToken)
-	console.log("User : ", user.id)
+
 	async function logout() {
 		try {
 		
@@ -192,6 +194,7 @@ export default function HeaderNav() {
 			dispatch(setUserEmail(null))
 			dispatch(setUser(null));
 			dispatch(setBrandUser(null));
+			setDecodedToken("")
 		
 		
 			

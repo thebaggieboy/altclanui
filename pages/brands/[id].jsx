@@ -40,7 +40,16 @@ export default function BrandProfile({id, brand}) {
 	})
   const [followers, setFollowers] = useState([])
   
- 
+  const [follower, setFollower] = useState([])
+
+  const followerChange = (e) => {
+    const { checked, value } = e.target;
+    if (checked) {
+      setAvailableSizes([...availableSizes, value]);
+    } else {
+      setAvailableSizes(availableSizes.filter((size) => size !== value));
+    }
+  }
   const getBrandFollowers = async() =>{
     console.log('Followers: ', brandFollowers)
   }

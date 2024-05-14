@@ -8,10 +8,12 @@ import useData from './useData'
 import { selectUserEmail, setUserEmail } from '../features/user/userActiveEmail'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { selectBrandUser } from '../features/brands/brandUserSlice'
+
 
  
 
-const useLogin = (url, successCallback, userType) => {
+const useBrandLogin = (url, successCallback, userType) => {
     const user = useSelector(selectUser)
     const user_email = useSelector(selectUserEmail)
     const token = useSelector(selectToken)
@@ -22,33 +24,6 @@ const useLogin = (url, successCallback, userType) => {
 	const [profileQuery, setProfileQuery] = useState([]);
 	 
 	const [userResult, setUserResult] = useState([])
-	
-    async function fetchUsers(){
-		console.log("Fetching users ... ")
-		const  url = "https://altclan-api-v1.onrender.com/api/users/"
-		const res =  await fetch(url, {
-			method: "GET",
-			headers: {
-			
-				"Content-Type": "application/json"
-			},
-		})
-	
-		const data = await res.json()
-	
-        if (user_email !== null){
-			let filteredUsers = data.filter((user) => {
-				return user.email === user_email;
-			});
-			setUserResult(filteredUsers)
-			
-          
-	  
-        }else{
-            console.log("User Email is Empty")
-        }
-	
-	}
 
     const mutation = useMutation({
         mutationFn: async ({ username, email, password }) => {
@@ -63,7 +38,7 @@ const useLogin = (url, successCallback, userType) => {
 
             })
             const data = await res.json()
-            console.log("Access Token: ", data)
+            console.log("Access Token: ", data.access)
            
            
        
@@ -71,7 +46,7 @@ const useLogin = (url, successCallback, userType) => {
           
             if (res.status >= 200 & res.status <= 209) {
                 dispatch(setToken(data?.access))
-                const  url2 = "https://altclan-api-v1.onrender.com/api/users/"
+                const  url2 = "https://altclan-brands-api-1-1.onrender.com/api/users/"
                 const res2 =  await fetch(url2, {
                     method: "GET",
                     headers: {
@@ -114,4 +89,4 @@ const useLogin = (url, successCallback, userType) => {
     return mutation
 }
 
-export default useLogin
+export default useBrandLogin
