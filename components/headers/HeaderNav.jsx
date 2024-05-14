@@ -168,6 +168,7 @@ export default function HeaderNav() {
 
 	useEffect(()=>{
 		if(user !== null){
+			if(token !== null){
 			const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 			console.log("Token Payload ID: ", tokenPayload?.user_id);
@@ -175,10 +176,9 @@ export default function HeaderNav() {
 	
 			setDecodedToken(tokenPayload);
 			
+			}
 	
-		} else{
-			setDecodedToken("");
-		}
+		} 
 	}, [])
 
 

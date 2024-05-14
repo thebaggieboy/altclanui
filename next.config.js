@@ -8,9 +8,9 @@ const nextConfig = {
         ignoreBuildErrors: true,
     },
     
-    output: 'export',
+    
     images:{
-        //unoptimized: true,
+       
         remotePatterns:[
             {
                 protocol:"https",
