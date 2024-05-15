@@ -10,6 +10,7 @@ import fetchProfileData from "../../lib/fetchProfileData";
 import fetchOrderData from "../../lib/fetchOrderData";
 import Billing from "../../components/Billing";
 import { selectToken } from "../../features/token/tokenSlice";
+import { current } from "@reduxjs/toolkit";
 
 
 
@@ -17,11 +18,16 @@ const Profile = () => {
 	const user = useSelector(selectUser);
 	const token = useSelector(selectToken);
 	const [decodedToken, setDecodedToken] = useState("")
+	const [currentUser, setCurrentUser] = useState("")
 	const router = useRouter();
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()
 	const client = useQueryClient()
 	const [orders, setOrders] = useState([])
+	const [dataUser, setDataUser] = useState([])
+	
+
+
 	const [orderError, setOrderError] = useState('No current Order')
 	const userId = router.query?.id
 
@@ -39,22 +45,39 @@ const Profile = () => {
 			const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 
-			console.log("data", client.getQueryData(["profile", tokenPayload?.user_id, user?.user_type]))
+			
 			setDecodedToken(tokenPayload)
+			setCurrentUser(user)
 			
 			}
-			console.log("Profile Payload ID: ", decodedToken?.user_id);
+		
 			if (user === null) {
 				router.push("/login")
 			}
-			getOrder()
+			//getOrder()
 			
-	}, [getOrder, router, user, orders, client])
+	}, [])
+	console.log("Profile Payload ID: ", decodedToken?.user_id);
 
-	const { data: userData, isLoading, error } = useQuery({
-		queryKey: ["profile", decodedToken?.user_id, user?.user_type],
-		queryFn: () => fetchProfileData(user?.id, isBrand), enabled: user !== null
-	})
+	console.log("User Data: ", user)
+	console.log("Current User Data: ", currentUser[0]?.id)
+	
+	async function fetchProfile() {
+		const res =  await fetch(`https://altclan-api-v1.onrender.com/api/users/${currentUser[0]?.id}`, {
+			method: "GET",
+			headers: {
+	
+				"Content-Type": "application/json",
+			},
+			
+			credentials: "include"
+	
+		})
+		const data =  await res.json()
+		setDataUser(data)
+		console.log("Data: ", dataUser)
+	}
+fetchProfile()
 
 	const [activeSection, setAcvtiveSection] = useState("orders");
 
@@ -94,7 +117,7 @@ const Profile = () => {
 
 
 
-	if (isLoading) {
+	if (dataUser == null || dataUser == '') {
 		return (
 			<div role="status" className="p-10 text-center  ml-30 mr-30">
 				<svg aria-hidden="true" class="w-20 h-20 text-3xl text-black animate-spin dark:text-black fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,11 +129,7 @@ const Profile = () => {
 		)
 
 	}
-
-	if (error) {
-		return <p> {error.message}</p>;
-	}
-
+ 
 
 
 	return (
@@ -138,14 +157,14 @@ const Profile = () => {
 
 					<div className={styles.column2}>
 						<div className={styles.number}>
-							<h1 className={styles.h1}>{userData?.email}</h1>
+							<h1 className={styles.h1}>{dataUser?.email}</h1>
 
 						</div>
 						<div>
 
-							<p className={styles.p}>firstname: {userData?.first_name}</p>
-							<p className={styles.p}>lastname: {userData?.last_name}</p>
-							<p className={styles.p}>phone: {userData?.mobile_number}</p>
+							<p className={styles.p}>firstname: {dataUser?.first_name}</p>
+							<p className={styles.p}>lastname: {dataUser?.last_name}</p>
+							<p className={styles.p}>phone: {dataUser?.mobile_number}</p>
 
 							<button
 								onClick={onEdit}

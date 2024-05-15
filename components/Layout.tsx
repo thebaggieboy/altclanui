@@ -29,7 +29,8 @@ export default function Layout({
     async function getUser() {
       try {
         const user = await fetchUser()
-        dispatch(setUser(user))
+        console.log("User: ", user)
+        //dispatch(setUser(user))
       } catch (error) {
         console.log(error)
       }
