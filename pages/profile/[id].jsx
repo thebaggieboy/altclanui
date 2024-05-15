@@ -26,7 +26,9 @@ const Profile = () => {
 	const [orders, setOrders] = useState([])
 	const [dataUser, setDataUser] = useState([])
 	
-
+	if (user === null) {
+		router.push("/login")
+	}
 
 	const [orderError, setOrderError] = useState('No current Order')
 	const userId = router.query?.id
@@ -51,9 +53,7 @@ const Profile = () => {
 			
 			}
 		
-			if (user === null) {
-				router.push("/login")
-			}
+		
 			//getOrder()
 			
 	}, [])

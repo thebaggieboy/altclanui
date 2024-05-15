@@ -33,56 +33,66 @@ const client = useQueryClient()
   const token = useSelector(selectToken)
 	const router = useRouter();
   const userId = router.query?.id
+  const [currentUser, setCurrentUser] = useState("")
+  const [dataUser, setDataUser] = useState([])
   const isBrand = useSelector(selectUserType) === USER_TYPES.brand
   //const profileData =  client.getQueryData(["profile", brand_user?.id, user?.user_type])
-  const { data: userData, isLoading, error } = useQuery({
-		queryKey: ["profile", userId, "brand"],
-		queryFn: () => fetchProfileData(userId, "brand"), enabled: brand_user !== null
-	})
-  console.log(userData)
 
-
+if (brand_user == null) {
+  router.push("/brands/login");
+}
   
   if(token !== null || token == ""){
     const arrayToken = token.split('.');
 			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 			console.log("Token Payload ID: ", tokenPayload?.user_id);
 			const url = `https://altclan-brands-api-1-1.onrender.com/api/users/${tokenPayload?.user_id}`
+      
+      setCurrentUser(brand_user)
   }
 
-    useEffect(() => {
-		if (brand_user == null) {
-			router.push("/brands/login");
-		}
-  
-
-	}, [brand_user]);
+  async function fetchProfile() {
+		const res =  await fetch(`https://altclan-api-v1.onrender.com/api/users/${currentUser[0]?.id}`, {
+			method: "GET",
+			headers: {
+	
+				"Content-Type": "application/json",
+			},
+			
+			credentials: "include"
+	
+		})
+		const data =  await res.json()
+		setDataUser(data)
+		console.log("Data: ", dataUser)
+	}
+fetchProfile()
 
   
   return (
-     <div key={userData?.id} className={styles.brandProfileContent}>
+     <div key={dataUser?.id} className={styles.brandProfileContent}>
           <div className={styles.left}>
-            <img src={userData?.brand_logo} alt="" className={styles.image}/>
+            <img src={dataUser?.brand_logo} alt="" className={styles.image}/>
           </div>
 
             <div className={styles.right}>
               <h1>
-                {userData?.brand_name}
+                {dataUser?.brand_name}
               </h1>
               <div className={styles.numbers}>
                
-                <p>{userData?.brand_type}</p>
+                <p>{dataUser?.brand_type}</p>
               </div>
               
               <p className={styles.about}>
-                {userData?.brand_bio}
+                {dataUser?.brand_bio}
               </p>
               <br />
               
 
                 <Link style={{backgroundColor:'beige', fontWeight:'bolder'}} className=" p-2 text-xs border-0 text-black" href="/brands/merchandise/new">+ Add product</Link>
 
-                <Link  className="bg-black ml-2 p-2 text-xs border-0 text-white" href={`/brands/dashboard/${userData?.id}?q=${userData?.brand_name}`}>Dashboard</Link>
+                <Link  className="bg-black ml-2 p-2 text-xs border-0 text-white" href={`/brands/dashboard/${dataUser?.id}?q=${dataUser?.brand_name}`}>Dashboard</Link>
 
             </div>
 
