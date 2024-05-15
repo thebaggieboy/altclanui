@@ -9,11 +9,14 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import fetchProfileData from "../../lib/fetchProfileData";
 import fetchOrderData from "../../lib/fetchOrderData";
 import Billing from "../../components/Billing";
+import { selectToken } from "../../features/token/tokenSlice";
 
 
 
 const Profile = () => {
 	const user = useSelector(selectUser);
+	const token = useSelector(selectToken);
+	const [decodedToken, setDecodedToken] = useState("")
 	const router = useRouter();
 	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
 	const dispatch = useDispatch()
@@ -32,15 +35,24 @@ const Profile = () => {
 	}	  
 	
 	useEffect(() => {
-		console.log("data", client.getQueryData(["profile", user?.id, user?.user_type]))
-		if (user === null) {
-			router.push("/login")
-		}
-		getOrder()
+		if(token !== null){
+			const arrayToken = token.split('.');
+			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
+
+			console.log("data", client.getQueryData(["profile", tokenPayload?.user_id, user?.user_type]))
+			setDecodedToken(tokenPayload)
+			
+			}
+			console.log("Profile Payload ID: ", decodedToken?.user_id);
+			if (user === null) {
+				router.push("/login")
+			}
+			getOrder()
+			
 	}, [getOrder, router, user, orders, client])
 
 	const { data: userData, isLoading, error } = useQuery({
-		queryKey: ["profile", user?.id, user?.user_type],
+		queryKey: ["profile", decodedToken?.user_id, user?.user_type],
 		queryFn: () => fetchProfileData(user?.id, isBrand), enabled: user !== null
 	})
 

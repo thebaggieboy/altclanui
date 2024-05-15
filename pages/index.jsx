@@ -110,7 +110,9 @@ export default function Home() {
             <Aesthetics2/>
             <Category />
             <ShopDiv />
+       
             <Altcoin/>
+          
          
          
             
@@ -118,8 +120,12 @@ export default function Home() {
             <br />
           
           
-            <Cards />
+            <Cards /> 
             <Token/>
+            
+
+
+
             <Form />
           </div>
         

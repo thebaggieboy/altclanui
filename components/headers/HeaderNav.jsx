@@ -179,7 +179,7 @@ export default function HeaderNav() {
 			}
 	
 		} 
-	}, [])
+	}, [user, token])
 
 
 	console.log("Decoded Token: ", decodedToken)

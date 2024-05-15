@@ -28,7 +28,7 @@ const ProductCard = ({ data }) => {
 		console.log("Wish list State: ", wishList)
 	}
 
-	getWishList()
+	
 
 	const { merchandise_name, price, display_image, id } = data;
 

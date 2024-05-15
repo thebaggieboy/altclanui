@@ -15,7 +15,7 @@ const CarouselWrapper = ( { children,key,alt, controls = false, ...otherConfigPr
             { ...otherConfigProps }
             ref={ swiperElRef }>
             {//clones children elements and wraps them each in a swiper-slide
-                children.map( ( child ) => {
+                children?.map( ( child ) => {
                     return <SwiperSlide key={key}>
                         { createElement( Fragment, null, child ) }
                     </SwiperSlide>
