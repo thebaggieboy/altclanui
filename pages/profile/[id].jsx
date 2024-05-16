@@ -57,13 +57,10 @@ const Profile = () => {
 			//getOrder()
 			
 	}, [])
-	console.log("Profile Payload ID: ", decodedToken?.user_id);
-
-	console.log("User Data: ", user)
-	console.log("Current User Data: ", currentUser[0]?.id)
+	
 	
 	async function fetchProfile() {
-		const res =  await fetch(`https://altclan-api-v1.onrender.com/api/users/${currentUser[0]?.id}`, {
+		const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${currentUser[0]?.id}`, {
 			method: "GET",
 			headers: {
 	

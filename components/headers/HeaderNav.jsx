@@ -194,7 +194,7 @@ export default function HeaderNav() {
 			dispatch(setUserEmail(null))
 			dispatch(setUser(null));
 			dispatch(setBrandUser(null));
-			setDecodedToken(null)
+			setDecodedToken("")
 		
 		
 			

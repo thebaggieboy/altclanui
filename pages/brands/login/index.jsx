@@ -17,10 +17,11 @@ import {selectBrandToken, setBrandToken} from "../../../features/brand_token/bra
 
 export default function Login(req, res) {
     const dispatch = useDispatch();
-    const brand_user = useSelector(selectUser);
+    const brand_user = useSelector(selectUser); 
     const user_email = useSelector(selectUserEmail);
     const brand_token = useSelector(selectBrandToken);
-	
+    
+	const [decodedToken, setDecodedToken] = useState("")
     const router = useRouter();
     const searchParams = useSearchParams()
 	const search = searchParams.get('user')
@@ -35,20 +36,6 @@ export default function Login(req, res) {
     </div>
   </div>
   
-	console.log("Query params: ", search)
-
-    useEffect(() => {
-        if (brand_user !== null && brand_user?.brand_name == "") {
-            router.push(`/brands/register/brand-bio`);
-            
-        }
-        if (brand_user !== null && brand_user?.brand_name !== "" && brand_user?.brand_bio !== "" && brand_user?.brand_type !== "" && brand_user?.mobile_number !=="" && brand_user?.brand_logo !== "") {
-            router.push(`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`);
-            
-        }
-    }, [brand_user, router])
-
-    
 
     const { isIdle, isPending, error, mutateAsync: loginFn } = useBrandLogin("https://altclan-brands-api-1-1.onrender.com/auth/jwt/create", loginSuccess, USER_TYPES.brand)
 
@@ -56,7 +43,8 @@ export default function Login(req, res) {
         email: "",
         password: "",
     })
-
+    console.log("Brand Token State: ", brand_token)
+	
     const inputChangeHandler = (e) => {
         const { name, value } = e.target
         setFormData((prevValue) => {
@@ -93,6 +81,7 @@ export default function Login(req, res) {
         try {
         
             await loginFn(formData)
+           
         } catch (error) {
             console.log(error)
         }

@@ -8,19 +8,17 @@ import useData from './useData'
 import { selectUserEmail, setUserEmail } from '../features/user/userActiveEmail'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { selectBrandUser } from '../features/brands/brandUserSlice'
-
 
  
 
-const useBrandLogin = (url, successCallback, userType) => {
+const useLogin = (url, successCallback, userType) => {
     const user = useSelector(selectUser)
     const user_email = useSelector(selectUserEmail)
     const token = useSelector(selectToken)
     const router = useRouter()
     const dispatch = useDispatch()
     const isBrand = userType === USER_TYPES.brand
-    //const { data, loading } = useData("https://altclan-api-v1.onrender.com/api/users/")
+    //const { data, loading } = useData("https://altclan-brands-api-1-1.onrender.com/api/users/")
 	const [profileQuery, setProfileQuery] = useState([]);
 	 
 	const [userResult, setUserResult] = useState([])
@@ -61,13 +59,21 @@ const useBrandLogin = (url, successCallback, userType) => {
                     let filteredUsers = data2.filter((user) => {
                         return user.email === user_email;
                     });
-                  
-                    console.log("Current User: ", filteredUsers)
-                    dispatch(setUser(filteredUsers))
+                    if(token !== null){
+                        const arrayToken = token.split('.');
+                        const tokenPayload = JSON.parse(atob(arrayToken[1]));	
+            
+                        console.log("Current User: ", filteredUsers)
+                        dispatch(setUser(filteredUsers))
+                        router.push(`/brands/profile/${tokenPayload?.user_id}?q=${user_email}`)
+                        // router.push(`/brands/profile/${brand_user?.id}?q=${brand_user?.brand_name}`)
+                        
+                        
+                        }
               
+                    
                 }
-               
-                
+            
                            
                 return
                     
@@ -89,4 +95,4 @@ const useBrandLogin = (url, successCallback, userType) => {
     return mutation
 }
 
-export default useBrandLogin
+export default useLogin
