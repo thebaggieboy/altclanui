@@ -65,9 +65,9 @@ const useLogin = (url, successCallback, userType) => {
             
                         console.log("Current User: ", filteredUsers)
                         dispatch(setUser(filteredUsers))
-                        router.push(`/brands/profile/${tokenPayload?.user_id}?q=${user_email}`)
+                        //router.push(`/brands/profile/${tokenPayload?.user_id}?q=${user_email}`)
                         // router.push(`/brands/profile/${brand_user?.id}?q=${brand_user?.brand_name}`)
-                        
+                    
                         
                         }
               

@@ -81,7 +81,8 @@ export default function Login(req, res) {
         try {
         
             await loginFn(formData)
-           
+            //router.push(`/brands/profile/${brand_user?.id}?q=${user_email}`)
+            console.log(`/brands/profile/${brand_user?.id}?brand=${user_email}`)
         } catch (error) {
             console.log(error)
         }

@@ -16,7 +16,7 @@ const MyTabs = () => {
   const brand_user = useSelector(selectUser);
   const router = useRouter()
   const searchParams = useSearchParams();
-	const brand = searchParams.get('q')
+	const brand = searchParams.get('brand')
  
  const [searchResult,  setSearchResult] = useState([])
  const [orderResult,  setOrderResult] = useState([])
@@ -29,26 +29,11 @@ const MyTabs = () => {
   const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
 
 
-useEffect(()=>{
-  function fetchBrandMerch(){
-    if (searchQuery !== null || searchQuery !== '') {
-      setSearchQuery(brand)
-      setOrderQuery(brand)
-      console.log('Search query: ', searchQuery)
-      console.log('Order query: ', orderQuery)
-      const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
-      const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(orderQuery.toLowerCase()) );
-      setSearchResult(results);
-      setOrderResult(orderResults)
-      
-    } 
-  }
-  fetchBrandMerch()
+const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
+const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(orderQuery.toLowerCase()) );
 
-}, [])
-
-console.log("Search Results for ", searchResult)
-console.log("Order Results for ", orderResult)
+console.log("Search Results for ", results)
+console.log("Order Results for ", orderResults)
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -97,7 +82,7 @@ console.log("Order Results for ", orderResult)
             <div className="lg:col-span-3 mt-2">
               <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
                 <div className=" grid grid-cols-2 gap-x-6 gap-y-2  lg:grid-cols-3 xl:gap-x-8">
-                  {searchResult?.map(
+                  {results?.map(
                     ({
                       id,
                       display_image,
