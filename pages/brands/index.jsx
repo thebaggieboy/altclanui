@@ -12,6 +12,8 @@ export default function Brands() {
   // Results of the search query in an array
   const [filteredSearch, setFilteredSearch] = useState([]);
   const [searchResult, setSearchResult] = useState([])
+  const [brandResult, setBrandResult] = useState([])
+  const [loading, setLoading] = useState(true)
 	const searchParams = useSearchParams();
 	const brand = searchParams.get('brand')
 	console.log(brand)
@@ -19,10 +21,30 @@ export default function Brands() {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
- const { data, loading, error } = useBrands('https://altclan-brands-api-1-1.onrender.com/api/users/');
- //const { data, loading, error } = useBrands('http://127.0.0.1:8000/api/brand_profile/');
-  console.log(data)
-  if (loading) {
+
+ async function fetchBrands() {
+  const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/`, {
+    method: "GET",
+    headers: {
+
+      "Content-Type": "application/json",
+    },
+    
+    credentials: "include"
+
+  })
+  const data =  await res.json()
+  setBrandResult(data)
+  console.log("Brands: ", brandResult)
+  setLoading(false)
+
+
+}
+
+fetchBrands()
+
+  //console.log(data)
+  if (loading == true) {
     return (
       <>
       
@@ -74,15 +96,13 @@ export default function Brands() {
     )
 
   }
-  if(data === null){
+  if(brandResult === null){
     return(
       <p>There are no brands yet</p>
     )
   }
 
-  if (error) {
-    return <p>Error {error.message}</p>;
-  }
+
 
   return (
     <div className="bg-white">
@@ -94,7 +114,7 @@ export default function Brands() {
         <p className="text-gray-600 lead">Explore from our list of aesthetic brands</p> */}
 
         <div className="grid pt-3 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
-          {data?.map((brand) => (
+          {brandResult?.map((brand) => (
             <Link key={brand.id} href={`/brands/${brand.id}?brand=${brand.brand_name}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
                 <img

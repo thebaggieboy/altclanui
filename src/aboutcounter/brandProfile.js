@@ -16,8 +16,8 @@ const MyTabs = () => {
   const brand_user = useSelector(selectUser);
   const router = useRouter()
   const searchParams = useSearchParams();
-	const brand = searchParams.get('brand')
-  console.log('Brand: ', brand)
+	const brand = searchParams.get('q')
+ 
  const [searchResult,  setSearchResult] = useState([])
  const [orderResult,  setOrderResult] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
@@ -25,33 +25,35 @@ const MyTabs = () => {
   const [orderQuery, setOrderQuery] = useState('')
  
 
- 
-  const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api.onrender.com-1-1/api/merchandises/')
+  const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api-1-1.onrender.com/api/merchandises/')
   const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
 
-    useEffect(() => {
 
-      if (searchQuery !== null) {
-        setSearchQuery(brand)
-        setOrderQuery(brand)
+useEffect(()=>{
+  function fetchBrandMerch(){
+    if (searchQuery !== null || searchQuery !== '') {
+      setSearchQuery(brand)
+      setOrderQuery(brand)
       console.log('Search query: ', searchQuery)
-        const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
-        const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(orderQuery.toLowerCase()) );
-        setSearchResult(results);
-        setOrderResult(orderResults)
-        console.log("Search Results for ", brand, results)
-        console.log("Order Results for ", brand, orderResults)
-      } else {
-        setSearchResult([]);
-        setOrderResult([]);
-      }
-    }, [searchQuery, data]);
+      console.log('Order query: ', orderQuery)
+      const results = data?.filter((product) => product.brand_name.toLowerCase().includes(searchQuery.toLowerCase()) );
+      const orderResults = dataOrder?.filter((order) => order.brand_name.toLowerCase().includes(orderQuery.toLowerCase()) );
+      setSearchResult(results);
+      setOrderResult(orderResults)
+      
+    } 
+  }
+  fetchBrandMerch()
 
-    
+}, [])
+
+console.log("Search Results for ", searchResult)
+console.log("Order Results for ", orderResult)
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
-
+  console.log('Brand: ', brand)
   if (isLoading) {
     return (
       <div role="status" className="p-10 mt-32 text-center min-h-[20vh] grid place-items-center ml-30 mr-30">
