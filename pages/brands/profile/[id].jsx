@@ -44,35 +44,38 @@ if (brand_user == null) {
 }
   
 useEffect(() => {
-  if(token !== null || token == ""){
+  if(token !== null){
     const arrayToken = token.split('.');
-			const tokenPayload = JSON.parse(atob(arrayToken[1]));	
-			console.log("Token Payload ID: ", tokenPayload?.user_id);
-			const url = `https://altclan-brands-api-1-1.onrender.com/api/users/${tokenPayload?.user_id}`
+    const tokenPayload = JSON.parse(atob(arrayToken[1]));	
 
-      setDecodedToken(tokenPayload)
-      setCurrentUser(brand_user)
-  }
-
-}, [])
+    
+    setDecodedToken(tokenPayload)
+    setCurrentUser(brand_user)
+    
+    }
   
-  async function fetchProfile() {
-		const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${decodedToken?.user_id}`, {
-			method: "GET",
-			headers: {
-	
-				"Content-Type": "application/json",
-			},
-			
-			credentials: "include"
-	
-		})
-		const data =  await res.json()
-		setDataUser(data)
-		console.log("Data: ", dataUser)
-	}
-fetchProfile()
+  
+    //getOrder()
+    
+}, [])
 
+
+async function fetchProfile() {
+  const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${currentUser[0]?.id}`, {
+    method: "GET",
+    headers: {
+
+      "Content-Type": "application/json",
+    },
+    
+    credentials: "include"
+
+  })
+  const data =  await res.json()
+  setDataUser(data)
+  console.log("Data: ", dataUser)
+}
+fetchProfile()
 if (dataUser == null || dataUser == '') {
   return (
     <div role="status" className="p-10 text-center  ml-30 mr-30">

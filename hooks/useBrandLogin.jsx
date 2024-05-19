@@ -55,25 +55,17 @@ const useLogin = (url, successCallback, userType) => {
             
                 const data2 = await res2.json()
             
-                if (user_email !== null || user_email !== undefined){
+                if (user_email !== null){
                     let filteredUsers = data2.filter((user) => {
                         return user.email === user_email;
                     });
-                    if(token !== null){
-                        const arrayToken = token.split('.');
-                        const tokenPayload = JSON.parse(atob(arrayToken[1]));	
-            
-                        console.log("Current User: ", filteredUsers)
-                        dispatch(setUser(filteredUsers))
-                        //router.push(`/brands/profile/${tokenPayload?.user_id}?q=${user_email}`)
-                        // router.push(`/brands/profile/${brand_user?.id}?q=${brand_user?.brand_name}`)
+                  
                     
-                        
-                        }
-              
-                    
+                    dispatch(setUser(filteredUsers))
+                    console.log("Current User: ", user)
                 }
-            
+               
+                
                            
                 return
                     

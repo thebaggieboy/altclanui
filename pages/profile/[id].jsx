@@ -20,7 +20,7 @@ const Profile = () => {
 	const [decodedToken, setDecodedToken] = useState("")
 	const [currentUser, setCurrentUser] = useState("")
 	const router = useRouter();
-	const isBrand = useSelector(selectUserType) === USER_TYPES.brand
+	const isBrand = useSelector(selectUserType) === USER_TYPES.user
 	const dispatch = useDispatch()
 	const client = useQueryClient()
 	const [orders, setOrders] = useState([])
@@ -55,27 +55,28 @@ const Profile = () => {
 		
 		
 			//getOrder()
+			async function fetchProfile() {
+				const res =  await fetch(`https://altclan-api-v1.onrender.com/api/users/${currentUser[0]?.id}`, {
+					method: "GET",
+					headers: {
 			
-	}, [])
-	
-	
-	async function fetchProfile() {
-		const res =  await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${currentUser[0]?.id}`, {
-			method: "GET",
-			headers: {
-	
-				"Content-Type": "application/json",
-			},
+						"Content-Type": "application/json",
+					},
+					
+					credentials: "include"
 			
-			credentials: "include"
+				})
+				const data =  await res.json()
+				setDataUser(data)
+				console.log("Data: ", dataUser)
+			}
+		fetchProfile()
+		
+			
+	}, [currentUser, dataUser, token, user])
 	
-		})
-		const data =  await res.json()
-		setDataUser(data)
-		console.log("Data: ", dataUser)
-	}
-fetchProfile()
-
+	
+	
 	const [activeSection, setAcvtiveSection] = useState("orders");
 
 	const [subSec, setSubSec] = useState({

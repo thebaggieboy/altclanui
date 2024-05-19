@@ -55,14 +55,14 @@ const useLogin = (url, successCallback, userType) => {
             
                 const data2 = await res2.json()
             
-                if (user_email !== null || user_email !== undefined){
+                if (user_email !== null){
                     let filteredUsers = data2.filter((user) => {
                         return user.email === user_email;
                     });
                   
-                    console.log("Current User: ", filteredUsers)
+                    
                     dispatch(setUser(filteredUsers))
-              
+                    console.log("Current User: ", user)
                 }
                
                 

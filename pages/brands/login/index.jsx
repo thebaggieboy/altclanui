@@ -12,6 +12,7 @@ import { useSearchParams } from 'next/navigation';
 import { selectUserEmail,  setUserEmail,  setUserEmailType } from "../../../features/user/userActiveEmail";
 import {selectToken, setToken} from "../../../features/token/tokenSlice";
 import {selectBrandToken, setBrandToken} from "../../../features/brand_token/brandTokenSlice";
+import useLogin from '../../../hooks/useLogin';
 
 
 
@@ -19,8 +20,8 @@ export default function Login(req, res) {
     const dispatch = useDispatch();
     const brand_user = useSelector(selectUser); 
     const user_email = useSelector(selectUserEmail);
-    const brand_token = useSelector(selectBrandToken);
-    
+    const token = useSelector(selectToken);
+    const [brand, setBrand] = useState("")
 	const [decodedToken, setDecodedToken] = useState("")
     const router = useRouter();
     const searchParams = useSearchParams()
@@ -37,13 +38,25 @@ export default function Login(req, res) {
   </div>
   
 
+ useEffect(()=>{
+    if (brand_user !== null) {
+        console.log(`Brand User: ${brand_user}`);
+        //setBrand(brand_user);
+        console.log("Brand : ", brand_user[0])
+        console.log("Brand Count: ", brand_user.length)
+        console.log("Brand Name: ", brand_user[0]?.brand_name)
+        router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`);
+    }
+ }, [brand_user, brand])
+
+
     const { isIdle, isPending, error, mutateAsync: loginFn } = useBrandLogin("https://altclan-brands-api-1-1.onrender.com/auth/jwt/create", loginSuccess, USER_TYPES.brand)
 
     const [formData, setFormData] = useState({
         email: "",
         password: "",
     })
-    console.log("Brand Token State: ", brand_token)
+    console.log("Brand Token State: ", token)
 	
     const inputChangeHandler = (e) => {
         const { name, value } = e.target
@@ -61,28 +74,28 @@ export default function Login(req, res) {
 
     async function loginEmail(){
 		dispatch(setUserEmail(formData?.email))
-		console.log("Brand User Email: ", user_email)
+		console.log("User Email: ", user_email)
 	
 	}
 	loginEmail()
 	
-    async function loginSuccess() {
+	async function loginSuccess() {
     
         console.log("Successful Login")
         const today = new Date();
         const oneMonthFromToday = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-        document.cookie = `user_type=brand; expires=${oneMonthFromToday.toUTCString()} Path=/`
+        document.cookie = `user_type=user; expires=${oneMonthFromToday.toUTCString()} Path=/`
     
 		console.log(document.cookie)
     }
+
 
     const submit = async (e) => {
         e.preventDefault();
         try {
         
             await loginFn(formData)
-            //router.push(`/brands/profile/${brand_user?.id}?q=${user_email}`)
-            console.log(`/brands/profile/${brand_user?.id}?brand=${user_email}`)
+           
         } catch (error) {
             console.log(error)
         }
