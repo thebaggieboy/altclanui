@@ -14,7 +14,7 @@ const useUpdateProfileData = (url, id, successCallback, actionFn) => {
         mutationFn: async (newData) => {
             try {
                 const res = await fetch(`${url}${id}/`, {
-                    method: "PATCH",
+                    method: "PUT",
                     body: JSON.stringify({ ...newData }),
                     headers: {
                         "Content-Type": "application/json"
@@ -37,8 +37,8 @@ const useUpdateProfileData = (url, id, successCallback, actionFn) => {
         },
         onSuccess: (data) => {
             console.log(data)
-            console.log(user.id, user.user_type)
-            queryClient.setQueryData(["profile", user.id, user.user_type], (old) => {
+            console.log(user[0]?.id, user[0].user_type)
+            queryClient.setQueryData(["profile", user[0]?.id, user[0]?.user_type], (old) => {
                 return { ...old, ...data }
             })
             dispatch(actionFn(data))

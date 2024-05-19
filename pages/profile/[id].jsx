@@ -56,7 +56,7 @@ const Profile = () => {
 		
 			//getOrder()
 			async function fetchProfile() {
-				const res =  await fetch(`https://altclan-api-v1.onrender.com/api/users/${currentUser[0]?.id}`, {
+				const res =  await fetch(`https://altclan-api-v1.onrender.com/api/users/${user[0]?.id}`, {
 					method: "GET",
 					headers: {
 			

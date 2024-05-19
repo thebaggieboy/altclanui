@@ -46,6 +46,8 @@ export default function Login(req, res) {
         console.log("Brand Count: ", brand_user.length)
         console.log("Brand Name: ", brand_user[0]?.brand_name)
         router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`);
+    }else{
+        router.push(`/brands/login`)
     }
  }, [brand_user, brand])
 
@@ -95,7 +97,7 @@ export default function Login(req, res) {
         try {
         
             await loginFn(formData)
-           
+            loginSuccess()
         } catch (error) {
             console.log(error)
         }

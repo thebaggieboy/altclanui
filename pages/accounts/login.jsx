@@ -109,6 +109,7 @@ export default function SignUp() {
 		try {
 			//
 			await loginFn(formData)
+			loginSuccess()
 		
 	  
 		} catch (error) {

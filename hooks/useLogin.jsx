@@ -17,7 +17,7 @@ const useLogin = (url, successCallback, userType) => {
     const token = useSelector(selectToken)
     const router = useRouter()
     const dispatch = useDispatch()
-    const isBrand = userType === USER_TYPES.brand
+    const isBrand = userType === USER_TYPES.user
     //const { data, loading } = useData("https://altclan-api-v1.onrender.com/api/users/")
 	const [profileQuery, setProfileQuery] = useState([]);
 	 
