@@ -72,7 +72,7 @@ const [resource, setResource] = useState();
  
 
   async function newMerchSuccess() {
-    await router.push(`/brands/profile/${brand_user[0]?.id}?add_merch=success`);
+    await router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`);
   }
 
   const [formErr, setFormErr] = useState(error)
