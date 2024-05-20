@@ -61,6 +61,8 @@ fetchBrands()
                     <meta name="author" content="Altclan"></meta>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
+            <script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>  
+
        </Head> 
 
       <div className="mt-5 p-5 text-center">

@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useLayoutEffect, useEffect } from 'react';
 import styles from '../../styles/brand-merchandise.module.css';
 import { useRouter } from 'next/router';
@@ -6,7 +7,8 @@ import useAddMerchandise from '../../hooks/useAddMerchandise';
 import Loader from "../Loader"
 import { USER_TYPES, selectUser } from '../../features/user/userSlice';
 import { selectBrandUser } from '../../features/brands/brandUserSlice';
-
+import { CldUploadWidget } from 'next-cloudinary';
+ 
 const MERCH_FORM_DATA = {
   categories:
     [
@@ -65,10 +67,12 @@ const BrandMerchForm = (props) => {
   const dispatch = useDispatch();
   const brand_user = useSelector(selectUser)
   const router = useRouter()
+  
+const [resource, setResource] = useState();
  
 
   async function newMerchSuccess() {
-    await router.push(`/brands/profile/${brand_user?.id}?add_merch=success`);
+    await router.push(`/brands/profile/${brand_user[0]?.id}?add_merch=success`);
   }
 
   const [formErr, setFormErr] = useState(error)
@@ -130,10 +134,12 @@ const BrandMerchForm = (props) => {
       const i = event.target.files[0];
       setImage(i);
       setCreateObjectURL(URL.createObjectURL(i));
-
+      // let form_data = new FormData();
+      // form_data.append('file', image.name)
+      // console.log(form_data);
     }
   };
-
+ 
 
   //const merchError = formErr?.email || null;
   const inputChangeHandler = (e) => {
@@ -147,24 +153,38 @@ const BrandMerchForm = (props) => {
     console.log("Form Data: ", formData)
   }
 
+  console.log("Image URl: ", image)
 
   const updateMerchandise = async (e) => {
     e.preventDefault()
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", 'altclan-unsigned')
     
+    console.log("Image URL: ", createObjectURL)
+
+    const data = await fetch('https://api.cloudinary.com/v1_1/dcczh5vz4/image/upload', {
+      method: 'POST',
+      body: formData
+    }).then(r => r.json());
+
+
+    console.log("data: ", data)
+
     await updateFn(
       {
-        brand_name: brand_user?.brand_name,
-        merchandise_name: data?.merchandise_name,
+        brand_name: brand_user[0]?.brand_name,
+        merchandise_name: formData?.merchandise_name,
         size_type: sizeType,
-        labels: data?.labels,
-        merchandise_gender: data?.merchandise_gender,
-        merchandise_description: data?.merchandise_description,
-        merchandise_details: data?.merchandise_details,
-        display_image: data?.display_image,
-        price: data?.price,
+        labels: formData?.labels,
+        merchandise_gender: formData?.merchandise_gender,
+        merchandise_description: formData?.merchandise_description,
+        merchandise_details: formData?.merchandise_details,
+        display_image: data.url,
+        price: formData?.price,
         available_sizes: availableSizes,
         available_colors: availableColors,
-        merchandise_type: data?.merchandise_type
+        merchandise_type: formData?.merchandise_type
       }
     )
   }
@@ -181,7 +201,7 @@ const BrandMerchForm = (props) => {
 
   return (
 
-    <form className="" onSubmit={updateMerchandise}>
+    <form className="" enctype="multipart/form-data" onSubmit={updateMerchandise}>
       <div className={styles.loginContainer}>
 
 
@@ -209,9 +229,10 @@ const BrandMerchForm = (props) => {
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Display image</label> <br />
-
+            <img alt="" src={createObjectURL} />
             <input type="file" onChange={uploadToClient} name="file" id="file" className={styles.input} placeholder="" />
 
+          
           </div>
           <div>
             <label htmlFor="" className={styles.label}>Gender</label>

@@ -19,9 +19,10 @@ const useAddMerchandise = (url, successCallback, userType) => {
                 })
 
                 const data = await res.json()
-                console.log("seen")
+             
 
                 if (res.status >= 200 && res.status <= 209) {
+                    console.log("Merchh add successful")
                     return data
                 }
 
