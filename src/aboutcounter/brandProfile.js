@@ -16,7 +16,7 @@ const MyTabs = () => {
   const brand_user = useSelector(selectUser);
   const router = useRouter()
   const searchParams = useSearchParams();
-	const merch_success = searchParams.get('success')
+	const brand = searchParams.get('brand')
  
  const [searchResult,  setSearchResult] = useState([])
  const [orderResult,  setOrderResult] = useState([])
@@ -25,7 +25,7 @@ const MyTabs = () => {
   const [orderQuery, setOrderQuery] = useState('')
  
 useEffect(() => {
-  if (merch_success !== null) {
+  if (searchQuery !== null) {
     setSearchQuery(brand)
   }
 
