@@ -39,7 +39,7 @@ export default function Settings() {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="border-b border-stroke py-4 px-7 dark:border-strokedark">
                 <h3 className="font-medium text-black dark:text-white">
-                  Personal Information
+                  Brand Information
                 </h3>
               </div>
               <div className="p-7">
@@ -50,7 +50,7 @@ export default function Settings() {
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
                         htmlFor="fullName"
                       >
-                        Full Name
+                        Brand Name
                       </label>
                       <div className="relative">
                         <span className="absolute left-4.5 top-4">
@@ -145,8 +145,7 @@ export default function Settings() {
                         type="email"
                         name="emailAddress"
                         id="emailAddress"
-                        placeholder="devidjond45@gmail.com"
-                        defaultValue="devidjond45@gmail.com"
+                      
                       />
                     </div>
                   </div>
@@ -156,16 +155,11 @@ export default function Settings() {
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"
                     >
-                      Username
+                      Brand Type
                     </label>
-                    <input
-                      className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                      type="text"
-                      name="Username"
-                      id="Username"
-                      placeholder="devidjhon24"
-                      defaultValue="devidjhon24"
-                    />
+                    <select name="" id=""  className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary">
+                      <option value="">Choose brand type</option>
+                    </select>
                   </div>
 
                   <div className="mb-5.5">
@@ -226,7 +220,8 @@ export default function Settings() {
                       Cancel
                     </button>
                     <button
-                      className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-95"
+                    style={{backgroundColor: "black", color:"white"}}
+                      className="flex justify-center rounded py-2 px-6 font-medium "
                       type="submit"
                     >
                       Save

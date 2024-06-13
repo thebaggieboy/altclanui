@@ -11,8 +11,8 @@ import fetchOrderData from "../../lib/fetchOrderData";
 import Billing from "../../components/Billing";
 import { selectToken } from "../../features/token/tokenSlice";
 import { current } from "@reduxjs/toolkit";
-
-
+import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
+import { useSearchParams } from 'next/navigation'
 
 const Profile = () => {
 	const user = useSelector(selectUser);
@@ -25,6 +25,14 @@ const Profile = () => {
 	const client = useQueryClient()
 	const [orders, setOrders] = useState([])
 	const [dataUser, setDataUser] = useState([])
+	const [openModal, setOpenModal] = useState(false);
+	const [email, setEmail] = useState('');
+    const searchParams = useSearchParams();
+    const updateMessage = searchParams.get('update')
+	function onCloseModal() {
+	  setOpenModal(false);
+	  setEmail('');
+	}
 	
 	if (user === null) {
 		router.push("/login")
@@ -112,7 +120,54 @@ const Profile = () => {
 			password: "**********",
 		},
 	};
+	const [formData, setFormData] = useState({
+		first_name: "",
+		last_name: "",
+		mobile_number:""
+	})
+	const inputChangeHandler = (e) => {
+		const { name, value } = e.target
+		setFormData((prevValue) => {
+			return {
+				...prevValue,
+				[name]: value
+			}
+		})
 
+	}
+	const profileSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+	<svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+	  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+	</svg>
+	<span class="sr-only">Info</span>
+	<div>
+	You have updated your profile successfully
+	</div>
+  </div>
+	console.log("formData: ", formData)
+	async function updateUserProfile(){
+		const res = await fetch(`https://altclan-api-v1.onrender.com/api/users/${user[0]?.id}/`, {
+			method: "PUT",
+			headers: {
+
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({email:user[0]?.email, display_picture:null, first_name:formData.first_name, last_name:formData.last_name, mobile_number:formData.mobile_number}),
+			
+		})
+
+		const data = await res.json()
+
+		if (res.status >= 200 & res.status <= 209) {
+			console.log("User Profile UPDATED")
+			router.push(`/profile/${user[0]?.id}?update=success`)
+
+		}
+		const error = { ...data }
+		throw error
+
+	
+	}
 
 
 	if (dataUser == null || dataUser == '') {
@@ -165,8 +220,8 @@ const Profile = () => {
 							<p className={styles.p}>phone: {dataUser?.mobile_number}</p>
 
 							<button
-								onClick={onEdit}
-								data-form="personal"
+								 onClick={() => setOpenModal(true)}
+								
 								className={styles.profileButton}
 							>
 								Update profile
@@ -183,6 +238,48 @@ const Profile = () => {
 					</div>
 				</div>
 			</main>
+			<Modal show={openModal} onClose={onCloseModal} popup>
+        <Modal.Header />
+        <Modal.Body>
+          <div className="space-y-6">
+			{updateMessage == 'success' ? profileSuccess : ""}
+            <h3 className="text-xl font-medium text-gray-900 dark:text-white">Update Your Profile</h3>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="first_name" value="First Name" />
+              </div>
+              <TextInput
+                id="first_name"
+                placeholder="name@company.com"
+                name='first_name'
+                onChange={inputChangeHandler}
+                required
+              />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="last_name" value="Last Name" />
+              </div>
+              <TextInput id="last_name"    name='last_name'  onChange={inputChangeHandler} type="text" required />
+            </div>
+
+			<div>
+              <div className="mb-2 block">
+                <Label htmlFor="mobile_number" value="Phone Number" />
+              </div>
+              <TextInput id="mobile_number" type="mobile_number"    name='mobile_number'
+                onChange={inputChangeHandler} required />
+            </div>
+
+            <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
+             
+              <button onClick={updateUserProfile}  className="bg-black p-3 rounder-lg text-white hover:underline dark:text-cyan-500">
+                Save
+              </button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
 
 			<hr />
 			<nav className="user-profile__nav">
