@@ -56,7 +56,7 @@ export default function Checkout({ merchs }) {
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
   const router = useRouter()
   const amount = grandTotal * 100
-  const email = user?.email
+  const email = user[0]?.email
   const searchParams = useSearchParams();
 	const search = searchParams.get('search')
   const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
@@ -305,7 +305,7 @@ export default function Checkout({ merchs }) {
                   <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
                   <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_1">
                     <img className="w-14 object-contain" src="/images/naorrAeygcJzX0SyNI4Y0.png" alt="" />
-                    <div className="ml-5">
+                    <div className="ml-2">
                       <span className="mt-2 font-semibold">Standard Delivery</span>
                       <p className="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
                     </div>
@@ -316,7 +316,7 @@ export default function Checkout({ merchs }) {
                   <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
                   <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_2">
                     <img className="w-14 object-contain" src="/images/oG8xsl3xsOkwkMsrLGKM4.png" alt="" />
-                    <div className="ml-5">
+                    <div className="ml-2">
                       <span className="mt-2 font-semibold">Express Delivery</span>
                       <p className="text-slate-500 text-sm leading-6">Delivery: 1-2 Days</p>
                     </div>
@@ -332,7 +332,7 @@ export default function Checkout({ merchs }) {
               <div className="">
                 <label htmlFor="email" className="mt-4 mb-2 block text-sm font-medium">Email</label>
                 <div className="relative">
-                  <input type="text" value={user?.email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="" />
+                  <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="" />
                   <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
