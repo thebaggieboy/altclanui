@@ -180,7 +180,7 @@ const [resource, setResource] = useState();
         merchandise_gender: formData?.merchandise_gender,
         merchandise_description: formData?.merchandise_description,
         merchandise_details: formData?.merchandise_details,
-        display_image: formData?.display_image,
+        display_image: data?.url,
         price: formData?.price,
         available_sizes: availableSizes,
         available_colors: availableColors,

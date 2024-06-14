@@ -230,7 +230,7 @@ export default function ProductDetail({ _id, merch }) {
                 <div class="flex mb-4 mt-4">
                     <div class="mr-4">
                         <span style={{fontFamily:"Poppins, Sans-Serif"}} class=" text-black dark:text-gray-300">Price:</span>
-                        <span class=" text-black text-sm dark:text-gray-300"> ₦{merch.price}</span>
+                        <span class=" text-black text-sm dark:text-gray-300"> ₦{merch?.price}</span>
                     </div>
                     <div>
                         <span class=" text-gray-700 dark:text-gray-300">Availability:</span>
@@ -295,7 +295,7 @@ export default function ProductDetail({ _id, merch }) {
                 <div class="mb-4">
                     <span class=" text-black dark:text-gray-300">Select Size:</span>
                     <div class="flex items-center mt-2">
-<div className="mt-10">
+<div className="mt-5">
 								
 
 								<RadioGroup
@@ -308,7 +308,7 @@ export default function ProductDetail({ _id, merch }) {
 										Choose a size{" "}
 									</RadioGroup.Label>
 									<div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-										{merch.available_sizes && merch.available_sizes.map((size) => (
+										{merch?.available_sizes && merch?.available_sizes.map((size) => (
 											<RadioGroup.Option
 												key={size.name}
 												value={size}

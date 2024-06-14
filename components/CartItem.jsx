@@ -56,7 +56,7 @@ const CartItem = ({ data }) => {
 
 						<div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
 							<p className="w-20 shrink-0 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
-								₦{price.toLocaleString()}
+								₦{price?.toLocaleString()}
 							</p>
 
 							<div className="sm:order-1">

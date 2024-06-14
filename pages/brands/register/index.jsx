@@ -81,7 +81,7 @@ export default function SignUp() {
 
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({email, password:password1, brand_name:'', brand_logo:'', brand_type:'', display_picture:null}),
+                body: JSON.stringify({email, password:password1}),
                 credentials: "include"
 
             })

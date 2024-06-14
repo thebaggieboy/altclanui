@@ -1,6 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from "next/image"
+import { useDispatch, useSelector } from 'react-redux'
+import { selectUser } from '../features/user/userSlice'
+
+
 export default function Settings() {
+
+  const user = useSelector(selectUser);
+	const [formData, setFormData] = useState({
+		brand_name: "",
+		brand_logo: "",
+		brand_bio:"",
+    brand_type:"",
+    mobile_number:""
+	})
+	const inputChangeHandler = (e) => {
+		const { name, value } = e.target
+		setFormData((prevValue) => {
+			return {
+				...prevValue,
+				[name]: value
+			}
+		})
+
+	}
+	const brandProfileSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
+	<svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+	  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+	</svg>
+	<span class="sr-only">Info</span>
+	<div>
+	You have updated your profile successfully
+	</div>
+  </div>
+
+	async function updateBrandUserProfile(){
+		const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${user[0]?.id}/`, {
+			method: "PUT",
+			headers: {
+
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({brand_name:formData.brand_name, brand_bio:formData.brand_bio, brand_type:formData.brand_type}),
+			
+		})
+
+		const data = await res.json()
+
+		if (res.status >= 200 & res.status <= 209) {
+			console.log("User Profile UPDATED")
+			router.push(`/profile/${user[0]?.id}?update=success`)
+
+		}
+		const error = { ...data }
+		throw error
+
+	
+	}
+
+
+  async function onSubmit(){
+     console.log("Submit Clicked")
+  }
+	console.log("formData: ", formData)
   return (
     <> 
 <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-5 xl:mx-auto">
@@ -48,7 +110,7 @@ export default function Settings() {
                     <div className="w-full sm:w-1/2">
                       <label
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
-                        htmlFor="fullName"
+                        htmlFor="brand_name"
                       >
                         Brand Name
                       </label>
@@ -81,10 +143,11 @@ export default function Settings() {
                         <input
                           className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                           type="text"
-                          name="fullName"
-                          id="fullName"
-                          placeholder="Devid Jhon"
-                          defaultValue="Devid Jhon"
+                          name="brand_name"
+                          id="brand_name"
+                          placeholder=""
+                          defaultValue=""
+                          onChange={inputChangeHandler}
                         />
                       </div>
                     </div>
@@ -103,6 +166,7 @@ export default function Settings() {
                         id="phoneNumber"
                         placeholder="+990 3343 7865"
                         defaultValue="+990 3343 7865"
+                        onChange={inputChangeHandler}
                       />
                     </div>
                   </div>
@@ -145,7 +209,9 @@ export default function Settings() {
                         type="email"
                         name="emailAddress"
                         id="emailAddress"
-                      
+                        onChange={inputChangeHandler}
+                        disabled
+                        defaultValue={user[0]?.email}
                       />
                     </div>
                   </div>
@@ -157,7 +223,7 @@ export default function Settings() {
                     >
                       Brand Type
                     </label>
-                    <select name="" id=""  className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary">
+                    <select  onChange={inputChangeHandler} name="brand_type" id=""  className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary">
                       <option value="">Choose brand type</option>
                     </select>
                   </div>
@@ -203,11 +269,11 @@ export default function Settings() {
 
                       <textarea
                         className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                        name="bio"
-                        id="bio"
+                        name="brand_bio"
+                        id="brand_bio"
                         rows={6}
                         placeholder="Write your bio here"
-                        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere fermentum urna, eu condimentum mauris tempus ut. Donec fermentum blandit aliquet."
+                        onChange={inputChangeHandler}
                       ></textarea>
                     </div>
                   </div>
@@ -215,7 +281,7 @@ export default function Settings() {
                   <div className="flex justify-end gap-4.5">
                     <button
                       className="flex justify-center rounded border border-stroke py-2 px-6 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
-                      type="submit"
+                      
                     >
                       Cancel
                     </button>

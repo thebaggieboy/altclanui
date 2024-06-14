@@ -28,6 +28,7 @@ export async function getServerSideProps(context) {
 
 export default function BrandProfile({id, brand}) {
   const user = useSelector(selectUser)
+  const brand_user = useSelector(selectBrandUser)
   
   const [selectedFollowers, setselectedFollowers] = useState([]);
   const [brandFollowers, setbrandFollowers] = useState(brand.followers);
@@ -38,64 +39,70 @@ export default function BrandProfile({id, brand}) {
 		followers: "",
 	
 	})
+
   const [followers, setFollowers] = useState([])
   
-  const [follower, setFollower] = useState([])
 
-  const followerChange = (e) => {
-    const { checked, value } = e.target;
-    if (checked) {
-      setAvailableSizes([...availableSizes, value]);
-    } else {
-      setAvailableSizes(availableSizes.filter((size) => size !== value));
-    }
-  }
   const getBrandFollowers = async() =>{
     console.log('Followers: ', brandFollowers)
   }
 
   const followBrand = async()=>{
-    const url = `https://altclan-brands-api-1-1.onrender.com/api/${brand?.id}`
-    getBrandFollowers()
-    
-    selectedFollowers.push(user?.email)
-    setselectedFollowers(selectedFollowers)
-    if(selectedFollowers.includes(user?.email)){
-        console.log('You are following this brand')
-    }
-
-    console.log('Followers: ', selectedFollowers)
-    setFollowed(true)
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
+    const url = `https://altclan-brands-api-1-1.onrender.com/api/${user[0]?.id}`
+    console.log("url: ", url)
+    if (!brand?.followers.includes(user[0]?.email)) {
+      let current_follower = brand.followers.push(user[0]?.email);
+      setselectedFollowers(current_follower)
+      console.log(`${brand?.brand_name} followers: `, current_follower)
+      console.log(`${brand?.brand_name} followers: `, brand?.followers)
+      setFollowed(true)
+      const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${brand?.id}/`, {
+        method: "PUT",
+        headers: {
+  
           "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ followers:selectedFollowers }),
-      credentials: "include"
-  })
-    const data = await res.json()
+        },
+        body: JSON.stringify({email:brand?.email, followers: brand?.followers}),
+        
+      })
+  
+      const data = await res.json()
+  
+      if (res.status >= 200 & res.status <= 209) {
+        console.log("Brand Followers UPDATED")
     
-
-  if (res.status >= 200 && res.status <= 209) {
-      return data
-  }
-  const err = { ...data }
-  throw { err }
+      }
+      const error = { ...data }
+      throw error
+  
+    
+    }
+   
   }
 
   const unFollowBrand = async()=>{
     //getBrandFollowers()
-    const arrayWithoutB = [];
+    let current_unfollower = brand?.followers.filter(email => email !== user[0]?.email);
+    const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${brand?.id}/`, {
+      method: "PUT",
+      headers: {
+
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({email:brand?.email, followers: brand?.followers}),
+      
+    })
     
-    const arrayWithoutThisUser = selectedFollowers?.filter(function (user_email) {
-      return user_email !== user?.email;
-  });
-    setselectedFollowers(arrayWithoutThisUser)
- 
-    
-    console.log('Followers after unfollow: ', selectedFollowers)
-   
+    const data = await res.json()
+  
+    if (res.status >= 200 & res.status <= 209) {
+      console.log("Brand new Followers UPDATED")
+  
+    }
+    const error = { ...data }
+    throw error
+
+    setselectedFollowers(current_unfollower)
     setFollowed(false)
   }
 
@@ -118,14 +125,14 @@ export default function BrandProfile({id, brand}) {
                 {brand.brand_bio}
               </p> 
               <p className='mt-4' style={{fontWeight:'bolder', fontSize:14}}>
-               {selectedFollowers.length} Followers
+               {brand?.followers.length} Followers
               </p>
               
 							<button
-								onClick={followed == false ? followBrand : unFollowBrand}
-								className={followed == false ? "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-black text-base font-medium text-white  focus:ring-black focus:ring-offset-2" : "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-white text-base font-medium text-black  focus:ring-white focus:ring-offset-2"}
+								onClick={!brand?.followers.includes(user[0]?.email) ? followBrand : unFollowBrand}
+								className={!brand?.followers.includes(user[0]?.email) ? "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-black text-base font-medium text-white  focus:ring-black focus:ring-offset-2" : "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-white text-base font-medium text-black  focus:ring-white focus:ring-offset-2"}
 							>
-							 {followed == false ? 'Follow' : 'Unfollow'} 
+							 {!brand?.followers.includes(user[0]?.email) ? 'Follow' : 'Unfollow'} 
 							</button>
               <br/>
             </div>
