@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
 export default function BrandProfile({id, brand}) {
   const user = useSelector(selectUser)
   const brand_user = useSelector(selectBrandUser)
-  
+  let current_follower = []
   const [selectedFollowers, setselectedFollowers] = useState([]);
   const [brandFollowers, setbrandFollowers] = useState(brand.followers);
   const [followed, setFollowed ] = useState(false)
@@ -51,7 +51,7 @@ export default function BrandProfile({id, brand}) {
     const url = `https://altclan-brands-api-1-1.onrender.com/api/${user[0]?.id}`
     console.log("url: ", url)
     if (!brand?.followers.includes(user[0]?.email)) {
-      let current_follower = brand.followers.push(user[0]?.email);
+      current_follower = brand.followers.push(user[0]?.email);
       setselectedFollowers(current_follower)
       console.log(`${brand?.brand_name} followers: `, current_follower)
       console.log(`${brand?.brand_name} followers: `, brand?.followers)
@@ -81,30 +81,31 @@ export default function BrandProfile({id, brand}) {
   }
 
   const unFollowBrand = async()=>{
-    //getBrandFollowers()
-    let current_unfollower = brand?.followers.filter(email => email !== user[0]?.email);
+  
+
+    let newFollowers = brand?.followers?.filter(email => email !== user[0]?.email);
+    console.log("newFollowers: ", newFollowers )
+    // Update the followers on the server
     const res = await fetch(`https://altclan-brands-api-1-1.onrender.com/api/users/${brand?.id}/`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-
-        "Content-Type": "application/json",
+          'Content-Type': 'application/json',
       },
-      body: JSON.stringify({email:brand?.email, followers: brand?.followers}),
-      
-    })
-    
-    const data = await res.json()
-  
-    if (res.status >= 200 & res.status <= 209) {
-      console.log("Brand new Followers UPDATED")
-  
-    }
-    const error = { ...data }
-    throw error
+      body: JSON.stringify({email:brand?.email, followers: newFollowers }),
+  });
 
-    setselectedFollowers(current_unfollower)
-    setFollowed(false)
+
+const data = await res.json()
+
+if (res.status >= 200 & res.status <= 209) {
+console.log("Brand new Followers UPDATED")
+
+}
+const error = { ...data }
+throw error
+    
   }
+  
 
   return (
      <div key={brand.id} className={styles.brandProfileContent}>
