@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { USER_TYPES, selectUser, selectUserType } from '../../features/user/userSlice';
 import useAddFollowers from '../../hooks/useAddFollowers';
 import { selectBrandUser } from '../../features/brands/brandUserSlice';
+import { useSearchParams } from 'next/navigation';
  
+
 
 export async function getServerSideProps(context) {
   const id = context.params.id
@@ -33,7 +35,8 @@ export default function BrandProfile({id, brand}) {
   const [selectedFollowers, setselectedFollowers] = useState([]);
   const [brandFollowers, setbrandFollowers] = useState(brand.followers);
   const [followed, setFollowed ] = useState(false)
-  
+  const searchParams = useSearchParams();
+  const updateMessage = searchParams.get('update')
   const [formErr, setFormErr] = useState()
   const [formData, setFormData] = useState({
 		followers: "",
@@ -109,6 +112,8 @@ throw error
 
   return (
      <div key={brand.id} className={styles.brandProfileContent}>
+        {updateMessage == 'success' ? brandProfileSuccess : ""}
+
           <div className={styles.left}>
             <img src={brand.brand_logo} alt="" className={styles.image}/>
           </div>
