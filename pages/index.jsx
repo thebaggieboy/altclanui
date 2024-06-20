@@ -112,10 +112,7 @@ export default function Home() {
             <ShopDiv />
        
             <Altcoin/>
-          
-         
-         
-            
+       
 
             <br />
           

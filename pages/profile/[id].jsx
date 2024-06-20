@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { selectUser } from '../../features/user/userSlice'
 
-
+import Link from "next/link"
 
 export default function Settings() {
 
@@ -16,9 +16,13 @@ export default function Settings() {
   const searchParams = useSearchParams();
   const updateMessage = searchParams.get('update')
 
+  if (user == null || user == '') {
+    router.push("/accounts/login");
+  }
+
 	const [formData, setFormData] = useState({
-    email:user[0]?.email,
-		first_name: user[0]?.first_name,
+    email:user[0].email,
+		first_name: user[0].first_name,
 		last_name: user[0]?.last_name,	  
 		mobile_number:user[0]?.mobile_number,
 		display_picture:user[0]?.display_picture,
@@ -103,8 +107,8 @@ export default function Settings() {
     <div class="col-span-2 hidden sm:block">
       <ul>
 
-        <li class="mt-2 text-xs cursor-pointer border-l-2 bg-black px-2 py-3 text-center font-semibold text-white transition hover:border-l-blue-700  hover:bg-black ">Accounts</li>
-        <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li>
+        <li class="mt-2 text-xs cursor-pointer border-l-2 bg-black px-2 py-3 text-center font-semibold text-white transition hover:border-l-blue-700  hover:bg-black "><Link href={`/profile/${user[0]?.id}`}>Accounts</Link></li>
+        <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white"><Link href='/orders'>Orders</Link></li>
         <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li>
         <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li>
 		<li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li>

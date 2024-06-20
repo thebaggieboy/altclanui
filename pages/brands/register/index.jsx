@@ -11,8 +11,32 @@ import { useMutation } from "@tanstack/react-query";
 import useSignUp from "../../../hooks/useSignUp";
 import useDjoserSignup from "../../../hooks/useDjoserSignup";
 
+import SignupSuccess from "../../../components/EmailTemplates/SignupSuccess";
+
+import { Resend } from 'resend';
 
 
+const resend = new Resend('re_RdTjmbKL_9oa6oPS4MTWTNs3KdXNgZDXi');
+
+
+export async function sendEmail() {
+	try {
+	  const { data, error } = await resend.emails.send({
+		from: 'Acme <onboarding@resend.dev>',
+		to: ['delivered@resend.dev'],
+		subject: 'Hello world',
+		react: SignupSuccess,
+	  });
+  
+	  if (error) {
+		return Response.json({ error }, { status: 500 });
+	  }
+  
+	  return Response.json(data);
+	} catch (error) {
+	  return Response.json({ error }, { status: 500 });
+	}
+  }
 export function LoginError() {
 	return (
 		<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -30,14 +54,14 @@ export function LoginError() {
 export default function SignUp() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
-
+	sendEmail()
 	if (user !== null) {
-		router.push("/brands/login/");
+		router.push("/products");
 	}
 
 	
 
-	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-brands-api-1-1.onrender.com/auth/users", signUpSuccess, USER_TYPES.user)
+	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-brands-api-1-1.onrender.com/auth/users", signUpSuccess, USER_TYPES.brand)
 	//const { isIdle, isPending, error, mutateAsync: signUpFn } = useDjoserSignup("https://altclan-api-v1.onrender.com/auth/jwt/create", signUpSuccess, USER_TYPES.user)
 
 	
@@ -81,17 +105,17 @@ export default function SignUp() {
 
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({email, password:password1}),
+                body: JSON.stringify({ email, password:password1, brand_name:'', brand_bio:'', brand_type:'', brand_logo:null}),
                 credentials: "include"
 
             })
             const data = await res.json()
 
             if (res.status >= 200 & res.status <= 209) {
-				console.log("New User Registered.")
+				console.log("New BRAND User Registered.")
 				console.log(data)
-                signUpSuccess()
-
+				signUpSuccess()
+                
                 
             }
 			
@@ -142,7 +166,7 @@ export default function SignUp() {
 						</Link>
 
 						<h1 className={styles.greeting}>Welcome to Altclan</h1>
-						<p className={styles.login}>Complete your sign up to join</p>
+						<p className={styles.login}>Signup as a brand</p>
 
 						<div className="">
 							{/* <label for="email" className="block mb-2 text-sm font-medium text-black">Your email</label> */}
@@ -154,9 +178,6 @@ export default function SignUp() {
 									<span class="sr-only">Info</span>
 									<div class="ml-2 text-sm text-center font-medium">
 										{formErr?.email}  <Link href="/accounts/login" class="font-semibold underline hover:no-underline">Login</Link> to continue.
-									</div>
-									<div class="ml-2 text-sm text-center font-medium">
-										{formErr?.detail}  <Link href="/accounts/login" class="font-semibold underline hover:no-underline">Login</Link> to continue.
 									</div>
 								</div>
 							)}
