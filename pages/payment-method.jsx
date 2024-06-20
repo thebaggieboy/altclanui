@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export default function payment-method() {
+export default function paymentMethod() {
   return (
     <div>payment-method</div>
   )
