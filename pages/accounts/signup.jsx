@@ -11,8 +11,32 @@ import { useMutation } from "@tanstack/react-query";
 import useSignUp from "../../hooks/useSignUp";
 import useDjoserSignup from "../../hooks/useDjoserSignup";
 
+import SignupSuccess from "../../components/EmailTemplates/SignupSuccess";
+
+import { Resend } from 'resend';
 
 
+const resend = new Resend('re_RdTjmbKL_9oa6oPS4MTWTNs3KdXNgZDXi');
+
+
+export async function sendEmail() {
+	try {
+	  const { data, error } = await resend.emails.send({
+		from: 'Acme <onboarding@resend.dev>',
+		to: ['delivered@resend.dev'],
+		subject: 'Hello world',
+		react: SignupSuccess,
+	  });
+  
+	  if (error) {
+		return Response.json({ error }, { status: 500 });
+	  }
+  
+	  return Response.json(data);
+	} catch (error) {
+	  return Response.json({ error }, { status: 500 });
+	}
+  }
 export function LoginError() {
 	return (
 		<div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
@@ -30,8 +54,8 @@ export function LoginError() {
 export default function SignUp() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
-
-	if (user !== null) {3
+	sendEmail()
+	if (user !== null) {
 		router.push("/products");
 	}
 
