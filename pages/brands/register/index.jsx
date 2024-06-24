@@ -54,7 +54,7 @@ export function LoginError() {
 export default function SignUp() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
-	sendEmail()
+	
 	if (user !== null) {
 		router.push("/products");
 	}
@@ -105,7 +105,7 @@ export default function SignUp() {
 
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password:password1, brand_name:'', brand_bio:'', brand_type:'', brand_logo:null}),
+                body: JSON.stringify({ email, password:password1}),
                 credentials: "include"
 
             })

@@ -119,13 +119,12 @@ let orderResults = []
     <div class="col-span-2 hidden sm:block">
       <ul>
 
-        <li class="mt-2 text-xs cursor-pointer border-l-2 px-2 py-3 text-center font-semibold  transition hover:border-l-blue-700  hover:bg-black hover:text-white"><Link href={`/profile/${user[0]?.id}`}>Accounts</Link></li>
-        <li class="mt-2 text-xs cursor-pointer border-l-2  bg-black text-white border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white"><Link href='/orders'>Orders</Link></li>
-        <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li>
-        <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li>
-		<li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li>
-		<li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Notifications</li>
-
+      <Link href={`/profile/${user[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2  px-2 py-3 text-center font-semibold  transition hover:border-l-blue-700  hover:bg-black hover:text-white ">Accounts</li></Link>
+        <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent bg-black text-white px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li></Link>
+   <Link href="/wishlist">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li></Link>
+        <Link href='/payment-method'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li></Link>
+		<Link href='/addresses'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li></Link>
+	
       </ul>
     </div>
 

@@ -117,20 +117,20 @@ let orderResults = []
     <div class="col-span-2 hidden sm:block">
       <ul>
 
-        {/* <li class="mt-2 text-xs cursor-pointer border-l-2 px-2 py-3 text-center font-semibold  transition hover:border-l-blue-700  hover:bg-black hover:text-white"><Link href={{`/profile/${user[0]?.id}`}}>Accounts</Link></li> */}
-        <li class="mt-2 text-xs cursor-pointer border-l-2  border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white"><Link href='/orders'>Orders</Link></li>
-        <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center  font-semibold transition hover:bg-black hover:text-white">Wishlist</li>
-        <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition  bg-black text-white hover:bg-black hover:text-white">Payment Methods</li>
-		<li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li>
-		<li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Notifications</li>
-
+   
+      <Link href={`/profile/${user[0]?.id}`}><li class="mt-2 text-xs cursor-pointer border-l-2  px-2 py-3 text-center font-semibold transition hover:border-l-blue-700  hover:bg-black hover:text-white">Accounts</li></Link>
+        <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li></Link>
+   <Link href="/wishlist">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li></Link>
+        <Link href='/payment-method'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 bg-black text-white text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li></Link>
+		<Link href='/addresses'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li></Link>
+	
       </ul>
     </div>
 
 
 
 
-    <div class="col-span-8   sm:px-8 sm:shadow">
+    <div class="col-span-8 p-5  sm:px-8 sm:shadow">
     
     <div id="payment-methods" style={{fontFamily:'Poppins, Sans-serif'}} className='font-bold mt-2'>
      Saved Payment Methods
@@ -139,9 +139,9 @@ let orderResults = []
 
     <div>
     <div className="bg-gray-100 p-5" style={{width:300}}>
-    <span className='text-red-700 text-xs' style={{float:'right'}}>Delete</span>
+    <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
-  <img src="/alteclan_logo.jpg" alt="cantdisplay" style={{height:40, width:40}} />
+  <img src="/icons/paystack.png" alt="cantdisplay" style={{height:40, width:60}} />
   <p className='font-bold lead text-sm'>Paystack</p>
   </div>
     <span className='text-xs text-gray-600'>Debit Card</span> 
@@ -152,26 +152,27 @@ let orderResults = []
 
     <div className=''>
     <div className="bg-gray-100 p-5" style={{width:300}}>
-    <span className='text-red-700 text-xs' style={{float:'right'}}>Delete</span>
+    <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
-  <img src="/alteclan_logo.jpg" alt="cantdisplay" style={{height:40, width:40}} />
+  <img src="/icons/credit-card.png" alt="cantdisplay" style={{height:40, width:40}} />
   <p className='font-bold lead text-sm'>Credit Card</p>
   </div>
     <span className='text-xs text-gray-600'>5897 **** **** ****</span> 
-    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Default <input type="radio" className='text-green-700' name="default" id="" /> </label>
+    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Set as default <input type="radio" className='text-green-700' name="default" id="" /> </label>
 
     </div>
     </div>
 
     <div>
     <div className="bg-gray-100 p-5" style={{width:300}}>
-    <span className='text-red-700 text-xs' style={{float:'right'}}>Delete</span>
+    <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
-  <img src="/alteclan_logo.jpg" alt="cantdisplay" style={{height:40, width:40}} />
+ 
+  <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_74x46.jpg" alt="cantdisplay" style={{height:40, width:60}} />
   <p className='font-bold lead text-sm'>Paypal</p>
   </div>
     <span className='text-xs text-gray-600'>jon*****@gmail.com</span> 
-    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Default <input type="radio" className='text-green-700' name="default" id="" /> </label>
+    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Set as default <input type="radio" className='text-green-700' name="default" id="" /> </label>
 
     </div>
     </div>
