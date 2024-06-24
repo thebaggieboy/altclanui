@@ -16,7 +16,7 @@ const  BrandBioForm = (props) => {
 
   const brandUserData = useSelector(selectUser);
   const router = useRouter()
-  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setUser)
+  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData[0]?.id, setUser)
 
   const [formData, setFormData] = useState({
     brand_name: "",
@@ -43,9 +43,9 @@ const  BrandBioForm = (props) => {
   const [step, setStep] = useState(1);
 
  
-  const updateProfile = (e) => {
+  const updateProfile = async(e) => {
     e.preventDefault()
-    updateFn(formData)
+    
    
     console.log("Brand Bio Form Submit clicked")
     console.log(formData)

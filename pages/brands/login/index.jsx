@@ -45,10 +45,13 @@ export default function Login(req, res) {
         console.log("Brand : ", brand_user[0])
         console.log("Brand Count: ", brand_user.length)
         console.log("Brand Name: ", brand_user[0]?.brand_name)
-        router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`);
+        router.push('/brands/register/brand-bio')
+       
     }else{
         router.push(`/brands/login`)
     }
+
+    
  }, [brand_user, brand])
 
 
