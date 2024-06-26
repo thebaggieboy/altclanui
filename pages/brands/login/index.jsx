@@ -14,6 +14,9 @@ import {selectToken, setToken} from "../../../features/token/tokenSlice";
 import {selectBrandToken, setBrandToken} from "../../../features/brand_token/brandTokenSlice";
 import useLogin from '../../../hooks/useLogin';
 
+import { Resend } from 'resend';
+
+
 
 
 export default function Login(req, res) {
@@ -101,6 +104,9 @@ export default function Login(req, res) {
         
             await loginFn(formData)
             loginSuccess()
+            await fetch('/api/emails', {method:'POST'})
+          
+	  
         } catch (error) {
             console.log(error)
         }

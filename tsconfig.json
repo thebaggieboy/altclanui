@@ -40,7 +40,7 @@
     "components/ShopDiv.jsx",
     "pages/products/index.jsx",
     ".next/types/**/*.ts"
-, "app/layout.tsx", "pages/brands/index.jsx", "pages/cart.jsx", "components/brands/BrandMerchForm.jsx", "components/Dashboard/E-commerce.jsx"  ],
+, "app/layout.tsx", "pages/brands/index.jsx", "pages/cart.jsx", "components/brands/BrandMerchForm.jsx", "components/Dashboard/E-commerce.jsx", "emails/Welcome.jsx"  ],
   "exclude": [
     "node_modules"
   ],

@@ -991,7 +991,7 @@
   resolved "https://registry.npmjs.org/@react-email/column/-/column-0.0.10.tgz"
   integrity sha512-MnP8Mnwipr0X3XtdD6jMLckb0sI5/IlS6Kl/2F6/rsSWBJy5Gg6nizlekTdkwDmy0kNSe3/1nGU0Zqo98pl63Q==
 
-"@react-email/components@0.0.19":
+"@react-email/components@^0.0.19":
   version "0.0.19"
   resolved "https://registry.npmjs.org/@react-email/components/-/components-0.0.19.tgz"
   integrity sha512-yf49eIq0NDDXzO2RTZaT8fKa16eKUFMdWWMx4V5Bq+b2JdGuAMobO5s9Ea6azSVL6RDcJ8epdY1TCR2kL2PPHw==
@@ -5968,7 +5968,7 @@ react-apexcharts@^1.4.1:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-email@2.1.4:
+react-email@^2.1.4:
   version "2.1.4"
   resolved "https://registry.npmjs.org/react-email/-/react-email-2.1.4.tgz"
   integrity sha512-YKZ4jhkalWcNyaw4qyI//+QeTeUxe/ptqI+wSc4wVIoHzqffAWoV5x/jBpFex3FQ636xVIDFrvGq39rUVL7zSQ==

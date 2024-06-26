@@ -13,11 +13,10 @@ import useDjoserSignup from "../../../hooks/useDjoserSignup";
 
 import SignupSuccess from "../../../components/EmailTemplates/SignupSuccess";
 
+  
+
 import { Resend } from 'resend';
-
-
-const resend = new Resend('re_RdTjmbKL_9oa6oPS4MTWTNs3KdXNgZDXi');
-
+import Welcome from "../../../emails/Welcome";
 
 export async function sendEmail() {
 	try {
@@ -115,8 +114,8 @@ export default function SignUp() {
 				console.log("New BRAND User Registered.")
 				console.log(data)
 				signUpSuccess()
-                
-                
+				await fetch('/api/emails', {method:'POST'})
+          
             }
 			
             const error = { ...data }
