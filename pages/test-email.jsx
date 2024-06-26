@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function test() {
     async function test() {
-        fetch("/api/emails", {method:'POST'})
+        await fetch("/api/emails", {method:'POST'})
     }    
   return (
     <div className='p-10 text-center '>
