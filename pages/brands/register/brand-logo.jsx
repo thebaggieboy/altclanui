@@ -57,7 +57,7 @@ export default function BrandLogo() {
     }).then(r => r.json());
 
 
-    console.log("data: ", data)
+    console.log("data: ", data.url)
 
     await updateFn({ brand_logo: data.url })
 

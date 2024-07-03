@@ -22,15 +22,7 @@ export default function Bio() {
 
 	}, [brand_user]);
 
-	useEffect(() => {
-		if (brand_user[0]?.brand_name !== "" && brand_user[0]?.brand_Logo == "" ) {
-			router.push("/brands/register/brand-logo/");
-		}
-		if (brand_user[0]?.brand_name !== "" && brand_user[0]?.brand_Logo !== "" ) {
-			router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`);
-		}
-
-	}, [brand_user]);
+	
 
 	return (
 		<BrandSignupForm />
