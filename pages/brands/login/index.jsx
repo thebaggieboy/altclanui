@@ -14,6 +14,9 @@ import {selectToken, setToken} from "../../../features/token/tokenSlice";
 import {selectBrandToken, setBrandToken} from "../../../features/brand_token/brandTokenSlice";
 import useLogin from '../../../hooks/useLogin';
 
+import { Resend } from 'resend';
+
+
 
 
 export default function Login(req, res) {
@@ -45,10 +48,13 @@ export default function Login(req, res) {
         console.log("Brand : ", brand_user[0])
         console.log("Brand Count: ", brand_user.length)
         console.log("Brand Name: ", brand_user[0]?.brand_name)
-        router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`);
+        router.push('/brands/register/brand-bio')
+       
     }else{
         router.push(`/brands/login`)
     }
+
+    
  }, [brand_user, brand])
 
 
@@ -98,6 +104,9 @@ export default function Login(req, res) {
         
             await loginFn(formData)
             loginSuccess()
+            await fetch('/api/emails', {method:'POST'})
+          
+	  
         } catch (error) {
             console.log(error)
         }

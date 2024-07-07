@@ -14,11 +14,10 @@ import useMerch from "../../hooks/useMerch"
 import useData from "../../hooks/useData";
 import { jwtDecode } from "jwt-decode";
 
-import { Resend } from 'resend';
-
 import SignupSuccess from "../../components/EmailTemplates/SignupSuccess";
 
-
+import { Resend } from 'resend';
+ 	
 
 export function LoginError() {
 	return (
@@ -56,24 +55,6 @@ export default function SignUp() {
     const resend = new Resend('re_RdTjmbKL_9oa6oPS4MTWTNs3KdXNgZDXi');
 
 
-	 async function sendEmail() {
-		try {
-		  const { data, error } = await resend.emails.send({
-			from: 'Altclan <onboarding@resend.dev>',
-			to: [user],
-			subject: 'Signup Success',
-			react: SignupSuccess,
-		  });
-	  
-		  if (error) {
-			return Response.json({ error }, { status: 500 });
-		  }
-	  
-		  return Response.json(data);
-		} catch (error) {
-		  return Response.json({ error }, { status: 500 });
-		}
-	  }
 
 	const signupSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
 		<svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -141,8 +122,9 @@ export default function SignUp() {
 			//
 			await loginFn(formData)
 			loginSuccess()
-		
-	  
+			
+			await fetch('/api/emails', {method:'POST'})
+          
 		} catch (error) {
 			console.log(error)
 			setFormErr(error)

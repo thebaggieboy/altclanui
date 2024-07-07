@@ -42,7 +42,7 @@ export default function HeaderTab() {
       <Link href="/products" className={styles.a}>Explore</Link>
       <Link href="/coming-soon" className={styles.a}> Communities
 </Link>
-   
+<Link href="/coming-soon" className={styles.a}>Auctions</Link>
       <Link href="/collections" className={styles.a}>Categories</Link>
     </div>
     

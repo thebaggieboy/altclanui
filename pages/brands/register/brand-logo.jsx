@@ -7,7 +7,7 @@ import styles from "../../../styles/brand-bio.module.css";
 import useUpdateProfileData from '../../../hooks/useUpdateProfileData';
 import Loader from "../../../components/Loader"
 import { create } from 'domain';
-import { selectUser } from '../../../features/user/userSlice';
+import { selectUser, setUser } from '../../../features/user/userSlice';
 export default function BrandLogo() {
 
   //const data = [];
@@ -26,7 +26,7 @@ export default function BrandLogo() {
 
   const brandUserData = brand_user;
 
-  const { isPending, error, mutateAsync: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setBrandUser)
+  const { isPending, error, mutateAsync: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1.onrender.com/api/brand_users/", brandUserData?.id, setUser)
 
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
@@ -51,17 +51,17 @@ export default function BrandLogo() {
     
     console.log("Image URL: ", createObjectURL)
 
-    const data = await fetch('https://api.cloudinary.com/v1/baggieboy/image/upload', {
+    const data = await fetch('https://api.cloudinary.com/v1_1/baggieboy/image/upload', {
       method: 'POST',
       body: formData
     }).then(r => r.json());
 
 
-    console.log("data: ", data)
+    console.log("data: ", data.url)
 
     await updateFn({ brand_logo: data.url })
 
-    router.push(`/brands/profile/${brand_user?.id}?brand=${brand_user?.brand_name}`)
+    router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`)
   };
 
 

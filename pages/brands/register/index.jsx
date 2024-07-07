@@ -13,11 +13,10 @@ import useDjoserSignup from "../../../hooks/useDjoserSignup";
 
 import SignupSuccess from "../../../components/EmailTemplates/SignupSuccess";
 
+  
+
 import { Resend } from 'resend';
-
-
-const resend = new Resend('re_RdTjmbKL_9oa6oPS4MTWTNs3KdXNgZDXi');
-
+import Welcome from "../../../emails/Welcome";
 
 export async function sendEmail() {
 	try {
@@ -54,7 +53,7 @@ export function LoginError() {
 export default function SignUp() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
-	sendEmail()
+	
 	if (user !== null) {
 		router.push("/products");
 	}
@@ -89,7 +88,7 @@ export default function SignUp() {
 	}
 	function signUpSuccess() {
 		console.log("Redirecting to login page")
-		router.push("/brands/login?user=success")
+		router.push("/brands/register/brand-bio?user=success")
 	}
 	const submit = async (e) => {
 		
@@ -105,7 +104,7 @@ export default function SignUp() {
 
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password:password1, brand_name:'', brand_bio:'', brand_type:'', brand_logo:null}),
+                body: JSON.stringify({ email, password:password1}),
                 credentials: "include"
 
             })
@@ -115,8 +114,8 @@ export default function SignUp() {
 				console.log("New BRAND User Registered.")
 				console.log(data)
 				signUpSuccess()
-                
-                
+				await fetch('/api/emails', {method:'POST'})
+          
             }
 			
             const error = { ...data }

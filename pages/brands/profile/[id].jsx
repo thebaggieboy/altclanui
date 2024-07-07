@@ -41,7 +41,8 @@ const client = useQueryClient()
 
 if (brand_user == null) {
   router.push("/brands/login");
-}
+} 
+
   
 useEffect(() => {
   if(token !== null){
@@ -58,6 +59,8 @@ useEffect(() => {
     //getOrder()
     
 }, [])
+
+
 
 
 async function fetchProfile() {
