@@ -17,6 +17,7 @@ import SignupSuccess from "../../../components/EmailTemplates/SignupSuccess";
 
 import { Resend } from 'resend';
 import Welcome from "../../../emails/Welcome";
+import { selectUserEmail, setUserEmail } from "../../../features/user/userActiveEmail";
 
 export async function sendEmail() {
 	try {
@@ -53,7 +54,8 @@ export function LoginError() {
 export default function SignUp() {
 	const user = useSelector(selectUser);
 	const router = useRouter();
-	
+	const user_email = useSelector(selectUserEmail);
+	 const dispatch = useDispatch();
 	if (user !== null) {
 		router.push("/products");
 	}
@@ -86,9 +88,16 @@ export default function SignUp() {
 		})
 
 	}
+	async function loginEmail(){
+		dispatch(setUserEmail(formData?.email))
+		console.log("User Email: ", user_email)
+	
+	}
+	loginEmail()
+	
 	function signUpSuccess() {
 		console.log("Redirecting to login page")
-		router.push("/brands/register/brand-bio?user=success")
+		router.push("/brands/login?user=success")
 	}
 	const submit = async (e) => {
 		
@@ -113,6 +122,7 @@ export default function SignUp() {
             if (res.status >= 200 & res.status <= 209) {
 				console.log("New BRAND User Registered.")
 				console.log(data)
+				//await signUpFn(formData)	
 				signUpSuccess()
 				await fetch('/api/emails', {method:'POST'})
           

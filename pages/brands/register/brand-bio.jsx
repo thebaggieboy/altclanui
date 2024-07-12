@@ -16,9 +16,7 @@ export default function Bio() {
 
 
 	useEffect(() => {
-		if (brand_user === null) {
-			router.push("/brands/register");
-		}
+		
 
 	}, [brand_user]);
 

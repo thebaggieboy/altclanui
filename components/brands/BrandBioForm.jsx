@@ -16,9 +16,10 @@ const  BrandBioForm = (props) => {
 
   const brandUserData = useSelector(selectUser);
   const router = useRouter()
-  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData?.id, setUser)
+  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData[0]?.id, setUser)
 
   const [formData, setFormData] = useState({
+  
     brand_name: "",
     brand_bio: "",
     brand_type: "",
@@ -27,7 +28,7 @@ const  BrandBioForm = (props) => {
 
   })
 
-  const { brand_name, brand_bio, brand_type, mobile_number,  } = formData
+  const {  brand_name, brand_bio, brand_type, mobile_number,  } = formData
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target
@@ -46,8 +47,6 @@ const  BrandBioForm = (props) => {
   const updateProfile = (e) => {
     e.preventDefault()
     updateFn(formData)
-   
-    console.log("Brand Bio Form Submit clicked")
     console.log(formData)
     router.push('/brands/register/brand-logo')
   }

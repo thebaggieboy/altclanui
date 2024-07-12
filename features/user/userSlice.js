@@ -22,7 +22,7 @@ export const { setUser, setUserType } = userSlice.actions
 
 
 //selectors
-export const selectUser = mainState => mainState.user.user
+export const selectUser = mainState => mainState.user?.user
 export const selectUserType = mainState => mainState.user.user?.user_type
 
 export default userSlice.reducer

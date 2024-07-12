@@ -13,7 +13,7 @@ const useUpdateProfileData = (url, id, successCallback, actionFn) => {
     const mutation = useMutation({
         mutationFn: async (newData) => {
             try {
-                const res = await fetch(`${url}${id}/`, {
+                const res = await fetch(`${url}${user[0]?.id}/`, {
                     method: "PUT",
                     body: JSON.stringify({ ...newData }),
                     headers: {
@@ -25,6 +25,7 @@ const useUpdateProfileData = (url, id, successCallback, actionFn) => {
 
                 if (res.status >= 200 && res.status <= 209) {
                     return data
+                    console.log("Update Successful! ")
                 }
 
                 const err = { ...data }
