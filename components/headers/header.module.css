@@ -39,17 +39,21 @@
         background-color: beige;
         position: fixed;
         width: 100%;
-        z-index: 1000;
         display: flex;
         justify-content: center;
         align-items: center;
         transition: background-color 0.3s;
+    }
+
+    .headerscroll{
+        z-index: 101 !important;
     }
     
     .navbar.scrolled {
         background-color: beige;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         top: 0%;
+        z-index: 100;
     }
     
     .navbar .a {
