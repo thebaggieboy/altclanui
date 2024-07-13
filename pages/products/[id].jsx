@@ -5,6 +5,7 @@ import { ProductContext } from "../../context/ProductContext";
 import { CartContext } from "../../context/CartContext";
 import useData from "../../hooks/useData";
 import { addItem } from "../../features/shop/shopSlice";
+import { addItem as addWishListItem } from "../../features/wishlist/wishListSlice";
 import Link from "next/link";
 import { QueryClient, useQueryClient } from "@tanstack/react-query";
 import fetchProductData from '../../lib/fetchProductData'
@@ -88,6 +89,21 @@ export default function ProductDetail({ _id, merch }) {
 		dispatch(addItem(data));
 	}
 
+	function addToWishList() {
+		setSuccessText("Item added to wishlist")
+		setAdded(true)
+
+		console.log(added)
+		console.log(successText)
+		const data = {
+			itemId: merch.id,
+			size: selectedSize,
+			color: selectedColor.name,
+			qty: 1,
+			price: merch.price,
+		};
+		dispatch(addWishListItem(data));
+	}
 	const router = useRouter()
 	const [formData, setFormData] = useState({
 	  email: user !== null || user!==""  ? user?.email : "guest",
@@ -206,7 +222,7 @@ export default function ProductDetail({ _id, merch }) {
                         <button onClick={addToCart}  class="w-full bg-gray-900 dark:bg-gray-600 text-white text-sm py-4 px-4  font-bold hover:bg-black dark:hover:bg-gray-700">Add to Cart</button>
                     </div>
                     <div class="w-1/2 px-2">
-                        <button style={{fontWeight:"bold", backgroundColor:"beige", border:"1px solid black"}} class="w-full text-sm  dark:bg-gray-700 text-black dark:text-white py-4 px-4 font-bold  dark:hover:bg-gray-600">Add to Wishlist</button>
+                        <button onClick={addToWishList} style={{fontWeight:"bold", backgroundColor:"beige", border:"1px solid black"}} class="w-full text-sm  dark:bg-gray-700 text-black dark:text-white py-4 px-4 font-bold  dark:hover:bg-gray-600">Add to Wishlist</button>
                     </div>
                 </div>
             </div>

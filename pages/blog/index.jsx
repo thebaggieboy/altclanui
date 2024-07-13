@@ -30,6 +30,23 @@ export default function Blog() {
 	
 	}, [user])
 
+  if(data?.length < 1 ){
+    return(
+      <div className="p-10 mt-5 text-lg border shadow-sm" style={{fontFamily:'Poppins'}}>
+      <p>No Articles Posted Yet! </p>
+    </div>
+    )
+  }
+
+  
+  if(data == undefined || data == null ){
+    return(
+      <div className="p-10 mt-5 text-lg border shadow-sm" style={{fontFamily:'Poppins'}}>
+        <p>No Articles or <span className="text-red-400">Network Timeout!</span> <br /> Please refresh the page and try again</p>
+      </div>
+    )
+  }
+
     if (loading) {
         return (
           <div role="status" className="p-10 text-center  ml-30 mr-30">

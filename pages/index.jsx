@@ -138,7 +138,7 @@ export default function Home() {
       possibilities.
     </p>
     <a class="mt-8 rounded-md bg-yellow-100 px-5 py-2.5 text-base font-semibold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
-      href="#">Claim Your 15% off Adventure!</a>
+      href="#">Claim Your 15% off!</a>
   </div>
 </div>
        
