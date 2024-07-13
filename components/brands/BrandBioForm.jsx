@@ -16,19 +16,20 @@ const  BrandBioForm = (props) => {
 
   const brandUserData = useSelector(selectUser);
   const router = useRouter()
-  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api.onrender.com/api/brand_users/", brandUserData[0]?.id, setUser)
+  const { isPending, error, mutate: updateFn, data } = useUpdateProfileData("https://altclan-brands-api-1-1.onrender.com/api/users/", brandUserData[0]?.id, setUser)
 
   const [formData, setFormData] = useState({
-  
+    email: brandUserData[0].email,
     brand_name: "",
     brand_bio: "",
     brand_type: "",
     mobile_number:"",
+    brand_logo:null
    
 
   })
 
-  const {  brand_name, brand_bio, brand_type, mobile_number,  } = formData
+  const {  brand_name, brand_bio, brand_type, mobile_number, brand_logo  } = formData
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target
@@ -46,9 +47,9 @@ const  BrandBioForm = (props) => {
  
   const updateProfile = (e) => {
     e.preventDefault()
-    updateFn(formData)
-    console.log(formData)
-    router.push('/brands/register/brand-logo')
+    updateFn(formData)  
+  
+   router.push('/brands/register/brand-logo')
   }
 
   if (isPending) {
@@ -78,7 +79,7 @@ const  BrandBioForm = (props) => {
               </div>
             </div>
 
-            <form className={styles.form} onSubmit={updateProfile}>
+            <form className={styles.form} >
 
               
 
@@ -124,7 +125,7 @@ const  BrandBioForm = (props) => {
 
               </div>
 
-              <button type='submit' className={styles.submit}>
+              <button onClick={updateProfile} className={styles.submit}>
                 {isPending ? <Loader /> : "Submit"}
               </button>
 

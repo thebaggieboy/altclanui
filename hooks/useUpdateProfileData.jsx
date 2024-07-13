@@ -24,7 +24,7 @@ const useUpdateProfileData = (url, id, successCallback, actionFn) => {
                 const data = await res.json()
 
                 if (res.status >= 200 && res.status <= 209) {
-                    return data
+                   
                     console.log("Update Successful! ")
                 }
 

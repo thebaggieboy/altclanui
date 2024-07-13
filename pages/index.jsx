@@ -115,31 +115,19 @@ export default function Home() {
             <ShopDiv />
        
             <Altcoin/>
-            <section class="relative overflow-hidden bg-gray-100">
-  <img class="absolute top-0 h-full w-full object-cover object-center opacity-30" src="/images/ZbQYxs58uj_TXVLLRtSaa.png" />
-
-  <div class="bg-white/60 relative mx-auto flex h-full w-full flex-col items-center justify-center px-4 py-12 backdrop-blur-md sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-    <h2 class="-mx-4 px-4 pt-4 pb-6 text-3xl text-blue-600 sm:text-4xl xl:text-5xl">Our <span class="font-bold">Growth</span></h2>
-
-    <div class="mx-auto grid max-w-screen-lg grid-cols-1 gap-y-4 gap-x-8 text-center sm:mt-12 sm:text-left md:grid-cols-3">
-      <div class="bg-white/10 relative mb-3 rounded-3xl border px-12 py-10 text-left shadow backdrop-blur-lg lg:px-12">
-        <p class="relative text-3xl font-black text-blue-600 sm:text-5xl">25M</p>
-        <p class="relative mt-5 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque vel</p>
-      </div>
-
-      <div class="bg-white/10 relative mb-3 rounded-3xl border px-12 py-10 text-left shadow backdrop-blur-lg lg:px-12">
-        <p class="relative text-3xl font-black text-blue-600 sm:text-5xl">51%</p>
-        <p class="relative mt-5 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque vel</p>
-      </div>
-
-      <div class="bg-white/10 relative mb-3 rounded-3xl border px-12 py-10 text-left shadow backdrop-blur-lg lg:px-12">
-        <p class="relative text-3xl font-black text-blue-600 sm:text-5xl">8529+</p>
-        <p class="relative mt-5 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque vel</p>
-      </div>
-    </div>
+          <OurGrowth/>
+          <section class="bg-gray-900 overflow-visible my-0 py-24 mt-24"  style={{fontFamily:'Poppins, sans-serif', fontWeight:'bold'}}>
+  <div class="text-white items-center text-center flex flex-col">
+    <h2 class="font-bold text-2xl lg:text-4xl">Embark on an Aesthetic Adventure</h2>
+    <p class="mx-auto mt-6 max-w-xl text-lg md:text-xl leading-8" style={{color:'beige'}}>
+      Take a thrilling journey through our product's features. Book an adventurous demo and discover endless
+      possibilities.
+    </p>
+    <a class="mt-8 rounded-md bg-white px-5 py-2.5 text-base font-semibold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
+      href="#">Claim Your 15% off Adventure! Start Now</a>
   </div>
 </section>
-
+          <TrendingMerch/>
 
             <br />
           
