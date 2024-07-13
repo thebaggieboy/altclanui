@@ -14,6 +14,9 @@ export default function Bio() {
 	const brand_user = useSelector(selectUser);
 	const router = useRouter();
 
+	if (brand_user === null) {
+		router.push("/brands/login");
+	}
 
 	useEffect(() => {
 		

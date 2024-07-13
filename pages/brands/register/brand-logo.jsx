@@ -101,8 +101,18 @@ export default function BrandLogo() {
           <button type='submit' onClick={uploadToServer} className={styles.submit}>
             {isPending ? <Loader /> : "Submit"}
           </button>
+
+        
+
+          
+
         </div>
 
+<div className="mt-10">
+<a href={`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`} className='text-center mt-5 text-blue-700 underline'>
+            Skip for now
+          </a>
+</div>
 
 
 
