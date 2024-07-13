@@ -28,15 +28,19 @@
     font-size: 35px;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 2px;
+  
+    letter-spacing: 3px;
+    line-height: 180%;
 }
 
 .container a{
     font-weight: 200;
     text-transform: uppercase;
-    letter-spacing: 1px;
+ 
     color: red;
     border-bottom: 1px solid red;
+    letter-spacing: 3px;
+    line-height: 180%;
 }
 
 .column {
@@ -57,4 +61,6 @@
     margin: auto;
     margin-top: 5%;
     margin-bottom: 5%;
+    letter-spacing: 3px;
+    line-height: 180%;
 }

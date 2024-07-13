@@ -55,6 +55,14 @@
   padding: 6rem;
   min-height: 100vh;
 }
+.discountCard {
+  font-family:'Poppins';
+  font-weight:'bold';
+  background-image:url('/images/sofa.jpg');
+  background-size:cover;
+  padding:180px;
+}
+
 .aestheticAdventure {
   font-family:'Poppins';
   font-weight:'bold';
@@ -227,7 +235,7 @@
 
 @media (max-width: 700px) {
   .aestheticAdventure {
-    font-family:'Poppins;
+    font-family:'Poppins,';
     font-weight:'bold';
     background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
     background-size:cover;
@@ -488,7 +496,7 @@ div.scrollImages a {
     overflow-y: hidden;
   }
   .aestheticAdventure {
-    font-family:'Poppins';
+    font-family:'Poppins,';
     font-weight:'bold';
     background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
     background-size:cover;
@@ -1107,8 +1115,15 @@ div.scrollImages a {
     padding: 10px;
     text-align: left;
   }
+  .discountCard {
+    font-family:'Poppins,';
+    font-weight:'bold';
+    background-image:url('/images/sofa.jpg');
+    background-size:cover;
+    padding:60px;
+  }
   .aestheticAdventure {
-    font-family:'Poppins';
+    font-family:'Poppins,';
     font-weight:'bold';
     background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
     background-size:cover;
@@ -1593,7 +1608,7 @@ div.scrollImages a {
   .Category .button{
     padding: 20px 0px 0px 0px;
     letter-spacing: 1px;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 0.8em;
   }
@@ -1602,4 +1617,6 @@ div.scrollImages a {
 .mainComponents{
   max-width: 100%;
   margin: auto;
+  letter-spacing: 3px;
+  line-height: 180%;
 }

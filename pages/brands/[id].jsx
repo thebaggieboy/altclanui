@@ -131,14 +131,14 @@ throw error
                 {brand.brand_bio}
               </p> 
               <p className='mt-4' style={{fontWeight:'bolder', fontSize:14}}>
-               {brand?.followers.length} Followers
+               {brand?.followers?.length} Followers
               </p>
               
 							<button
-								onClick={!brand?.followers.includes(user[0]?.email) ? followBrand : unFollowBrand}
-								className={!brand?.followers.includes(user[0]?.email) ? "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-black text-base font-medium text-white  focus:ring-black focus:ring-offset-2" : "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-white text-base font-medium text-black  focus:ring-white focus:ring-offset-2"}
+								onClick={!brand?.followers?.includes(user?.[0]?.email) ? followBrand : unFollowBrand}
+								className={!brand?.followers?.includes(user?.[0]?.email) ? "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-black text-base font-medium text-white  focus:ring-black focus:ring-offset-2" : "mt-3 p-1 flex w-full items-center justify-center rounded-md border border-black bg-white text-base font-medium text-black  focus:ring-white focus:ring-offset-2"}
 							>
-							 {!brand?.followers.includes(user[0]?.email) ? 'Follow' : 'Unfollow'} 
+							 {!brand?.followers?.includes(user?.[0]?.email) ? 'Follow' : 'Unfollow'} 
 							</button>
               <br/>
             </div>

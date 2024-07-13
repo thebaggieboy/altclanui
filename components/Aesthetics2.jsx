@@ -25,6 +25,13 @@ const data = [
 		"aesthetic_image":"/images/mystery-box.jpg",
 		
 	},
+
+	{
+		"id":4,
+		"aesthetic_name":"Decors",
+		"aesthetic_image":"/bg-images/white-modern-vases-arrangement.jpg",
+		
+	},
 ]
 
 export default function Aesthetics2() {

@@ -111,8 +111,19 @@ export default function Home() {
       
             <Aesthetics2/>
             <Category />
-            <ShopDiv />
+            <section class="overflow-visible my-0  p-10">
+          <div className={styles.discountCard}>
+  <div class="text-black items-center text-center flex flex-col">
+    <h2 class="font-bold text-2xl lg:text-4xl">Get Up to 70% off</h2>
+    
+    <a class="mt-8 rounded-md bg-yellow-100 px-5 py-2.5 text-base font-bold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
+      href="#">Get Started Now</a>
+  </div>
+</div>
        
+          </section>
+            <ShopDiv /> <br />
+         
             <Altcoin/>
           <OurGrowth/>
           <section class="overflow-visible my-0  p-10">

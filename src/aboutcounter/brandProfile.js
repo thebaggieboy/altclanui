@@ -29,22 +29,19 @@ useEffect(() => {
     setSearchQuery(brand)
   }
 
-}, [searchQuery, brand])
+}, [brand_user])
 
   const { data, loading, error, isLoading } = useMerch('https://altclan-brands-api-1-1.onrender.com/api/merchandises/')
   const { dataOrder, loadingOrder, errorOrder, isLoadingOrder } = useOrder('https://altclan-api-v1.onrender.com/api/orders/')
   const results = data?.filter((product) => product?.brand_name?.toLowerCase().includes(searchQuery?.toLowerCase()) );
   const orderResults = dataOrder?.filter((order) => order?.brand_name.toLowerCase().includes(orderQuery?.toLowerCase()) );
   
-
-
-console.log("Search Results for ", results)
 console.log("Order Results for ", orderResults)
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
-  console.log('Brand: ', brand)
+  
   if (isLoading) {
     return (
       <div role="status" className="p-10 mt-32 text-center min-h-[20vh] grid place-items-center ml-30 mr-30">
@@ -66,8 +63,6 @@ console.log("Order Results for ", orderResults)
       </div>
     );
   }
-  console.log("Data: ", data)
-
   return (
     <div>
       <Tab.Group>

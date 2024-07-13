@@ -59,7 +59,7 @@ export default function BrandLogo() {
 
     console.log("data: ", data.url)
 
-    await updateFn({ brand_logo: data.url })
+    await updateFn({ email:brand_user[0]?.email, brand_logo: data.url })
 
     router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`)
   };
