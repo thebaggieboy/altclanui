@@ -18,6 +18,10 @@ export default function Bio() {
 	const brand_user = useSelector(selectBrandUser);
 	const router = useRouter();
 
+  if(brand_user == null)  {
+    router.push("/accounts/login")
+  }
+
 
 
 

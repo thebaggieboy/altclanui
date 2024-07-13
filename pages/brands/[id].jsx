@@ -40,6 +40,7 @@ export default function BrandProfile({id, brand}) {
   const [formErr, setFormErr] = useState()
   const [formData, setFormData] = useState({
 		followers: "",
+    
 	
 	})
 

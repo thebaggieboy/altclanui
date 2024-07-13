@@ -157,15 +157,15 @@ const [resource, setResource] = useState();
   console.log("Form Data: ", formData)
   const updateMerchandise = async (e) => {
     e.preventDefault()
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append("upload_preset", 'altclan-unsigned')
+    const formData2 = new FormData();
+    formData2.append("file", image);
+    formData2.append("upload_preset", 'altclan-unsigned')
     
     console.log("Image URL: ", createObjectURL)
 
     const data = await fetch('https://api.cloudinary.com/v1_1/dcczh5vz4/image/upload', {
       method: 'POST',
-      body: formData
+      body: formData2
     }).then(r => r.json());
 
 

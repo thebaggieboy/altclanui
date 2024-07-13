@@ -219,7 +219,7 @@ export default function HeaderNav() {
 
 
 	return (
-		<div style={{fontFamily:'Poppins, sans-serif', color:"black"}} className="sticky top-0 z-50 bg-white">
+		<div style={{fontFamily:'Poppins, sans-serif', color:"black"}} className="sticky top-0 z-50 bg-white text-black">
 			{/* Mobile menu */}
 			<Transition.Root show={open} as={Fragment}>
 				<Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -340,7 +340,7 @@ export default function HeaderNav() {
 													<div key={section.name}>
 														<p
 															id={`${category.id}-${section.id}-heading-mobile`}
-															className="font-medium text-gray-900"
+															className="font-medium text-black"
 														>
 															{section.name}
 														</p>
