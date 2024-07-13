@@ -62,7 +62,7 @@ export default function Home() {
       {loading ? <Preloader /> :
         <>
           <Head>
-            <title>Altclan - Community of alternative clothing.</title>
+            <title>Altclan - Community of aesthetics.</title>
             <meta charset="UTF-8" />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
@@ -81,7 +81,7 @@ export default function Home() {
           <div style={{fontFamily:'Poppins, sans-serif'}} className={styles.mainComponents}>
             <div className="grid text-white place-items-center">
               <CarouselWrapper
-                autoplay={{ delay: 2500 }}
+                autoplay={{ delay: 500 }}
                 disableOnInteraction={false}
                 pagination={true}
                 className="hero-carousel col-start-1 col-end-2 row-start-1 row-end-2"
@@ -90,6 +90,9 @@ export default function Home() {
                 <Image src="/img/black-guy-1-compressed.jpg" fill alt="hero-umg" />
                 <Image src="/img/natalie-hua-compressed.jpg" fill alt="hero-umg" />
                 <Image src="/img/b-shah-compressed.jpg" fill alt="hero-umg" />
+                <Image src="/img/bag (2).jpg" fill alt="hero-umg" />
+                <Image src="/images/decors.webp" fill alt="hero-umg" />
+                <Image src="/img/robbie-noble.jpg" fill alt="hero-umg" />
               </CarouselWrapper>
               <div className="w-full h-full p-3 bg-black/40 flex flex-col items-center justify-center gap-y-8  col-start-1 col-end-2 row-start-1 row-end-2 z-[2]">
                 
@@ -112,15 +115,15 @@ export default function Home() {
             <Aesthetics2/>
             <Category />
             <section class="overflow-visible my-0  p-10">
-          <div className={styles.discountCard}>
-  <div class="text-black items-center text-center flex flex-col">
-    <h2 class="font-bold text-2xl lg:text-4xl">Get Up to 70% off</h2>
-    
-    <a class="mt-8 rounded-md bg-yellow-100 px-5 py-2.5 text-base font-bold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
-      href="#">Get Started Now</a>
-  </div>
-</div>
-       
+             <div className={styles.discountCard}>
+                  <div class="text-black items-center text-center flex flex-col">
+                    <h2 class="font-bold text-2xl lg:text-4xl">Get Up to 70% off</h2>
+                    
+                    <a class="mt-8 rounded-md bg-yellow-100 px-5 py-2.5 text-base font-bold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
+                      href="#">Get Started Now</a>
+                  </div>
+                </div>
+            
           </section>
             <ShopDiv /> <br />
          
@@ -140,8 +143,9 @@ export default function Home() {
 </div>
        
           </section>
-     <TrendingMerch/>
-     <TrendingBrands/>
+
+          <TrendingMerch/>
+          <TrendingBrands/>
 
             <br />
           
