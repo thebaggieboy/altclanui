@@ -56,7 +56,7 @@
   min-height: 100vh;
 }
 .aestheticAdventure {
-  font-family:'Poppins, Sans-serif';
+  font-family:'Poppins';
   font-weight:'bold';
   background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
   background-size:cover;
@@ -227,7 +227,7 @@
 
 @media (max-width: 700px) {
   .aestheticAdventure {
-    font-family:'Poppins, sans-serif';
+    font-family:'Poppins;
     font-weight:'bold';
     background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
     background-size:cover;
@@ -488,7 +488,7 @@ div.scrollImages a {
     overflow-y: hidden;
   }
   .aestheticAdventure {
-    font-family:'Poppins, sans-serif';
+    font-family:'Poppins';
     font-weight:'bold';
     background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
     background-size:cover;
@@ -1108,7 +1108,7 @@ div.scrollImages a {
     text-align: left;
   }
   .aestheticAdventure {
-    font-family:'Poppins, sans-serif';
+    font-family:'Poppins';
     font-weight:'bold';
     background-image:url('/bg-images/different-modern-vases-with-blue-red-light.jpg');
     background-size:cover;
@@ -1593,7 +1593,7 @@ div.scrollImages a {
   .Category .button{
     padding: 20px 0px 0px 0px;
     letter-spacing: 1px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 300;
     font-size: 0.8em;
   }
