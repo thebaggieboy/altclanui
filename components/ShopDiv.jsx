@@ -39,7 +39,7 @@ export default function ShopDiv() {
 
         <div className={styles.shopColum}>
           <div className={styles.shopBox}>
-            <img src="/img/dami-adebayo-brands.jpg" alt=""/>
+            <img src="/img/baggy.webp" alt=""/>
             <div className={styles.shopContent}>
               <h1>
                 SHOP BRANDS

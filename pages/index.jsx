@@ -81,7 +81,7 @@ export default function Home() {
           <div style={{fontFamily:'Poppins, sans-serif'}} className={styles.mainComponents}>
             <div className="grid text-white place-items-center">
               <CarouselWrapper
-                autoplay={{ delay: 500 }}
+                autoplay={{ delay: 2000 }}
                 disableOnInteraction={false}
                 pagination={true}
                 className="hero-carousel col-start-1 col-end-2 row-start-1 row-end-2"
@@ -125,7 +125,7 @@ export default function Home() {
                 </div>
             
           </section>
-            <ShopDiv /> <br />
+            <ShopDiv />
          
             <Altcoin/>
           <OurGrowth/>
@@ -137,8 +137,8 @@ export default function Home() {
       Take a thrilling journey through our product's features. Book an adventurous demo and discover endless
       possibilities.
     </p>
-    <a class="mt-8 rounded-md bg-white px-5 py-2.5 text-base font-semibold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
-      href="#">Claim Your 15% off Adventure! Start Now</a>
+    <a class="mt-8 rounded-md bg-yellow-100 px-5 py-2.5 text-base font-semibold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
+      href="#">Claim Your 15% off Adventure!</a>
   </div>
 </div>
        
