@@ -32,8 +32,7 @@ import Altcoin from "../components/Altcoin";
 import Aesthetics from "../components/Aesthetics";
 import Aesthetics2 from "../components/Aesthetics2";
 import { OurGrowth } from "../components/OurGrowth";
-
-
+ 
 
 const brands = [1, 2, 3, 4]
 const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -116,18 +115,21 @@ export default function Home() {
        
             <Altcoin/>
           <OurGrowth/>
-          <section class="bg-gray-900 overflow-visible my-0 py-24 mt-24"  style={{fontFamily:'Poppins, sans-serif', fontWeight:'bold'}}>
+          <section class="overflow-visible my-0  p-10">
+          <div className={styles.aestheticAdventure}>
   <div class="text-white items-center text-center flex flex-col">
-    <h2 class="font-bold text-2xl lg:text-4xl">Embark on an Aesthetic Adventure</h2>
-    <p class="mx-auto mt-6 max-w-xl text-lg md:text-xl leading-8" style={{color:'beige'}}>
+    <h2 class="font-extralight text-2xl lg:text-4xl">Embark on an Aesthetic Adventure</h2>
+    <p class="mx-auto mt-6 max-w-xl text-xs md:text-xl  text-yellow-100" >
       Take a thrilling journey through our product's features. Book an adventurous demo and discover endless
       possibilities.
     </p>
     <a class="mt-8 rounded-md bg-white px-5 py-2.5 text-base font-semibold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
       href="#">Claim Your 15% off Adventure! Start Now</a>
   </div>
-</section>
-          <TrendingMerch/>
+</div>
+       
+          </section>
+     <TrendingMerch/>
 
             <br />
           
