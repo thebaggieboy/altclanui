@@ -108,8 +108,8 @@ export default function BrandLogo() {
 
         </div>
 
-<div className="mt-10">
-<a href={`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`} className='text-center mt-5 text-blue-700 underline'>
+<div className="mt-4 flex text-center" style={styles.link}>
+<a href={`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`} style={{textAlign:'center'}} className='text-center mt-5 text-blue-700 underline'>
             Skip for now
           </a>
 </div>

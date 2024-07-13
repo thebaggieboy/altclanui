@@ -69,7 +69,19 @@
     margin-right: 25%;
     margin-top: 5%;
 }
-
+.link {
+    background-color: #fff;
+    color: #000;
+    
+    padding: 12px 20px;
+ 
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+}
 .alternative {
     padding-left: 25%;
     padding-top: 2%;
