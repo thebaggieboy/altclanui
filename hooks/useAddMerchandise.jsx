@@ -8,11 +8,11 @@ const useAddMerchandise = (url, successCallback, userType) => {
     const brand = useSelector(selectUser)
     const router= useRouter()
     const mutation = useMutation({
-        mutationFn: async ({brand_name, merchandise_name, merchandise_type, merchandise_gender, discount_price, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }) => {
+        mutationFn: async ({brand_name, merchandise_name, merchandise_type, merchandise_gender, discount_price, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, available_colors, price }) => {
                 
                 const res = await fetch(url, {
                     method: "POST",
-                    body: JSON.stringify({brand_name, merchandise_name, merchandise_type, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, price }),
+                    body: JSON.stringify({brand_name, merchandise_name, merchandise_type, labels, merchandise_description, merchandise_details, display_image, size_type, available_sizes, available_colors, price }),
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -22,7 +22,8 @@ const useAddMerchandise = (url, successCallback, userType) => {
              
 
                 if (res.status >= 200 && res.status <= 209) {
-                    console.log("Merchh add successful")
+                    console.log("Merch add successful")
+                    console.log('merch data: ', data)
                     return data
                 }
 
@@ -34,7 +35,7 @@ const useAddMerchandise = (url, successCallback, userType) => {
             onSuccess: (data) => {
                 successCallback(brand)
                 //router.push(`/brands/profile/${brand.id}`)
-                console.log(data)
+               
             }
         
        

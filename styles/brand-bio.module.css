@@ -70,17 +70,17 @@
     margin-top: 5%;
 }
 .link {
-    background-color: #fff;
-    color: #000;
-    
+    background-color: black;
+    color: white;
+    border: 1px solid #000;
     padding: 12px 20px;
- 
+    border-radius: 5px;
     cursor: pointer;
     width: 50%;
     font-size: 14px;
     margin-left: 25%;
     margin-right: 25%;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .alternative {
     padding-left: 25%;

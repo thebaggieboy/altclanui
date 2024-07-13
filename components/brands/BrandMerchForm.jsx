@@ -77,7 +77,7 @@ const [resource, setResource] = useState();
 
   const [formErr, setFormErr] = useState(error)
   const [formData, setFormData] = useState({
-    brand_name: brand_user?.brand_name,
+    brand_name: brand_user[0]?.brand_name,
     merchandise_name: "",
     merchandise_type: "",
     labels: "",
@@ -150,11 +150,11 @@ const [resource, setResource] = useState();
         [name]: value
       }
     })
-    console.log("Form Data: ", formData)
+  
   }
 
   console.log("Image URl: ", image)
-
+  console.log("Form Data: ", formData)
   const updateMerchandise = async (e) => {
     e.preventDefault()
     const formData = new FormData();
@@ -175,7 +175,7 @@ const [resource, setResource] = useState();
       {
         brand_name: brand_user[0]?.brand_name,
         merchandise_name: formData?.merchandise_name,
-        size_type: sizeType,
+     
         labels: formData?.labels,
         merchandise_gender: formData?.merchandise_gender,
         merchandise_description: formData?.merchandise_description,
