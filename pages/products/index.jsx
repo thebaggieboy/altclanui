@@ -166,7 +166,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 
 	if (isLoading) {
 		return (
-			<div className="mt-5 p-5 text-center">
+			<div className="mt-5 p-5 text-center" style={{letterSpacing:2, lineHeight:'100%'}}>
 				
 				<br />
 
@@ -226,7 +226,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
     </svg>
     <span>Go back</span>
 </button>
-			<div>
+			<div style={{letterSpacing:3, lineHeight:'100%'}}>
 				{/* Mobile filter dialog */}
 				<Transition.Root show={mobileFiltersOpen} as={Fragment}>
 					<Dialog

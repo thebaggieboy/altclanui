@@ -20,6 +20,7 @@ export async function getServerSideProps(context) {
 	const id = context.params.id;
 	const data = await queryClient.fetchQuery({ queryKey: ["product", id], queryFn: () => fetchProductData(id) })
 	console.log(data, id)
+	 
 	return {
 		props: { merch: data },
 	};
@@ -72,6 +73,7 @@ export default function ProductDetail({ _id, merch }) {
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [open, setOpen] = useState(false);
 	const [added, setAdded] = useState(false);
+	const [isLoading, setIsLoading] = useState(true)
 	const [successText, setSuccessText] = useState("")
 	function addToCart() {
 		setSuccessText("Item added to cart")
@@ -183,11 +185,72 @@ export default function ProductDetail({ _id, merch }) {
 	  throw { err }
 	   
 	  }
-
+	  if (merch.length < 1) {
+		return (
+		  <>
+		  
+		  <Head>
+		   <title>Altclan - alternative fashion brands</title>
+				<meta charset="UTF-8" />
+				<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+				<meta
+				  name="description"
+				  content="Explore alternative fashion brands"
+				/>
+				  <meta name="keywords"
+						content="altclan, altclan login, login, altclan signup, login altclan" />
+						<meta name="author" content="Altclan"></meta>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<link rel="icon" href="/alteclan_logo.jpg" />
+				<script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>  
+	
+		   </Head> 
+	
+		  <div className="mt-5 p-5 text-center">
+		  <br />
+	
+		  <div
+			role="status"
+			className="animate-pulse space-y-8 md:flex md:items-center md:space-x-8 md:space-y-0"
+		  >
+			<div className="flex h-48 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700 sm:w-96">
+			  <svg
+				className="h-10 w-10 text-gray-200 dark:text-gray-600"
+				aria-hidden="true"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="currentColor"
+				viewBox="0 0 20 18"
+			  >
+				<path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+			  </svg>
+			</div>
+			<div className="w-full">
+			  <div className="mb-4 h-2.5 w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+			  <div className="mb-2.5 h-2 max-w-[480px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
+			  <div className="mb-2.5 h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+			  <div className="mb-2.5 h-2 max-w-[440px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
+			  <div className="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
+			  <div className="h-2 max-w-[360px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
+			</div>
+			<span className="sr-only">Loading...</span>
+		  </div>
+		</div>
+		</>
+		)
+	
+	  }
 
 	return (
 		<>
-	<div class="bg-white dark:bg-gray-800 py-8" style={{fontFamily:"Poppins, Sans-serif", lineHeight:1}}>
+	<div class="bg-white dark:bg-gray-800 py-8" style={{fontFamily:"Poppins, Sans-serif", lineHeight:'100%', letterSpacing:2}}>
+	<div className="ml-5 p-2">
+   <button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-black transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+    <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+    </svg>
+    <span>Go back</span>
+</button>
+   </div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
@@ -389,11 +452,13 @@ export default function ProductDetail({ _id, merch }) {
                 <div>
                     <span class=" text-black dark:text-gray-300">Product Description:</span>
                     <p class="text-black dark:text-gray-300 text-sm mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
-                        lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque
-                        ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
-                        sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+                      {merch?.merchandise_description}
+                    </p>
+                </div> <br /><hr /> <br />
+				<div>
+                    <span class=" text-black dark:text-gray-300">Product Details:</span>
+                    <p class="text-black dark:text-gray-300 text-sm mt-2">
+                      {merch?.merchandise_details}
                     </p>
                 </div>
             </div>
