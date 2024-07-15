@@ -69,7 +69,7 @@ export default function SignUp() {
 	
 
 	if (user !== null) {
-		sendEmail()
+	 
 		router.push("/products");
 		
 	}

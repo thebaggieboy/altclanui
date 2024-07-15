@@ -95,7 +95,7 @@ console.log("Order Results for ", orderResults)
                       price,
                     }) => (
                       <div key={id} className="group relative">
-                        <div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        <div className=" overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
                           <Link href={`/products/${id}`}>
                             <img
                               src={display_image}

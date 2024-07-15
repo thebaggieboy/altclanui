@@ -238,8 +238,8 @@ export default function ProductDetail({ _id, merch }) {
 		{successText}
 		</div>
 	  </div> : ""}
-                <h2 style={{fontFamily:"Poppins, Sans-Serif"}} class="text-4xl text-black font-bold dark:text-white mb-2">{merch.merchandise_name}</h2>
-				  <h6 style={{fontFamily:"Poppins, Sans-Serif", backgroundColor:"beige", padding:10, border:"1px solid black", width:130, fontSize:14, fontWeight:"bold", fontStyle:"oblique", borderRadius:50}} class="text-black dark:text-white mb-2">{merch.brand_name}</h6>
+                <h2 style={{fontFamily:"Poppins, Sans-Serif"}} class="text-4xl text-black font-bold dark:text-white mb-2">{merch.merchandise_name}</h2>BY
+				  <h3 style={{fontFamily:"Poppins, Sans-Serif", width:140, fontSize:16, fontStyle:'italic', textDecoration:'underline'}} class="text-black dark:text-white mb-2"><a>{merch.brand_name}</a></h3>
                 <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
 				{merch.details}
                 </p> <hr />
