@@ -74,7 +74,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 		if (searchQuery !== null) {
 			// If search query is present without gender specification
 			const label = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
-			const merchType = data?.filter((product) => product.merchandise_type.toLowerCase().includes(searchQuery.toLowerCase()) );
+			const merchType = data?.filter((product) => product.merchandise_type?.toLowerCase().includes(searchQuery.toLowerCase()) );
 		 
 			setMerchTypeResult(merchType);
 			setLabelResult(label)	 
@@ -112,8 +112,8 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 
 		if (searchQuery !== null && genderQuery!== null) {
 			const label = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
-			const merchType = data?.filter((product) => product.merchandise_type.toLowerCase().includes(searchQuery.toLowerCase()) );
-			const genderType = data?.filter((product) => product.merchandise_gender.toLowerCase().includes(genderQuery.toLowerCase()) );
+			const merchType = data?.filter((product) => product.merchandise_type?.toLowerCase().includes(searchQuery.toLowerCase()) );
+			const genderType = data?.filter((product) => product.merchandise_gender?.toLowerCase().includes(genderQuery.toLowerCase()) );
 
 
 			setMerchTypeResult(merchType);
@@ -206,7 +206,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 	return (
 		<>
 		<Head>
-       <title>Altclcaln - Start Shopping </title>
+       <title>Altclan - Start Shopping, explore products limited-edition merch and aesthetic accessories </title>
             <meta charset="UTF-8" />
 			<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
             <meta
@@ -509,12 +509,12 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 												price,
 											}) => (
 												<div key={id} className="group relative">
-													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
+													<div className="overflow-hidden ">
 														<Link href={`/products/${id}`}>
 															<img
 																src={display_image}
 																alt={imageAlt}
-																className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+																className="object-cover object-center"
 															/>
 															
 														</Link>
@@ -561,12 +561,12 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 												price,
 											}) => (
 												<div key={id} className="group relative">
-													<div className="min-h-100 aspect-h-1 aspect-w-1 w-full overflow-hidden  lg:aspect-none group-hover:opacity-75 lg:h-80">
+													<div className=" overflow-hidden">
 														<Link href={`/products/${id}`}>
 															<img
 																src={display_image}
 																alt={imageAlt}
-																className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+																className=" object-cover object-center  "
 															/>
 															
 														</Link>
