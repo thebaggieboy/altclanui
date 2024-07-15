@@ -53,7 +53,7 @@ export default function Login(req, res) {
             router.push('/brands/register/brand-bio')
         }
 
-        if(brand_user[0]?.brand_name !== '' && brand_user[0]?.brand_logo == null || brand_user[0]?.brand_logo == ""){
+        if(brand_user[0]?.brand_name !== '' && brand_user[0]?.brand_bio !== ""){
             router.push(`/brands/register/brand-logo`)
         }
 
