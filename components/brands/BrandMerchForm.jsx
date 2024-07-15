@@ -17,7 +17,6 @@ const MERCH_FORM_DATA = {
       "T-shirts",
       "Tops",
       "Rings",
-
       "Chains & Necklaces",
       "Jeans",
       "Jackets",
@@ -41,13 +40,16 @@ const MERCH_FORM_DATA = {
       "Lumberjacks",
       "Piercings & Studs",
       "Baggy Wears"],
+
   gender: ["Male", "Female", "Non-Binary", "Unisex", "Do not specify"],
+
   labels:
     ["None",
       "New Merchandise",
       "Resale",
       "Limited Stock",
       "FREE DELIVERY"],
+
   size_types: {
     none: "",
     clothing: ["S", "M", "L", "XL", "2XL", "3XL"],
@@ -112,15 +114,11 @@ const [resource, setResource] = useState();
       setAvailableColors(availableColors.filter((color) => color !== value));
     }
   }
-  console.log("Available Sizes: ", availableSizes)
-  console.log("Available Colors: ", availableColors)
 
-  console.log("Brand User: ", brand_user)
   const { brand_name, merchandise_name, size_type, available_sizes, available_colors, merchandise_gender, labels, display_image, merchandise_type, discount_price, merchandise_description, merchandise_details, price } = formData
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
-  const [formPersonalData, setFormPersonalData] = useState(null)
-
+ 
   useEffect(() => {
     if (brand_user === null) {
       router.push("/brands/login");

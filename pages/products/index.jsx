@@ -14,6 +14,7 @@ import { ProductContext } from "../../context/ProductContext";
 import Link from "next/link";
 import Head from "next/head"
 import { useSearchParams } from 'next/navigation'
+import { useRouter } from "next/router";
 
 
 const sortOptions = [
@@ -45,7 +46,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 	const [page, setPage] = useState(1)
 	const { data, isLoading, error } = useMerch(`https://altclan-brands-api-1-1.onrender.com/api/merchandises/`);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-	
+	const router = useRouter()
 	const { cart, addToCart } = useContext(CartContext);
 	const { selectedProducts, setSelectedProducts } = useContext(ProductContext);
 	const [searchQuery, setSearchQuery] = useState('')
@@ -70,6 +71,45 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 	  }, [search, gender, data]);
 	
 	useEffect(() => {
+		if (searchQuery !== null) {
+			// If search query is present without gender specification
+			const label = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
+			const merchType = data?.filter((product) => product.merchandise_type.toLowerCase().includes(searchQuery.toLowerCase()) );
+		 
+			setMerchTypeResult(merchType);
+			setLabelResult(label)	 
+		    setIsMerchType(true)
+			setIsLabelType(true) 
+
+			console.log("Search Results for merch type: ", searchQuery, merchTypeResult)
+			console.log("Search Results for labels: ", searchQuery, labelResult)
+		 
+			if(isMerchType === true){
+				setFilteredResult(merchTypeResult)
+				console.log('Filtered Result: ', filteredResult)
+			}else{
+				setFilteredResult(data)
+				console.log('Filtered Result: ', filteredResult)
+			}
+			if(isLabelType === true){
+				setFilteredResult(labelResult)
+				console.log('Filtered Result: ', filteredResult)
+			}else{
+				setFilteredResult(data)
+				console.log('Filtered Result: ', filteredResult)
+			}
+		 
+
+		  } else {
+			setMerchTypeResult([]);
+			setLabelResult([])			 			 
+			setIsMerchType(false)
+			setIsLabelType(false)
+			
+		  }
+
+
+
 		if (searchQuery !== null && genderQuery!== null) {
 			const label = data?.filter((product) => product.labels.toLowerCase().includes(searchQuery.toLowerCase()) );
 			const merchType = data?.filter((product) => product.merchandise_type.toLowerCase().includes(searchQuery.toLowerCase()) );
@@ -126,6 +166,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 	if (isLoading) {
 		return (
 			<div className="mt-5 p-5 text-center">
+				
 				<br />
 
 				<div
@@ -177,7 +218,13 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 
-		<div className="bg-white">
+		<div className="bg-white p-5 ml-2">
+		<button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+    <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+    </svg>
+    <span>Go back</span>
+</button>
 			<div>
 				{/* Mobile filter dialog */}
 				<Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -564,6 +611,8 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 				</main>
 			</div>
 		</div>
+
+
 		</>
 	);
 }

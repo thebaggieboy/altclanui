@@ -56,9 +56,10 @@ const ECommerce = ({merch}) => {
 	}, [user]);
   useEffect(() => {
 
-    const productResults = data2?.filter((product) => product.brand_name?.toLowerCase().includes(searchQuery?.toLowerCase()) );
-    const orderResults = data?.filter((order) => order.name_of_brand?.toLowerCase().includes(searchQuery?.toLowerCase()) );
+    const productResults = data2?.filter((product) => product.brand_name?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
+    const orderResults = data?.filter((order) => order.name_of_brand?.toLowerCase().includes(user[0]?.brand_name.toLowerCase()) );
     const sales = data?.filter((order) => order?.delivered == true );
+
     setProductResult(productResults);
     setOrderResult(orderResults)
     setSalesResult(sales)

@@ -31,26 +31,26 @@ const wishListSlice = createSlice({
             //if no occurences generate a unique id, then push to wishlist
 
             state.wishlist.push({ id: wishlistId, ...action.payload })
-            const url = 'https://altclan-api-v1.onrender.com/api/users/'
-            const res =  fetch(url, {
-            method: "PUT",
-            body: JSON.stringify({email:user?.email, wishlist:state.wishlist}),
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
+    // {        const url = 'https://altclan-api-v1.onrender.com/api/users/'
+    //         const res =  fetch(url, {
+    //         method: "PUT",
+    //         body: JSON.stringify({wishlist:state.wishlist}),
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //     })
 	
-	  const data =  res.json()
+	//   const data =  res.json()
 	
-	  if (res.status >= 200 && res.status <= 209) {
-		console.log("wishlist UPDATED")
-		//router.push("#")
+	//   if (res.status >= 200 && res.status <= 209) {
+	// 	console.log("wishlist UPDATED")
+	// 	//router.push("#")
 	
-		  console.log(data)
-	  }
+	// 	  console.log(data)
+	//   }
 	
-	  const err = { ...data }
-	  throw { err }
+	//   const err = { ...data }
+	//   throw { err }}
         },
         removeItem: (state, action) => {
             const { id } = action.payload

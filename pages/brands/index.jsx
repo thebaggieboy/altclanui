@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Head from 'next/head'
+import { useRouter } from "next/router";
 export default function Brands() {
   const [searchQuery, setSearchQuery] = useState('');
   // Results of the search query in an array
@@ -17,7 +18,7 @@ export default function Brands() {
 	const searchParams = useSearchParams();
 	const brand = searchParams.get('brand')
 	console.log(brand)
-	
+	const router = useRouter()
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -108,14 +109,23 @@ fetchBrands()
 
   return (
     <div className="bg-white">
-
+  
       
       <div className="max-w-2xl px-4  mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        {/* <h2 className={styles.brands}>Brands</h2> <br/>
+      <div className="ml-2">
+   <button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-black transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+    <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+    </svg>
+    <span>Go back</span>
+</button>
+   </div>
+       <h1 className={styles.brands}>Brands</h1> <br/>
         
-        <p className="text-gray-600 lead">Explore from our list of aesthetic brands</p> */}
 
-        <div className="grid pt-3 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
+
+        <div className="grid pt-1 grid-cols-2 gap-y-4 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-20">
+          
           {brandResult?.map((brand) => (
             <Link key={brand.id} href={`/brands/${brand.id}?brand=${brand.brand_name}`} className="group">
               <div className="w-full overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">

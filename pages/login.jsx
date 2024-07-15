@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 
 
 const Login = () => {
-
+const router = useRouter();
  
     return (
         <>
@@ -24,6 +25,14 @@ const Login = () => {
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 
         <section className="bg-black">
+        <div className="ml-5 p-2">
+   <button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-white transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto">
+    <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+    </svg>
+    <span>Go back</span>
+</button>
+   </div>
             <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
                 <a href="#" className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
                     <span className="text-xs bg-black rounded-full text-white px-4 py-1.5 mr-3">New</span> <span className="text-sm font-medium">Altclan is out! See what's new</span>
