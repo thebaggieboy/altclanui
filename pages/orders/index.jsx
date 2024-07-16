@@ -187,6 +187,13 @@ export default function Orders() {
         </thead>
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                {orders?.map(order=>(
+                    <>
+                         <td class="p-4">
+                    <img src="/docs/images/products/apple-watch.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch"/>
+                </td>
+                    </>
+                ))}
                 <td class="p-4">
                     <img src="/docs/images/products/apple-watch.png" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch"/>
                 </td>
