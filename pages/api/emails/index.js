@@ -1,7 +1,5 @@
 import { Resend } from 'resend';
 
-import {Welcome} from "../../../emails/Welcome"
-
 import {EmailTemplate} from "../../../components/EmailTemplate"
 
 export default async function POST(req, res){
