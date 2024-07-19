@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Review from "./../../components/Review"
 import { selectUser } from "../../features/user/userSlice";
+import Head from 'next/head'
 
 const reviewSuccess = <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
 <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
