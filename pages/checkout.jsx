@@ -36,7 +36,10 @@ export async function getServerSideProps(context) {
 export default function Checkout({ merchs }) {
 
   const user = useSelector(selectUser);
-  
+  const searchParams = useSearchParams();
+	const search = searchParams.get('search')
+  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
+
   const dispatch = useDispatch()
   const phone = "+2349093329384"
   const [firstName, setfirstName] = useState('')
@@ -59,10 +62,7 @@ export default function Checkout({ merchs }) {
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
   const router = useRouter()
   const amount = grandTotal * 100
-  const email = user?[0]?.email
-  const searchParams = useSearchParams();
-	const search = searchParams.get('search')
-  const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
+  const email = user?.[0]?.email
 
   async function checkoutSuccess() {
     //await router.push("/brands/profile/" + brand_user?.id);
