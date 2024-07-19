@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function [id]() {
+export default function CommunityDetail() {
   return (
-    <div>[id]</div>
+    <>
+      
+    </>
   )
 }

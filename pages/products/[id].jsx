@@ -173,7 +173,7 @@ export default function ProductDetail({ _id, merch }) {
 	  const err = { ...data }
 	
 	  setReviewErr(err)
-	  console.log("Review Error: ", reviewErr)
+	  console.log("Review Error: ", err)
 	  throw { err } 
 
 

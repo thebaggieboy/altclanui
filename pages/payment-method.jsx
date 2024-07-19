@@ -122,7 +122,7 @@ let orderResults = []
         <Link href="/orders"><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Orders</li></Link>
    <Link href="/wishlist">     <li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Wishlist</li></Link>
         <Link href='/payment-method'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 bg-black text-white text-center font-semibold transition hover:bg-black hover:text-white">Payment Methods</li></Link>
-		<Link href='/addresses'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li></Link>
+		<Link href='/profile/address'><li class="mt-2 text-xs cursor-pointer border-l-2 border-transparent px-2 py-3 text-center font-semibold transition hover:bg-black hover:text-white">Addresses</li></Link>
 	
       </ul>
     </div>
@@ -138,20 +138,20 @@ let orderResults = []
 		<div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 xl:gap-x-4">
 
     <div>
-    <div className="bg-gray-100 p-5" style={{width:300}}>
+    <div className="bg-gray-50 p-5" style={{width:300}}>
     <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
   <img src="/icons/paystack.png" alt="cantdisplay" style={{height:40, width:60}} />
   <p className='font-bold lead text-sm'>Paystack</p>
   </div>
     <span className='text-xs text-gray-600'>Debit Card</span> 
-    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Default <input type="radio" className='text-green-700' name="default" id="" /> </label>
+    <label for="" style={{float:"right"}} className='text-xs pt-2 text-gray-600'>Default <input type="radio" className='text-green-700' name="default" id=""  checked/> </label>
 
     </div>
     </div>
 
     <div className=''>
-    <div className="bg-gray-100 p-5" style={{width:300}}>
+    <div className="bg-gray-50 p-5" style={{width:300}}>
     <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
   <img src="/icons/credit-card.png" alt="cantdisplay" style={{height:40, width:40}} />
@@ -164,7 +164,7 @@ let orderResults = []
     </div>
 
     <div>
-    <div className="bg-gray-100 p-5" style={{width:300}}>
+    <div className="bg-gray-50 p-5" style={{width:300}}>
     <span className='text-red-700 text-xs' style={{float:'right'}}> <img src="/icons/delete.png" style={{height:15}} alt="" /> </span>
   <div>
  
