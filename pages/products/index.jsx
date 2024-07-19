@@ -55,7 +55,6 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 	const [merchTypeResult, setMerchTypeResult] = useState([])
 	const [genderResult, setGenderResult] = useState([])
 	const [filteredResult, setFilteredResult] = useState([])
-
 	const [productResult, setProductResult] = useState([])
 	const [isMerchType, setIsMerchType] = useState(false)
 	const [isLabelType, setIsLabelType] = useState(false)
@@ -163,6 +162,7 @@ export default function Products({ _id, merchandise_name, price, picture,  newLi
 		  }
 				
 	  }, [search, gender, data]);
+
 
 	if (isLoading) {
 		return (

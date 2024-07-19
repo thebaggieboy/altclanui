@@ -181,7 +181,7 @@ export default function ProductDetail({ _id, merch }) {
 	  }
 
 
-	  const addWishList = async(e)=>{
+	const addWishList = async(e)=>{
 		e.preventDefault()
 		const url = 'https://altclan-api-v1.onrender.com/api/wishlist/'
 		const res = await fetch(url, {
@@ -205,6 +205,7 @@ export default function ProductDetail({ _id, merch }) {
 	  throw { err }
 	   
 	  }
+	  
 	  if (merch.length < 1) {
 		return (
 		  <>

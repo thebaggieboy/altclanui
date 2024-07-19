@@ -59,7 +59,7 @@ export default function Checkout({ merchs }) {
   const publicKey = 'pk_test_e9860037f0af2ff47a7c342b2080747cf257e3a1'
   const router = useRouter()
   const amount = grandTotal * 100
-  const email = user[0]?.email
+  const email = user?[0]?.email
   const searchParams = useSearchParams();
 	const search = searchParams.get('search')
   const { isPending, error, mutateAsync: updateFn, data } = useCheckout('https://altclan-api-v1.onrender.com/api/payments/', checkoutSuccess, USER_TYPES.user)
