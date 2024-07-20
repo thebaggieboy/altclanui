@@ -100,7 +100,7 @@ const products = [
 export default function Category() {
   return (
      <div className=" " style={{backgroundColor:"#FAF9F6"}}>
-       <div className="px-4 py-4 mx-auto  sm:py-24  max-w-[80rem] lg:px-8">
+       <div className="px-4 mx-auto  sm:py-24  max-w-[80rem] lg:px-8">
          <h4 style={{fontFamily:'Poppins, sans-serif'}} className="text-2xl text-center mb-4 sm:mb-16">Shop by category</h4> <br />
           <div style={{fontFamily:'Poppins, sans-serif'}} className="grid grid-cols-2 gap-y-8 lg:gap-y-16  text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-5">
             {products.map((product) => (

@@ -861,7 +861,6 @@ div.scrollImages a {
 .shopSection{
   max-width: 100%;
   margin: auto;
-  margin-top: 2%;
   font-family: 'Poppins', sans-serif;
   
 }
@@ -1294,7 +1293,7 @@ div.scrollImages a {
     max-width: 100%;
     height: 1000px;
     margin: auto;
-    margin-top: 10%;
+   
     font-family: 'Poppins', sans-serif;
   }
   
@@ -1335,7 +1334,7 @@ div.scrollImages a {
   }
   
   .shopTextCentered p{
-    font-size: 15px;
+    font-size: 12px;
     text-align: center;
     padding: 20px;
     line-height: 10px;

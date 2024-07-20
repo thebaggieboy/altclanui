@@ -25,7 +25,7 @@ export default function ShopDiv() {
             <img src="/img/mike-von.jpg" alt=""/>
             <div className={styles.shopTextCentered}>
               <p>
-                SHOP COLLECTION OF AESTHETICS
+              EXPLORE LIMITED EDITION MERCHANDISES
               </p>
               
               <button className={styles.shopBtn}>

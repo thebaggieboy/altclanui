@@ -109,12 +109,15 @@ export default function Home() {
             </div>
 
             <MainColumn />
-            <FullImages />
-  
-      
+            {/* {<FullImages />} */}
+            <ShopDiv />
+      <br />
             <Aesthetics2/>
             <Category />
-            <section class="overflow-visible my-0  p-10">
+            <TrendingMerch/>
+          <TrendingBrands/>
+
+         {/* {   <section class="overflow-visible my-0  p-10">
              <div className={styles.discountCard}>
                   <div class="text-black items-center text-center flex flex-col">
                     <h2 class="font-bold text-2xl lg:text-4xl">Get Up to 70% off</h2>
@@ -124,12 +127,8 @@ export default function Home() {
                   </div>
                 </div>
             
-          </section>
-            <ShopDiv />
-         
-            <Altcoin/>
-          <OurGrowth/>
-          <section class="overflow-visible my-0  p-10">
+          </section>} */}
+              <section class="overflow-visible my-0  p-10">
           <div className={styles.aestheticAdventure}>
   <div class="text-white items-center text-center flex flex-col">
     <h2 class="font-extralight text-2xl lg:text-4xl">Embark on an Aesthetic Adventure</h2>
@@ -143,15 +142,17 @@ export default function Home() {
 </div>
        
           </section>
+         
+         
+          
+         
+      
 
-          <TrendingMerch/>
-          <TrendingBrands/>
-
+    
             <br />
           
           
-            <Cards /> 
-            <Token/>
+          
             
 
 

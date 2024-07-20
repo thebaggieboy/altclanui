@@ -35,9 +35,9 @@ export default function mainColumn() {
                             </p>
                             <br />
                             <div className={styles.signUpBrandCont}>
-                              {/* {  <button className={styles.brandButton}>
+                             <button className={styles.brandButton}>
                                    <Link href="/signup">Join the community</Link> 
-                                </button>} */}
+                                </button>
                             </div> <br /> <br /> 
                             
                         </div>

@@ -2,6 +2,10 @@ import React from 'react'
 import styles from "../styles/Home.module.css";
 import CountUp from "../src/aboutcounter/brand.jsx" 
 import Head from "next/head"
+import { OurGrowth } from '../components/OurGrowth.jsx';
+import Altcoin from '../components/Altcoin.jsx';
+import Token from '../components/Token.jsx';
+
 export default function about() {
   return (
     <>
@@ -88,6 +92,8 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
           </div>
         </div>
       </div>
+      <OurGrowth/>
+
 
       <div className={styles.padding}>
         <h1>
@@ -106,7 +112,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
                 First
               </p>
               <p style={{fontSize:12}}>
-              AltClan offers users the opportunity to discover unique styles and trends that aren't typically found in mainstream fashion. Whether it's edgy streetwear, vintage finds, or avant-garde designs, our app provides a platform to explore and embrace diverse forms of self-expression.
+              AltClan offers users the opportunity to discover unique styles and trends that aren't typically found in mainstream fashion. Whether it's edgy streetwear, alte', vintage finds, or avant-garde designs, our app provides a platform to explore and embrace diverse forms of self-expression.
               
               </p>
             </div>
@@ -120,7 +126,7 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
                 Second
               </p>
               <p style={{fontSize:12}}>
-              For users seeking a sense of community and belonging, AltClan fosters connections with fellow enthusiasts of alternative style. Our app features forums, chatrooms, and social networking functionalities, allowing users to interact, share ideas, and find inspiration from others who share their passion.
+              For users seeking a sense of community and belonging, AltClan fosters connections with fellow enthusiasts of alternative style. Our app features communities, and some social networking functionalities, allowing users to interact, share ideas, and find inspiration from others who share their passion.
               </p>
             </div>
             <div className={styles.columnTwo}>
@@ -176,13 +182,15 @@ Come as you are and let your true self shine. Welcome to AltClan, where individu
             </div>
           </div>
         </div>
+        
       
-        <p style={{fontSize:14}}>
+        {/* <p style={{fontSize:14}}>
         Altclan is poised to disrupt the alternative fashion industry by offering a fresh, community-driven approach to style and self-expression. With our unique vision, curated collections, and commitment to sustainability, we're ready to lead the charge towards a more inclusive and diverse fashion landscape. Join us on this journey and embrace your individuality with Altclan.
-        </p>
+        </p> */}
 
       </div> 
-
+      <Token/>
+      <Altcoin/> 
       <div className={styles.section}>
         <p className={styles.p}>
           More To Explore

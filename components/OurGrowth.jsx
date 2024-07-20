@@ -29,7 +29,7 @@ export const OurGrowth = () => {
   </div>
 </section>
 
-<section class="text-gray-700 body-font overflow-hidden bg-white"  style={{fontFamily:'Poppins, sans-serif', fontWeight:'light'}}>
+{/* {<section class="text-gray-700 body-font overflow-hidden bg-white"  style={{fontFamily:'Poppins, sans-serif', fontWeight:'light'}}>
   <div class="container px-5 py-24 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
       <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="/img/cultureofdope.png" />
@@ -78,7 +78,7 @@ export const OurGrowth = () => {
       </div>
     </div>
   </div>
-</section>
+</section>} */}
 
     </>
   )

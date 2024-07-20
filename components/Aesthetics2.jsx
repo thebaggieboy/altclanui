@@ -58,7 +58,7 @@ export default function Aesthetics2() {
 		<>
 			<div className="p-5 pt-5 mt-5">
 				<h4 className="text-center text-2xl capitalize">
-					Shop by Aesthetics
+					Shop By
 				</h4>
 				<br />
 				<CarouselWrapper
