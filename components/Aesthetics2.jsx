@@ -56,7 +56,7 @@ export default function Aesthetics2() {
 
 	return (
 		<>
-			<div className="p-5 pt-5 mt-5">
+			<div className="p-5 pt-5 mt-5"> <br />
 				<h4 className="text-center text-2xl capitalize">
 					Shop By
 				</h4>

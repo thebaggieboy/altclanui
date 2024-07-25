@@ -109,10 +109,11 @@ export default function Home() {
             </div>
 
             <MainColumn />
-            {/* {<FullImages />} */}
             <ShopDiv />
-      <br />
-            <Aesthetics2/>
+         
+  
+      
+          {/* {  <Aesthetics2/>} */}
             <Category />
             <TrendingMerch/>
           <TrendingBrands/>
@@ -128,22 +129,7 @@ export default function Home() {
                 </div>
             
           </section>} */}
-              <section class="overflow-visible my-0  p-10">
-          <div className={styles.aestheticAdventure}>
-  <div class="text-white items-center text-center flex flex-col">
-    <h2 class="font-extralight text-2xl lg:text-4xl">Embark on an Aesthetic Adventure</h2>
-    <p class="mx-auto mt-6 max-w-xl text-xs md:text-xl  text-yellow-100" >
-      Take a thrilling journey through our product's features. Book an adventurous demo and discover endless
-      possibilities.
-    </p>
-    <a class="mt-8 rounded-md bg-yellow-100 px-5 py-2.5 text-base font-semibold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
-      href="#">Claim Your 15% off!</a>
-  </div>
-</div>
-       
-          </section>
-         
-         
+        
           
          
       
