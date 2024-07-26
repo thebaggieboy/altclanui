@@ -71,7 +71,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/alteclan_logo.jpg" />
        </Head> 
-  <div className="pt-2 m-2 ">
+  <div className="pt-2 m-2 " style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}}>
       <div className="mx-auto p-5 ">
         <div className="flex items-center" >   
             <label for="simple-search" className="sr-only">Search</label>
@@ -84,9 +84,9 @@ export default function Search({ _id, merchandise_name, price, picture }) {
       
         </div>
   </div>
-  <h2 className='text-center' style={{fontSize:20, fontWeight:"bold"}}>{`Search results for "${searchQuery}"`}</h2> <br/>
+  <h2 style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} className='text-center' style={{fontSize:20, fontWeight:"bold"}}>{`Search results for "${searchQuery}"`}</h2> <br/>
   {searchQuery && searchResult?.map((product) => (
-           <section key={product.id } aria-labelledby="products-heading" className="pb-24">
+           <section style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} key={product.id } aria-labelledby="products-heading" className="pb-24">
            <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
 									<div className=" grid grid-cols-2 gap-x-6 gap-y-10  lg:grid-cols-4 xl:gap-x-8">
                   {searchResult?.map(

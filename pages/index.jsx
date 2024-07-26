@@ -87,22 +87,21 @@ export default function Home() {
                 className="hero-carousel col-start-1 col-end-2 row-start-1 row-end-2"
               >
                 <Image src="/img/moh-mckenzie-compressed.jpg" fill alt="hero-umg" />
-                <Image src="/img/black-guy-1-compressed.jpg" fill alt="hero-umg" />
                 <Image src="/img/natalie-hua-compressed.jpg" fill alt="hero-umg" />
                 <Image src="/img/b-shah-compressed.jpg" fill alt="hero-umg" />
                 <Image src="/img/bag (2).jpg" fill alt="hero-umg" />
                 <Image src="/images/decors.webp" fill alt="hero-umg" />
                 <Image src="/img/robbie-noble.jpg" fill alt="hero-umg" />
               </CarouselWrapper>
-              <div className="w-full h-full p-3 bg-black/40 flex flex-col items-center justify-center gap-y-8  col-start-1 col-end-2 row-start-1 row-end-2 z-[2]">
+              <div className="w-full h-full p-5 bg-black/40 flex flex-col items-center justify-center gap-y-8  col-start-1 col-end-2 row-start-1 row-end-2 z-[2]">
                 
-                <h1 className=" md:text-2xl ">Discover top styles of the season, exclusive brands and amazing aesthetics now at better prices.</h1>
-                <div className="flex items-center gap-x-8">
+                <h1 className=" md:text-2xl " style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}}>Discover top styles of the season, exclusive brands and amazing aesthetics now at better prices.</h1>
+                <div style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} className="flex items-center gap-x-8">
                   <Link href="/products?q=women">
-                    <button className="py-2 px-8 uppercase bg-white text-black text-sm md:text-base">shop women</button>
+                    <button style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} className="py-2 px-8 uppercase bg-white font-bold text-black text-sm md:text-base">shop women</button>
                   </Link>
                   <Link href="/products?q=men">
-                    <button className="py-2 px-8 uppercase bg-white text-black text-sm md:text-base">shop men</button>
+                    <button style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} className="py-2 px-8 uppercase bg-white font-bold text-black text-sm md:text-base">shop men</button>
                   </Link>
                 </div>
               </div>

@@ -219,7 +219,7 @@ export default function HeaderNav() {
 
 
 	return (
-		<div style={{fontFamily:'Poppins, sans-serif', color:"black"}} className="sticky top-0 z-50 bg-white text-black">
+		<div style={{fontFamily:'Poppins, Sans-serif', color:"black", lineHeight:'100%', letterSpacing:2}} className="sticky top-0 z-50 bg-white text-black">
 			{/* Mobile menu */}
 			<Transition.Root show={open} as={Fragment}>
 				<Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>

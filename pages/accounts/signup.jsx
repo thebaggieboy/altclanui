@@ -59,6 +59,8 @@ export default function SignUp() {
 		router.push("/products");
 	}
 
+	const [spinner, setSpinner] = useState(false)	
+	
 	
 
 	const { isIdle, isPending, error, mutateAsync: signUpFn } = useSignUp("https://altclan-api-v1.onrender.com/auth/users", signUpSuccess, USER_TYPES.user)
@@ -98,6 +100,7 @@ export default function SignUp() {
 			if (password1 !== password2) {
 				throw { password: "Passwords do not match" }
 			}
+			setSpinner(true)
 			const url = "https://altclan-api-v1.onrender.com/auth/users/"
 			const res = await fetch(url, {
                 method: "POST",
@@ -114,6 +117,7 @@ export default function SignUp() {
             if (res.status >= 200 & res.status <= 209) {
 				console.log("New User Registered.")
 				console.log(data)
+				setSpinner(false)
 				signUpSuccess()
                 
                 
@@ -231,9 +235,9 @@ export default function SignUp() {
 								required
 							/>
 						</div>
-						<button disabled={isPending} type="submit" className={styles.submit}>
+						<button disabled={spinner == true} type="submit" className={styles.submit}>
 							{
-								isPending ? <Loader /> : "Submit"
+								spinner == true ? <Loader /> : "Signup"
 							}
 						</button>
 

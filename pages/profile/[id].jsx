@@ -84,6 +84,14 @@ export default function Settings() {
       {updateMessage == 'success' ? brandProfileSuccess : ""}
 
 <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 p-2 xl:mx-auto">
+<div className="ml-5 mt-2">
+   <button type="button" onClick={()=> router.back()} class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-black transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+    <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+    </svg>
+    <span>Go back</span>
+</button>
+   </div>
   <h1 class="border-b  text-4xl ml-10 font-semibold">Profile</h1>
   <div class="grid grid-cols-8 pt-1 sm:grid-cols-10  m-5">
     

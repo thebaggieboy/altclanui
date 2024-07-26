@@ -2,6 +2,9 @@ import React, { useState, useEffect, Component } from 'react';
 import Category from "../../components/Category"
 import styles from "../../styles/category.module.css";
 import Head from "next/head"
+
+import { useRouter } from "next/router";
+
 const products = [
 
 
@@ -164,6 +167,7 @@ const products = [
 
 
 export default function Collection() {
+  const router = useRouter()
   return (
     <>
       <Head>

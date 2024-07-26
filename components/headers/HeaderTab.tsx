@@ -37,10 +37,10 @@ export default function HeaderTab() {
     //     </ul>
     // </div>
 
-    <div style={{fontFamily:'Poppins, sans-serif', fontWeight:'bold'}} className={isScrolled ? `${styles.navbar} ${styles.scrolled}` : styles.navbar}>
+    <div style={{fontFamily:'Poppins, Sans-serif', color:"black", lineHeight:'100%', letterSpacing:1, fontWeight:'bold'}} className={isScrolled ? `${styles.navbar} ${styles.scrolled}` : styles.navbar}>
       <Link href="/brands" className={styles.a}>brands</Link>
       <Link href="/products" className={styles.a}>explore</Link>
-      <Link href="/coming-soon" className={styles.a}> communities</Link>
+      <Link href="/communities" className={styles.a}> communities</Link>
       <Link href="/collections" className={styles.a}>categories</Link>
     </div>
     

@@ -50,8 +50,7 @@ export default function SignUp() {
 	const searchParams = useSearchParams()
 	const search = searchParams.get('user')
 	const [userResult, setUserResult] = useState([])
-	
-	
+
     const resend = new Resend('re_RdTjmbKL_9oa6oPS4MTWTNs3KdXNgZDXi');
 
 
@@ -121,7 +120,9 @@ export default function SignUp() {
 		try {
 			//
 			await loginFn(formData)
+		
 			loginSuccess()
+
 			
 			await fetch('/api/emails', {method:'POST'})
           
