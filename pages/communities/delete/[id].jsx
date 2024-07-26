@@ -11,7 +11,7 @@ import Loader from "../../../components/Loader";
 import useLogin from "../../../hooks/useLogin";
 import { useSearchParams } from 'next/navigation'
 
-export default function deleteUser(){
+export default function Remove(){
     const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const user_email = useSelector(selectUserEmail);

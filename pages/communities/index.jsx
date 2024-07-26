@@ -5,13 +5,13 @@ import { useRouter } from 'next/router'
 
 
 const data = [
-  {id:1, community_name: "Gothic Affairs", name: "", followers:[], logo:''},
-  {id:2, community_name: "Altemen", name: "", followers:[], logo:''},
-  {id:3, community_name: "Aesthetic Paradise", name: "", followers:[], logo:''},
-  {id:4, community_name: "The unruly club", name: "", followers:[], logo:''},
-  {id:5, community_name: "Leather Jackets", name: "", followers:[], logo:''}
+  {id:1, community_name: "Gothic Affairs", members:[], logo:''},
+  {id:2, community_name: "Altemen", members:[], logo:''},
+  {id:3, community_name: "Aesthetic Paradise", members:[], logo:''},
+  {id:4, community_name: "The unruly club", members:[], logo:''},
+  {id:5, community_name: "Leather Jackets", members:[], logo:''}
 ]
-export default function communities() {
+export default function Communities() {
   const router = useRouter()
   const [joinText, setJoinText] = useState("Join")
   const [communityClicked, setCommunityClicked] = useState(false) 
