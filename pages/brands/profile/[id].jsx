@@ -20,7 +20,7 @@ export default function BrandProfile({id}) {
   const [searchResult, setSearchResult] = useState([])
   const [brandResult, setBrandResult] = useState([])
   const [loading, setLoading] = useState(true)
-  const add_merch = searchParams.get('add_merch')
+  const add_merch = searchParams.get('update')
   const brand = searchParams.get("brand")
   // console.log(brand_user)
   const merchSuccess =    <div class="flex items-center text-center p-4 mb-4 text-sm text-green-800 border border-0 bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">

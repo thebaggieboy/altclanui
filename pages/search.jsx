@@ -22,14 +22,14 @@ export default function Search({ _id, merchandise_name, price, picture }) {
 	const search = searchParams.get('search')
 	
   const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
+
 
     setTimeout(() => {
       router.push(`/search?q=${searchQuery}`)
-  
+      setSearchQuery(event.target.value);
       console.log("Delayed for 500 millisecond.");
       clearTimeout(searchQuery);
-    }, 500);
+    }, 1000);
    
     
   
@@ -37,9 +37,6 @@ export default function Search({ _id, merchandise_name, price, picture }) {
   };
   console.log("Search Query: ", searchQuery)
   const { data, loading, error } = useMerch('https://altclan-brands-api-1-1.onrender.com/api/merchandises/')
-  //const { data, loading, error } = useMerch('https://altclan-api-v1.onrender.com/api/merchandises/')
-  //const data = fetch('https://altclan-api-v1.onrender.com/api/merchandises/')
- 
  
 
 

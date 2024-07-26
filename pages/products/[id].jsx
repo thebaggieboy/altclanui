@@ -123,7 +123,7 @@ export default function ProductDetail({ _id, merch }) {
 	const router = useRouter()
 
 	const [formData, setFormData] = useState({
-	  email:user[0]?.email,
+	  email:user?.[0]?.email,
 	  review: "",
 	})
 	const [wishData, setWishData] = useState({
@@ -418,7 +418,7 @@ export default function ProductDetail({ _id, merch }) {
 														size
 															? "cursor-pointer bg-white text-gray-900 shadow-sm"
 															: "cursor-not-allowed bg-gray-50 text-gray-200",
-														active ? "ring-2 ring-indigo-500" : "",
+														active ? "ring-2 bg-yellow-200" : "",
 														"group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
 													)
 												}
@@ -433,7 +433,7 @@ export default function ProductDetail({ _id, merch }) {
 																className={classNames(
 																	active ? "border" : "border-2",
 																	checked
-																		? "border-indigo-500"
+																		? "border-yellow-200"
 																		: "border-transparent",
 																	"pointer-events-none absolute -inset-px rounded-md"
 																)}

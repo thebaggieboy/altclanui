@@ -139,6 +139,7 @@ export default function SignUp() {
 		
 		} catch (error) {
 			setFormErr(error)
+			setSpinner(false)
 			console.log(error)
 		}
 	};

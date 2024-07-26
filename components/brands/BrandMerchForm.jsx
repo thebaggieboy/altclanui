@@ -74,7 +74,7 @@ const [resource, setResource] = useState();
  
 
   async function newMerchSuccess() {
-    await router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}`);
+    await router.push(`/brands/profile/${brand_user[0]?.id}?brand=${brand_user[0]?.brand_name}&?update=success`);
   }
 
   const [formErr, setFormErr] = useState(error)
@@ -200,14 +200,14 @@ const [resource, setResource] = useState();
   return (
 
     <form className="" enctype="multipart/form-data" onSubmit={updateMerchandise}>
-      <div className={styles.loginContainer}>
+      <div style={{fontFamily:'Poppins, Sans-serif', color:"black", lineHeight:'100%', letterSpacing:2}} className={styles.loginContainer}>
 
 
         <div className={styles.columnText}>
 
 
 
-          <p className={styles.login}>Fill in some of your product details</p>
+          <h2 className={styles.login}>Fill in some of your product details</h2>
 
           {error && <div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
             <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
