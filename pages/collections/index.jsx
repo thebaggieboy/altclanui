@@ -94,7 +94,7 @@ const products = [
     name: "Bracelets",
     href: "/products?q=Bracelets",
     price: "$35",
-    imageSrc: "/img/bracey-1.jpg",
+    imageSrc: "/img/bracelets.webp",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
