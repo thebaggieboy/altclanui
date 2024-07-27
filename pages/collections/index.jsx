@@ -137,15 +137,6 @@ const products = [
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
   {
-    id: 16,
-    name: "Sunglasses",
-    href: "/products?q=Sunglasses",
-    price: "$35",
-    imageSrc: "/img/shades.jpg",
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-  },
-  {
     id: 17,
     name: "Denim",
     href: "/products?q=Denim",
