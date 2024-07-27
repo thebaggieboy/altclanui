@@ -128,7 +128,7 @@ export default function SignUp() {
           
 		} catch (error) {
 			console.log(error)
-			setSpinner(false)
+			
 			setFormErr(error)
 		}
 	};
