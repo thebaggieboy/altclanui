@@ -30,7 +30,7 @@
     text-transform: uppercase;
   
     letter-spacing: 3px;
-    line-height: 180%;
+    line-height: 100%;
 }
 
 .container a{
@@ -40,7 +40,7 @@
     color: red;
     border-bottom: 1px solid red;
     letter-spacing: 3px;
-    line-height: 180%;
+    line-height: 100%;
 }
 
 .column {
