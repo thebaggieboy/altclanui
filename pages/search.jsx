@@ -84,7 +84,7 @@ export default function Search({ _id, merchandise_name, price, picture }) {
       
         </div>
   </div>
-  <h2 style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} className='text-center' style={{fontSize:20, fontWeight:"bold"}}>{`Search results for "${searchQuery}"`}</h2> <br/>
+  <h2 style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} className='text-center'>{`Search results for "${searchQuery}"`}</h2> <br/>
   {searchQuery && searchResult?.map((product) => (
            <section style={{fontFamily:'Poppins, Sans-serif', lineHeight:'100%', letterSpacing:2}} key={product.id } aria-labelledby="products-heading" className="pb-24">
            <div className="mx-auto max-w-2xl  px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
