@@ -125,15 +125,8 @@ const products = [
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
-  {
-    id: 14,
-    name: "Caps",
-    href: "/products?q=Caps",
-    price: "$35",
-    imageSrc: "/img/cap.jpg",
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-  },
+
+  
   {
     id: 15,
     name: "Baggy wears",
@@ -162,6 +155,43 @@ const products = [
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
 
+  {
+    id: 18,
+    name: "Native Wears",
+    href: "/products?q=Native",
+    price: "$35",
+    imageSrc: "/img/nt.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 19,
+    name: "Sneakers",
+    href: "/products?q=Sneakers",
+    price: "$35",
+    imageSrc: "/img/tt.webp",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+
+  {
+    id: 20,
+    name: "Studs",
+    href: "/products?q=Studs",
+    price: "$35",
+    imageSrc: "/img/studs.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 21,
+    name: "Belt",
+    href: "/products?q=Caps",
+    price: "$35",
+    imageSrc: "/img/belt.webp",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
 
 ];
 
