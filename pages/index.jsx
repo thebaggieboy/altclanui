@@ -116,8 +116,7 @@ export default function Home() {
             <Category />
             <TrendingMerch/>
           <TrendingBrands/>
-
-         {/* {   <section class="overflow-visible my-0  p-10">
+   <section class="overflow-visible my-0  p-10">
              <div className={styles.discountCard}>
                   <div class="text-black items-center text-center flex flex-col">
                     <h2 class="font-bold text-2xl lg:text-4xl">Get Up to 70% off</h2>
@@ -127,7 +126,7 @@ export default function Home() {
                   </div>
                 </div>
             
-          </section>} */}
+        </section>
         
           
          
