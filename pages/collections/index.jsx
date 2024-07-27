@@ -85,7 +85,7 @@ const products = [
     name: "Pendants",
     href: "/products?q=Pendants",
     price: "$35",
-    imageSrc: "/img/pendant-4.jpg",
+    imageSrc: "/img/rip.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
