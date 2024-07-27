@@ -19,8 +19,8 @@ const products = [
   },
   {
     id: 2,
-    name: "Accessories",
-    href: "/products?q=Accessories",
+    name: "Rings",
+    href: "/products?q=Rings",
     price: "$35",
     imageSrc: "/img/rings.jpg",
     imageAlt:
